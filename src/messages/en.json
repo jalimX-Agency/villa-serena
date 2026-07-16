@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Home",
+    "maison": "The House",
+    "rooms": "Guest Rooms",
+    "spa": "SPA / Fitness",
+    "events": "Events & Private Hire",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "contact": "Contact",
+    "book": "Book Now"
+  },
+  "hero": {
+    "tagline": "A haven of peace · Sidi Bouzguia",
+    "headline": "A Peaceful Stay\nin a Haven\nof Serenity",
+    "subheadline": "A charming guesthouse set around a riad-inspired patio, 25 minutes from Marrakech.",
+    "cta_primary": "Discover the House",
+    "cta_secondary": "View the Rooms",
+    "scroll": "Scroll to explore"
+  },
+  "home": {
+    "welcome_label": "Welcome to Villa Serena",
+    "welcome_title": "A Haven of Peace\nApart",
+    "welcome_body": "Our rooms, arranged around a riad-inspired patio, offer a calm and enchanting setting. Admire the starry sky from the patio, enjoy the fireplace lounge and a dining room seating up to 14 guests. The ethnic, bohemian decor — sourced and customised by Marrakech artisans — creates a warm, elegant atmosphere.",
+    "rooms_label": "The Rooms",
+    "rooms_title": "A Journey Through\nColour",
+    "rooms_sub": "Each room is a world of its own: every hue was chosen to evoke unique emotions, in harmony with Marrakchi craftsmanship.",
+    "experiences_label": "Wellness & Leisure",
+    "experiences_title": "From the Hammam\nto Pétanque",
+    "experiences_sub": "Traditional hammam, massage room, fitness room, pétanque court, badminton and table tennis — plus the garden with its koi pond and Buddha statue.",
+    "testimonials_label": "Guest Stories",
+    "testimonials_title": "They Stayed\nWith Us",
+    "cta_title": "Book Your Stay",
+    "cta_body": "A room for the night or the entire villa — ideal for family gatherings, yoga retreats and seminars, sleeping up to 14.",
+    "cta_button": "Check Availability",
+    "stats": { "rooms": "5 Rooms", "guests": "Sleeps 14", "pool": "Garden & Pond", "hammam": "Hammam & Spa" }
+  },
+  "rooms": {
+    "page_title": "Guest Rooms",
+    "page_sub": "Five rooms around the patio, each with its own colour and character.",
+    "per_night": "per night",
+    "from": "From",
+    "amenities": "Amenities",
+    "book_this_room": "Book This Room",
+    "back": "Back to Rooms",
+    "more_rooms": "Other Rooms",
+    "all_rooms_include": "All rooms include",
+    "includes": ["Private shower & WC", "Air conditioning", "Terrace", "Daily housekeeping", "Breakfast"]
+  },
+  "spa": {
+    "page_title": "SPA & Fitness",
+    "page_sub": "Traditional hammam, black-soap scrubs, massage room and fitness room — an oasis of relaxation and renewal."
+  },
+  "events": {
+    "page_title": "Events & Private Hire",
+    "page_sub": "Hire the entire villa — sleeping 14 — for your yoga retreats, seminars, family reunions and celebrations.",
+    "quote_button": "Request a Quote"
+  },
+  "gallery": {
+    "page_title": "Gallery",
+    "page_sub": "A visual journey through Villa Serena — its spaces, gardens, and light at every hour.",
+    "categories": { "all": "All", "rooms": "Rooms", "garden": "Garden", "dining": "Dining", "wellness": "Wellness" }
+  },
+  "maison": {
+    "page_title": "The House",
+    "page_sub": "A peaceful, family-friendly stay in a haven of peace where nature and craftsmanship meet."
+  },
+  "contact": {
+    "page_title": "Contact & Booking",
+    "page_sub": "Reach us directly — we reply within a few hours.",
+    "form_name": "Full Name",
+    "form_email": "Email Address",
+    "form_phone": "Phone / WhatsApp",
+    "form_checkin": "Check-in Date",
+    "form_checkout": "Check-out Date",
+    "form_guests": "Number of Guests",
+    "form_message": "Your message (optional)",
+    "form_submit": "Send Request",
+    "form_success": "Message sent! We will reply within 24 hours.",
+    "whatsapp": "Message on WhatsApp",
+    "email_direct": "Email Us Directly",
+    "info_title": "Stay Information",
+    "info_items": ["Room per night or entire villa", "Sleeps up to 14", "Home cooking on request", "Hammam & massages by reservation", "Airport transfer available"]
+  },
+  "blog": {
+    "page_title": "The Blog",
+    "page_sub": "Tips and inspiration for your stay — retreats, wellness and discoveries around Marrakech.",
+    "read_more": "Read Article",
+    "min_read": "min read"
+  },
+  "footer": {
+    "tagline": "A charming guesthouse in Sidi Bouzguia, 25 minutes from Marrakech.",
+    "links_title": "Navigate",
+    "contact_title": "Contact",
+    "legal": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy"
+  },
+  "cookie": {
+    "title": "We use cookies",
+    "body": "We use cookies to improve your experience and analyse traffic. By continuing, you accept our cookie policy.",
+    "accept": "Accept All",
+    "decline": "Decline"
+  }
+}

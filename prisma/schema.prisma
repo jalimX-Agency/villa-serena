@@ -1,0 +1,172 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ── Chambres d'hôtes ──
+model Room {
+  id                String     @id @default(cuid())
+  name              String
+  nameEn            String     @default("")
+  slug              String     @unique
+  subtitle          String     @default("")
+  subtitleEn        String     @default("")
+  description       String     @default("")
+  descriptionEn     String     @default("")
+  longDescription   String     @default("")
+  longDescriptionEn String     @default("")
+  color             String     @default("") // oklch accent, per-room theming
+  price             Float      @default(0)  // "from" price, EUR
+  currency          String     @default("EUR")
+  size              String     @default("") // e.g. "30 m²"
+  bedType           String     @default("")
+  bedTypeEn         String     @default("")
+  maxGuests         Int        @default(2)
+  image             String     @default("")
+  images            String     @default("") // comma-separated URLs
+  amenities         String     @default("") // comma-separated (FR)
+  amenitiesEn       String     @default("")
+  highlights        String     @default("")
+  highlightsEn      String     @default("")
+  featured          Boolean    @default(false)
+  order             Int        @default(0)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+  rates             RoomRate[]
+  bookings          Booking[]
+}
+
+// ── Tarification par saison ──
+model RoomRate {
+  id        String   @id @default(cuid())
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  label     String   // e.g. "Haute saison"
+  labelEn   String   @default("")
+  startDate DateTime
+  endDate   DateTime
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Expériences / SPA / Loisirs ──
+model Experience {
+  id            String   @id @default(cuid())
+  title         String
+  titleEn       String   @default("")
+  slug          String   @unique
+  subtitle      String   @default("")
+  subtitleEn    String   @default("")
+  description   String   @default("")
+  descriptionEn String   @default("")
+  category      String   @default("wellness") // wellness | outdoor | leisure | dining
+  duration      String   @default("")
+  price         Float    @default(0)
+  image         String   @default("")
+  icon          String   @default("")
+  featured      Boolean  @default(false)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ── Témoignages ──
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  location  String   @default("")
+  quote     String
+  quoteEn   String   @default("")
+  rating    Int      @default(5)
+  date      String   @default("")
+  source    String   @default("website") // website | google | booking | airbnb
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// ── Blog ──
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  titleEn   String   @default("")
+  slug      String   @unique
+  excerpt   String   @default("")
+  excerptEn String   @default("")
+  content   String   @default("") // HTML
+  contentEn String   @default("")
+  category  String   @default("")
+  author    String   @default("Villa Serena")
+  readTime  Int      @default(5)
+  image     String   @default("")
+  tags      String   @default("") // comma-separated
+  published Boolean  @default(false)
+  featured  Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Galerie ──
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String   @default("")
+  altEn     String   @default("")
+  caption   String   @default("")
+  captionEn String   @default("")
+  category  String   @default("garden") // rooms | garden | dining | wellness
+  featured  Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Réservations / Demandes de devis ──
+model Booking {
+  id          String    @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String
+  phone       String    @default("")
+  serviceType String    @default("room") // room | privatisation | retreat | seminar
+  roomId      String?
+  room        Room?     @relation(fields: [roomId], references: [id])
+  checkIn     DateTime?
+  checkOut    DateTime?
+  guests      Int       @default(2)
+  message     String    @default("")
+  status      String    @default("pending") // pending | confirmed | cancelled
+  totalAmount Float     @default(0)
+  currency    String    @default("EUR")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ── Messages de contact ──
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String   @default("")
+  subject   String   @default("")
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ── Admin ──
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // bcrypt hash
+  name      String   @default("")
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
