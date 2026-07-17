@@ -15,8 +15,8 @@ export default async function HomePage({
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       <Image
-        src="/hero-main.webp"
-        alt="Villa Serena Marrakech"
+        src="/hero-main.jpg"
+        alt="Villa Serena Marrakech — façade et piscine"
         fill
         priority
         className="object-cover"
