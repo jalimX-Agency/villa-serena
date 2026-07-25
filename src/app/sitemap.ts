@@ -5,11 +5,16 @@ const BASE = "https://www.villaserenamarrakech.com";
 
 const ROUTES = [
   { path: "", priority: 1.0 },
-  { path: "/la-maison", priority: 0.8 },
-  { path: "/chambres", priority: 0.9 },
-  { path: "/spa-fitness", priority: 0.7 },
-  { path: "/evenements-privatisation", priority: 0.9 },
-  { path: "/galerie", priority: 0.6 },
+  { path: "/la-villa", priority: 0.8 },
+  { path: "/suites", priority: 0.9 },
+  { path: "/services", priority: 0.7 },
+  { path: "/services/restauration", priority: 0.6 },
+  { path: "/services/bien-etre", priority: 0.6 },
+  { path: "/services/excursions", priority: 0.6 },
+  { path: "/experiences", priority: 0.8 },
+  { path: "/experiences/retraites-yoga", priority: 0.8 },
+  { path: "/experiences/golf", priority: 0.6 },
+  { path: "/experiences/mariages-events", priority: 0.8 },
   { path: "/blog", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
 ];

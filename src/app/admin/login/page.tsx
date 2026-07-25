@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-villa-indigo text-white font-sans text-xs tracking-[0.15em] uppercase hover:bg-villa-indigo/90 transition-colors disabled:opacity-60"
+            className="w-full py-3 bg-villa-terracotta text-white font-sans text-xs tracking-[0.15em] uppercase hover:bg-villa-terracotta/90 transition-colors disabled:opacity-60"
           >
             {loading ? "Connexion…" : "Se connecter"}
           </button>

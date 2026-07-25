@@ -20,7 +20,7 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-villa-indigo text-white/80">
+    <footer className="bg-villa-ink text-white/80">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="lg:col-span-2">
@@ -73,11 +73,25 @@ export function Footer() {
               {t("footer.links_title")}
             </h3>
             <ul className="flex flex-col gap-2.5">
-              {NAV_LINKS.map(({ key, path }) => (
-                <li key={key}>
-                  <Link href={path} className="font-sans text-sm text-white/60 hover:text-villa-gold transition-colors">
-                    {t(`nav.${key}`)}
+              {NAV_LINKS.map((item) => (
+                <li key={item.key}>
+                  <Link href={item.path} className="font-sans text-sm text-white/60 hover:text-villa-gold transition-colors">
+                    {t(`nav.${item.key}`)}
                   </Link>
+                  {"children" in item && item.children.length > 0 && (
+                    <ul className="flex flex-col gap-1.5 mt-1.5 ml-3">
+                      {item.children.map((child) => (
+                        <li key={child.key}>
+                          <Link
+                            href={child.path}
+                            className="font-sans text-xs text-white/45 hover:text-villa-gold transition-colors"
+                          >
+                            {t(`nav.${child.key}`)}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -90,8 +104,6 @@ export function Footer() {
               <li className="flex items-start gap-2.5">
                 <MapPin className="size-3.5 mt-0.5 text-villa-gold shrink-0" />
                 <span className="font-sans text-sm text-white/60 leading-relaxed">
-                  Sidi Bouzguia
-                  <br />
                   Marrakech, Maroc
                 </span>
               </li>

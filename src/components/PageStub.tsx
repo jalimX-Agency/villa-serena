@@ -9,7 +9,7 @@ export function PageStub({ titleKey, subKey }: { titleKey: string; subKey: strin
       <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-4">
         Villa Serena
       </p>
-      <h1 className="font-serif text-4xl lg:text-5xl text-villa-indigo whitespace-pre-line mb-5">
+      <h1 className="font-serif text-4xl lg:text-5xl text-villa-terracotta whitespace-pre-line mb-5">
         {t(titleKey)}
       </h1>
       <p className="font-sans text-muted-foreground leading-relaxed">{t(subKey)}</p>

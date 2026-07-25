@@ -1,69 +1,92 @@
 {
   "nav": {
-    "home": "Accueil",
-    "maison": "La Maison",
-    "rooms": "Chambres d'hôtes",
-    "spa": "SPA / Fitness",
-    "events": "Événements & Privatisation",
-    "gallery": "Galerie",
-    "blog": "Blog",
+    "home": "Home",
+    "villa": "La Villa",
+    "suites": "Les Suites",
+    "services": "Les Services",
+    "servicesRestauration": "Restauration",
+    "servicesBienEtre": "Bien Être",
+    "servicesExcursions": "Excursions",
+    "experiences": "Les Expériences",
+    "experiencesRetraites": "Retraites & Yoga",
+    "experiencesGolf": "Golf",
+    "experiencesMariages": "Mariages & Events",
     "contact": "Contact",
     "book": "Réserver"
   },
   "hero": {
-    "tagline": "Havre de paix · Sidi Bouzguia",
+    "tagline": "Havre de paix · Marrakech",
     "headline": "Un Séjour Paisible\ndans un Havre\nde Paix",
-    "subheadline": "Maison d'hôtes de charme autour d'un patio d'inspiration riad, à 25 minutes de Marrakech.",
-    "cta_primary": "Découvrir la Maison",
-    "cta_secondary": "Voir les Chambres",
+    "subheadline": "Villa exclusive de charme autour d'un patio d'inspiration riad, à 25 minutes de Marrakech.",
+    "cta_primary": "Découvrir la Villa",
+    "cta_secondary": "Voir les Suites",
     "scroll": "Défiler pour explorer"
   },
   "home": {
     "welcome_label": "Bienvenue à Villa Serena",
     "welcome_title": "Un Havre de Paix\nà Part",
-    "welcome_body": "Nos chambres, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
-    "rooms_label": "Les Chambres",
-    "rooms_title": "Un Voyage à Travers\nles Couleurs",
-    "rooms_sub": "Chaque chambre est un univers : chaque teinte a été choisie pour évoquer des émotions uniques, en harmonie avec l'artisanat marrakchi.",
+    "welcome_body": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
+    "suites_label": "Les Suites",
+    "suites_title": "Un Voyage à Travers\nles Couleurs",
+    "suites_sub": "Chaque suite est un univers : chaque teinte a été choisie pour évoquer des émotions uniques, en harmonie avec l'artisanat marrakchi.",
     "experiences_label": "Bien-être & Loisirs",
     "experiences_title": "Du Hammam\nà la Pétanque",
     "experiences_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont Séjourné\nChez Nous",
     "cta_title": "Réservez votre Séjour",
-    "cta_body": "Chambre à la nuit ou villa entière privatisée — idéale pour réunions de famille, retraites de yoga et séminaires jusqu'à 14 couchages.",
+    "cta_body": "Suite à la nuit ou villa entière privatisée — idéale pour réunions de famille, retraites de yoga et séminaires jusqu'à 14 couchages.",
     "cta_button": "Vérifier les Disponibilités",
-    "stats": { "rooms": "5 Chambres", "guests": "14 Couchages", "pool": "Jardin & Bassin", "hammam": "Hammam & Spa" }
+    "stats": { "rooms": "5 Suites", "guests": "14 Couchages", "pool": "Jardin & Bassin", "hammam": "Hammam & Spa" }
   },
-  "rooms": {
-    "page_title": "Chambres d'hôtes",
-    "page_sub": "Cinq chambres autour du patio, chacune avec sa couleur et son caractère.",
+  "villa": {
+    "page_title": "La Villa",
+    "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent."
+  },
+  "suites": {
+    "page_title": "Les Suites",
+    "page_sub": "Cinq suites autour du patio, chacune avec sa couleur et son caractère.",
     "per_night": "par nuit",
     "from": "À partir de",
     "amenities": "Équipements",
-    "book_this_room": "Réserver Cette Chambre",
-    "back": "Retour aux Chambres",
-    "more_rooms": "Autres Chambres",
-    "all_rooms_include": "Toutes les chambres incluent",
+    "book_this_room": "Réserver Cette Suite",
+    "back": "Retour aux Suites",
+    "more_rooms": "Autres Suites",
+    "all_rooms_include": "Toutes les suites incluent",
     "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
   },
-  "spa": {
-    "page_title": "SPA & Fitness",
-    "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation."
+  "services": {
+    "page_title": "Les Services",
+    "page_sub": "Restauration, bien-être et excursions — tout ce qu'il faut pour un séjour sans souci.",
+    "restauration": {
+      "page_title": "Restauration",
+      "page_sub": "Cuisine familiale et saveurs du monde, préparée avec des légumes frais du potager."
+    },
+    "bienEtre": {
+      "page_title": "Bien Être",
+      "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation."
+    },
+    "excursions": {
+      "page_title": "Excursions",
+      "page_sub": "Randonnées dans la vallée de l'Ourika, équitation, quad, buggies et vols en montgolfière."
+    }
   },
-  "events": {
-    "page_title": "Événements & Privatisation",
-    "page_sub": "Privatisez la villa entière — 14 couchages — pour vos retraites de yoga, séminaires, réunions de famille et célébrations.",
+  "experiences": {
+    "page_title": "Les Expériences",
+    "page_sub": "Retraites de yoga, golf et grandes célébrations — Villa Serena se privatise pour vos moments d'exception.",
+    "retraitesYoga": {
+      "page_title": "Retraites & Yoga",
+      "page_sub": "La villa entière privatisée pour vos retraites de yoga et de bien-être, jusqu'à 14 participants."
+    },
+    "golf": {
+      "page_title": "Golf",
+      "page_sub": "À proximité des meilleurs parcours de Marrakech — séjours golf sur mesure."
+    },
+    "mariagesEvents": {
+      "page_title": "Mariages & Events",
+      "page_sub": "Privatisez la villa entière — 14 couchages — pour vos mariages, séminaires et célébrations."
+    },
     "quote_button": "Demander un Devis"
-  },
-  "gallery": {
-    "page_title": "Galerie",
-    "page_sub": "Un voyage visuel à travers Villa Serena — ses espaces, jardins, et lumières à toute heure.",
-    "categories": { "all": "Tout", "rooms": "Chambres", "garden": "Jardin", "dining": "Gastronomie", "wellness": "Bien-être" }
-  },
-  "maison": {
-    "page_title": "La Maison",
-    "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent."
   },
   "contact": {
     "page_title": "Contact & Réservation",
@@ -80,7 +103,7 @@
     "whatsapp": "Message WhatsApp",
     "email_direct": "Nous Écrire",
     "info_title": "Informations de Séjour",
-    "info_items": ["Chambre à la nuit ou villa entière", "Jusqu'à 14 couchages", "Cuisine familiale sur demande", "Hammam & massages sur réservation", "Transfert aéroport disponible"]
+    "info_items": ["Suite à la nuit ou villa entière", "Jusqu'à 14 couchages", "Cuisine familiale sur demande", "Hammam & massages sur réservation", "Transfert aéroport disponible"]
   },
   "blog": {
     "page_title": "Le Blog",
@@ -89,7 +112,7 @@
     "min_read": "min de lecture"
   },
   "footer": {
-    "tagline": "Maison d'hôtes de charme à Sidi Bouzguia, à 25 minutes de Marrakech.",
+    "tagline": "Villa exclusive de charme à Marrakech.",
     "links_title": "Navigation",
     "contact_title": "Contact",
     "legal": "Tous droits réservés.",

@@ -30,7 +30,7 @@
   --color-villa-terracotta: var(--villa-terracotta);
   --color-villa-sand: var(--villa-sand);
   --color-villa-olive: var(--villa-olive);
-  --color-villa-indigo: var(--villa-indigo);
+  --color-villa-ink: var(--villa-ink);
   --color-villa-gold: var(--villa-gold);
   --color-villa-cream: var(--villa-cream);
 
@@ -41,46 +41,49 @@
 :root {
   --radius: 0.375rem;
   --background: oklch(0.972 0.012 80);
-  --foreground: oklch(0.22 0.05 270);
+  --foreground: oklch(0.24 0.03 50);
   --card: oklch(0.985 0.008 80);
-  --card-foreground: oklch(0.22 0.05 270);
+  --card-foreground: oklch(0.24 0.03 50);
   --popover: oklch(0.985 0.008 80);
-  --popover-foreground: oklch(0.22 0.05 270);
-  --primary: oklch(0.27 0.115 272);
+  --popover-foreground: oklch(0.24 0.03 50);
+  --primary: oklch(0.6 0.13 28);
   --primary-foreground: oklch(0.972 0.012 80);
-  --secondary: oklch(0.6 0.13 28);
+  --secondary: oklch(0.48 0.07 130);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.93 0.025 80);
   --muted-foreground: oklch(0.48 0.04 80);
   --accent: oklch(0.74 0.13 73);
-  --accent-foreground: oklch(0.22 0.05 270);
+  --accent-foreground: oklch(0.24 0.03 50);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.87 0.03 80);
   --input: oklch(0.87 0.03 80);
   --ring: oklch(0.6 0.13 28);
 
+  /* Natural palette per client direction: terracotta + sage green lead,
+     no blue as a primary/dominant color. --villa-ink replaces the old
+     indigo-blue for dark surfaces (footer, overlays, headings). */
   --villa-terracotta: oklch(0.6 0.13 28);
   --villa-sand: oklch(0.93 0.025 80);
   --villa-olive: oklch(0.48 0.07 130);
-  --villa-indigo: oklch(0.27 0.115 272);
+  --villa-ink: oklch(0.24 0.03 50);
   --villa-gold: oklch(0.74 0.13 73);
   --villa-cream: oklch(0.972 0.012 80);
 }
 
 .dark {
-  --background: oklch(0.185 0.04 272);
+  --background: oklch(0.185 0.03 50);
   --foreground: oklch(0.93 0.015 80);
-  --card: oklch(0.22 0.05 272);
+  --card: oklch(0.22 0.035 50);
   --card-foreground: oklch(0.93 0.015 80);
-  --popover: oklch(0.25 0.06 272);
+  --popover: oklch(0.25 0.04 50);
   --popover-foreground: oklch(0.93 0.015 80);
   --primary: oklch(0.74 0.13 73);
-  --primary-foreground: oklch(0.22 0.05 272);
+  --primary-foreground: oklch(0.2 0.03 50);
   --secondary: oklch(0.6 0.13 28);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.28 0.06 272);
+  --muted: oklch(0.28 0.04 50);
   --muted-foreground: oklch(0.65 0.04 80);
-  --accent: oklch(0.35 0.1 272);
+  --accent: oklch(0.4 0.06 130);
   --accent-foreground: oklch(0.93 0.015 80);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -104,13 +107,13 @@
   .font-sans  { font-family: var(--font-sans); }
   .text-villa-terracotta { color: var(--villa-terracotta); }
   .text-villa-olive      { color: var(--villa-olive); }
-  .text-villa-indigo     { color: var(--villa-indigo); }
+  .text-villa-ink        { color: var(--villa-ink); }
   .text-villa-gold       { color: var(--villa-gold); }
   .text-villa-cream      { color: var(--villa-cream); }
   .bg-villa-terracotta   { background-color: var(--villa-terracotta); }
   .bg-villa-sand         { background-color: var(--villa-sand); }
   .bg-villa-olive        { background-color: var(--villa-olive); }
-  .bg-villa-indigo       { background-color: var(--villa-indigo); }
+  .bg-villa-ink          { background-color: var(--villa-ink); }
   .bg-villa-gold         { background-color: var(--villa-gold); }
   .bg-villa-cream        { background-color: var(--villa-cream); }
 }

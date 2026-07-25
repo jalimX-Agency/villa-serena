@@ -34,13 +34,13 @@ export async function generateMetadata({
     metadataBase: new URL("https://www.villaserenamarrakech.com"),
     title: {
       default: isEn
-        ? "Villa Serena Marrakech | Guesthouse & Private Villa Hire near Marrakech"
-        : "Villa Serena Marrakech | Maison d'hôtes & villa privatisable près de Marrakech",
+        ? "Villa Serena Marrakech | Exclusive Villa Hire in Marrakech"
+        : "Villa Serena Marrakech | Villa Exclusive à Marrakech",
       template: "%s | Villa Serena Marrakech",
     },
     description: isEn
-      ? "Villa Serena by Gautama — a charming guesthouse in Sidi Bouzguia, 25 min from Marrakech. Five rooms, hammam, garden, full villa hire for retreats and seminars."
-      : "Villa Serena by Gautama — maison d'hôtes de charme à Sidi Bouzguia, 25 min de Marrakech. Cinq chambres, hammam, jardin, privatisation complète pour retraites et séminaires.",
+      ? "Villa Serena by Gautama — an exclusive charming villa in Marrakech. Five suites, hammam, garden, full villa hire for retreats, golf stays and events."
+      : "Villa Serena by Gautama — villa exclusive de charme à Marrakech. Cinq suites, hammam, jardin, privatisation complète pour retraites, séjours golf et événements.",
     alternates: {
       canonical: `https://www.villaserenamarrakech.com/${locale}`,
       languages: {
@@ -78,7 +78,7 @@ export default async function LocaleLayout({
     "@type": "LodgingBusiness",
     name: "Villa Serena Marrakech",
     description:
-      "Maison d'hôtes de charme autour d'un patio d'inspiration riad, à Sidi Bouzguia, 25 minutes de Marrakech.",
+      "Villa exclusive de charme autour d'un patio d'inspiration riad, à Marrakech.",
     url: "https://www.villaserenamarrakech.com",
     telephone: "+212663524987",
     email: "contact@villaserenamarrakech.com",

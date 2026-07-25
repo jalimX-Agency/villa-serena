@@ -34,7 +34,7 @@ export function CookieBanner() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => decide("accepted")}
-              className="flex-1 py-2 bg-villa-indigo text-white font-sans text-xs tracking-wider uppercase hover:bg-villa-indigo/90 transition-colors"
+              className="flex-1 py-2 bg-villa-terracotta text-white font-sans text-xs tracking-wider uppercase hover:bg-villa-terracotta/90 transition-colors"
             >
               {t("cookie.accept")}
             </button>
