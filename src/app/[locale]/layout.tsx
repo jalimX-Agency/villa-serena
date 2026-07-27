@@ -80,8 +80,8 @@ export default async function LocaleLayout({
     description:
       "Villa exclusive de charme autour d'un patio d'inspiration riad, à Marrakech.",
     url: "https://www.villaserenamarrakech.com",
-    telephone: "+212663524987",
-    email: "contact@villaserenamarrakech.com",
+    telephone: "+212663524991",
+    email: "guest@villaserenamarrakech.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sidi Bouzguia",
