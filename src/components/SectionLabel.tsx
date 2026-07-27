@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/utils";
