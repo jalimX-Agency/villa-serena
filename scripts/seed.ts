@@ -2,9 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
-// Room data sourced from villaserenamarrakech.com (real content).
-// Images are DEV PLACEHOLDERS from the old scaffold — final images to be
-// pulled from the client's site / photoshoot and moved to R2 before launch.
+// Room data + photos sourced from villaserenamarrakech.com (real content).
+// Images currently live in /public — will move to R2 in Phase 10.
 const ROOMS = [
   {
     slug: "chambre-rouge",
@@ -22,7 +21,7 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-sienne.webp",
+    image: "/room-rouge.jpg",
     amenities: "Bureau,2 fauteuils,Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Desk,2 armchairs,Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -44,7 +43,7 @@ const ROOMS = [
     bedType: "Lit 160×200",
     bedTypeEn: "Double bed 160×200",
     maxGuests: 2,
-    image: "/room-indigo.webp",
+    image: "/room-bleue.jpg",
     amenities: "Bureau,Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Desk,Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -66,7 +65,7 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-jade.webp",
+    image: "/room-verte.jpg",
     amenities: "Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -88,7 +87,7 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-ivoire.webp",
+    image: "/room-rose.jpg",
     amenities: "Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Shower / WC,Air conditioning,Terrace",
     featured: false,
@@ -110,7 +109,7 @@ const ROOMS = [
     bedType: "Lit 160×200",
     bedTypeEn: "Double bed 160×200",
     maxGuests: 2,
-    image: "/room-safran.webp",
+    image: "/suite-bleue.jpg",
     amenities: "Canapé,Terrasse,Douche / Toilettes,Machine Nespresso,Climatisation",
     amenitiesEn: "Sofa,Terrace,Shower / WC,Nespresso machine,Air conditioning",
     featured: true,
