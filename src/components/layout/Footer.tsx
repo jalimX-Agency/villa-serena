@@ -24,11 +24,11 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center mb-4">
               <Image
-                src="/logo-villa-serena.png"
-                alt="Villa Serena by Gautama"
-                width={200}
-                height={94}
-                className="h-11 w-auto"
+                src="/logo-gold.png"
+                alt="Villa Serena Marrakech"
+                width={346}
+                height={337}
+                className="h-20 w-auto"
               />
             </Link>
             <p className="font-sans text-sm leading-relaxed text-muted-foreground max-w-sm mt-3">

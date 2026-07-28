@@ -30,11 +30,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm bg-card border border-border shadow-sm p-8">
         <div className="text-center mb-8">
           <Image
-            src="/logo-villa-serena.png"
-            alt="Villa Serena by Gautama"
-            width={200}
-            height={94}
-            className="h-14 w-auto mx-auto"
+            src="/logo-gold.png"
+            alt="Villa Serena Marrakech"
+            width={346}
+            height={337}
+            className="h-24 w-auto mx-auto"
           />
           <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-muted-foreground mt-2">
             Administration

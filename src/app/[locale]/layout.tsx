@@ -55,7 +55,7 @@ export async function generateMetadata({
       siteName: "Villa Serena Marrakech",
     },
     icons: {
-      icon: "/logo-villa-serena.png",
+      icon: "/favicon-logo.png",
     },
     robots: { index: true, follow: true },
     other: { tagline: t("tagline") },

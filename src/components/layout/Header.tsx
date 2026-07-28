@@ -90,12 +90,12 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-villa-serena.png"
-              alt="Villa Serena by Gautama"
-              width={200}
-              height={94}
+              src={transparent ? "/logo-white.png" : "/logo-gold.png"}
+              alt="Villa Serena Marrakech"
+              width={346}
+              height={337}
               priority
-              className="h-9 lg:h-11 w-auto"
+              className="h-14 lg:h-16 w-auto"
             />
           </Link>
 
