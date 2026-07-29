@@ -130,7 +130,7 @@ const EXPERIENCES = [
       "Black-soap scrubs and Kessa-glove exfoliation — deep relaxation for body and mind.",
     category: "wellness",
     duration: "60–90 min",
-    image: "/hammam.webp",
+    image: "/exp-hammam.jpg",
     icon: "♨",
     featured: true,
     order: 1,
@@ -145,7 +145,7 @@ const EXPERIENCES = [
     descriptionEn: "Relaxing treatments in our dedicated room, by reservation.",
     category: "wellness",
     duration: "45–90 min",
-    image: "/gallery-wellness.webp",
+    image: "/exp-massage.jpg",
     icon: "✦",
     featured: true,
     order: 2,
@@ -160,7 +160,7 @@ const EXPERIENCES = [
     descriptionEn: "Modern equipment to keep fit throughout your stay.",
     category: "wellness",
     duration: "Libre accès",
-    image: "/gallery-lounge.webp",
+    image: "/exp-fitness.jpg",
     icon: "⚡",
     featured: false,
     order: 3,
@@ -175,7 +175,7 @@ const EXPERIENCES = [
     descriptionEn: "Pétanque lovers, this court is made for you.",
     category: "leisure",
     duration: "Libre accès",
-    image: "/garden.webp",
+    image: "/exp-petanque.jpg",
     icon: "●",
     featured: false,
     order: 4,
@@ -190,7 +190,7 @@ const EXPERIENCES = [
     descriptionEn: "Playful moments with family or friends, in the open air.",
     category: "leisure",
     duration: "Libre accès",
-    image: "/pool.webp",
+    image: "/exp-badminton.jpg",
     icon: "◗",
     featured: false,
     order: 5,
@@ -207,7 +207,7 @@ const EXPERIENCES = [
       "Our cook prepares traditional Moroccan dishes enriched with world spices — using seasonal vegetables from our own kitchen garden.",
     category: "dining",
     duration: "Sur demande",
-    image: "/dining.webp",
+    image: "/exp-cuisine.jpg",
     icon: "❋",
     featured: true,
     order: 6,
@@ -224,7 +224,7 @@ const EXPERIENCES = [
       "Hikes in the Ourika valley, horse riding, quad biking, buggies and hot-air balloon flights — with our selected partners.",
     category: "outdoor",
     duration: "½ ou 1 journée",
-    image: "/experiences-balloon.webp",
+    image: "/exp-excursions.jpg",
     icon: "◈",
     featured: true,
     order: 7,
@@ -232,18 +232,18 @@ const EXPERIENCES = [
 ];
 
 const GALLERY = [
-  { url: "/hero-main.webp", caption: "La villa", captionEn: "The villa", category: "garden", order: 1 },
-  { url: "/hero-courtyard.webp", caption: "Le patio", captionEn: "The patio", category: "garden", order: 2 },
-  { url: "/garden.webp", caption: "Le jardin", captionEn: "The garden", category: "garden", order: 3 },
-  { url: "/pool.webp", caption: "Le bassin", captionEn: "The pond", category: "garden", order: 4 },
-  { url: "/room-sienne.webp", caption: "Chambre Rouge", captionEn: "Red Room", category: "rooms", order: 5 },
-  { url: "/room-indigo.webp", caption: "Chambre Bleue", captionEn: "Blue Room", category: "rooms", order: 6 },
-  { url: "/room-jade.webp", caption: "Chambre Verte", captionEn: "Green Room", category: "rooms", order: 7 },
-  { url: "/room-ivoire.webp", caption: "Chambre Rose", captionEn: "Pink Room", category: "rooms", order: 8 },
-  { url: "/room-safran.webp", caption: "Suite Bleue", captionEn: "Blue Suite", category: "rooms", order: 9 },
-  { url: "/dining.webp", caption: "Salle à manger", captionEn: "Dining room", category: "dining", order: 10 },
-  { url: "/hammam.webp", caption: "Hammam", captionEn: "Hammam", category: "wellness", order: 11 },
-  { url: "/gallery-wellness.webp", caption: "Espace bien-être", captionEn: "Wellness area", category: "wellness", order: 12 },
+  { url: "/hero-main.jpg", caption: "La villa", captionEn: "The villa", category: "garden", order: 1 },
+  { url: "/welcome-jardin.jpg", caption: "Le jardin", captionEn: "The garden", category: "garden", order: 2 },
+  { url: "/exp-excursions.jpg", caption: "Salon extérieur", captionEn: "Outdoor lounge", category: "garden", order: 3 },
+  { url: "/welcome-salon.jpg", caption: "Salon & salle à manger", captionEn: "Lounge & dining room", category: "dining", order: 4 },
+  { url: "/room-rouge.jpg", caption: "Chambre Rouge", captionEn: "Red Room", category: "rooms", order: 5 },
+  { url: "/room-bleue.jpg", caption: "Chambre Bleue", captionEn: "Blue Room", category: "rooms", order: 6 },
+  { url: "/room-verte.jpg", caption: "Chambre Verte", captionEn: "Green Room", category: "rooms", order: 7 },
+  { url: "/room-rose.jpg", caption: "Chambre Rose", captionEn: "Pink Room", category: "rooms", order: 8 },
+  { url: "/suite-bleue.jpg", caption: "Suite Bleue", captionEn: "Blue Suite", category: "rooms", order: 9 },
+  { url: "/exp-cuisine.jpg", caption: "Potager", captionEn: "Kitchen garden", category: "dining", order: 10 },
+  { url: "/exp-hammam.jpg", caption: "Hammam", captionEn: "Hammam", category: "wellness", order: 11 },
+  { url: "/exp-massage.jpg", caption: "Salle de massage", captionEn: "Massage room", category: "wellness", order: 12 },
 ];
 
 async function main() {
@@ -257,13 +257,10 @@ async function main() {
   }
   console.log(`Seeded ${EXPERIENCES.length} experiences`);
 
-  const galleryCount = await db.galleryImage.count();
-  if (galleryCount === 0) {
-    await db.galleryImage.createMany({ data: GALLERY });
-    console.log(`Seeded ${GALLERY.length} gallery images`);
-  } else {
-    console.log("Gallery already populated, skipping");
-  }
+  // No natural unique key on GalleryImage yet — replace wholesale on reseed.
+  await db.galleryImage.deleteMany();
+  await db.galleryImage.createMany({ data: GALLERY });
+  console.log(`Seeded ${GALLERY.length} gallery images`);
 }
 
 main()

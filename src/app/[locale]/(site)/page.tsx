@@ -2,9 +2,10 @@ import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
 import { Welcome } from "@/components/home/Welcome";
 import { SuitesPreview } from "@/components/home/SuitesPreview";
+import { ExperiencesBand } from "@/components/home/ExperiencesBand";
 
-// Phase 1 — built section by section: Hero, Welcome, Suites done;
-// Experiences/Testimonials/CTA next.
+// Phase 1 — built section by section: Hero, Welcome, Suites, Experiences
+// done; Testimonials/CTA next.
 export default async function HomePage({
   params,
 }: {
@@ -18,6 +19,7 @@ export default async function HomePage({
       <Hero />
       <Welcome />
       <SuitesPreview />
+      <ExperiencesBand />
     </>
   );
 }
