@@ -241,7 +241,7 @@ const GALLERY = [
   { url: "/room-verte.jpg", caption: "Chambre Verte", captionEn: "Green Room", category: "rooms", order: 7 },
   { url: "/room-rose.jpg", caption: "Chambre Rose", captionEn: "Pink Room", category: "rooms", order: 8 },
   { url: "/suite-bleue.jpg", caption: "Suite Bleue", captionEn: "Blue Suite", category: "rooms", order: 9 },
-  { url: "/exp-cuisine.jpg", caption: "Potager", captionEn: "Kitchen garden", category: "dining", order: 10 },
+  { url: "/exp-cuisine.jpg", caption: "Service en cuisine", captionEn: "Kitchen service", category: "dining", order: 10 },
   { url: "/exp-hammam.jpg", caption: "Hammam", captionEn: "Hammam", category: "wellness", order: 11 },
   { url: "/exp-massage.jpg", caption: "Salle de massage", captionEn: "Massage room", category: "wellness", order: 12 },
 ];
