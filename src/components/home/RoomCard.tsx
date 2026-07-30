@@ -19,7 +19,7 @@ export function RoomCard({
   const subtitle = isEn && room.subtitleEn ? room.subtitleEn : room.subtitle;
 
   return (
-    <Link href="/suites" className="group block">
+    <Link href={`/suites/${room.slug}`} className="group block">
       <div className="relative aspect-[4/5] overflow-hidden mb-4">
         {room.image && (
           <Image
