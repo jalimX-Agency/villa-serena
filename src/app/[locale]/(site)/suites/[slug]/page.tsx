@@ -6,6 +6,8 @@ import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 import { Section } from "@/components/Section";
 import { RoomCard } from "@/components/home/RoomCard";
+import { RoomBookingForm } from "@/components/RoomBookingForm";
+import { getBookedRanges } from "@/lib/actions/room-booking";
 
 async function getRoom(slug: string) {
   return db.room.findUnique({ where: { slug } });
@@ -70,6 +72,7 @@ export default async function RoomDetailPage({
     orderBy: { order: "asc" },
     take: 3,
   });
+  const bookedRanges = await getBookedRanges(room.id);
 
   return (
     <>
@@ -142,23 +145,17 @@ export default async function RoomDetailPage({
           </div>
 
           <div className="lg:col-span-1">
-            <div className="sticky top-28 bg-card border border-border p-6">
-              <p className="font-sans text-xs text-muted-foreground uppercase tracking-wide mb-1">
-                {t("suites.from")}
-              </p>
-              <p className="font-serif text-3xl text-villa-terracotta mb-4 tabular-nums">
-                {room.price}€ <span className="text-sm text-muted-foreground font-sans">/ {t("suites.per_night")}</span>
-              </p>
-              <ul className="font-sans text-sm text-foreground/70 space-y-1.5 mb-6">
+            <div className="sticky top-28 space-y-4">
+              <ul className="font-sans text-sm text-foreground/70 space-y-1.5">
                 <li>{room.size}</li>
                 <li>{bedType}</li>
               </ul>
-              <Link
-                href="/contact"
-                className="block text-center px-6 py-3 bg-villa-terracotta hover:bg-villa-terracotta/90 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
-              >
-                {t("suites.book_this_room")}
-              </Link>
+              <RoomBookingForm
+                roomId={room.id}
+                pricePerNight={room.price}
+                bookedRanges={bookedRanges}
+                locale={locale}
+              />
             </div>
           </div>
         </div>
