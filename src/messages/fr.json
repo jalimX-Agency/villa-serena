@@ -55,6 +55,12 @@
     "all_rooms_include": "Toutes les suites incluent",
     "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
   },
+  "reservation": {
+    "page_title": "Réserver votre Séjour",
+    "page_sub": "Choisissez votre suite, sélectionnez vos dates — confirmation sous 24h.",
+    "choose_room": "1. Choisissez une Suite",
+    "your_dates": "2. Vos Dates & Coordonnées"
+  },
   "services": {
     "page_title": "Les Services",
     "page_sub": "Restauration, bien-être et excursions — tout ce qu'il faut pour un séjour sans souci.",

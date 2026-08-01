@@ -202,7 +202,7 @@ export function Header() {
               </AnimatePresence>
             </div>
             <Link
-              href="/contact"
+              href="/reservation"
               className={cn(
                 "hidden lg:inline-flex items-center h-9 px-5 font-sans text-[11px] tracking-[0.12em] uppercase transition-all",
                 transparent
@@ -307,7 +307,7 @@ export function Header() {
                 ))}
               </div>
               <Link
-                href="/contact"
+                href="/reservation"
                 className="mt-3 inline-flex justify-center items-center py-2.5 bg-villa-terracotta hover:bg-villa-terracotta/90 text-white font-sans text-xs tracking-wider uppercase"
               >
                 {t("nav.book")}

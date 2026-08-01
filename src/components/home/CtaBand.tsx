@@ -13,7 +13,7 @@ export async function CtaBand() {
         </h2>
         <p className="font-sans text-white/85 max-w-xl mx-auto mb-10">{t("home.cta_body")}</p>
         <Link
-          href="/contact"
+          href="/reservation"
           className="inline-flex items-center px-10 py-3.5 bg-white text-villa-terracotta font-sans text-xs tracking-[0.15em] uppercase hover:bg-villa-cream transition-colors"
         >
           {t("home.cta_button")}

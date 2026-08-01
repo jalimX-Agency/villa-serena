@@ -55,6 +55,12 @@
     "all_rooms_include": "All suites include",
     "includes": ["Private shower & WC", "Air conditioning", "Terrace", "Daily housekeeping", "Breakfast"]
   },
+  "reservation": {
+    "page_title": "Book Your Stay",
+    "page_sub": "Choose your suite, select your dates — confirmation within 24h.",
+    "choose_room": "1. Choose a Suite",
+    "your_dates": "2. Your Dates & Details"
+  },
   "services": {
     "page_title": "Services",
     "page_sub": "Dining, wellness and excursions — everything for a carefree stay.",
