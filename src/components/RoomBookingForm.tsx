@@ -1,5 +1,5 @@
 "use client";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import { useTranslations } from "next-intl";
 import { DateRangePicker, type BookedRange } from "@/components/DateRangePicker";
@@ -31,11 +31,13 @@ export function RoomBookingForm({
   pricePerNight,
   bookedRanges,
   locale,
+  onStatusChange,
 }: {
   roomId: string;
   pricePerNight: number;
   bookedRanges: BookedRange[];
   locale: string;
+  onStatusChange?: (status: RoomBookingState["status"]) => void;
 }) {
   const t = useTranslations();
   const isEn = locale === "en";
@@ -44,6 +46,11 @@ export function RoomBookingForm({
 
   const boundAction = submitRoomBooking.bind(null, roomId, pricePerNight);
   const [state, formAction, pending] = useActionState(boundAction, initialState);
+
+  useEffect(() => {
+    onStatusChange?.(state.status);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.status]);
 
   const nights = checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
   const total = nights > 0 ? nights * pricePerNight : 0;

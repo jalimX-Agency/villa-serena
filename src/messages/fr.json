@@ -58,8 +58,9 @@
   "reservation": {
     "page_title": "Réserver votre Séjour",
     "page_sub": "Choisissez votre suite, sélectionnez vos dates — confirmation sous 24h.",
-    "choose_room": "1. Choisissez une Suite",
-    "your_dates": "2. Vos Dates & Coordonnées"
+    "step_room": "Suite",
+    "step_details": "Dates & Infos",
+    "step_done": "Confirmation"
   },
   "services": {
     "page_title": "Les Services",
