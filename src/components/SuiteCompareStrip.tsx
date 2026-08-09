@@ -32,64 +32,45 @@ export function SuiteCompareStrip({
     setActiveIndex((i) => (i + delta + n) % n);
   }
 
-  return (
-    <div>
-      <div className="relative h-[440px] sm:h-[560px] lg:h-[620px] overflow-hidden">
-        {rooms.map((room, i) => {
-          let diff = i - activeIndex;
-          if (diff > n / 2) diff -= n;
-          if (diff < -n / 2) diff += n;
-          const abs = Math.abs(diff);
-          const isCenter = diff === 0;
-          const visible = abs <= 1;
+  const prevIndex = (activeIndex - 1 + n) % n;
+  const nextIndex = (activeIndex + 1) % n;
 
-          return (
-            <Link
-              key={room.id}
-              href={`/suites/${room.slug}`}
-              onClick={(e) => {
-                if (!isCenter) {
-                  e.preventDefault();
-                  setActiveIndex(i);
-                }
-              }}
-              className="absolute top-1/2 left-1/2 w-[220px] sm:w-[300px] lg:w-[340px] transition-all duration-500 ease-out"
-              style={{
-                transform: `translate(-50%, -50%) translateX(${diff * 58}%) scale(${isCenter ? 1 : 0.82})`,
-                opacity: visible ? (isCenter ? 1 : 0.4) : 0,
-                zIndex: isCenter ? 10 : 5 - abs,
-                pointerEvents: visible ? "auto" : "none",
-              }}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden mb-4 shadow-xl">
-                {room.image && (
-                  <Image
-                    src={room.image}
-                    alt={room.name}
-                    fill
-                    sizes="(max-width: 640px) 220px, (max-width: 1024px) 300px, 340px"
-                    className="object-cover"
-                    priority={isCenter}
-                  />
-                )}
-              </div>
-              <h3 className="font-serif text-xl sm:text-2xl text-foreground mb-1">{room.name}</h3>
-              <p className="font-sans text-xs sm:text-sm text-muted-foreground mb-3 leading-relaxed">
-                {room.subtitle}
-              </p>
-              <div className="flex items-center justify-between font-sans text-xs text-foreground/70 border-t border-border pt-3">
-                <span>{room.size}</span>
-                <span>{room.bedType}</span>
-              </div>
-              <p className="font-sans text-sm text-villa-terracotta mt-2 tabular-nums">
-                {fromLabel} {room.price}€ / {perNightLabel}
-              </p>
-            </Link>
-          );
-        })}
+  return (
+    <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-10">
+        <SideCard room={rooms[prevIndex]} onClick={() => setActiveIndex(prevIndex)} />
+
+        <Link href={`/suites/${rooms[activeIndex].slug}`} className="shrink-0 w-[220px] sm:w-[320px] lg:w-[400px]">
+          <div className="relative aspect-[3/4] overflow-hidden mb-5 shadow-xl">
+            {rooms[activeIndex].image && (
+              <Image
+                key={rooms[activeIndex].id}
+                src={rooms[activeIndex].image}
+                alt={rooms[activeIndex].name}
+                fill
+                sizes="(max-width: 640px) 220px, (max-width: 1024px) 320px, 400px"
+                className="object-cover"
+                priority
+              />
+            )}
+          </div>
+          <h3 className="font-serif text-2xl sm:text-3xl text-foreground mb-1">{rooms[activeIndex].name}</h3>
+          <p className="font-sans text-sm text-muted-foreground mb-4 leading-relaxed">
+            {rooms[activeIndex].subtitle}
+          </p>
+          <div className="flex items-center justify-between font-sans text-xs text-foreground/70 border-t border-border pt-3">
+            <span>{rooms[activeIndex].size}</span>
+            <span>{rooms[activeIndex].bedType}</span>
+          </div>
+          <p className="font-sans text-sm text-villa-terracotta mt-2 tabular-nums">
+            {fromLabel} {rooms[activeIndex].price}€ / {perNightLabel}
+          </p>
+        </Link>
+
+        <SideCard room={rooms[nextIndex]} onClick={() => setActiveIndex(nextIndex)} />
       </div>
 
-      <div className="flex items-center justify-center gap-6 mt-4">
+      <div className="flex items-center justify-center gap-6 mt-8">
         <button
           type="button"
           onClick={() => go(-1)}
@@ -124,5 +105,33 @@ export function SuiteCompareStrip({
         </button>
       </div>
     </div>
+  );
+}
+
+function SideCard({ room, onClick }: { room: CompareSuite; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={room.name}
+      className="shrink-0 hidden sm:block w-[130px] lg:w-[180px] opacity-45 hover:opacity-70 transition-opacity"
+    >
+      <div className="relative aspect-[3/4] overflow-hidden">
+        {room.image && (
+          <Image
+            key={room.id}
+            src={room.image}
+            alt={room.name}
+            fill
+            sizes="(max-width: 1024px) 130px, 180px"
+            className="object-cover"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-villa-ink/70 via-transparent to-transparent" />
+        <p className="absolute bottom-3 left-0 right-0 px-2 font-serif text-sm text-white text-center">
+          {room.name}
+        </p>
+      </div>
+    </button>
   );
 }
