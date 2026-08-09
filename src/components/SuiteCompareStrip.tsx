@@ -1,7 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  type PanInfo,
+  type Variants,
+} from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { ChevronLeft, ChevronRight, Maximize2, BedDouble } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,6 +23,11 @@ export type CompareSuite = {
   bedType: string;
 };
 
+// Threshold (px) and velocity (px/s) a drag/swipe must clear before we treat
+// it as "advance the carousel" instead of snapping back to where we started.
+const DRAG_OFFSET_THRESHOLD = 80;
+const DRAG_VELOCITY_THRESHOLD = 500;
+
 export function SuiteCompareStrip({
   rooms,
   perNightLabel,
@@ -27,14 +38,25 @@ export function SuiteCompareStrip({
   reserveLabel: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  // +1 = travelling toward "next" (content should enter from the right),
+  // -1 = travelling toward "previous" (content should enter from the left).
+  // Every navigation path (buttons, dots, side-card click, drag, keyboard)
+  // funnels through go()/navigateTo() so this stays correct everywhere.
   const [direction, setDirection] = useState(1);
   const n = rooms.length;
+
+  // prefers-reduced-motion support: fall back to a quick, flat opacity
+  // crossfade with no 3D rotation/translation and no spring overshoot.
+  const reducedMotion = useReducedMotion();
 
   function go(delta: number) {
     setDirection(delta);
     setActiveIndex((i) => (i + delta + n) % n);
   }
 
+  // Jump to an arbitrary index (dot nav / clicking a side card) — figures out
+  // the *shortest* direction around the loop so the animation always travels
+  // the short way, not always forward.
   function navigateTo(target: number) {
     let diff = target - activeIndex;
     if (diff > n / 2) diff -= n;
@@ -46,80 +68,136 @@ export function SuiteCompareStrip({
   const prevIndex = (activeIndex - 1 + n) % n;
   const nextIndex = (activeIndex + 1) % n;
 
-  const slideVariants = {
-    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 28 : -28 }),
-    center: { opacity: 1, x: 0 },
-    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -28 : 28 }),
-  };
+  // Keyboard navigation: Left/Right arrow keys drive the same go() used by
+  // the on-screen buttons.
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleDragEnd(_: unknown, info: PanInfo) {
+    if (info.offset.x < -DRAG_OFFSET_THRESHOLD || info.velocity.x < -DRAG_VELOCITY_THRESHOLD) {
+      go(1);
+    } else if (info.offset.x > DRAG_OFFSET_THRESHOLD || info.velocity.x > DRAG_VELOCITY_THRESHOLD) {
+      go(-1);
+    }
+    // Otherwise: framer-motion's dragConstraints spring the row back to 0
+    // automatically — no manual "snap back" needed.
+  }
+
+  // Full luxury variant set: exit rotates/translates in 3D away from the
+  // viewer, then the incoming card springs to rest from the same 3D pose.
+  // Reduced-motion users get a flat, fast crossfade instead.
+  const cardVariants: Variants = reducedMotion
+    ? {
+        enter: { opacity: 0 },
+        center: { opacity: 1, transition: { duration: 0.2 } },
+        exit: { opacity: 0, transition: { duration: 0.15 } },
+      }
+    : {
+        enter: (dir: number) => ({
+          opacity: 0,
+          scale: 0.82,
+          rotateY: dir > 0 ? -25 : 25,
+          x: dir > 0 ? "60%" : "-60%",
+          z: -50,
+        }),
+        center: {
+          opacity: 1,
+          scale: 1,
+          rotateY: 0,
+          x: 0,
+          z: 100,
+          // Spring physics for the entrance — slight overshoot before it
+          // settles into place, per the "concierge, unhurried" brief.
+          transition: { type: "spring", stiffness: 120, damping: 20, mass: 0.8 },
+        },
+        exit: (dir: number) => ({
+          opacity: 0.5,
+          scale: 0.82,
+          rotateY: dir > 0 ? 25 : -25,
+          x: dir > 0 ? "-60%" : "60%",
+          z: -50,
+          // Custom cubic-bezier — a slow, deliberate exit rather than a snap.
+          transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+        }),
+      };
+
+  // The photo inside each card drifts a little further than the card frame
+  // itself during the transition — a cheap, tasteful parallax read as depth.
+  // (Scaled well below a literal 1.2x of the card's full ±60% travel, which
+  // would tear the image past its frame — this keeps it a subtle accent.)
+  const imageParallaxVariants: Variants = reducedMotion
+    ? { enter: { x: 0 }, center: { x: 0 }, exit: { x: 0 } }
+    : {
+        enter: (dir: number) => ({ x: dir > 0 ? "8%" : "-8%" }),
+        center: { x: 0, transition: { type: "spring", stiffness: 120, damping: 20, mass: 0.8 } },
+        exit: (dir: number) => ({ x: dir > 0 ? "-8%" : "8%", transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] } }),
+      };
 
   return (
     <div>
-      <div className="relative overflow-hidden py-6">
-        <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10">
-          <div className="hidden sm:block relative shrink-0 w-[190px] lg:w-[250px]">
-            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
-              <motion.button
-                key={rooms[prevIndex].id}
-                type="button"
-                onClick={() => navigateTo(prevIndex)}
-                aria-label={rooms[prevIndex].name}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="block w-full text-left"
-              >
-                <SuiteCardVisual room={rooms[prevIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
-              </motion.button>
-            </AnimatePresence>
-          </div>
+      {/* perspective is what makes the children's rotateY/z transforms read as 3D */}
+      <div className="relative overflow-hidden py-6" style={{ perspective: reducedMotion ? undefined : 1400 }}>
+        <motion.div
+          className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10"
+          drag={reducedMotion ? false : "x"}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.15}
+          onDragEnd={handleDragEnd}
+        >
+          <SideSlot
+            room={rooms[prevIndex]}
+            direction={direction}
+            variants={cardVariants}
+            imageVariants={imageParallaxVariants}
+            onClick={() => navigateTo(prevIndex)}
+          />
 
-          <div className="relative shrink-0 w-[260px] sm:w-[400px] lg:w-[500px]">
+          <div className="relative shrink-0 w-[78vw] max-w-[320px] sm:w-[55vw] sm:max-w-[380px] lg:w-[480px] lg:max-w-none [will-change:transform]">
             <AnimatePresence mode="popLayout" custom={direction} initial={false}>
               <motion.div
                 key={rooms[activeIndex].id}
                 custom={direction}
-                variants={slideVariants}
+                variants={cardVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.45, ease: "easeOut" }}
+                style={{ transformStyle: "preserve-3d" }}
               >
                 <Link href={`/suites/${rooms[activeIndex].slug}`} className="block">
-                  <SuiteCardVisual room={rooms[activeIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active />
+                  <SuiteCardVisual
+                    room={rooms[activeIndex]}
+                    perNightLabel={perNightLabel}
+                    reserveLabel={reserveLabel}
+                    active
+                    direction={direction}
+                    imageVariants={imageParallaxVariants}
+                  />
                 </Link>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="hidden sm:block relative shrink-0 w-[190px] lg:w-[250px]">
-            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
-              <motion.button
-                key={rooms[nextIndex].id}
-                type="button"
-                onClick={() => navigateTo(nextIndex)}
-                aria-label={rooms[nextIndex].name}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="block w-full text-left"
-              >
-                <SuiteCardVisual room={rooms[nextIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
-              </motion.button>
-            </AnimatePresence>
-          </div>
-        </div>
+          <SideSlot
+            room={rooms[nextIndex]}
+            direction={direction}
+            variants={cardVariants}
+            imageVariants={imageParallaxVariants}
+            onClick={() => navigateTo(nextIndex)}
+          />
+        </motion.div>
 
         <button
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous"
-          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 size-11 sm:size-12 rounded-full bg-card border border-border shadow-sm flex items-center justify-center text-foreground hover:border-villa-terracotta hover:text-villa-terracotta transition-colors"
+          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 size-11 sm:size-12 rounded-full bg-card border border-border shadow-sm flex items-center justify-center text-foreground transition-all hover:border-villa-terracotta hover:text-villa-terracotta hover:scale-105"
         >
           <ChevronLeft className="size-5" />
         </button>
@@ -127,7 +205,7 @@ export function SuiteCompareStrip({
           type="button"
           onClick={() => go(1)}
           aria-label="Next"
-          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 size-11 sm:size-12 rounded-full bg-card border border-border shadow-sm flex items-center justify-center text-foreground hover:border-villa-terracotta hover:text-villa-terracotta transition-colors"
+          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 size-11 sm:size-12 rounded-full bg-card border border-border shadow-sm flex items-center justify-center text-foreground transition-all hover:border-villa-terracotta hover:text-villa-terracotta hover:scale-105"
         >
           <ChevronRight className="size-5" />
         </button>
@@ -151,34 +229,82 @@ export function SuiteCompareStrip({
   );
 }
 
+// One of the two peeking side cards. Hidden below `sm` (mobile = single
+// full-width card, per spec); a narrow ~18vw peek on tablet; full width on
+// desktop (`lg`).
+function SideSlot({
+  room,
+  direction,
+  variants,
+  imageVariants,
+  onClick,
+}: {
+  room: CompareSuite;
+  direction: number;
+  variants: Variants;
+  imageVariants: Variants;
+  onClick: () => void;
+}) {
+  return (
+    <div className="hidden sm:block relative shrink-0 w-[18vw] max-w-[120px] lg:w-[230px] lg:max-w-none [will-change:transform]">
+      <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+        <motion.button
+          key={room.id}
+          type="button"
+          onClick={onClick}
+          aria-label={room.name}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          style={{ transformStyle: "preserve-3d" }}
+          className="block w-full text-left"
+        >
+          <SuiteCardVisual room={room} perNightLabel="" reserveLabel="" active={false} direction={direction} imageVariants={imageVariants} />
+        </motion.button>
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function SuiteCardVisual({
   room,
   perNightLabel,
   reserveLabel,
   active,
+  direction,
+  imageVariants,
 }: {
   room: CompareSuite;
   perNightLabel: string;
   reserveLabel: string;
   active: boolean;
+  direction: number;
+  imageVariants: Variants;
 }) {
   return (
     <div
       className={cn(
         "bg-card rounded-lg overflow-hidden shadow-[0_8px_30px_rgba(30,20,10,0.1)]",
-        active ? "scale-100 opacity-100" : "scale-[0.92] opacity-50"
+        active ? "opacity-100" : "opacity-50 [filter:blur(0.5px)]"
       )}
     >
-      <div className="relative aspect-[3/4] overflow-hidden">
+      {/* Fixed-size crop window — stays put while the image inside drifts
+          for the parallax effect, so the card's outline never distorts. */}
+      <div className="relative aspect-[4/3] overflow-hidden">
         {room.image && (
-          <Image
-            src={room.image}
-            alt={room.name}
-            fill
-            sizes="(max-width: 640px) 260px, (max-width: 1024px) 400px, 500px"
-            className="object-cover"
-            priority={active}
-          />
+          <motion.div custom={direction} variants={imageVariants} className="absolute inset-0 scale-[1.15]">
+            <Image
+              src={room.image}
+              alt={room.name}
+              fill
+              loading={active ? undefined : "lazy"}
+              sizes="(max-width: 640px) 260px, (max-width: 1024px) 400px, 500px"
+              className="object-cover"
+              priority={active}
+            />
+          </motion.div>
         )}
       </div>
 
@@ -196,7 +322,7 @@ function SuiteCardVisual({
 
         {active && (
           <>
-            <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">{room.subtitle}</p>
+            <p className="font-sans text-sm italic text-muted-foreground leading-relaxed mb-4">{room.subtitle}</p>
 
             <div className="grid grid-cols-2 gap-4 py-4 border-t border-border">
               <div className="flex items-center gap-2">
