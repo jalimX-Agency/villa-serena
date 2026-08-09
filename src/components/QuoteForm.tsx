@@ -5,7 +5,7 @@ import { submitQuoteRequest, type QuoteFormState } from "@/lib/actions/booking";
 
 const initialState: QuoteFormState = { status: "idle" };
 
-export function QuoteForm({ serviceType }: { serviceType: string }) {
+export function QuoteForm({ serviceType, submitLabel }: { serviceType: string; submitLabel?: string }) {
   const t = useTranslations();
   const boundAction = submitQuoteRequest.bind(null, serviceType);
   const [state, formAction, pending] = useActionState(boundAction, initialState);
@@ -101,7 +101,7 @@ export function QuoteForm({ serviceType }: { serviceType: string }) {
         disabled={pending}
         className="w-full px-6 py-3.5 bg-villa-terracotta hover:bg-villa-terracotta/90 disabled:opacity-60 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
       >
-        {pending ? "…" : t("experiences.quote_button")}
+        {pending ? "…" : submitLabel ?? t("experiences.quote_button")}
       </button>
     </form>
   );

@@ -41,7 +41,25 @@
   },
   "villa": {
     "page_title": "The Villa",
-    "page_sub": "A peaceful, family-friendly stay in a haven of peace where nature and craftsmanship meet."
+    "page_sub": "A peaceful, family-friendly stay in a haven of peace where nature and craftsmanship meet.",
+    "intro": "Our suites, arranged around a riad-inspired patio, offer a calm and enchanting setting. Admire the starry sky from the patio, enjoy the fireplace lounge and a dining room seating up to 14 guests. The ethnic, bohemian decor — sourced and customised by Marrakech artisans — creates a warm, elegant atmosphere.",
+    "amenities_label": "Wellness & Leisure",
+    "amenities_title": "From the Hammam to Pétanque",
+    "amenities_sub": "Traditional hammam, massage room, fitness room, pétanque court, badminton and table tennis — plus the garden with its koi pond and Buddha statue.",
+    "amenities": [
+      "Traditional hammam",
+      "Massage room",
+      "Fitness room",
+      "Pétanque court",
+      "Badminton & table tennis",
+      "Garden with koi pond",
+      "Fireplace lounge",
+      "Dining room seating up to 14"
+    ],
+    "cta_title": "Want to See More?",
+    "cta_body": "Browse our five suites or check availability for your stay.",
+    "cta_suites": "View the Suites",
+    "cta_book": "Book Now"
   },
   "suites": {
     "page_title": "The Suites",
@@ -96,8 +114,8 @@
     "quote_button": "Request a Quote"
   },
   "contact": {
-    "page_title": "Contact & Booking",
-    "page_sub": "Reach us directly — we reply within a few hours.",
+    "page_title": "Contact",
+    "page_sub": "Have a question? Reach us directly — we reply within a few hours.",
     "form_name": "Full Name",
     "form_email": "Email Address",
     "form_phone": "Phone / WhatsApp",

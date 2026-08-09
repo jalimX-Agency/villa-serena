@@ -41,7 +41,25 @@
   },
   "villa": {
     "page_title": "La Villa",
-    "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent."
+    "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent.",
+    "intro": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
+    "amenities_label": "Bien-Être & Loisirs",
+    "amenities_title": "Du Hammam à la Pétanque",
+    "amenities_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
+    "amenities": [
+      "Hammam traditionnel",
+      "Salle de massage",
+      "Salle de sport",
+      "Terrain de pétanque",
+      "Badminton & ping-pong",
+      "Jardin avec bassin de carpes koï",
+      "Salon avec cheminée",
+      "Salle à manger jusqu'à 14 personnes"
+    ],
+    "cta_title": "Envie de Découvrir la Villa ?",
+    "cta_body": "Parcourez nos cinq suites ou vérifiez les disponibilités pour votre séjour.",
+    "cta_suites": "Voir les Suites",
+    "cta_book": "Réserver"
   },
   "suites": {
     "page_title": "Les Suites",
@@ -96,8 +114,8 @@
     "quote_button": "Demander un Devis"
   },
   "contact": {
-    "page_title": "Contact & Réservation",
-    "page_sub": "Contactez-nous directement — nous répondons en quelques heures.",
+    "page_title": "Contact",
+    "page_sub": "Une question ? Contactez-nous directement — nous répondons en quelques heures.",
     "form_name": "Nom Complet",
     "form_email": "Adresse Email",
     "form_phone": "Téléphone / WhatsApp",
