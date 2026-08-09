@@ -98,7 +98,15 @@
     "back": "Retour aux Suites",
     "more_rooms": "Autres Suites",
     "all_rooms_include": "Toutes les suites incluent",
-    "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
+    "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"],
+    "moods": {
+      "chambre-rouge": "Passion",
+      "chambre-bleue": "Sérénité",
+      "chambre-verte": "Vitalité",
+      "chambre-rose": "Tendresse",
+      "suite-bleue": "Sagesse"
+    },
+    "mood_hint": "Survolez une suite pour ressentir son ambiance"
   },
   "reservation": {
     "page_title": "Réserver votre Séjour",
