@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { ChevronLeft, ChevronRight, Maximize2, BedDouble } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -26,43 +27,92 @@ export function SuiteCompareStrip({
   reserveLabel: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const n = rooms.length;
 
   function go(delta: number) {
+    setDirection(delta);
     setActiveIndex((i) => (i + delta + n) % n);
+  }
+
+  function navigateTo(target: number) {
+    let diff = target - activeIndex;
+    if (diff > n / 2) diff -= n;
+    if (diff < -n / 2) diff += n;
+    setDirection(diff >= 0 ? 1 : -1);
+    setActiveIndex(target);
   }
 
   const prevIndex = (activeIndex - 1 + n) % n;
   const nextIndex = (activeIndex + 1) % n;
 
+  const slideVariants = {
+    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 28 : -28 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -28 : 28 }),
+  };
+
   return (
     <div>
       <div className="relative overflow-hidden py-6">
         <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10">
-          <button
-            type="button"
-            onClick={() => setActiveIndex(prevIndex)}
-            aria-label={rooms[prevIndex].name}
-            className="hidden sm:block shrink-0 w-[190px] lg:w-[250px]"
-          >
-            <SuiteCardVisual room={rooms[prevIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
-          </button>
+          <div className="hidden sm:block relative shrink-0 w-[190px] lg:w-[250px]">
+            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+              <motion.button
+                key={rooms[prevIndex].id}
+                type="button"
+                onClick={() => navigateTo(prevIndex)}
+                aria-label={rooms[prevIndex].name}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="block w-full text-left"
+              >
+                <SuiteCardVisual room={rooms[prevIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
+              </motion.button>
+            </AnimatePresence>
+          </div>
 
-          <Link
-            href={`/suites/${rooms[activeIndex].slug}`}
-            className="shrink-0 w-[260px] sm:w-[400px] lg:w-[500px]"
-          >
-            <SuiteCardVisual room={rooms[activeIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active />
-          </Link>
+          <div className="relative shrink-0 w-[260px] sm:w-[400px] lg:w-[500px]">
+            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+              <motion.div
+                key={rooms[activeIndex].id}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              >
+                <Link href={`/suites/${rooms[activeIndex].slug}`} className="block">
+                  <SuiteCardVisual room={rooms[activeIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active />
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setActiveIndex(nextIndex)}
-            aria-label={rooms[nextIndex].name}
-            className="hidden sm:block shrink-0 w-[190px] lg:w-[250px]"
-          >
-            <SuiteCardVisual room={rooms[nextIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
-          </button>
+          <div className="hidden sm:block relative shrink-0 w-[190px] lg:w-[250px]">
+            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+              <motion.button
+                key={rooms[nextIndex].id}
+                type="button"
+                onClick={() => navigateTo(nextIndex)}
+                aria-label={rooms[nextIndex].name}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="block w-full text-left"
+              >
+                <SuiteCardVisual room={rooms[nextIndex]} perNightLabel={perNightLabel} reserveLabel={reserveLabel} active={false} />
+              </motion.button>
+            </AnimatePresence>
+          </div>
         </div>
 
         <button
@@ -88,7 +138,7 @@ export function SuiteCompareStrip({
           <button
             key={room.id}
             type="button"
-            onClick={() => setActiveIndex(i)}
+            onClick={() => navigateTo(i)}
             aria-label={room.name}
             className={cn(
               "size-1.5 rounded-full transition-colors",
@@ -115,7 +165,7 @@ function SuiteCardVisual({
   return (
     <div
       className={cn(
-        "bg-card rounded-lg overflow-hidden shadow-[0_8px_30px_rgba(30,20,10,0.1)] transition-all duration-500 ease-out",
+        "bg-card rounded-lg overflow-hidden shadow-[0_8px_30px_rgba(30,20,10,0.1)]",
         active ? "scale-100 opacity-100" : "scale-[0.92] opacity-50"
       )}
     >
