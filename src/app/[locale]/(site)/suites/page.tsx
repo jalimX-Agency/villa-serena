@@ -60,7 +60,11 @@ export default async function SuitesPage({
       </div>
 
       <Section className="pb-20 lg:pb-28">
-        <SuiteCompareStrip rooms={compareSuites} fromLabel={t("suites.from")} perNightLabel={t("suites.per_night")} />
+        <SuiteCompareStrip
+          rooms={compareSuites}
+          perNightLabel={t("suites.per_night")}
+          reserveLabel={t("suites.book_this_room")}
+        />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mt-4 pt-12 border-t border-border text-center">
