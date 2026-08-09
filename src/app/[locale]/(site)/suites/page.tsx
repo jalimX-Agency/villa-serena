@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { db } from "@/lib/db";
 import { Section } from "@/components/Section";
-import { RoomCard } from "@/components/home/RoomCard";
+import { SuiteCompareStrip, type CompareSuite } from "@/components/SuiteCompareStrip";
 
 export async function generateMetadata({
   params,
@@ -36,6 +36,16 @@ export default async function SuitesPage({
 
   const rooms = await db.room.findMany({ orderBy: { order: "asc" } });
   const includes = t.raw("suites.includes") as string[];
+  const compareSuites: CompareSuite[] = rooms.map((room) => ({
+    id: room.id,
+    slug: room.slug,
+    name: isEn && room.nameEn ? room.nameEn : room.name,
+    subtitle: isEn && room.subtitleEn ? room.subtitleEn : room.subtitle,
+    price: room.price,
+    image: room.image,
+    size: room.size,
+    bedType: isEn && room.bedTypeEn ? room.bedTypeEn : room.bedType,
+  }));
 
   return (
     <>
@@ -50,14 +60,10 @@ export default async function SuitesPage({
       </div>
 
       <Section className="pb-20 lg:pb-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
-            {rooms.map((room, i) => (
-              <RoomCard key={room.id} room={room} locale={locale} t={t} index={i} />
-            ))}
-          </div>
+        <SuiteCompareStrip rooms={compareSuites} fromLabel={t("suites.from")} perNightLabel={t("suites.per_night")} />
 
-          <div className="mt-20 pt-12 border-t border-border text-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mt-4 pt-12 border-t border-border text-center">
             <h2 className="font-sans text-[11px] tracking-[0.25em] uppercase text-muted-foreground mb-5">
               {t("suites.all_rooms_include")}
             </h2>
