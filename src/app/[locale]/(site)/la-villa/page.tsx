@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/Section";
-import { SectionLabel } from "@/components/SectionLabel";
+import { ScrollStory, type StoryMoment } from "@/components/ScrollStory";
 
 export async function generateMetadata({
   params,
@@ -26,13 +26,15 @@ export async function generateMetadata({
   };
 }
 
-const GALLERY = ["/welcome-jardin.jpg", "/welcome-salon.jpg", "/exp-petanque.jpg", "/exp-badminton.jpg"];
+const STORY_IMAGES = ["/welcome-jardin.jpg", "/welcome-salon.jpg", "/exp-petanque.jpg", "/exp-hammam.jpg", "/hero-main.jpg"];
 
 export default async function VillaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
   const amenities = t.raw("villa.amenities") as string[];
+  const storyRaw = t.raw("villa.story") as { label: string; title: string; body: string }[];
+  const story: StoryMoment[] = storyRaw.map((m, i) => ({ ...m, image: STORY_IMAGES[i] }));
   const stats = [
     { label: t("home.stats.rooms") },
     { label: t("home.stats.guests") },
@@ -60,45 +62,24 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
         </div>
       </Section>
 
-      <Section className="pb-16 lg:pb-20">
+      <ScrollStory moments={story} />
+
+      <Section className="py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center mb-16">
             {stats.map((s) => (
               <div key={s.label} className="border border-border py-8 px-4">
                 <p className="font-serif text-xl sm:text-2xl text-villa-terracotta">{s.label}</p>
               </div>
             ))}
           </div>
-        </div>
-      </Section>
-
-      <Section className="bg-villa-cream py-16 lg:py-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <SectionLabel>{t("villa.amenities_label")}</SectionLabel>
-            <h2 className="font-serif text-3xl sm:text-4xl text-foreground mb-4">{t("villa.amenities_title")}</h2>
-            <p className="font-sans text-foreground/70 leading-relaxed mb-8">{t("villa.amenities_sub")}</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-6">
-              {amenities.map((a) => (
-                <li key={a} className="font-sans text-sm text-foreground/80">
-                  · {a}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {GALLERY.map((src, i) => (
-              <div key={src} className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={src}
-                  alt={`Villa Serena ${i + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
+          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {amenities.map((a) => (
+              <li key={a} className="font-sans text-sm text-foreground/70">
+                {a}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </Section>
 

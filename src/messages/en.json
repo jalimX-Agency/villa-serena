@@ -46,6 +46,33 @@
     "amenities_label": "Wellness & Leisure",
     "amenities_title": "From the Hammam to Pétanque",
     "amenities_sub": "Traditional hammam, massage room, fitness room, pétanque court, badminton and table tennis — plus the garden with its koi pond and Buddha statue.",
+    "story": [
+      {
+        "label": "The Patio",
+        "title": "A Starry Sky at the Riad's Heart",
+        "body": "The five suites are arranged around a riad-inspired patio — the villa's quiet heart, where evenings linger under the stars."
+      },
+      {
+        "label": "The Lounge",
+        "title": "A Fireplace, a Table for 14",
+        "body": "The fireplace lounge invites you to unwind, while the dining room seats up to 14 guests for shared meals."
+      },
+      {
+        "label": "The Garden",
+        "title": "Koi Ponds and Rediscovered Quiet",
+        "body": "A peaceful garden with its koi pond, Buddha statue and pétanque court — a green refuge in the heart of Marrakech."
+      },
+      {
+        "label": "Wellness",
+        "title": "Hammam, Massage & Renewal",
+        "body": "A traditional hammam, massage room and fitness room — to take care of yourself between excursions."
+      },
+      {
+        "label": "The Art of Hosting",
+        "title": "Craftsmanship Sourced in Marrakech",
+        "body": "Ethnic, bohemian decor — sourced and customised by local artisans — every corner of the villa tells a story."
+      }
+    ],
     "amenities": [
       "Traditional hammam",
       "Massage room",

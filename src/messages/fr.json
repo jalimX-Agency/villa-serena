@@ -46,6 +46,33 @@
     "amenities_label": "Bien-Être & Loisirs",
     "amenities_title": "Du Hammam à la Pétanque",
     "amenities_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
+    "story": [
+      {
+        "label": "Le Patio",
+        "title": "Un Ciel Étoilé au Cœur du Riad",
+        "body": "Les cinq suites s'organisent autour d'un patio d'inspiration riad — le cœur silencieux de la villa, où les soirées se prolongent sous les étoiles."
+      },
+      {
+        "label": "Le Salon",
+        "title": "Un Feu de Cheminée, une Tablée de 14",
+        "body": "Le salon avec cheminée invite à la détente, tandis que la salle à manger accueille jusqu'à 14 convives pour des repas partagés."
+      },
+      {
+        "label": "Le Jardin",
+        "title": "Carpes Koï et Silence Retrouvé",
+        "body": "Un jardin paisible avec son bassin de carpes koï, sa statue de Bouddha et son terrain de pétanque — un refuge végétal en plein Marrakech."
+      },
+      {
+        "label": "Bien-Être",
+        "title": "Hammam, Massage & Renouveau",
+        "body": "Hammam traditionnel, salle de massage et salle de sport — pour prendre soin de soi entre deux excursions."
+      },
+      {
+        "label": "L'Art de Recevoir",
+        "title": "Un Artisanat Chiné à Marrakech",
+        "body": "Décoration ethnique et bohème, chinée et customisée par des artisans locaux — chaque recoin de la villa raconte une histoire."
+      }
+    ],
     "amenities": [
       "Hammam traditionnel",
       "Salle de massage",
