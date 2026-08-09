@@ -98,15 +98,7 @@
     "back": "Back to Suites",
     "more_rooms": "Other Suites",
     "all_rooms_include": "All suites include",
-    "includes": ["Private shower & WC", "Air conditioning", "Terrace", "Daily housekeeping", "Breakfast"],
-    "moods": {
-      "chambre-rouge": "Passion",
-      "chambre-bleue": "Serenity",
-      "chambre-verte": "Vitality",
-      "chambre-rose": "Tenderness",
-      "suite-bleue": "Wisdom"
-    },
-    "mood_hint": "Hover a suite to feel its mood"
+    "includes": ["Private shower & WC", "Air conditioning", "Terrace", "Daily housekeeping", "Breakfast"]
   },
   "reservation": {
     "page_title": "Book Your Stay",
