@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 
-const cormorant = Cormorant_Garamond({
+// Self-hosted — see src/app/[locale]/layout.tsx for why (Google Fonts
+// reachability at build time isn't guaranteed on every host).
+const cormorant = localFont({
   variable: "--font-cormorant",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+  src: [
+    { path: "../../fonts/cormorant-garamond-400.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-500.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-600.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-700.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
+  src: [
+    { path: "../../fonts/inter-300.woff2", weight: "300", style: "normal" },
+    { path: "../../fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/inter-600.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/inter-700.woff2", weight: "700", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {

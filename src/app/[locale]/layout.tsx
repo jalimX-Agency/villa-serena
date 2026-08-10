@@ -1,20 +1,34 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
-const cormorant = Cormorant_Garamond({
+// Self-hosted (not next/font/google) so the build never depends on being
+// able to reach Google Fonts — that dependency caused production build
+// failures ("module not found" for the generated font CSS) on hosts that
+// don't allow outbound network access during the build step.
+const cormorant = localFont({
   variable: "--font-cormorant",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+  src: [
+    { path: "../../fonts/cormorant-garamond-400.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-500.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-600.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-700.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
+  src: [
+    { path: "../../fonts/inter-300.woff2", weight: "300", style: "normal" },
+    { path: "../../fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/inter-600.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/inter-700.woff2", weight: "700", style: "normal" },
+  ],
 });
 
 export function generateStaticParams() {
