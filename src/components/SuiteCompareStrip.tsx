@@ -118,13 +118,16 @@ export function SuiteCompareStrip({
           transition: { type: "spring", stiffness: 120, damping: 20, mass: 0.8 },
         },
         exit: (dir: number) => ({
-          opacity: 0.5,
+          opacity: 0,
           scale: 0.82,
           rotateY: dir > 0 ? 25 : -25,
           x: dir > 0 ? "-60%" : "60%",
           z: -50,
           // Custom cubic-bezier — a slow, deliberate exit rather than a snap.
-          transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+          // Fades all the way to 0 (not a partial opacity) so the outgoing
+          // card is actually gone by the time the transition finishes,
+          // instead of lingering as a faint "ghost" over the next card.
+          transition: { duration: 0.4, ease: [0.25, 1, 0.5, 1] },
         }),
       };
 
@@ -137,7 +140,7 @@ export function SuiteCompareStrip({
     : {
         enter: (dir: number) => ({ x: dir > 0 ? "8%" : "-8%" }),
         center: { x: 0, transition: { type: "spring", stiffness: 120, damping: 20, mass: 0.8 } },
-        exit: (dir: number) => ({ x: dir > 0 ? "-8%" : "8%", transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] } }),
+        exit: (dir: number) => ({ x: dir > 0 ? "-8%" : "8%", transition: { duration: 0.4, ease: [0.25, 1, 0.5, 1] } }),
       };
 
   return (
@@ -151,13 +154,7 @@ export function SuiteCompareStrip({
           dragElastic={0.15}
           onDragEnd={handleDragEnd}
         >
-          <SideSlot
-            room={rooms[prevIndex]}
-            direction={direction}
-            variants={cardVariants}
-            imageVariants={imageParallaxVariants}
-            onClick={() => navigateTo(prevIndex)}
-          />
+          <SideSlot room={rooms[prevIndex]} onClick={() => navigateTo(prevIndex)} />
 
           <div className="relative shrink-0 w-[78vw] max-w-[320px] sm:w-[55vw] sm:max-w-[380px] lg:w-[480px] lg:max-w-none [will-change:transform]">
             <AnimatePresence mode="popLayout" custom={direction} initial={false}>
@@ -184,13 +181,7 @@ export function SuiteCompareStrip({
             </AnimatePresence>
           </div>
 
-          <SideSlot
-            room={rooms[nextIndex]}
-            direction={direction}
-            variants={cardVariants}
-            imageVariants={imageParallaxVariants}
-            onClick={() => navigateTo(nextIndex)}
-          />
+          <SideSlot room={rooms[nextIndex]} onClick={() => navigateTo(nextIndex)} />
         </motion.div>
 
         <button
@@ -229,42 +220,23 @@ export function SuiteCompareStrip({
   );
 }
 
-// One of the two peeking side cards. Hidden below `sm` (mobile = single
-// full-width card, per spec); a narrow ~18vw peek on tablet; full width on
-// desktop (`lg`).
-function SideSlot({
-  room,
-  direction,
-  variants,
-  imageVariants,
-  onClick,
-}: {
-  room: CompareSuite;
-  direction: number;
-  variants: Variants;
-  imageVariants: Variants;
-  onClick: () => void;
-}) {
+// One of the two peeking side cards. Deliberately NOT animated: only the
+// center card runs the enter/exit transition. Animating the side slots too
+// used to mean the same room briefly existed as two concurrent animated
+// copies (one exiting the center slot, one "entering" a side slot) whose
+// motion paths crossed on screen — that's what read as a lingering ghost
+// card. Side slots now just swap their content instantly, so at most one
+// animated instance of any given room ever exists at once.
+function SideSlot({ room, onClick }: { room: CompareSuite; onClick: () => void }) {
   return (
-    <div className="hidden sm:block relative shrink-0 w-[18vw] max-w-[120px] lg:w-[230px] lg:max-w-none [will-change:transform]">
-      <AnimatePresence mode="popLayout" custom={direction} initial={false}>
-        <motion.button
-          key={room.id}
-          type="button"
-          onClick={onClick}
-          aria-label={room.name}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          style={{ transformStyle: "preserve-3d" }}
-          className="block w-full text-left"
-        >
-          <SuiteCardVisual room={room} perNightLabel="" reserveLabel="" active={false} direction={direction} imageVariants={imageVariants} />
-        </motion.button>
-      </AnimatePresence>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={room.name}
+      className="hidden sm:block shrink-0 w-[18vw] max-w-[120px] lg:w-[230px] lg:max-w-none text-left"
+    >
+      <SuiteCardVisual room={room} perNightLabel="" reserveLabel="" active={false} />
+    </button>
   );
 }
 
@@ -280,8 +252,8 @@ function SuiteCardVisual({
   perNightLabel: string;
   reserveLabel: string;
   active: boolean;
-  direction: number;
-  imageVariants: Variants;
+  direction?: number;
+  imageVariants?: Variants;
 }) {
   return (
     <div
@@ -293,18 +265,28 @@ function SuiteCardVisual({
       {/* Fixed-size crop window — stays put while the image inside drifts
           for the parallax effect, so the card's outline never distorts. */}
       <div className="relative aspect-[4/3] overflow-hidden">
-        {room.image && (
+        {room.image && imageVariants ? (
           <motion.div custom={direction} variants={imageVariants} className="absolute inset-0 scale-[1.15]">
             <Image
               src={room.image}
               alt={room.name}
               fill
-              loading={active ? undefined : "lazy"}
               sizes="(max-width: 640px) 260px, (max-width: 1024px) 400px, 500px"
               className="object-cover"
               priority={active}
             />
           </motion.div>
+        ) : (
+          room.image && (
+            <Image
+              src={room.image}
+              alt={room.name}
+              fill
+              loading="lazy"
+              sizes="(max-width: 640px) 260px, (max-width: 1024px) 400px, 500px"
+              className="object-cover"
+            />
+          )
         )}
       </div>
 

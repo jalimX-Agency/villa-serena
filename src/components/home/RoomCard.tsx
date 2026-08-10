@@ -8,11 +8,13 @@ export function RoomCard({
   locale,
   t,
   index,
+  showPrice = true,
 }: {
   room: Room;
   locale: string;
   t: Awaited<ReturnType<typeof useTranslations>>;
   index: number;
+  showPrice?: boolean;
 }) {
   const isEn = locale === "en";
   const name = isEn && room.nameEn ? room.nameEn : room.name;
@@ -44,9 +46,11 @@ export function RoomCard({
           </h3>
           <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>
         </div>
-        <p className="font-sans text-sm text-villa-terracotta whitespace-nowrap tabular-nums">
-          {t("suites.from")} {room.price}€
-        </p>
+        {showPrice && (
+          <p className="font-sans text-sm text-villa-terracotta whitespace-nowrap tabular-nums">
+            {t("suites.from")} {room.price}€
+          </p>
+        )}
       </div>
     </Link>
   );
