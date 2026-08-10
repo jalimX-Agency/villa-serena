@@ -135,7 +135,72 @@
     },
     "golf": {
       "page_title": "Golf",
-      "page_sub": "À proximité des meilleurs parcours de Marrakech — séjours golf sur mesure."
+      "page_sub": "11 parcours de championnat à moins de 30 minutes — séjours golf sur mesure.",
+      "intro": "Villa Serena est idéalement positionnée au cœur de la constellation golfique de Marrakech — le camp de base rêvé pour un séjour golf entre amis ou en famille, à quelques minutes de parcours signés par les plus grands architectes mondiaux.",
+      "stats": {
+        "center": "~25 min",
+        "center_label": "Centre & Jemaa el-Fna",
+        "airport": "~25 min",
+        "airport_label": "Aéroport Ménara",
+        "nearest": "~12 min",
+        "nearest_label": "1er Golf (Palm Ourika)",
+        "count": "11",
+        "count_label": "Parcours Alentour"
+      },
+      "featured_label": "Le Golf · À Proximité Immédiate",
+      "featured_title": "Trois Parcours, à Quelques Minutes",
+      "featured": [
+        {
+          "name": "PalmGolf Marrakech Ourika",
+          "time": "~12 min",
+          "holes": "18 trous",
+          "par": "Par 72",
+          "detail": "6 692 m",
+          "architect": "Haworth & Talbot",
+          "year": "2015 · désertique",
+          "description": "Le plus proche, sur le même axe que la villa. Offrant une vue imprenable sur les montagnes de l'Atlas, le Palm Golf Ourika est un parcours incontournable de la région, conçu dans un style désertique par le duo canadien Neil Haworth et Stéphane Talbot."
+        },
+        {
+          "name": "Akenza Golf",
+          "time": "~18 min",
+          "holes": "18 trous",
+          "par": "Par 72",
+          "detail": "7 150 yds",
+          "architect": "Kyle Phillips",
+          "year": "2025 · Arizona",
+          "description": "Le nouveau joyau de Marrakech (2025). Signé Kyle Phillips, l'architecte du mythique Kingsbarns. Canyons et oueds, huit traversées de ravins, un trou n°7 d'anthologie."
+        },
+        {
+          "name": "Samanah Country Club",
+          "time": "~20 min",
+          "holes": "18 trous",
+          "par": "Par 72",
+          "detail": "Normes USGA",
+          "architect": "Nicklaus Design",
+          "year": "2011 · 300 ha",
+          "description": "La signature Jack Nicklaus. Premier parcours d'Afrique à avoir accueilli une étape du PGA Champions Tour. Club-house inspiré des remparts de Marrakech."
+        }
+      ],
+      "table_label": "Le Golf · La Constellation Complète",
+      "table_title": "Onze Parcours, Cinq Signatures Mondiales",
+      "table_note": "À ces trois greens de proximité immédiate s'ajoutent huit autres parcours, soit onze parcours signés Nicklaus, Kyle Phillips, Robert Trent Jones, Cabell Robinson et Colin Montgomerie, tous avec l'Atlas pour décor.",
+      "table_headers": {
+        "course": "Parcours",
+        "holes": "Trous",
+        "par": "Par",
+        "architect": "Architecte · Style",
+        "time": "Depuis la Villa"
+      },
+      "courses": [
+        { "name": "Golf Al Maaden", "holes": "18", "par": "72", "architect": "Kyle Phillips (2010) · jardin marocain & parc de sculptures", "time": "~22 min" },
+        { "name": "Golf Amelkis", "holes": "27", "par": "72", "architect": "Cabell B. Robinson (1995) · esthétique & technique", "time": "~22 min" },
+        { "name": "Royal Golf de Marrakech", "holes": "27", "par": "72", "architect": "Golias / Massy (1933) · parcours historique", "time": "~22 min" },
+        { "name": "Assoufid Golf Club", "holes": "18", "par": "72", "architect": "Niall Cameron (2012) · désert d'Agafay, privé", "time": "~25 min" },
+        { "name": "The Montgomerie Marrakech", "holes": "18", "par": "71", "architect": "European Golf Design & C. Montgomerie (2015)", "time": "~28 min" },
+        { "name": "Noria Golf Club", "holes": "18", "par": "72", "architect": "Trois ambiances : vergers, désert, oasis", "time": "~28 min" },
+        { "name": "Fairmont Royal Palm", "holes": "18", "par": "72", "architect": "Cabell B. Robinson (2015) · resort 5★ & durable", "time": "~28 min" },
+        { "name": "PalmGolf Marrakech Palmeraie", "holes": "27", "par": "72", "architect": "Robert Trent Jones Sr (1993) · Palmeraie", "time": "~35 min" }
+      ]
     },
     "mariagesEvents": {
       "page_title": "Mariages & Events",

@@ -135,7 +135,72 @@
     },
     "golf": {
       "page_title": "Golf",
-      "page_sub": "Close to Marrakech's finest courses — bespoke golf stays."
+      "page_sub": "11 championship courses within 30 minutes — bespoke golf stays.",
+      "intro": "Villa Serena sits at the heart of Marrakech's golfing constellation — the ideal base camp for a golf trip with friends or family, minutes from courses designed by some of the world's greatest architects.",
+      "stats": {
+        "center": "~25 min",
+        "center_label": "Centre & Jemaa el-Fna",
+        "airport": "~25 min",
+        "airport_label": "Ménara Airport",
+        "nearest": "~12 min",
+        "nearest_label": "1st Golf (Palm Ourika)",
+        "count": "11",
+        "count_label": "Courses Nearby"
+      },
+      "featured_label": "Golf · Right Next Door",
+      "featured_title": "Three Courses, Minutes Away",
+      "featured": [
+        {
+          "name": "PalmGolf Marrakech Ourika",
+          "time": "~12 min",
+          "holes": "18 holes",
+          "par": "Par 72",
+          "detail": "6,692 m",
+          "architect": "Haworth & Talbot",
+          "year": "2015 · desert style",
+          "description": "The closest, on the same axis as the villa. With stunning views over the Atlas mountains, Palm Golf Ourika is a must-play course in the region, designed in a desert style by Canadian duo Neil Haworth and Stéphane Talbot."
+        },
+        {
+          "name": "Akenza Golf",
+          "time": "~18 min",
+          "holes": "18 holes",
+          "par": "Par 72",
+          "detail": "7,150 yds",
+          "architect": "Kyle Phillips",
+          "year": "2025 · Arizona",
+          "description": "Marrakech's new jewel (2025). Designed by Kyle Phillips, architect of the legendary Kingsbarns. Canyons and wadis, eight ravine crossings, an anthology-worthy 7th hole."
+        },
+        {
+          "name": "Samanah Country Club",
+          "time": "~20 min",
+          "holes": "18 holes",
+          "par": "Par 72",
+          "detail": "USGA standard",
+          "architect": "Nicklaus Design",
+          "year": "2011 · 300 ha",
+          "description": "The Jack Nicklaus signature. The first course in Africa to host a PGA Champions Tour event. Clubhouse inspired by Marrakech's ramparts."
+        }
+      ],
+      "table_label": "Golf · The Full Constellation",
+      "table_title": "Eleven Courses, Five World-Class Signatures",
+      "table_note": "Beyond these three nearest greens, eight more courses complete the picture — eleven courses in all, designed by Nicklaus, Kyle Phillips, Robert Trent Jones, Cabell Robinson and Colin Montgomerie, all set against the Atlas mountains.",
+      "table_headers": {
+        "course": "Course",
+        "holes": "Holes",
+        "par": "Par",
+        "architect": "Architect · Style",
+        "time": "From the Villa"
+      },
+      "courses": [
+        { "name": "Golf Al Maaden", "holes": "18", "par": "72", "architect": "Kyle Phillips (2010) · Moroccan garden & sculpture park", "time": "~22 min" },
+        { "name": "Golf Amelkis", "holes": "27", "par": "72", "architect": "Cabell B. Robinson (1995) · aesthetic & technical", "time": "~22 min" },
+        { "name": "Royal Golf de Marrakech", "holes": "27", "par": "72", "architect": "Golias / Massy (1933) · historic course", "time": "~22 min" },
+        { "name": "Assoufid Golf Club", "holes": "18", "par": "72", "architect": "Niall Cameron (2012) · Agafay desert, private", "time": "~25 min" },
+        { "name": "The Montgomerie Marrakech", "holes": "18", "par": "71", "architect": "European Golf Design & C. Montgomerie (2015)", "time": "~28 min" },
+        { "name": "Noria Golf Club", "holes": "18", "par": "72", "architect": "Three settings: orchards, desert, oasis", "time": "~28 min" },
+        { "name": "Fairmont Royal Palm", "holes": "18", "par": "72", "architect": "Cabell B. Robinson (2015) · 5★ resort, sustainable", "time": "~28 min" },
+        { "name": "PalmGolf Marrakech Palmeraie", "holes": "27", "par": "72", "architect": "Robert Trent Jones Sr (1993) · Palmeraie", "time": "~35 min" }
+      ]
     },
     "mariagesEvents": {
       "page_title": "Weddings & Events",

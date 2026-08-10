@@ -86,6 +86,7 @@ export default async function MariagesEventsPage({
           label: t("golf.page_title"),
           sub: t("golf.page_sub"),
           href: "/experiences/golf",
+          image: "/hero-main.jpg",
         },
       ]}
     />

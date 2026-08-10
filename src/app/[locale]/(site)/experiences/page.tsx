@@ -35,7 +35,7 @@ export default async function ExperiencesPage({
 
   const items = [
     { key: "retraitesYoga", href: "/experiences/retraites-yoga", image: "/exp-hammam.jpg" },
-    { key: "golf", href: "/experiences/golf", image: null },
+    { key: "golf", href: "/experiences/golf", image: "/hero-main.jpg" },
     { key: "mariagesEvents", href: "/experiences/mariages-events", image: "/exp-excursions.jpg" },
   ] as const;
 
