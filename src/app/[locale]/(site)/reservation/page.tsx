@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { db } from "@/lib/db";
 import { Section } from "@/components/Section";
-import { getBookedRanges } from "@/lib/actions/room-booking";
-import { ReservationClient, type RoomOption } from "@/components/ReservationClient";
-import type { BookedRange } from "@/components/DateRangePicker";
+import { getVillaBookedRanges } from "@/lib/actions/villa-booking";
+import { ReservationClient } from "@/components/ReservationClient";
 
 export async function generateMetadata({
   params,
@@ -28,34 +26,14 @@ export async function generateMetadata({
 
 export default async function ReservationPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ room?: string }>;
 }) {
   const { locale } = await params;
-  const { room: initialSlug } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const isEn = locale === "en";
 
-  const rooms = await db.room.findMany({ orderBy: { order: "asc" } });
-
-  const bookedRangesByRoom: Record<string, BookedRange[]> = {};
-  await Promise.all(
-    rooms.map(async (room) => {
-      bookedRangesByRoom[room.id] = await getBookedRanges(room.id);
-    })
-  );
-
-  const roomOptions: RoomOption[] = rooms.map((room) => ({
-    id: room.id,
-    slug: room.slug,
-    name: isEn && room.nameEn ? room.nameEn : room.name,
-    subtitle: isEn && room.subtitleEn ? room.subtitleEn : room.subtitle,
-    price: room.price,
-    image: room.image,
-  }));
+  const bookedRanges = await getVillaBookedRanges();
 
   return (
     <>
@@ -71,18 +49,7 @@ export default async function ReservationPage({
 
       <Section className="pb-20 lg:pb-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          {roomOptions.length > 0 ? (
-            <ReservationClient
-              rooms={roomOptions}
-              bookedRangesByRoom={bookedRangesByRoom}
-              locale={locale}
-              initialSlug={initialSlug}
-            />
-          ) : (
-            <p className="text-center font-sans text-muted-foreground">
-              {isEn ? "No rooms available." : "Aucune suite disponible."}
-            </p>
-          )}
+          <ReservationClient bookedRanges={bookedRanges} locale={locale} />
         </div>
       </Section>
     </>

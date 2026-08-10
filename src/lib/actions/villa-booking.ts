@@ -1,16 +1,16 @@
 "use server";
 import { db } from "@/lib/db";
 
-export type RoomBookingState = {
+export type VillaBookingState = {
   status: "idle" | "success" | "error";
   error?: "missing_fields" | "invalid_dates" | "unavailable" | "unknown";
 };
 
-/** Existing pending/confirmed bookings for a room — used to block dates in the picker. */
-export async function getBookedRanges(roomId: string): Promise<{ checkIn: string; checkOut: string }[]> {
+/** Dates already requested for the whole villa — used to disable them in the picker. */
+export async function getVillaBookedRanges(): Promise<{ checkIn: string; checkOut: string }[]> {
   const bookings = await db.booking.findMany({
     where: {
-      roomId,
+      serviceType: "villa",
       status: { in: ["pending", "confirmed"] },
       checkIn: { not: null },
       checkOut: { not: null },
@@ -30,12 +30,10 @@ function rangesOverlap(aStart: Date, aEnd: Date, bStart: Date, bEnd: Date): bool
   return aStart < bEnd && aEnd > bStart;
 }
 
-export async function submitRoomBooking(
-  roomId: string,
-  pricePerNight: number,
-  _prevState: RoomBookingState,
+export async function submitVillaBooking(
+  _prevState: VillaBookingState,
   formData: FormData
-): Promise<RoomBookingState> {
+): Promise<VillaBookingState> {
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
   const email = String(formData.get("email") || "").trim();
@@ -59,7 +57,7 @@ export async function submitRoomBooking(
   // Re-validate availability server-side — never trust the client-side picker alone.
   const existing = await db.booking.findMany({
     where: {
-      roomId,
+      serviceType: "villa",
       status: { in: ["pending", "confirmed"] },
       checkIn: { not: null },
       checkOut: { not: null },
@@ -74,29 +72,24 @@ export async function submitRoomBooking(
     return { status: "error", error: "unavailable" };
   }
 
-  const nights = Math.round((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24));
-  const totalAmount = Math.max(nights, 1) * pricePerNight;
-
   await db.booking.create({
     data: {
       firstName,
       lastName,
       email,
       phone,
-      serviceType: "room",
-      roomId,
+      serviceType: "villa",
       checkIn,
       checkOut,
       guests,
       message,
       status: "pending",
-      totalAmount,
       currency: "EUR",
     },
   });
 
   // TODO Phase 10: notify via Resend once RESEND_API_KEY exists.
-  console.log(`New room booking request from ${email} for room ${roomId}`);
+  console.log(`New villa enquiry from ${email} (${checkInRaw} → ${checkOutRaw})`);
 
   return { status: "success" };
 }

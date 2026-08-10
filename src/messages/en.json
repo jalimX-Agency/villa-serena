@@ -12,7 +12,7 @@
     "experiencesGolf": "Golf",
     "experiencesMariages": "Weddings & Events",
     "contact": "Contact",
-    "book": "Book Now"
+    "book": "Enquire Now"
   },
   "hero": {
     "tagline": "A haven of peace · Marrakech",
@@ -34,9 +34,9 @@
     "experiences_sub": "Traditional hammam, massage room, fitness room, pétanque court, badminton and table tennis — plus the garden with its koi pond and Buddha statue.",
     "testimonials_label": "Guest Stories",
     "testimonials_title": "They Stayed\nWith Us",
-    "cta_title": "Book Your Stay",
-    "cta_body": "A suite for the night or the entire villa — ideal for family gatherings, yoga retreats and seminars, sleeping up to 14.",
-    "cta_button": "Check Availability",
+    "cta_title": "Enquire About Your Stay",
+    "cta_body": "The entire villa, exclusively — 7 bedrooms, sleeping 14. Ideal for family gatherings, golf trips and seminars.",
+    "cta_button": "Enquire Now",
     "stats": { "rooms": "5 Suites", "guests": "Sleeps 14", "pool": "Garden & Pond", "hammam": "Hammam & Spa" }
   },
   "villa": {
@@ -84,9 +84,9 @@
       "Dining room seating up to 14"
     ],
     "cta_title": "Want to See More?",
-    "cta_body": "Browse our five suites or check availability for your stay.",
+    "cta_body": "Browse our bedrooms or enquire about renting the villa in full exclusivity.",
     "cta_suites": "View the Suites",
-    "cta_book": "Book Now"
+    "cta_book": "Enquire Now"
   },
   "suites": {
     "page_title": "The Suites",
@@ -94,18 +94,21 @@
     "per_night": "per night",
     "from": "From",
     "amenities": "Amenities",
-    "book_this_room": "Book This Suite",
+    "view_suite": "View This Suite",
     "back": "Back to Suites",
     "more_rooms": "Other Suites",
     "all_rooms_include": "All suites include",
     "includes": ["Private shower & WC", "Air conditioning", "Terrace", "Daily housekeeping", "Breakfast"]
   },
   "reservation": {
-    "page_title": "Book Your Stay",
-    "page_sub": "Choose your suite, select your dates — confirmation within 24h.",
-    "step_room": "Suite",
+    "page_title": "Enquire Now",
+    "page_sub": "The entire villa, exclusively yours — share your dates and we'll get back to you within 24h.",
+    "villa_label": "Villa Serena · Exclusive Use",
+    "villa_summary": "7 Bedrooms · Sleeps 14 · Full Exclusivity",
     "step_details": "Dates & Details",
-    "step_done": "Confirmation"
+    "step_done": "Request Sent",
+    "submit": "Send My Request",
+    "success": "Thank you! We'll confirm the villa's availability and rate within 24h."
   },
   "services": {
     "page_title": "Services",

@@ -12,7 +12,7 @@
     "experiencesGolf": "Golf",
     "experiencesMariages": "Mariages & Events",
     "contact": "Contact",
-    "book": "Réserver"
+    "book": "Faire une Demande"
   },
   "hero": {
     "tagline": "Havre de paix · Marrakech",
@@ -34,9 +34,9 @@
     "experiences_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont Séjourné\nChez Nous",
-    "cta_title": "Réservez votre Séjour",
-    "cta_body": "Suite à la nuit ou villa entière privatisée — idéale pour réunions de famille, retraites de yoga et séminaires jusqu'à 14 couchages.",
-    "cta_button": "Vérifier les Disponibilités",
+    "cta_title": "Demandez à Réserver la Villa",
+    "cta_body": "La villa entière en exclusivité — 7 chambres, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
+    "cta_button": "Faites Votre Demande",
     "stats": { "rooms": "5 Suites", "guests": "14 Couchages", "pool": "Jardin & Bassin", "hammam": "Hammam & Spa" }
   },
   "villa": {
@@ -84,9 +84,9 @@
       "Salle à manger jusqu'à 14 personnes"
     ],
     "cta_title": "Envie de Découvrir la Villa ?",
-    "cta_body": "Parcourez nos cinq suites ou vérifiez les disponibilités pour votre séjour.",
+    "cta_body": "Parcourez nos chambres ou faites une demande pour réserver la villa en exclusivité.",
     "cta_suites": "Voir les Suites",
-    "cta_book": "Réserver"
+    "cta_book": "Faites Votre Demande"
   },
   "suites": {
     "page_title": "Les Suites",
@@ -94,18 +94,21 @@
     "per_night": "par nuit",
     "from": "À partir de",
     "amenities": "Équipements",
-    "book_this_room": "Réserver Cette Suite",
+    "view_suite": "Découvrir cette Suite",
     "back": "Retour aux Suites",
     "more_rooms": "Autres Suites",
     "all_rooms_include": "Toutes les suites incluent",
     "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
   },
   "reservation": {
-    "page_title": "Réserver votre Séjour",
-    "page_sub": "Choisissez votre suite, sélectionnez vos dates — confirmation sous 24h.",
-    "step_room": "Suite",
+    "page_title": "Faites Votre Demande",
+    "page_sub": "La villa entière, en exclusivité — indiquez vos dates, nous revenons vers vous sous 24h.",
+    "villa_label": "Villa Serena · Usage Exclusif",
+    "villa_summary": "7 Chambres · 14 Couchages · Exclusivité Totale",
     "step_details": "Dates & Infos",
-    "step_done": "Confirmation"
+    "step_done": "Demande Envoyée",
+    "submit": "Envoyer ma Demande",
+    "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h."
   },
   "services": {
     "page_title": "Les Services",

@@ -3,9 +3,9 @@ import { useActionState, useEffect, useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import { useTranslations } from "next-intl";
 import { DateRangePicker, type BookedRange } from "@/components/DateRangePicker";
-import { submitRoomBooking, type RoomBookingState } from "@/lib/actions/room-booking";
+import { submitVillaBooking, type VillaBookingState } from "@/lib/actions/villa-booking";
 
-const initialState: RoomBookingState = { status: "idle" };
+const initialState: VillaBookingState = { status: "idle" };
 
 const ERROR_MESSAGES: Record<string, { fr: string; en: string }> = {
   missing_fields: {
@@ -17,8 +17,8 @@ const ERROR_MESSAGES: Record<string, { fr: string; en: string }> = {
     en: "Invalid dates — check-out must be after check-in.",
   },
   unavailable: {
-    fr: "Ces dates viennent d'être réservées. Merci d'en choisir d'autres.",
-    en: "Those dates were just booked. Please choose different ones.",
+    fr: "Ces dates viennent d'être demandées par un autre groupe. Merci d'en choisir d'autres.",
+    en: "Those dates have just been requested by another group. Please choose different ones.",
   },
   unknown: {
     fr: "Une erreur est survenue, merci de réessayer.",
@@ -26,26 +26,21 @@ const ERROR_MESSAGES: Record<string, { fr: string; en: string }> = {
   },
 };
 
-export function RoomBookingForm({
-  roomId,
-  pricePerNight,
+export function VillaEnquiryForm({
   bookedRanges,
   locale,
   onStatusChange,
 }: {
-  roomId: string;
-  pricePerNight: number;
   bookedRanges: BookedRange[];
   locale: string;
-  onStatusChange?: (status: RoomBookingState["status"]) => void;
+  onStatusChange?: (status: VillaBookingState["status"]) => void;
 }) {
   const t = useTranslations();
   const isEn = locale === "en";
   const [checkIn, setCheckIn] = useState<Date | null>(null);
   const [checkOut, setCheckOut] = useState<Date | null>(null);
 
-  const boundAction = submitRoomBooking.bind(null, roomId, pricePerNight);
-  const [state, formAction, pending] = useActionState(boundAction, initialState);
+  const [state, formAction, pending] = useActionState(submitVillaBooking, initialState);
 
   useEffect(() => {
     onStatusChange?.(state.status);
@@ -53,29 +48,18 @@ export function RoomBookingForm({
   }, [state.status]);
 
   const nights = checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
-  const total = nights > 0 ? nights * pricePerNight : 0;
 
   if (state.status === "success") {
     return (
       <div className="bg-card border border-border p-8 text-center">
         <p className="font-serif text-xl text-foreground mb-2">✓</p>
-        <p className="font-sans text-foreground/80">{t("contact.form_success")}</p>
+        <p className="font-sans text-foreground/80">{t("reservation.success")}</p>
       </div>
     );
   }
 
   return (
-    <form action={formAction} className="bg-card border border-border p-6 space-y-5">
-      <div>
-        <p className="font-sans text-xs text-muted-foreground uppercase tracking-wide mb-1">
-          {t("suites.from")}
-        </p>
-        <p className="font-serif text-3xl text-villa-terracotta tabular-nums">
-          {pricePerNight}€{" "}
-          <span className="text-sm text-muted-foreground font-sans">/ {t("suites.per_night")}</span>
-        </p>
-      </div>
-
+    <form action={formAction} className="bg-card border border-border p-6 sm:p-8 space-y-5">
       <DateRangePicker
         bookedRanges={bookedRanges}
         locale={locale}
@@ -90,12 +74,9 @@ export function RoomBookingForm({
       <input type="hidden" name="checkOut" value={checkOut ? checkOut.toISOString() : ""} />
 
       {nights > 0 && (
-        <div className="flex items-center justify-between font-sans text-sm border-t border-border pt-4">
-          <span className="text-muted-foreground">
-            {nights} {isEn ? (nights > 1 ? "nights" : "night") : nights > 1 ? "nuits" : "nuit"}
-          </span>
-          <span className="text-foreground font-medium tabular-nums">{total}€</span>
-        </div>
+        <p className="font-sans text-sm text-muted-foreground border-t border-border pt-4">
+          {nights} {isEn ? (nights > 1 ? "nights" : "night") : nights > 1 ? "nuits" : "nuit"}
+        </p>
       )}
 
       <div className="grid grid-cols-2 gap-3">
@@ -149,6 +130,7 @@ export function RoomBookingForm({
             type="number"
             name="guests"
             min={1}
+            max={14}
             defaultValue={2}
             className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta"
           />
@@ -176,7 +158,7 @@ export function RoomBookingForm({
         disabled={pending || nights === 0}
         className="w-full px-6 py-3.5 bg-villa-terracotta hover:bg-villa-terracotta/90 disabled:opacity-50 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
       >
-        {pending ? "…" : t("suites.book_this_room")}
+        {pending ? "…" : t("reservation.submit")}
       </button>
     </form>
   );

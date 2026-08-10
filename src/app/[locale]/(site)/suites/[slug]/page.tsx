@@ -6,8 +6,6 @@ import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 import { Section } from "@/components/Section";
 import { RoomCard } from "@/components/home/RoomCard";
-import { RoomBookingForm } from "@/components/RoomBookingForm";
-import { getBookedRanges } from "@/lib/actions/room-booking";
 
 async function getRoom(slug: string) {
   return db.room.findUnique({ where: { slug } });
@@ -72,7 +70,6 @@ export default async function RoomDetailPage({
     orderBy: { order: "asc" },
     take: 3,
   });
-  const bookedRanges = await getBookedRanges(room.id);
 
   return (
     <>
@@ -145,17 +142,24 @@ export default async function RoomDetailPage({
           </div>
 
           <div className="lg:col-span-1">
-            <div className="sticky top-28 space-y-4">
-              <ul className="font-sans text-sm text-foreground/70 space-y-1.5">
-                <li>{room.size}</li>
-                <li>{bedType}</li>
-              </ul>
-              <RoomBookingForm
-                roomId={room.id}
-                pricePerNight={room.price}
-                bookedRanges={bookedRanges}
-                locale={locale}
-              />
+            <div className="sticky top-28 space-y-6">
+              <div className="bg-card border border-border p-6 space-y-4">
+                <ul className="font-sans text-sm text-foreground/70 space-y-1.5">
+                  <li>{room.size}</li>
+                  <li>{bedType}</li>
+                </ul>
+                <p className="font-sans text-xs text-muted-foreground leading-relaxed border-t border-border pt-4">
+                  {locale === "en"
+                    ? "Villa Serena is rented exclusively as a whole — 7 bedrooms, sleeping 14."
+                    : "Villa Serena se loue exclusivement dans son intégralité — 7 chambres, 14 couchages."}
+                </p>
+                <Link
+                  href="/reservation"
+                  className="block text-center px-6 py-3 bg-villa-terracotta hover:bg-villa-terracotta/90 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
+                >
+                  {t("nav.book")}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

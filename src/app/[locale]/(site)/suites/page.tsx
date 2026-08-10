@@ -63,7 +63,7 @@ export default async function SuitesPage({
         <SuiteCompareStrip
           rooms={compareSuites}
           perNightLabel={t("suites.per_night")}
-          reserveLabel={t("suites.book_this_room")}
+          reserveLabel={t("suites.view_suite")}
         />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
