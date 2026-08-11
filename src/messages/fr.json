@@ -105,8 +105,10 @@
     "page_sub": "La villa entière, en exclusivité — indiquez vos dates, nous revenons vers vous sous 24h.",
     "villa_label": "Villa Serena · Usage Exclusif",
     "villa_summary": "7 Chambres · 14 Couchages · Exclusivité Totale",
-    "step_details": "Dates & Infos",
+    "step_dates": "Dates",
+    "step_details": "Vos Informations",
     "step_done": "Demande Envoyée",
+    "continue": "Continuer",
     "submit": "Envoyer ma Demande",
     "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h."
   },

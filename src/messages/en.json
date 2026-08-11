@@ -105,8 +105,10 @@
     "page_sub": "The entire villa, exclusively yours — share your dates and we'll get back to you within 24h.",
     "villa_label": "Villa Serena · Exclusive Use",
     "villa_summary": "7 Bedrooms · Sleeps 14 · Full Exclusivity",
-    "step_details": "Dates & Details",
+    "step_dates": "Dates",
+    "step_details": "Your Details",
     "step_done": "Request Sent",
+    "continue": "Continue",
     "submit": "Send My Request",
     "success": "Thank you! We'll confirm the villa's availability and rate within 24h."
   },

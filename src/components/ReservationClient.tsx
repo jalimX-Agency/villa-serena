@@ -2,13 +2,14 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
+import { differenceInCalendarDays } from "date-fns";
 import { VillaEnquiryForm } from "@/components/VillaEnquiryForm";
-import { type BookedRange } from "@/components/DateRangePicker";
+import { DateRangePicker, type BookedRange } from "@/components/DateRangePicker";
 import { cn } from "@/lib/utils";
 
-type Step = "details" | "done";
+type Step = "dates" | "details" | "done";
 
-const STEP_ORDER: Step[] = ["details", "done"];
+const STEP_ORDER: Step[] = ["dates", "details", "done"];
 
 export function ReservationClient({
   bookedRanges,
@@ -18,13 +19,18 @@ export function ReservationClient({
   locale: string;
 }) {
   const t = useTranslations();
-  const [step, setStep] = useState<Step>("details");
+  const isEn = locale === "en";
+  const [step, setStep] = useState<Step>("dates");
+  const [checkIn, setCheckIn] = useState<Date | null>(null);
+  const [checkOut, setCheckOut] = useState<Date | null>(null);
 
   const steps: { key: Step; label: string }[] = [
+    { key: "dates", label: t("reservation.step_dates") },
     { key: "details", label: t("reservation.step_details") },
     { key: "done", label: t("reservation.step_done") },
   ];
   const currentIndex = STEP_ORDER.indexOf(step);
+  const nights = checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -74,13 +80,54 @@ export function ReservationClient({
         <p className="font-serif text-xl sm:text-2xl text-foreground">{t("reservation.villa_summary")}</p>
       </div>
 
-      <VillaEnquiryForm
-        bookedRanges={bookedRanges}
-        locale={locale}
-        onStatusChange={(status) => {
-          if (status === "success") setStep("done");
-        }}
-      />
+      {step === "dates" && (
+        <div className="bg-card border border-border p-6 sm:p-8 space-y-5">
+          <DateRangePicker
+            bookedRanges={bookedRanges}
+            locale={locale}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            onChange={(ci, co) => {
+              setCheckIn(ci);
+              setCheckOut(co);
+            }}
+          />
+
+          {nights > 0 && (
+            <p className="font-sans text-sm text-muted-foreground border-t border-border pt-4">
+              {nights} {isEn ? (nights > 1 ? "nights" : "night") : nights > 1 ? "nuits" : "nuit"}
+            </p>
+          )}
+
+          <button
+            type="button"
+            disabled={nights === 0}
+            onClick={() => setStep("details")}
+            className="w-full px-6 py-3.5 bg-villa-terracotta hover:bg-villa-terracotta/90 disabled:opacity-50 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
+          >
+            {t("reservation.continue")}
+          </button>
+        </div>
+      )}
+
+      {step === "details" && checkIn && checkOut && (
+        <VillaEnquiryForm
+          checkIn={checkIn}
+          checkOut={checkOut}
+          locale={locale}
+          onBack={() => setStep("dates")}
+          onStatusChange={(status) => {
+            if (status === "success") setStep("done");
+          }}
+        />
+      )}
+
+      {step === "done" && (
+        <div className="bg-card border border-border p-8 text-center">
+          <p className="font-serif text-xl text-foreground mb-2">✓</p>
+          <p className="font-sans text-foreground/80">{t("reservation.success")}</p>
+        </div>
+      )}
     </div>
   );
 }
