@@ -1,20 +1,15 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Room } from "@prisma/client";
-import type { useTranslations } from "next-intl";
 
 export function RoomCard({
   room,
   locale,
-  t,
   index,
-  showPrice = true,
 }: {
   room: Room;
   locale: string;
-  t: Awaited<ReturnType<typeof useTranslations>>;
   index: number;
-  showPrice?: boolean;
 }) {
   const isEn = locale === "en";
   const name = isEn && room.nameEn ? room.nameEn : room.name;
@@ -39,19 +34,10 @@ export function RoomCard({
           aria-hidden
         />
       </div>
-      <div className="flex items-baseline justify-between gap-3">
-        <div>
-          <h3 className="font-serif text-xl text-foreground group-hover:text-villa-terracotta transition-colors">
-            {name}
-          </h3>
-          <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>
-        </div>
-        {showPrice && (
-          <p className="font-sans text-sm text-villa-terracotta whitespace-nowrap tabular-nums">
-            {t("suites.from")} {room.price}€
-          </p>
-        )}
-      </div>
+      <h3 className="font-serif text-xl text-foreground group-hover:text-villa-terracotta transition-colors">
+        {name}
+      </h3>
+      <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>
     </Link>
   );
 }

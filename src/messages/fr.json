@@ -1,75 +1,75 @@
 {
   "nav": {
     "home": "Home",
-    "villa": "La Villa",
-    "suites": "Les Suites",
-    "services": "Les Services",
+    "villa": "La villa",
+    "suites": "Les suites",
+    "services": "Les services",
     "servicesRestauration": "Restauration",
-    "servicesBienEtre": "Bien Être",
+    "servicesBienEtre": "Bien-être",
     "servicesExcursions": "Excursions",
-    "experiences": "Les Expériences",
-    "experiencesRetraites": "Retraites & Yoga",
+    "experiences": "Les expériences",
+    "experiencesRetraites": "Retraites & yoga",
     "experiencesGolf": "Golf",
-    "experiencesMariages": "Mariages & Events",
+    "experiencesMariages": "Mariages & events",
     "contact": "Contact",
-    "book": "Faire une Demande"
+    "book": "Faire une demande"
   },
   "hero": {
     "tagline": "Havre de paix · Marrakech",
-    "headline": "Un Séjour Paisible\ndans un Havre\nde Paix",
+    "headline": "Un séjour paisible\ndans un havre\nde paix",
     "subheadline": "Villa exclusive de charme autour d'un patio d'inspiration riad, à 25 minutes de Marrakech.",
-    "cta_primary": "Découvrir la Villa",
-    "cta_secondary": "Voir les Suites",
+    "cta_primary": "Découvrir la villa",
+    "cta_secondary": "Voir les suites",
     "scroll": "Défiler pour explorer"
   },
   "home": {
     "welcome_label": "Bienvenue à Villa Serena",
-    "welcome_title": "Un Havre de Paix\nà Part",
+    "welcome_title": "Un havre de paix\nà part",
     "welcome_body": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
-    "suites_label": "Les Suites",
-    "suites_title": "Un Voyage à Travers\nles Couleurs",
+    "suites_label": "Les suites",
+    "suites_title": "Un voyage à travers\nles couleurs",
     "suites_sub": "Chaque suite est un univers : chaque teinte a été choisie pour évoquer des émotions uniques, en harmonie avec l'artisanat marrakchi.",
-    "experiences_label": "Bien-être & Loisirs",
-    "experiences_title": "Du Hammam\nà la Pétanque",
+    "experiences_label": "Bien-être & loisirs",
+    "experiences_title": "Du hammam\nà la pétanque",
     "experiences_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
     "testimonials_label": "Témoignages",
-    "testimonials_title": "Ils ont Séjourné\nChez Nous",
-    "cta_title": "Demandez à Réserver la Villa",
+    "testimonials_title": "Ils ont séjourné\nchez nous",
+    "cta_title": "Demandez à réserver la villa",
     "cta_body": "La villa entière en exclusivité — 7 chambres, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
-    "cta_button": "Faites Votre Demande",
-    "stats": { "rooms": "5 Suites", "guests": "14 Couchages", "pool": "Jardin & Bassin", "hammam": "Hammam & Spa" }
+    "cta_button": "Faites votre demande",
+    "stats": { "rooms": "5 suites", "guests": "14 couchages", "pool": "Jardin & bassin", "hammam": "Hammam & spa" }
   },
   "villa": {
-    "page_title": "La Villa",
+    "page_title": "La villa",
     "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent.",
     "intro": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
-    "amenities_label": "Bien-Être & Loisirs",
-    "amenities_title": "Du Hammam à la Pétanque",
+    "amenities_label": "Bien-être & loisirs",
+    "amenities_title": "Du hammam à la pétanque",
     "amenities_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
     "story": [
       {
-        "label": "Le Patio",
-        "title": "Un Ciel Étoilé au Cœur du Riad",
+        "label": "Le patio",
+        "title": "Un ciel étoilé au cœur du riad",
         "body": "Les cinq suites s'organisent autour d'un patio d'inspiration riad — le cœur silencieux de la villa, où les soirées se prolongent sous les étoiles."
       },
       {
-        "label": "Le Salon",
-        "title": "Un Feu de Cheminée, une Tablée de 14",
+        "label": "Le salon",
+        "title": "Un feu de cheminée, une tablée de 14",
         "body": "Le salon avec cheminée invite à la détente, tandis que la salle à manger accueille jusqu'à 14 convives pour des repas partagés."
       },
       {
-        "label": "Le Jardin",
-        "title": "Carpes Koï et Silence Retrouvé",
+        "label": "Le jardin",
+        "title": "Carpes koï et silence retrouvé",
         "body": "Un jardin paisible avec son bassin de carpes koï, sa statue de Bouddha et son terrain de pétanque — un refuge végétal en plein Marrakech."
       },
       {
-        "label": "Bien-Être",
-        "title": "Hammam, Massage & Renouveau",
+        "label": "Bien-être",
+        "title": "Hammam, massage & renouveau",
         "body": "Hammam traditionnel, salle de massage et salle de sport — pour prendre soin de soi entre deux excursions."
       },
       {
-        "label": "L'Art de Recevoir",
-        "title": "Un Artisanat Chiné à Marrakech",
+        "label": "L'art de recevoir",
+        "title": "Un artisanat chiné à Marrakech",
         "body": "Décoration ethnique et bohème, chinée et customisée par des artisans locaux — chaque recoin de la villa raconte une histoire."
       }
     ],
@@ -83,46 +83,46 @@
       "Salon avec cheminée",
       "Salle à manger jusqu'à 14 personnes"
     ],
-    "cta_title": "Envie de Découvrir la Villa ?",
+    "cta_title": "Envie de découvrir la villa ?",
     "cta_body": "Parcourez nos chambres ou faites une demande pour réserver la villa en exclusivité.",
-    "cta_suites": "Voir les Suites",
-    "cta_book": "Faites Votre Demande"
+    "cta_suites": "Voir les suites",
+    "cta_book": "Faites votre demande"
   },
   "suites": {
-    "page_title": "Les Suites",
+    "page_title": "Les suites",
     "page_sub": "Cinq suites autour du patio, chacune avec sa couleur et son caractère.",
     "per_night": "par nuit",
     "from": "À partir de",
     "amenities": "Équipements",
-    "view_suite": "Découvrir cette Suite",
-    "back": "Retour aux Suites",
-    "more_rooms": "Autres Suites",
+    "view_suite": "Découvrir cette suite",
+    "back": "Retour aux suites",
+    "more_rooms": "Autres suites",
     "all_rooms_include": "Toutes les suites incluent",
     "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
   },
   "reservation": {
-    "page_title": "Faites Votre Demande",
+    "page_title": "Faites votre demande",
     "page_sub": "La villa entière, en exclusivité — indiquez vos dates, nous revenons vers vous sous 24h.",
-    "villa_label": "Villa Serena · Usage Exclusif",
-    "villa_summary": "7 Chambres · 14 Couchages · Exclusivité Totale",
+    "villa_label": "Villa Serena · Usage exclusif",
+    "villa_summary": "7 chambres · 14 couchages · Exclusivité totale",
     "step_dates": "Dates",
-    "step_details": "Vos Informations",
-    "step_done": "Demande Envoyée",
+    "step_details": "Vos informations",
+    "step_done": "Demande envoyée",
     "continue": "Continuer",
-    "submit": "Envoyer ma Demande",
+    "submit": "Envoyer ma demande",
     "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h."
   },
   "services": {
-    "page_title": "Les Services",
+    "page_title": "Les services",
     "page_sub": "Restauration, bien-être et excursions — tout ce qu'il faut pour un séjour sans souci.",
     "restauration": {
       "page_title": "Restauration",
       "page_sub": "Cuisine familiale et saveurs du monde, préparée avec des légumes frais du potager.",
       "intro": "La cuisine de la Villa Serena est confiée à une cuisinière dédiée, qui prépare chaque repas à partir de recettes familiales marocaines, enrichies de saveurs venues d'ailleurs. Les légumes viennent, autant que possible, du potager de la villa — cueillis le matin même.",
       "stats": [
-        { "value": "14", "label": "Convives à Table" },
-        { "value": "100%", "label": "Sur Demande" },
-        { "value": "Bio", "label": "Potager de la Villa" }
+        { "value": "14", "label": "Convives à table" },
+        { "value": "100%", "label": "Sur demande" },
+        { "value": "Bio", "label": "Potager de la villa" }
       ],
       "highlights": [
         "Cuisine marocaine traditionnelle, recettes familiales",
@@ -132,13 +132,13 @@
       ]
     },
     "bienEtre": {
-      "page_title": "Bien Être",
+      "page_title": "Bien-être",
       "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation.",
       "intro": "Après une journée de golf, de découverte de la médina ou simplement de farniente au bord de la piscine, la Villa Serena a pensé un véritable espace de récupération. Hammam traditionnel, salle de massage et salle de sport sont réunis sous le même toit — pas besoin de sortir pour prendre soin de soi.",
       "stats": [
-        { "value": "3", "label": "Espaces Bien-Être" },
-        { "value": "60–90 min", "label": "Rituel Hammam" },
-        { "value": "24/7", "label": "Accès Salle de Sport" }
+        { "value": "3", "label": "Espaces bien-être" },
+        { "value": "60–90 min", "label": "Rituel hammam" },
+        { "value": "24/7", "label": "Accès salle de sport" }
       ],
       "highlights": [
         "Hammam marocain traditionnel, gommage au savon noir et gant de Kessa",
@@ -152,9 +152,9 @@
       "page_sub": "Randonnées dans la vallée de l'Ourika, équitation, quad, buggies et vols en montgolfière.",
       "intro": "Entre deux parties de golf, la région de Marrakech regorge d'activités à découvrir : vallée de l'Ourika, désert d'Agafay, montgolfière au lever du soleil. Sur place, le jardin de la villa a aussi ses propres distractions — terrain de pétanque, badminton et ping-pong pour les instants en famille.",
       "stats": [
-        { "value": "3", "label": "Activités sur Place" },
-        { "value": "½–1", "label": "Journée d'Excursion" },
-        { "value": "100%", "label": "Partenaires Sélectionnés" }
+        { "value": "3", "label": "Activités sur place" },
+        { "value": "½–1", "label": "Journée d'excursion" },
+        { "value": "100%", "label": "Partenaires sélectionnés" }
       ],
       "highlights": [
         "Randonnées et équitation dans la vallée de l'Ourika",
@@ -165,10 +165,10 @@
     }
   },
   "experiences": {
-    "page_title": "Les Expériences",
+    "page_title": "Les expériences",
     "page_sub": "Retraites de yoga, golf et grandes célébrations — Villa Serena se privatise pour vos moments d'exception.",
     "retraitesYoga": {
-      "page_title": "Retraites & Yoga",
+      "page_title": "Retraites & yoga",
       "page_sub": "La villa entière privatisée pour vos retraites de yoga et de bien-être, jusqu'à 14 participants."
     },
     "golf": {
@@ -181,12 +181,12 @@
         "airport": "~25 min",
         "airport_label": "Aéroport Ménara",
         "nearest": "~12 min",
-        "nearest_label": "1er Golf (Palm Ourika)",
+        "nearest_label": "1er golf (Palm Ourika)",
         "count": "11",
-        "count_label": "Parcours Alentour"
+        "count_label": "Parcours alentour"
       },
-      "featured_label": "Le Golf · À Proximité Immédiate",
-      "featured_title": "Trois Parcours, à Quelques Minutes",
+      "featured_label": "Le golf · à proximité immédiate",
+      "featured_title": "Trois parcours, à quelques minutes",
       "featured": [
         {
           "name": "PalmGolf Marrakech Ourika",
@@ -219,15 +219,15 @@
           "description": "La signature Jack Nicklaus. Premier parcours d'Afrique à avoir accueilli une étape du PGA Champions Tour. Club-house inspiré des remparts de Marrakech."
         }
       ],
-      "table_label": "Le Golf · La Constellation Complète",
-      "table_title": "Onze Parcours, Cinq Signatures Mondiales",
+      "table_label": "Le golf · la constellation complète",
+      "table_title": "Onze parcours, cinq signatures mondiales",
       "table_note": "À ces trois greens de proximité immédiate s'ajoutent huit autres parcours, soit onze parcours signés Nicklaus, Kyle Phillips, Robert Trent Jones, Cabell Robinson et Colin Montgomerie, tous avec l'Atlas pour décor.",
       "table_headers": {
         "course": "Parcours",
         "holes": "Trous",
         "par": "Par",
-        "architect": "Architecte · Style",
-        "time": "Depuis la Villa"
+        "architect": "Architecte · style",
+        "time": "Depuis la villa"
       },
       "courses": [
         { "name": "Golf Al Maaden", "holes": "18", "par": "72", "architect": "Kyle Phillips (2010) · jardin marocain & parc de sculptures", "time": "~22 min" },
@@ -241,32 +241,32 @@
       ]
     },
     "mariagesEvents": {
-      "page_title": "Mariages & Events",
+      "page_title": "Mariages & events",
       "page_sub": "Privatisez la villa entière — 14 couchages — pour vos mariages, séminaires et célébrations."
     },
-    "quote_button": "Demander un Devis"
+    "quote_button": "Demander un devis"
   },
   "contact": {
     "page_title": "Contact",
     "page_sub": "Une question ? Contactez-nous directement — nous répondons en quelques heures.",
-    "form_name": "Nom Complet",
-    "form_email": "Adresse Email",
+    "form_name": "Nom complet",
+    "form_email": "Adresse email",
     "form_phone": "Téléphone / WhatsApp",
-    "form_checkin": "Date d'Arrivée",
-    "form_checkout": "Date de Départ",
-    "form_guests": "Nombre d'Hôtes",
+    "form_checkin": "Date d'arrivée",
+    "form_checkout": "Date de départ",
+    "form_guests": "Nombre d'hôtes",
     "form_message": "Votre message (optionnel)",
-    "form_submit": "Envoyer la Demande",
+    "form_submit": "Envoyer la demande",
     "form_success": "Message envoyé ! Nous répondrons dans les 24 heures.",
     "whatsapp": "Message WhatsApp",
-    "email_direct": "Nous Écrire",
-    "info_title": "Informations de Séjour",
+    "email_direct": "Nous écrire",
+    "info_title": "Informations de séjour",
     "info_items": ["Suite à la nuit ou villa entière", "Jusqu'à 14 couchages", "Cuisine familiale sur demande", "Hammam & massages sur réservation", "Transfert aéroport disponible"]
   },
   "blog": {
-    "page_title": "Le Blog",
+    "page_title": "Le blog",
     "page_sub": "Conseils et inspirations pour votre séjour — retraites, bien-être et découvertes autour de Marrakech.",
-    "read_more": "Lire l'Article",
+    "read_more": "Lire l'article",
     "min_read": "min de lecture"
   },
   "footer": {
@@ -274,13 +274,13 @@
     "links_title": "Navigation",
     "contact_title": "Contact",
     "legal": "Tous droits réservés.",
-    "privacy": "Politique de Confidentialité",
-    "cookie": "Politique Cookies"
+    "privacy": "Politique de confidentialité",
+    "cookie": "Politique cookies"
   },
   "cookie": {
     "title": "Nous utilisons des cookies",
     "body": "Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de cookies.",
-    "accept": "Tout Accepter",
+    "accept": "Tout accepter",
     "decline": "Refuser"
   }
 }

@@ -27,13 +27,13 @@ export async function SuitesPreview() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.slice(0, 3).map((room, i) => (
-            <RoomCard key={room.id} room={room} locale={locale} t={t} index={i} showPrice={false} />
+            <RoomCard key={room.id} room={room} locale={locale} index={i} />
           ))}
         </div>
         {rooms.length > 3 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8 max-w-3xl mx-auto">
             {rooms.slice(3, 5).map((room, i) => (
-              <RoomCard key={room.id} room={room} locale={locale} t={t} index={i + 3} showPrice={false} />
+              <RoomCard key={room.id} room={room} locale={locale} index={i + 3} />
             ))}
           </div>
         )}

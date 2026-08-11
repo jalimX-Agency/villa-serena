@@ -217,7 +217,7 @@ export default async function RoomDetailPage({
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {otherRooms.map((r, i) => (
-                <RoomCard key={r.id} room={r} locale={locale} t={t} index={i} />
+                <RoomCard key={r.id} room={r} locale={locale} index={i} />
               ))}
             </div>
           </div>

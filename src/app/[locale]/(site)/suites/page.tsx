@@ -41,7 +41,6 @@ export default async function SuitesPage({
     slug: room.slug,
     name: isEn && room.nameEn ? room.nameEn : room.name,
     subtitle: isEn && room.subtitleEn ? room.subtitleEn : room.subtitle,
-    price: room.price,
     image: room.image,
     size: room.size,
     bedType: isEn && room.bedTypeEn ? room.bedTypeEn : room.bedType,
@@ -60,11 +59,7 @@ export default async function SuitesPage({
       </div>
 
       <Section className="pb-20 lg:pb-28">
-        <SuiteCompareStrip
-          rooms={compareSuites}
-          perNightLabel={t("suites.per_night")}
-          reserveLabel={t("suites.view_suite")}
-        />
+        <SuiteCompareStrip rooms={compareSuites} reserveLabel={t("suites.view_suite")} />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mt-4 pt-12 border-t border-border text-center">

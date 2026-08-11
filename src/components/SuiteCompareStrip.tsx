@@ -17,7 +17,6 @@ export type CompareSuite = {
   slug: string;
   name: string;
   subtitle: string;
-  price: number;
   image: string;
   size: string;
   bedType: string;
@@ -30,11 +29,9 @@ const DRAG_VELOCITY_THRESHOLD = 500;
 
 export function SuiteCompareStrip({
   rooms,
-  perNightLabel,
   reserveLabel,
 }: {
   rooms: CompareSuite[];
-  perNightLabel: string;
   reserveLabel: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -170,7 +167,6 @@ export function SuiteCompareStrip({
                 <Link href={`/suites/${rooms[activeIndex].slug}`} className="block">
                   <SuiteCardVisual
                     room={rooms[activeIndex]}
-                    perNightLabel={perNightLabel}
                     reserveLabel={reserveLabel}
                     active
                     direction={direction}
@@ -235,21 +231,19 @@ function SideSlot({ room, onClick }: { room: CompareSuite; onClick: () => void }
       aria-label={room.name}
       className="hidden sm:block shrink-0 w-[18vw] max-w-[120px] lg:w-[230px] lg:max-w-none text-left"
     >
-      <SuiteCardVisual room={room} perNightLabel="" reserveLabel="" active={false} />
+      <SuiteCardVisual room={room} reserveLabel="" active={false} />
     </button>
   );
 }
 
 function SuiteCardVisual({
   room,
-  perNightLabel,
   reserveLabel,
   active,
   direction,
   imageVariants,
 }: {
   room: CompareSuite;
-  perNightLabel: string;
   reserveLabel: string;
   active: boolean;
   direction?: number;
@@ -295,11 +289,6 @@ function SuiteCardVisual({
           <h3 className={cn("font-serif text-foreground leading-snug", active ? "text-xl sm:text-2xl" : "text-sm")}>
             {room.name}
           </h3>
-          {active && (
-            <span className="font-sans text-sm text-muted-foreground whitespace-nowrap shrink-0 tabular-nums">
-              <span className="text-villa-terracotta font-medium">{room.price}€</span> /{perNightLabel}
-            </span>
-          )}
         </div>
 
         {active && (
