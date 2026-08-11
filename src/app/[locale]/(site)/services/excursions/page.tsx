@@ -36,6 +36,9 @@ export default async function ExcursionsPage({
     <ServiceCategoryPage
       titleKey="services.excursions.page_title"
       subKey="services.excursions.page_sub"
+      introKey="services.excursions.intro"
+      statsKey="services.excursions.stats"
+      highlightsKey="services.excursions.highlights"
       categories={["outdoor", "leisure"]}
       heroImage="/exp-badminton.jpg"
       locale={locale}

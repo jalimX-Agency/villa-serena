@@ -115,15 +115,51 @@
     "page_sub": "Dining, wellness and excursions — everything for a carefree stay.",
     "restauration": {
       "page_title": "Dining",
-      "page_sub": "Home cooking and world flavours, prepared with fresh vegetables from the kitchen garden."
+      "page_sub": "Home cooking and world flavours, prepared with fresh vegetables from the kitchen garden.",
+      "intro": "The Villa Serena kitchen is entrusted to a dedicated cook, who prepares every meal from traditional Moroccan family recipes, enriched with flavours from further afield. Vegetables come, whenever possible, from the villa's own kitchen garden — picked that same morning.",
+      "stats": [
+        { "value": "14", "label": "Guests at the Table" },
+        { "value": "100%", "label": "On Request" },
+        { "value": "Organic", "label": "Villa Kitchen Garden" }
+      ],
+      "highlights": [
+        "Traditional Moroccan cooking, family recipes",
+        "Seasonal vegetables from the villa's own kitchen garden",
+        "Meals prepared on request, whenever suits you",
+        "Dining room seating up to 14 guests"
+      ]
     },
     "bienEtre": {
       "page_title": "Wellness",
-      "page_sub": "Traditional hammam, black-soap scrubs, massage room and fitness room — an oasis of relaxation and renewal."
+      "page_sub": "Traditional hammam, black-soap scrubs, massage room and fitness room — an oasis of relaxation and renewal.",
+      "intro": "After a day of golf, exploring the medina, or simply lounging by the pool, Villa Serena has a real recovery space built in. A traditional hammam, massage room and fitness room are all under one roof — no need to go out to take care of yourself.",
+      "stats": [
+        { "value": "3", "label": "Wellness Spaces" },
+        { "value": "60–90 min", "label": "Hammam Ritual" },
+        { "value": "24/7", "label": "Fitness Room Access" }
+      ],
+      "highlights": [
+        "Traditional Moroccan hammam, black-soap scrub and Kessa glove exfoliation",
+        "Dedicated massage room, treatments by reservation",
+        "Fitness room, free access all day",
+        "A team on-site to arrange your treatments"
+      ]
     },
     "excursions": {
       "page_title": "Excursions",
-      "page_sub": "Ourika Valley hikes, horseback riding, quad biking, buggies and hot-air balloon flights."
+      "page_sub": "Ourika Valley hikes, horseback riding, quad biking, buggies and hot-air balloon flights.",
+      "intro": "Between rounds of golf, the Marrakech region has plenty to explore: the Ourika Valley, the Agafay desert, a sunrise hot-air balloon flight. On-site, the villa's garden has its own diversions too — a pétanque court, badminton and table tennis for family moments.",
+      "stats": [
+        { "value": "3", "label": "On-Site Activities" },
+        { "value": "½–1", "label": "Day Excursions" },
+        { "value": "100%", "label": "Selected Partners" }
+      ],
+      "highlights": [
+        "Hikes and horseback riding in the Ourika Valley",
+        "Quad biking, buggies and hot-air balloon flights with our selected partners",
+        "Pétanque court and badminton / table tennis area on-site",
+        "Excursions arranged on request, transport included"
+      ]
     }
   },
   "experiences": {

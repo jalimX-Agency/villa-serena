@@ -36,6 +36,9 @@ export default async function BienEtrePage({
     <ServiceCategoryPage
       titleKey="services.bienEtre.page_title"
       subKey="services.bienEtre.page_sub"
+      introKey="services.bienEtre.intro"
+      statsKey="services.bienEtre.stats"
+      highlightsKey="services.bienEtre.highlights"
       categories={["wellness"]}
       heroImage="/exp-hammam.jpg"
       locale={locale}

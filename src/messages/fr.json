@@ -115,15 +115,51 @@
     "page_sub": "Restauration, bien-être et excursions — tout ce qu'il faut pour un séjour sans souci.",
     "restauration": {
       "page_title": "Restauration",
-      "page_sub": "Cuisine familiale et saveurs du monde, préparée avec des légumes frais du potager."
+      "page_sub": "Cuisine familiale et saveurs du monde, préparée avec des légumes frais du potager.",
+      "intro": "La cuisine de la Villa Serena est confiée à une cuisinière dédiée, qui prépare chaque repas à partir de recettes familiales marocaines, enrichies de saveurs venues d'ailleurs. Les légumes viennent, autant que possible, du potager de la villa — cueillis le matin même.",
+      "stats": [
+        { "value": "14", "label": "Convives à Table" },
+        { "value": "100%", "label": "Sur Demande" },
+        { "value": "Bio", "label": "Potager de la Villa" }
+      ],
+      "highlights": [
+        "Cuisine marocaine traditionnelle, recettes familiales",
+        "Légumes de saison issus du potager de la villa",
+        "Repas préparés sur demande, à l'heure qui vous convient",
+        "Salle à manger pouvant accueillir jusqu'à 14 convives"
+      ]
     },
     "bienEtre": {
       "page_title": "Bien Être",
-      "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation."
+      "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation.",
+      "intro": "Après une journée de golf, de découverte de la médina ou simplement de farniente au bord de la piscine, la Villa Serena a pensé un véritable espace de récupération. Hammam traditionnel, salle de massage et salle de sport sont réunis sous le même toit — pas besoin de sortir pour prendre soin de soi.",
+      "stats": [
+        { "value": "3", "label": "Espaces Bien-Être" },
+        { "value": "60–90 min", "label": "Rituel Hammam" },
+        { "value": "24/7", "label": "Accès Salle de Sport" }
+      ],
+      "highlights": [
+        "Hammam marocain traditionnel, gommage au savon noir et gant de Kessa",
+        "Salle de massage dédiée, soins sur réservation",
+        "Salle de sport en libre accès toute la journée",
+        "Une équipe présente sur place pour organiser vos soins"
+      ]
     },
     "excursions": {
       "page_title": "Excursions",
-      "page_sub": "Randonnées dans la vallée de l'Ourika, équitation, quad, buggies et vols en montgolfière."
+      "page_sub": "Randonnées dans la vallée de l'Ourika, équitation, quad, buggies et vols en montgolfière.",
+      "intro": "Entre deux parties de golf, la région de Marrakech regorge d'activités à découvrir : vallée de l'Ourika, désert d'Agafay, montgolfière au lever du soleil. Sur place, le jardin de la villa a aussi ses propres distractions — terrain de pétanque, badminton et ping-pong pour les instants en famille.",
+      "stats": [
+        { "value": "3", "label": "Activités sur Place" },
+        { "value": "½–1", "label": "Journée d'Excursion" },
+        { "value": "100%", "label": "Partenaires Sélectionnés" }
+      ],
+      "highlights": [
+        "Randonnées et équitation dans la vallée de l'Ourika",
+        "Quad, buggies et vols en montgolfière avec nos partenaires sélectionnés",
+        "Terrain de pétanque et espace badminton / ping-pong sur place",
+        "Excursions organisées sur demande, transport inclus"
+      ]
     }
   },
   "experiences": {

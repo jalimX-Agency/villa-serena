@@ -36,6 +36,9 @@ export default async function RestaurationPage({
     <ServiceCategoryPage
       titleKey="services.restauration.page_title"
       subKey="services.restauration.page_sub"
+      introKey="services.restauration.intro"
+      statsKey="services.restauration.stats"
+      highlightsKey="services.restauration.highlights"
       categories={["dining"]}
       heroImage="/exp-cuisine.jpg"
       locale={locale}
