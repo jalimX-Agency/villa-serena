@@ -71,8 +71,52 @@ export default async function RoomDetailPage({
     take: 3,
   });
 
+  // Described as a Room within the villa's LodgingBusiness (defined site-wide
+  // in the root layout) — deliberately no Offer/price here, since suites
+  // aren't booked individually; the villa is rented as a whole.
+  const absoluteImages = (room.image ? [room.image, ...gallery.filter((g) => g !== room.image)] : gallery).map(
+    (src) => `https://www.villaserenamarrakech.com${src}`
+  );
+  const roomSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Room",
+    name,
+    description,
+    image: absoluteImages,
+    floorSize: room.size ? { "@type": "QuantitativeValue", value: room.size } : undefined,
+    bed: bedType ? { "@type": "BedDetails", typeOfBed: bedType } : undefined,
+    amenityFeature: amenities.map((a) => ({ "@type": "LocationFeatureSpecification", name: a, value: true })),
+    isPartOf: {
+      "@type": "LodgingBusiness",
+      name: "Villa Serena Marrakech",
+      url: "https://www.villaserenamarrakech.com",
+    },
+  });
+
+  const breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: t("nav.home"), item: `https://www.villaserenamarrakech.com/${locale}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("nav.suites"),
+        item: `https://www.villaserenamarrakech.com/${locale}/suites`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name,
+        item: `https://www.villaserenamarrakech.com/${locale}/suites/${slug}`,
+      },
+    ],
+  });
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: roomSchema }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
         {room.image && (
           <Image src={room.image} alt={name} fill priority className="object-cover" />
