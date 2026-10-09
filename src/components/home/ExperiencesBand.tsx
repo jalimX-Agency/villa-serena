@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -26,7 +27,7 @@ export async function ExperiencesBand() {
   return (
     <Section className="relative bg-villa-ink py-20 lg:py-28 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="/exp-hammam.jpg" alt="" fill className="object-cover opacity-30" />
+        <Image src={media("/exp-hammam.jpg")} alt="" fill className="object-cover opacity-30" />
         <div className="absolute inset-0 bg-villa-ink/70" />
       </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

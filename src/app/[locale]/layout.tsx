@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -69,7 +70,7 @@ export async function generateMetadata({
       siteName: "Villa Serena Marrakech",
     },
     icons: {
-      icon: "/favicon-logo.png",
+      icon: media("/favicon-logo.png"),
     },
     robots: { index: true, follow: true },
     other: { tagline: t("tagline") },

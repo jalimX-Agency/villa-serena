@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -34,9 +35,9 @@ export default async function ExperiencesPage({
   const t = await getTranslations({ locale, namespace: "experiences" });
 
   const items = [
-    { key: "retraitesYoga", href: "/experiences/retraites-yoga", image: "/exp-hammam.jpg" },
-    { key: "golf", href: "/experiences/golf", image: "/hero-main.jpg" },
-    { key: "mariagesEvents", href: "/experiences/mariages-events", image: "/exp-excursions.jpg" },
+    { key: "retraitesYoga", href: "/experiences/retraites-yoga", image: media("/exp-hammam.jpg") },
+    { key: "golf", href: "/experiences/golf", image: media("/hero-main.jpg") },
+    { key: "mariagesEvents", href: "/experiences/mariages-events", image: media("/exp-excursions.jpg") },
   ] as const;
 
   return (

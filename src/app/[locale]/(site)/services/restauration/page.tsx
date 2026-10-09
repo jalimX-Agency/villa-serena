@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCategoryPage } from "@/components/ServiceCategoryPage";
@@ -19,7 +20,7 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/services/restauration",
       },
     },
-    openGraph: { images: [{ url: "https://www.villaserenamarrakech.com/exp-cuisine.jpg" }] },
+    openGraph: { images: [{ url: media("/exp-cuisine.jpg") }] },
   };
 }
 
@@ -40,20 +41,20 @@ export default async function RestaurationPage({
       statsKey="services.restauration.stats"
       highlightsKey="services.restauration.highlights"
       categories={["dining"]}
-      heroImage="/exp-cuisine.jpg"
+      heroImage={media("/exp-cuisine.jpg")}
       locale={locale}
       related={[
         {
           label: t("bienEtre.page_title"),
           sub: t("bienEtre.page_sub"),
           href: "/services/bien-etre",
-          image: "/exp-hammam.jpg",
+          image: media("/exp-hammam.jpg"),
         },
         {
           label: t("excursions.page_title"),
           sub: t("excursions.page_sub"),
           href: "/services/excursions",
-          image: "/exp-badminton.jpg",
+          image: media("/exp-badminton.jpg"),
         },
       ]}
     />

@@ -1,4 +1,5 @@
 "use client";
+import { media } from "@/lib/media";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -16,7 +17,7 @@ export function Welcome() {
         <motion.div variants={fadeUp} className="relative h-[360px] sm:h-[440px] lg:h-[520px] order-2 lg:order-1">
           <div className="absolute top-0 left-0 w-[75%] h-[82%] overflow-hidden shadow-lg">
             <Image
-              src="/welcome-jardin.jpg"
+              src={media("/welcome-jardin.jpg")}
               alt="Jardin de Villa Serena, oliviers et statue de Bouddha"
               fill
               className="object-cover"
@@ -24,7 +25,7 @@ export function Welcome() {
           </div>
           <div className="absolute bottom-0 right-0 w-[58%] h-[55%] overflow-hidden shadow-xl border-4 border-villa-cream">
             <Image
-              src="/welcome-salon.jpg"
+              src={media("/welcome-salon.jpg")}
               alt="Salon et salle à manger de Villa Serena"
               fill
               className="object-cover"

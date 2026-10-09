@@ -1,4 +1,5 @@
 "use client";
+import { media } from "@/lib/media";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -11,7 +12,7 @@ export function Hero() {
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       <Image
-        src="/hero-main.jpg"
+        src={media("/hero-main.jpg")}
         alt="Villa Serena Marrakech — façade et piscine"
         fill
         priority

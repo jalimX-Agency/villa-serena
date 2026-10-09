@@ -12,7 +12,8 @@
     "experiencesGolf": "Golf",
     "experiencesMariages": "Mariages & events",
     "contact": "Contact",
-    "book": "Faire une demande"
+    "book": "Faire une demande",
+    "gallery": "Galerie"
   },
   "hero": {
     "tagline": "Havre de paix · Marrakech",
@@ -37,7 +38,12 @@
     "cta_title": "Demandez à réserver la villa",
     "cta_body": "La villa entière en exclusivité — 7 chambres, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
     "cta_button": "Faites votre demande",
-    "stats": { "rooms": "5 suites", "guests": "14 couchages", "pool": "Jardin & bassin", "hammam": "Hammam & spa" }
+    "stats": {
+      "rooms": "5 suites",
+      "guests": "14 couchages",
+      "pool": "Jardin & bassin",
+      "hammam": "Hammam & spa"
+    }
   },
   "villa": {
     "page_title": "La villa",
@@ -98,7 +104,13 @@
     "back": "Retour aux suites",
     "more_rooms": "Autres suites",
     "all_rooms_include": "Toutes les suites incluent",
-    "includes": ["Douche & toilettes privatives", "Climatisation", "Terrasse", "Ménage quotidien", "Petit-déjeuner"]
+    "includes": [
+      "Douche & toilettes privatives",
+      "Climatisation",
+      "Terrasse",
+      "Ménage quotidien",
+      "Petit-déjeuner"
+    ]
   },
   "reservation": {
     "page_title": "Faites votre demande",
@@ -120,9 +132,18 @@
       "page_sub": "Cuisine familiale et saveurs du monde, préparée avec des légumes frais du potager.",
       "intro": "La cuisine de la Villa Serena est confiée à une cuisinière dédiée, qui prépare chaque repas à partir de recettes familiales marocaines, enrichies de saveurs venues d'ailleurs. Les légumes viennent, autant que possible, du potager de la villa — cueillis le matin même.",
       "stats": [
-        { "value": "14", "label": "Convives à table" },
-        { "value": "100%", "label": "Sur demande" },
-        { "value": "Bio", "label": "Potager de la villa" }
+        {
+          "value": "14",
+          "label": "Convives à table"
+        },
+        {
+          "value": "100%",
+          "label": "Sur demande"
+        },
+        {
+          "value": "Bio",
+          "label": "Potager de la villa"
+        }
       ],
       "highlights": [
         "Cuisine marocaine traditionnelle, recettes familiales",
@@ -136,9 +157,18 @@
       "page_sub": "Hammam traditionnel, gommages au savon noir, salle de massage et salle de sport — une oasis de détente et de revitalisation.",
       "intro": "Après une journée de golf, de découverte de la médina ou simplement de farniente au bord de la piscine, la Villa Serena a pensé un véritable espace de récupération. Hammam traditionnel, salle de massage et salle de sport sont réunis sous le même toit — pas besoin de sortir pour prendre soin de soi.",
       "stats": [
-        { "value": "3", "label": "Espaces bien-être" },
-        { "value": "60–90 min", "label": "Rituel hammam" },
-        { "value": "24/7", "label": "Accès salle de sport" }
+        {
+          "value": "3",
+          "label": "Espaces bien-être"
+        },
+        {
+          "value": "60–90 min",
+          "label": "Rituel hammam"
+        },
+        {
+          "value": "24/7",
+          "label": "Accès salle de sport"
+        }
       ],
       "highlights": [
         "Hammam marocain traditionnel, gommage au savon noir et gant de Kessa",
@@ -152,9 +182,18 @@
       "page_sub": "Randonnées dans la vallée de l'Ourika, équitation, quad, buggies et vols en montgolfière.",
       "intro": "Entre deux parties de golf, la région de Marrakech regorge d'activités à découvrir : vallée de l'Ourika, désert d'Agafay, montgolfière au lever du soleil. Sur place, le jardin de la villa a aussi ses propres distractions — terrain de pétanque, badminton et ping-pong pour les instants en famille.",
       "stats": [
-        { "value": "3", "label": "Activités sur place" },
-        { "value": "½–1", "label": "Journée d'excursion" },
-        { "value": "100%", "label": "Partenaires sélectionnés" }
+        {
+          "value": "3",
+          "label": "Activités sur place"
+        },
+        {
+          "value": "½–1",
+          "label": "Journée d'excursion"
+        },
+        {
+          "value": "100%",
+          "label": "Partenaires sélectionnés"
+        }
       ],
       "highlights": [
         "Randonnées et équitation dans la vallée de l'Ourika",
@@ -230,14 +269,62 @@
         "time": "Depuis la villa"
       },
       "courses": [
-        { "name": "Golf Al Maaden", "holes": "18", "par": "72", "architect": "Kyle Phillips (2010) · jardin marocain & parc de sculptures", "time": "~22 min" },
-        { "name": "Golf Amelkis", "holes": "27", "par": "72", "architect": "Cabell B. Robinson (1995) · esthétique & technique", "time": "~22 min" },
-        { "name": "Royal Golf de Marrakech", "holes": "27", "par": "72", "architect": "Golias / Massy (1933) · parcours historique", "time": "~22 min" },
-        { "name": "Assoufid Golf Club", "holes": "18", "par": "72", "architect": "Niall Cameron (2012) · désert d'Agafay, privé", "time": "~25 min" },
-        { "name": "The Montgomerie Marrakech", "holes": "18", "par": "71", "architect": "European Golf Design & C. Montgomerie (2015)", "time": "~28 min" },
-        { "name": "Noria Golf Club", "holes": "18", "par": "72", "architect": "Trois ambiances : vergers, désert, oasis", "time": "~28 min" },
-        { "name": "Fairmont Royal Palm", "holes": "18", "par": "72", "architect": "Cabell B. Robinson (2015) · resort 5★ & durable", "time": "~28 min" },
-        { "name": "PalmGolf Marrakech Palmeraie", "holes": "27", "par": "72", "architect": "Robert Trent Jones Sr (1993) · Palmeraie", "time": "~35 min" }
+        {
+          "name": "Golf Al Maaden",
+          "holes": "18",
+          "par": "72",
+          "architect": "Kyle Phillips (2010) · jardin marocain & parc de sculptures",
+          "time": "~22 min"
+        },
+        {
+          "name": "Golf Amelkis",
+          "holes": "27",
+          "par": "72",
+          "architect": "Cabell B. Robinson (1995) · esthétique & technique",
+          "time": "~22 min"
+        },
+        {
+          "name": "Royal Golf de Marrakech",
+          "holes": "27",
+          "par": "72",
+          "architect": "Golias / Massy (1933) · parcours historique",
+          "time": "~22 min"
+        },
+        {
+          "name": "Assoufid Golf Club",
+          "holes": "18",
+          "par": "72",
+          "architect": "Niall Cameron (2012) · désert d'Agafay, privé",
+          "time": "~25 min"
+        },
+        {
+          "name": "The Montgomerie Marrakech",
+          "holes": "18",
+          "par": "71",
+          "architect": "European Golf Design & C. Montgomerie (2015)",
+          "time": "~28 min"
+        },
+        {
+          "name": "Noria Golf Club",
+          "holes": "18",
+          "par": "72",
+          "architect": "Trois ambiances : vergers, désert, oasis",
+          "time": "~28 min"
+        },
+        {
+          "name": "Fairmont Royal Palm",
+          "holes": "18",
+          "par": "72",
+          "architect": "Cabell B. Robinson (2015) · resort 5★ & durable",
+          "time": "~28 min"
+        },
+        {
+          "name": "PalmGolf Marrakech Palmeraie",
+          "holes": "27",
+          "par": "72",
+          "architect": "Robert Trent Jones Sr (1993) · Palmeraie",
+          "time": "~35 min"
+        }
       ]
     },
     "mariagesEvents": {
@@ -261,7 +348,13 @@
     "whatsapp": "Message WhatsApp",
     "email_direct": "Nous écrire",
     "info_title": "Informations de séjour",
-    "info_items": ["Suite à la nuit ou villa entière", "Jusqu'à 14 couchages", "Cuisine familiale sur demande", "Hammam & massages sur réservation", "Transfert aéroport disponible"]
+    "info_items": [
+      "Suite à la nuit ou villa entière",
+      "Jusqu'à 14 couchages",
+      "Cuisine familiale sur demande",
+      "Hammam & massages sur réservation",
+      "Transfert aéroport disponible"
+    ]
   },
   "blog": {
     "page_title": "Le blog",
@@ -282,5 +375,15 @@
     "body": "Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de cookies.",
     "accept": "Tout accepter",
     "decline": "Refuser"
+  },
+  "gallery": {
+    "page_title": "La galerie",
+    "page_sub": "Un aperçu de la villa, de ses jardins et de l'art de vivre à Villa Serena.",
+    "empty": "Les photos arrivent bientôt.",
+    "cat_all": "Tout",
+    "cat_rooms": "Suites",
+    "cat_garden": "Jardin et piscine",
+    "cat_dining": "Restauration",
+    "cat_wellness": "Bien-être"
   }
 }

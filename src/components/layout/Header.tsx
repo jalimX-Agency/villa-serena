@@ -1,4 +1,5 @@
 "use client";
+import { media } from "@/lib/media";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
@@ -11,6 +12,7 @@ export const NAV_LINKS = [
   { key: "home", path: "/" },
   { key: "villa", path: "/la-villa" },
   { key: "suites", path: "/suites" },
+  { key: "gallery", path: "/galerie" },
   {
     key: "services",
     path: "/services",
@@ -90,7 +92,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src={transparent ? "/logo-white.png" : "/logo-gold.png"}
+              src={transparent ? media("/logo-white.png") : media("/logo-gold.png")}
               alt="Villa Serena Marrakech"
               width={346}
               height={337}

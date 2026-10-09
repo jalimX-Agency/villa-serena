@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCategoryPage } from "@/components/ServiceCategoryPage";
@@ -19,7 +20,7 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/services/excursions",
       },
     },
-    openGraph: { images: [{ url: "https://www.villaserenamarrakech.com/exp-badminton.jpg" }] },
+    openGraph: { images: [{ url: media("/exp-badminton.jpg") }] },
   };
 }
 
@@ -40,20 +41,20 @@ export default async function ExcursionsPage({
       statsKey="services.excursions.stats"
       highlightsKey="services.excursions.highlights"
       categories={["outdoor", "leisure"]}
-      heroImage="/exp-badminton.jpg"
+      heroImage={media("/exp-badminton.jpg")}
       locale={locale}
       related={[
         {
           label: t("bienEtre.page_title"),
           sub: t("bienEtre.page_sub"),
           href: "/services/bien-etre",
-          image: "/exp-hammam.jpg",
+          image: media("/exp-hammam.jpg"),
         },
         {
           label: t("restauration.page_title"),
           sub: t("restauration.page_sub"),
           href: "/services/restauration",
-          image: "/exp-cuisine.jpg",
+          image: media("/exp-cuisine.jpg"),
         },
       ]}
     />

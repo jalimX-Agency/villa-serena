@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PrivatisationPage } from "@/components/PrivatisationPage";
@@ -19,7 +20,7 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/experiences/mariages-events",
       },
     },
-    openGraph: { images: [{ url: "https://www.villaserenamarrakech.com/exp-excursions.jpg" }] },
+    openGraph: { images: [{ url: media("/exp-excursions.jpg") }] },
   };
 }
 
@@ -38,7 +39,7 @@ export default async function MariagesEventsPage({
       serviceType="privatisation"
       titleKey="experiences.mariagesEvents.page_title"
       subKey="experiences.mariagesEvents.page_sub"
-      hero={{ type: "photo", src: "/exp-excursions.jpg" }}
+      hero={{ type: "photo", src: media("/exp-excursions.jpg") }}
       intro={
         isEn
           ? "Villa Serena is yours alone for the day, or for several — the whole property, garden, pool and dining room set aside for your wedding, seminar or celebration. A private venue for up to 14 overnight guests, with day-guest capacity for a larger event."
@@ -59,7 +60,7 @@ export default async function MariagesEventsPage({
               "Hammam et salle de massage à disposition des invités",
             ]
       }
-      gallery={["/welcome-jardin.jpg", "/welcome-salon.jpg"]}
+      gallery={[media("/welcome-jardin.jpg"), media("/welcome-salon.jpg")]}
       facts={
         isEn
           ? [
@@ -80,13 +81,13 @@ export default async function MariagesEventsPage({
           label: t("retraitesYoga.page_title"),
           sub: t("retraitesYoga.page_sub"),
           href: "/experiences/retraites-yoga",
-          image: "/exp-hammam.jpg",
+          image: media("/exp-hammam.jpg"),
         },
         {
           label: t("golf.page_title"),
           sub: t("golf.page_sub"),
           href: "/experiences/golf",
-          image: "/hero-main.jpg",
+          image: media("/hero-main.jpg"),
         },
       ]}
     />

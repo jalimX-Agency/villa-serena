@@ -8,6 +8,7 @@ const NAV = [
   { href: "/admin", label: "Tableau de bord" },
   { href: "/admin/demandes", label: "Demandes" },
   { href: "/admin/chambres", label: "Chambres" },
+  { href: "/admin/galerie", label: "Galerie" },
 ];
 
 export function AdminSidebar() {

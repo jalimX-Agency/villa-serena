@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -34,9 +35,9 @@ export default async function ServicesPage({
   const t = await getTranslations({ locale, namespace: "services" });
 
   const categories = [
-    { key: "restauration", href: "/services/restauration", image: "/exp-cuisine.jpg" },
-    { key: "bienEtre", href: "/services/bien-etre", image: "/exp-hammam.jpg" },
-    { key: "excursions", href: "/services/excursions", image: "/exp-badminton.jpg" },
+    { key: "restauration", href: "/services/restauration", image: media("/exp-cuisine.jpg") },
+    { key: "bienEtre", href: "/services/bien-etre", image: media("/exp-hammam.jpg") },
+    { key: "excursions", href: "/services/excursions", image: media("/exp-badminton.jpg") },
   ] as const;
 
   return (

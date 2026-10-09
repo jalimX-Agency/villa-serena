@@ -1,4 +1,5 @@
 "use client";
+import { media } from "@/lib/media";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -24,7 +25,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center mb-4">
               <Image
-                src="/logo-gold.png"
+                src={media("/logo-gold.png")}
                 alt="Villa Serena Marrakech"
                 width={346}
                 height={337}

@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -22,11 +23,11 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/la-villa",
       },
     },
-    openGraph: { images: [{ url: "/hero-main.jpg" }] },
+    openGraph: { images: [{ url: media("/hero-main.jpg") }] },
   };
 }
 
-const STORY_IMAGES = ["/welcome-jardin.jpg", "/welcome-salon.jpg", "/exp-petanque.jpg", "/exp-hammam.jpg", "/hero-main.jpg"];
+const STORY_IMAGES = [media("/welcome-jardin.jpg"), media("/welcome-salon.jpg"), media("/exp-petanque.jpg"), media("/exp-hammam.jpg"), media("/hero-main.jpg")];
 
 export default async function VillaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -45,7 +46,7 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
   return (
     <>
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <Image src="/hero-main.jpg" alt={t("villa.page_title")} fill priority className="object-cover" />
+        <Image src={media("/hero-main.jpg")} alt={t("villa.page_title")} fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-villa-ink/70 via-villa-ink/10 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-12 pb-10">
           <div className="mx-auto max-w-5xl w-full">

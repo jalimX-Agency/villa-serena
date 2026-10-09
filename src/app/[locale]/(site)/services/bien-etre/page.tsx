@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCategoryPage } from "@/components/ServiceCategoryPage";
@@ -19,7 +20,7 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/services/bien-etre",
       },
     },
-    openGraph: { images: [{ url: "https://www.villaserenamarrakech.com/exp-hammam.jpg" }] },
+    openGraph: { images: [{ url: media("/exp-hammam.jpg") }] },
   };
 }
 
@@ -40,20 +41,20 @@ export default async function BienEtrePage({
       statsKey="services.bienEtre.stats"
       highlightsKey="services.bienEtre.highlights"
       categories={["wellness"]}
-      heroImage="/exp-hammam.jpg"
+      heroImage={media("/exp-hammam.jpg")}
       locale={locale}
       related={[
         {
           label: t("restauration.page_title"),
           sub: t("restauration.page_sub"),
           href: "/services/restauration",
-          image: "/exp-cuisine.jpg",
+          image: media("/exp-cuisine.jpg"),
         },
         {
           label: t("excursions.page_title"),
           sub: t("excursions.page_sub"),
           href: "/services/excursions",
-          image: "/exp-badminton.jpg",
+          image: media("/exp-badminton.jpg"),
         },
       ]}
     />

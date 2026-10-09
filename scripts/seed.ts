@@ -1,9 +1,13 @@
+import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
+// Static photos live in R2 under site/ (public URL = R2_ENDPOINT).
+const m = (p: string) => `${(process.env.R2_ENDPOINT ?? "").replace(/\/$/, "")}/site${p}`;
+
 // Room data + photos sourced from villaserenamarrakech.com (real content).
-// Images currently live in /public — will move to R2 in Phase 10.
+// Images are served from R2.
 const ROOMS = [
   {
     slug: "chambre-rouge",
@@ -21,8 +25,8 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-rouge.jpg",
-    images: "/room-rouge.jpg,/room-rouge-2.jpg,/room-rouge-3.jpg",
+    image: m("/room-rouge.jpg"),
+    images: "/room-rouge.jpg,/room-rouge-2.jpg,/room-rouge-3.jpg".split(",").map(m).join(","),
     amenities: "Bureau,2 fauteuils,Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Desk,2 armchairs,Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -44,8 +48,8 @@ const ROOMS = [
     bedType: "Lit 160×200",
     bedTypeEn: "Double bed 160×200",
     maxGuests: 2,
-    image: "/room-bleue.jpg",
-    images: "/room-bleue.jpg,/room-bleue-2.jpg,/room-bleue-3.jpg",
+    image: m("/room-bleue.jpg"),
+    images: "/room-bleue.jpg,/room-bleue-2.jpg,/room-bleue-3.jpg".split(",").map(m).join(","),
     amenities: "Bureau,Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Desk,Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -67,8 +71,8 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-verte.jpg",
-    images: "/room-verte.jpg,/room-verte-2.jpg,/room-verte-3.jpg",
+    image: m("/room-verte.jpg"),
+    images: "/room-verte.jpg,/room-verte-2.jpg,/room-verte-3.jpg".split(",").map(m).join(","),
     amenities: "Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Shower / WC,Air conditioning,Terrace",
     featured: true,
@@ -90,8 +94,8 @@ const ROOMS = [
     bedType: "Lits 90×200 (×2)",
     bedTypeEn: "Twin beds 90×200 (×2)",
     maxGuests: 2,
-    image: "/room-rose.jpg",
-    images: "/room-rose.jpg,/room-rose-2.jpg,/room-rose-3.jpg",
+    image: m("/room-rose.jpg"),
+    images: "/room-rose.jpg,/room-rose-2.jpg,/room-rose-3.jpg".split(",").map(m).join(","),
     amenities: "Douche / Toilettes,Climatisation,Terrasse",
     amenitiesEn: "Shower / WC,Air conditioning,Terrace",
     featured: false,
@@ -113,8 +117,8 @@ const ROOMS = [
     bedType: "Lit 160×200",
     bedTypeEn: "Double bed 160×200",
     maxGuests: 2,
-    image: "/suite-bleue.jpg",
-    images: "/suite-bleue.jpg,/suite-bleue-2.jpg,/suite-bleue-3.jpg",
+    image: m("/suite-bleue.jpg"),
+    images: "/suite-bleue.jpg,/suite-bleue-2.jpg,/suite-bleue-3.jpg".split(",").map(m).join(","),
     amenities: "Canapé,Terrasse,Douche / Toilettes,Machine Nespresso,Climatisation",
     amenitiesEn: "Sofa,Terrace,Shower / WC,Nespresso machine,Air conditioning",
     featured: true,
@@ -135,7 +139,7 @@ const EXPERIENCES = [
       "Black-soap scrubs and Kessa-glove exfoliation — deep relaxation for body and mind.",
     category: "wellness",
     duration: "60–90 min",
-    image: "/exp-hammam.jpg",
+    image: m("/exp-hammam.jpg"),
     icon: "♨",
     featured: true,
     order: 1,
@@ -150,7 +154,7 @@ const EXPERIENCES = [
     descriptionEn: "Relaxing treatments in our dedicated room, by reservation.",
     category: "wellness",
     duration: "45–90 min",
-    image: "/exp-massage.jpg",
+    image: m("/exp-massage.jpg"),
     icon: "✦",
     featured: true,
     order: 2,
@@ -165,7 +169,7 @@ const EXPERIENCES = [
     descriptionEn: "Modern equipment to keep fit throughout your stay.",
     category: "wellness",
     duration: "Libre accès",
-    image: "/exp-fitness.jpg",
+    image: m("/exp-fitness.jpg"),
     icon: "⚡",
     featured: false,
     order: 3,
@@ -180,7 +184,7 @@ const EXPERIENCES = [
     descriptionEn: "Pétanque lovers, this court is made for you.",
     category: "leisure",
     duration: "Libre accès",
-    image: "/exp-petanque.jpg",
+    image: m("/exp-petanque.jpg"),
     icon: "●",
     featured: false,
     order: 4,
@@ -195,7 +199,7 @@ const EXPERIENCES = [
     descriptionEn: "Playful moments with family or friends, in the open air.",
     category: "leisure",
     duration: "Libre accès",
-    image: "/exp-badminton.jpg",
+    image: m("/exp-badminton.jpg"),
     icon: "◗",
     featured: false,
     order: 5,
@@ -212,7 +216,7 @@ const EXPERIENCES = [
       "Our cook prepares traditional Moroccan dishes enriched with world spices — using seasonal vegetables from our own kitchen garden.",
     category: "dining",
     duration: "Sur demande",
-    image: "/exp-cuisine.jpg",
+    image: m("/exp-cuisine.jpg"),
     icon: "❋",
     featured: true,
     order: 6,
@@ -229,7 +233,7 @@ const EXPERIENCES = [
       "Hikes in the Ourika valley, horse riding, quad biking, buggies and hot-air balloon flights — with our selected partners.",
     category: "outdoor",
     duration: "½ ou 1 journée",
-    image: "/exp-excursions.jpg",
+    image: m("/exp-excursions.jpg"),
     icon: "◈",
     featured: true,
     order: 7,
@@ -237,18 +241,18 @@ const EXPERIENCES = [
 ];
 
 const GALLERY = [
-  { url: "/hero-main.jpg", caption: "La villa", captionEn: "The villa", category: "garden", order: 1 },
-  { url: "/welcome-jardin.jpg", caption: "Le jardin", captionEn: "The garden", category: "garden", order: 2 },
-  { url: "/exp-excursions.jpg", caption: "Salon extérieur", captionEn: "Outdoor lounge", category: "garden", order: 3 },
-  { url: "/welcome-salon.jpg", caption: "Salon & salle à manger", captionEn: "Lounge & dining room", category: "dining", order: 4 },
-  { url: "/room-rouge.jpg", caption: "Chambre Rouge", captionEn: "Red Room", category: "rooms", order: 5 },
-  { url: "/room-bleue.jpg", caption: "Chambre Bleue", captionEn: "Blue Room", category: "rooms", order: 6 },
-  { url: "/room-verte.jpg", caption: "Chambre Verte", captionEn: "Green Room", category: "rooms", order: 7 },
-  { url: "/room-rose.jpg", caption: "Chambre Rose", captionEn: "Pink Room", category: "rooms", order: 8 },
-  { url: "/suite-bleue.jpg", caption: "Suite Bleue", captionEn: "Blue Suite", category: "rooms", order: 9 },
-  { url: "/exp-cuisine.jpg", caption: "Service en cuisine", captionEn: "Kitchen service", category: "dining", order: 10 },
-  { url: "/exp-hammam.jpg", caption: "Hammam", captionEn: "Hammam", category: "wellness", order: 11 },
-  { url: "/exp-massage.jpg", caption: "Salle de massage", captionEn: "Massage room", category: "wellness", order: 12 },
+  { url: m("/hero-main.jpg"), caption: "La villa", captionEn: "The villa", category: "garden", order: 1 },
+  { url: m("/welcome-jardin.jpg"), caption: "Le jardin", captionEn: "The garden", category: "garden", order: 2 },
+  { url: m("/exp-excursions.jpg"), caption: "Salon extérieur", captionEn: "Outdoor lounge", category: "garden", order: 3 },
+  { url: m("/welcome-salon.jpg"), caption: "Salon & salle à manger", captionEn: "Lounge & dining room", category: "dining", order: 4 },
+  { url: m("/room-rouge.jpg"), caption: "Chambre Rouge", captionEn: "Red Room", category: "rooms", order: 5 },
+  { url: m("/room-bleue.jpg"), caption: "Chambre Bleue", captionEn: "Blue Room", category: "rooms", order: 6 },
+  { url: m("/room-verte.jpg"), caption: "Chambre Verte", captionEn: "Green Room", category: "rooms", order: 7 },
+  { url: m("/room-rose.jpg"), caption: "Chambre Rose", captionEn: "Pink Room", category: "rooms", order: 8 },
+  { url: m("/suite-bleue.jpg"), caption: "Suite Bleue", captionEn: "Blue Suite", category: "rooms", order: 9 },
+  { url: m("/exp-cuisine.jpg"), caption: "Service en cuisine", captionEn: "Kitchen service", category: "dining", order: 10 },
+  { url: m("/exp-hammam.jpg"), caption: "Hammam", captionEn: "Hammam", category: "wellness", order: 11 },
+  { url: m("/exp-massage.jpg"), caption: "Salle de massage", captionEn: "Massage room", category: "wellness", order: 12 },
 ];
 
 async function main() {

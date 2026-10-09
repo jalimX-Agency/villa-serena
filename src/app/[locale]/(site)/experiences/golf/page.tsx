@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -23,7 +24,7 @@ export async function generateMetadata({
         en: "https://www.villaserenamarrakech.com/en/experiences/golf",
       },
     },
-    openGraph: { images: [{ url: "/hero-main.jpg" }] },
+    openGraph: { images: [{ url: media("/hero-main.jpg") }] },
   };
 }
 
@@ -75,7 +76,7 @@ export default async function GolfPage({
   return (
     <>
       <div className="relative h-[55vh] min-h-[420px] overflow-hidden">
-        <Image src="/hero-main.jpg" alt={t("golf.page_title")} fill priority className="object-cover" />
+        <Image src={media("/hero-main.jpg")} alt={t("golf.page_title")} fill priority className="object-cover" />
         <div className="absolute inset-0 bg-villa-ink/55" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/80 mb-4">
@@ -192,7 +193,7 @@ export default async function GolfPage({
             <Link href="/experiences/mariages-events" className="group block">
               <div className="relative aspect-[4/3] overflow-hidden mb-3">
                 <Image
-                  src="/exp-excursions.jpg"
+                  src={media("/exp-excursions.jpg")}
                   alt={tRoot("experiences.mariagesEvents.page_title")}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -207,7 +208,7 @@ export default async function GolfPage({
             <Link href="/experiences/retraites-yoga" className="group block">
               <div className="relative aspect-[4/3] overflow-hidden mb-3">
                 <Image
-                  src="/exp-hammam.jpg"
+                  src={media("/exp-hammam.jpg")}
                   alt={tRoot("experiences.retraitesYoga.page_title")}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

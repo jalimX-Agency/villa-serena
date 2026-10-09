@@ -1,4 +1,5 @@
 "use client";
+import { media } from "@/lib/media";
 import { useState } from "react";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
@@ -30,7 +31,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm bg-card border border-border shadow-sm p-8">
         <div className="text-center mb-8">
           <Image
-            src="/logo-gold.png"
+            src={media("/logo-gold.png")}
             alt="Villa Serena Marrakech"
             width={346}
             height={337}
