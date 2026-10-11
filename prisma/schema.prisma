@@ -170,3 +170,20 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// ── Journal des connexions à l'administration ──
+model LoginLog {
+  id        String   @id @default(cuid())
+  email     String
+  success   Boolean
+  ip        String   @default("")
+  country   String   @default("")
+  city      String   @default("")
+  device    String   @default("") // Ordinateur | Mobile | Tablette
+  browser   String   @default("")
+  os        String   @default("")
+  userAgent String   @default("")
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
