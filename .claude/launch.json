@@ -4,9 +4,8 @@
     {
       "name": "villa-serena-next",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3000,
-      "cwd": "C:\\projects\\client projects\\villa-serena-next"
+      "runtimeArgs": ["run", "dev", "--", "-p", "3050"],
+      "port": 3050
     }
   ]
 }
