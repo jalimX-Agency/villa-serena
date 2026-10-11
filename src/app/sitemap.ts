@@ -18,7 +18,6 @@ const ROUTES = [
   { path: "/experiences/golf", priority: 0.6 },
   { path: "/experiences/mariages-events", priority: 0.8 },
   { path: "/galerie", priority: 0.7 },
-  { path: "/blog", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
 ];
 

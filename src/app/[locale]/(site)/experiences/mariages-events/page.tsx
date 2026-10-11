@@ -1,27 +1,11 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PrivatisationPage } from "@/components/PrivatisationPage";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "experiences" });
-  return {
-    title: t("mariagesEvents.page_title"),
-    description: t("mariagesEvents.page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/experiences/mariages-events`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/experiences/mariages-events",
-        en: "https://www.villaserenamarrakech.com/en/experiences/mariages-events",
-      },
-    },
-    openGraph: { images: [{ url: media("/exp-excursions.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "mariagesEvents", path: "/experiences/mariages-events", image: media("/exp-excursions.jpg") });
 }
 
 export default async function MariagesEventsPage({

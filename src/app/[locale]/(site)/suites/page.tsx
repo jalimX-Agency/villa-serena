@@ -1,27 +1,13 @@
-import type { Metadata } from "next";
+import { PageIntro } from "@/components/PageIntro";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { db } from "@/lib/db";
 import { Section } from "@/components/Section";
 import { SuiteCompareStrip, type CompareSuite } from "@/components/SuiteCompareStrip";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "suites" });
-  return {
-    title: t("page_title"),
-    description: t("page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/suites`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/suites",
-        en: "https://www.villaserenamarrakech.com/en/suites",
-      },
-    },
-  };
+  return pageMetadata({ locale, page: "suites", path: "/suites" });
 }
 
 export default async function SuitesPage({
@@ -48,15 +34,7 @@ export default async function SuitesPage({
 
   return (
     <>
-      <div className="pt-32 pb-16 px-6 mx-auto max-w-3xl text-center">
-        <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-4">
-          Villa Serena
-        </p>
-        <h1 className="font-serif text-4xl lg:text-5xl text-foreground mb-5">
-          {t("suites.page_title")}
-        </h1>
-        <p className="font-sans text-muted-foreground leading-relaxed">{t("suites.page_sub")}</p>
-      </div>
+      <PageIntro eyebrow={t("suites.page_title")} title={t("suites.h1")} lead={t("suites.page_sub")} body={t("suites.intro")} />
 
       <Section className="pb-20 lg:pb-28">
         <SuiteCompareStrip rooms={compareSuites} reserveLabel={t("suites.view_suite")} />

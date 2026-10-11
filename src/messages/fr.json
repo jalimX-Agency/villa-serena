@@ -16,9 +16,9 @@
     "gallery": "Galerie"
   },
   "hero": {
-    "tagline": "Havre de paix · Marrakech",
-    "headline": "Un séjour paisible\ndans un havre\nde paix",
-    "subheadline": "Villa exclusive de charme autour d'un patio d'inspiration riad, à 25 minutes de Marrakech.",
+    "tagline": "Sidi Bouzguia · à 25 min de Marrakech",
+    "headline": "Votre villa privée\nà Marrakech,\nen exclusivité",
+    "subheadline": "Cinq suites autour d'un patio d'inspiration riad, une piscine, un hammam et un jardin d'oliviers, pour vous seuls. Jusqu'à 14 personnes.",
     "cta_primary": "Découvrir la villa",
     "cta_secondary": "Voir les suites",
     "scroll": "Défiler pour explorer"
@@ -92,7 +92,8 @@
     "cta_title": "Envie de découvrir la villa ?",
     "cta_body": "Parcourez nos chambres ou faites une demande pour réserver la villa en exclusivité.",
     "cta_suites": "Voir les suites",
-    "cta_book": "Faites votre demande"
+    "cta_book": "Faites votre demande",
+    "h1": "Une villa de charme entre oliviers et patio riad"
   },
   "suites": {
     "page_title": "Les suites",
@@ -110,7 +111,9 @@
       "Terrasse",
       "Ménage quotidien",
       "Petit-déjeuner"
-    ]
+    ],
+    "h1": "Cinq suites, cinq couleurs",
+    "intro": "Les cinq suites de Villa Serena s'ouvrent sur le patio. Chacune a sa teinte, son mobilier chiné et sa terrasse ; toutes sont climatisées, avec douche et toilettes privatives. La villa se loue en exclusivité : en réservant, vous disposez des cinq suites, pour un séjour entre proches jusqu'à 14 personnes."
   },
   "reservation": {
     "page_title": "Faites votre demande",
@@ -122,7 +125,8 @@
     "step_done": "Demande envoyée",
     "continue": "Continuer",
     "submit": "Envoyer ma demande",
-    "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h."
+    "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h.",
+    "h1": "Demandez vos dates pour la villa entière"
   },
   "services": {
     "page_title": "Les services",
@@ -150,7 +154,8 @@
         "Légumes de saison issus du potager de la villa",
         "Repas préparés sur demande, à l'heure qui vous convient",
         "Salle à manger pouvant accueillir jusqu'à 14 convives"
-      ]
+      ],
+      "h1": "Une table familiale, aux légumes du potager"
     },
     "bienEtre": {
       "page_title": "Bien-être",
@@ -175,7 +180,8 @@
         "Salle de massage dédiée, soins sur réservation",
         "Salle de sport en libre accès toute la journée",
         "Une équipe présente sur place pour organiser vos soins"
-      ]
+      ],
+      "h1": "Hammam traditionnel et massages, rien que pour vous"
     },
     "excursions": {
       "page_title": "Excursions",
@@ -200,15 +206,19 @@
         "Quad, buggies et vols en montgolfière avec nos partenaires sélectionnés",
         "Terrain de pétanque et espace badminton / ping-pong sur place",
         "Excursions organisées sur demande, transport inclus"
-      ]
-    }
+      ],
+      "h1": "Activités à la villa et excursions autour de Marrakech"
+    },
+    "h1": "Des services sur mesure, sans quitter la villa",
+    "intro": "Une cuisinière prépare vos repas avec les légumes du potager, le hammam et la salle de massage sont à quelques pas de votre suite, et l'équipe organise vos excursions autour de Marrakech. Tout se décide avec vous, avant ou pendant le séjour."
   },
   "experiences": {
     "page_title": "Les expériences",
     "page_sub": "Retraites de yoga, golf et grandes célébrations — Villa Serena se privatise pour vos moments d'exception.",
     "retraitesYoga": {
       "page_title": "Retraites & yoga",
-      "page_sub": "La villa entière privatisée pour vos retraites de yoga et de bien-être, jusqu'à 14 participants."
+      "page_sub": "La villa entière privatisée pour vos retraites de yoga et de bien-être, jusqu'à 14 participants.",
+      "h1": "Organisez votre retraite de yoga à Marrakech"
     },
     "golf": {
       "page_title": "Golf",
@@ -325,17 +335,21 @@
           "architect": "Robert Trent Jones Sr (1993) · Palmeraie",
           "time": "~35 min"
         }
-      ]
+      ],
+      "h1": "Votre séjour golf à Marrakech, onze parcours à moins de 30 minutes"
     },
     "mariagesEvents": {
       "page_title": "Mariages & events",
-      "page_sub": "Privatisez la villa entière — 14 couchages — pour vos mariages, séminaires et célébrations."
+      "page_sub": "Privatisez la villa entière — 14 couchages — pour vos mariages, séminaires et célébrations.",
+      "h1": "Un mariage ou un événement privé à Marrakech"
     },
-    "quote_button": "Demander un devis"
+    "quote_button": "Demander un devis",
+    "h1": "La villa se privatise pour vos moments d'exception",
+    "intro": "Parce qu'elle se loue en entier, Villa Serena s'adapte à votre projet : une retraite de yoga au calme, un séjour golf entre amis à quelques minutes des parcours, ou un mariage dans le jardin d'oliviers. Décrivez-nous votre idée, nous vous envoyons un devis sous 24 h."
   },
   "contact": {
     "page_title": "Contact",
-    "page_sub": "Une question ? Contactez-nous directement — nous répondons en quelques heures.",
+    "page_sub": "Une question sur la villa, vos dates ou un événement ? Écrivez-nous : nous répondons en quelques heures, par email ou WhatsApp.",
     "form_name": "Nom complet",
     "form_email": "Adresse email",
     "form_phone": "Téléphone / WhatsApp",
@@ -349,12 +363,13 @@
     "email_direct": "Nous écrire",
     "info_title": "Informations de séjour",
     "info_items": [
-      "Suite à la nuit ou villa entière",
-      "Jusqu'à 14 couchages",
+      "Villa entière, en exclusivité",
+      "Cinq suites, jusqu'à 14 couchages",
       "Cuisine familiale sur demande",
       "Hammam & massages sur réservation",
       "Transfert aéroport disponible"
-    ]
+    ],
+    "h1": "Parlons de votre séjour"
   },
   "blog": {
     "page_title": "Le blog",
@@ -378,13 +393,14 @@
   },
   "gallery": {
     "page_title": "La galerie",
-    "page_sub": "Un aperçu de la villa, de ses jardins et de l'art de vivre à Villa Serena.",
+    "page_sub": "Les suites, le patio, la piscine, le jardin d'oliviers et le hammam : un aperçu de la villa avant votre séjour à Marrakech.",
     "empty": "Les photos arrivent bientôt.",
     "cat_all": "Tout",
     "cat_rooms": "Suites",
     "cat_garden": "Jardin et piscine",
     "cat_dining": "Restauration",
-    "cat_wellness": "Bien-être"
+    "cat_wellness": "Bien-être",
+    "h1": "Villa Serena en images"
   },
   "journey": {
     "eyebrow": "Une journée à Villa Serena",
@@ -409,5 +425,104 @@
       "title": "Dîner sous les étoiles, dans le patio",
       "body": "Les bougies s'allument autour du riad. Une table pour quatorze, et toute la villa rien que pour vous."
     }
+  },
+  "seo": {
+    "home": {
+      "title": "Villa privée à louer à Marrakech, 5 suites | Villa Serena",
+      "description": "Louez Villa Serena en exclusivité : cinq suites, jusqu'à 14 personnes, piscine, hammam et jardin d'oliviers à 25 minutes de Marrakech. Réponse sous 24 h."
+    },
+    "villa": {
+      "title": "La villa et son jardin, à 25 min de Marrakech | Villa Serena",
+      "description": "Patio d'inspiration riad, salon avec cheminée, piscine, bassin de carpes koï et jardin d'oliviers : Villa Serena, villa de charme à 25 minutes de Marrakech."
+    },
+    "suites": {
+      "title": "Cinq suites de charme à Marrakech | Villa Serena",
+      "description": "Chambre Rouge, Bleue, Verte, Rose et Suite Bleue : cinq suites climatisées avec terrasse autour du patio, réservées ensemble avec la villa entière."
+    },
+    "gallery": {
+      "title": "Photos de la villa, des suites et du jardin | Villa Serena",
+      "description": "Parcourez Villa Serena en images : les cinq suites, le patio, la piscine, le jardin d'oliviers, le hammam et la table d'hôtes, à 25 minutes de Marrakech."
+    },
+    "services": {
+      "title": "Services : cuisine, hammam et excursions | Villa Serena",
+      "description": "Cuisinière sur place, hammam traditionnel, massages, salle de sport et excursions autour de Marrakech : les services de Villa Serena, organisés pour vous."
+    },
+    "restauration": {
+      "title": "Cuisine marocaine et table d'hôtes à la villa | Villa Serena",
+      "description": "Une cuisinière dédiée prépare vos repas à la villa : recettes familiales marocaines, légumes du potager, table jusqu'à 14 convives, à l'heure qui vous convient."
+    },
+    "bienEtre": {
+      "title": "Hammam, massages et salle de sport privés | Villa Serena",
+      "description": "Hammam marocain traditionnel, gommage au savon noir, salle de massage et salle de sport en libre accès : le bien-être sans quitter votre villa à Marrakech."
+    },
+    "excursions": {
+      "title": "Excursions et activités autour de Marrakech | Villa Serena",
+      "description": "Vallée de l'Ourika, désert d'Agafay, quad, buggy, montgolfière : des excursions organisées depuis la villa, et pétanque, badminton et ping-pong sur place."
+    },
+    "experiences": {
+      "title": "Retraites, golf et mariages à Marrakech | Villa Serena",
+      "description": "Villa Serena se privatise entièrement pour une retraite de yoga, un séjour golf ou un mariage à Marrakech : cinq suites, jusqu'à 14 personnes, sur devis."
+    },
+    "retraitesYoga": {
+      "title": "Villa pour retraite de yoga à Marrakech | Villa Serena",
+      "description": "Organisez votre retraite de yoga ou de bien-être dans une villa privatisée à 25 minutes de Marrakech : jusqu'à 14 participants, hammam, jardin et cuisine sur place."
+    },
+    "golf": {
+      "title": "Séjour golf à Marrakech en villa privée | Villa Serena",
+      "description": "Onze parcours de golf à moins de 30 minutes, dont le PalmGolf Ourika à 12 minutes : Villa Serena est votre camp de base pour un séjour golf à Marrakech."
+    },
+    "mariagesEvents": {
+      "title": "Villa pour mariage et événement à Marrakech | Villa Serena",
+      "description": "Privatisez Villa Serena pour un mariage, un anniversaire ou un séminaire à Marrakech : jardin d'oliviers, patio, cinq suites et 14 couchages, sur devis."
+    },
+    "reservation": {
+      "title": "Demande de séjour : villa entière à Marrakech | Villa Serena",
+      "description": "Indiquez vos dates et le nombre de voyageurs : nous confirmons la disponibilité et le tarif de la villa entière sous 24 h. Sans engagement."
+    },
+    "contact": {
+      "title": "Contact et accès | Villa Serena Marrakech",
+      "description": "Une question sur la villa, un séjour ou un événement ? Écrivez-nous par formulaire, email ou WhatsApp. Villa Serena se trouve à 25 minutes de Marrakech."
+    },
+    "blog": {
+      "title": "Le blog | Villa Serena Marrakech",
+      "description": "Conseils et inspirations pour votre séjour à Marrakech."
+    }
+  },
+  "faq": {
+    "label": "Questions fréquentes",
+    "title": "Tout savoir avant de réserver",
+    "items": [
+      {
+        "q": "Où se trouve Villa Serena ?",
+        "a": "La villa se trouve à Sidi Bouzguia, à environ 25 minutes du centre de Marrakech et de la place Jemaa el-Fna, et à environ 25 minutes de l'aéroport de Marrakech-Ménara."
+      },
+      {
+        "q": "Combien de personnes la villa peut-elle accueillir ?",
+        "a": "Villa Serena compte cinq suites et peut accueillir jusqu'à 14 personnes. La salle à manger reçoit elle aussi jusqu'à 14 convives."
+      },
+      {
+        "q": "Peut-on réserver une seule chambre ?",
+        "a": "Non. La villa se loue uniquement en entier, en exclusivité : vous ne la partagez avec aucun autre voyageur."
+      },
+      {
+        "q": "Comment réserver et connaître le tarif ?",
+        "a": "Indiquez vos dates et le nombre de voyageurs sur la page de demande. Nous vous confirmons la disponibilité et le tarif de la villa sous 24 heures, sans engagement."
+      },
+      {
+        "q": "Quels services sont proposés sur place ?",
+        "a": "Le petit-déjeuner et le ménage quotidien sont inclus. Sur demande : repas préparés par la cuisinière de la villa, hammam traditionnel, massages et excursions. La salle de sport, la pétanque, le badminton et le ping-pong sont en libre accès."
+      },
+      {
+        "q": "Proposez-vous un transfert depuis l'aéroport ?",
+        "a": "Oui, un transfert depuis l'aéroport de Marrakech-Ménara peut être organisé sur demande."
+      },
+      {
+        "q": "Peut-on organiser un mariage, un séminaire ou une retraite ?",
+        "a": "Oui. La villa se privatise pour les mariages, anniversaires, séminaires et retraites de yoga ou de bien-être. Chaque événement fait l'objet d'un devis personnalisé."
+      }
+    ]
+  },
+  "common": {
+    "discover": "Découvrir"
   }
 }

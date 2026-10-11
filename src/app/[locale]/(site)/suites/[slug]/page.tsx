@@ -23,17 +23,23 @@ export async function generateMetadata({
   const name = isEn && room.nameEn ? room.nameEn : room.name;
   const description = isEn && room.descriptionEn ? room.descriptionEn : room.description;
 
+  const subtitle = isEn && room.subtitleEn ? room.subtitleEn : room.subtitle;
+  // "Chambre Rouge, suite à Marrakech | Villa Serena" — the room name alone carries no search intent.
+  const title = `${name}, ${isEn ? "suite in Marrakech" : "suite à Marrakech"} | Villa Serena`;
+  const metaDescription = [subtitle, description].filter(Boolean).join(". ").slice(0, 158);
+
   return {
-    title: name,
-    description,
+    title: { absolute: title },
+    description: metaDescription,
     alternates: {
       canonical: `https://www.villaserenamarrakech.com/${locale}/suites/${slug}`,
       languages: {
         fr: `https://www.villaserenamarrakech.com/fr/suites/${slug}`,
         en: `https://www.villaserenamarrakech.com/en/suites/${slug}`,
+        "x-default": `https://www.villaserenamarrakech.com/fr/suites/${slug}`,
       },
     },
-    openGraph: room.image ? { images: [{ url: room.image }] } : undefined,
+    openGraph: { title, description: metaDescription, images: room.image ? [{ url: room.image }] : undefined },
   };
 }
 

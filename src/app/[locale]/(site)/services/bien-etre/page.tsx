@@ -1,27 +1,11 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCategoryPage } from "@/components/ServiceCategoryPage";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "services" });
-  return {
-    title: t("bienEtre.page_title"),
-    description: t("bienEtre.page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/services/bien-etre`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/services/bien-etre",
-        en: "https://www.villaserenamarrakech.com/en/services/bien-etre",
-      },
-    },
-    openGraph: { images: [{ url: media("/exp-hammam.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "bienEtre", path: "/services/bien-etre", image: media("/exp-massage.jpg") });
 }
 
 export default async function BienEtrePage({

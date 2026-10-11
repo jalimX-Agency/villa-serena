@@ -1,27 +1,13 @@
-import type { Metadata } from "next";
+import { PageIntro } from "@/components/PageIntro";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MessageCircle, Mail } from "lucide-react";
 import { Section } from "@/components/Section";
 import { QuoteForm } from "@/components/QuoteForm";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
-  return {
-    title: t("page_title"),
-    description: t("page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/contact`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/contact",
-        en: "https://www.villaserenamarrakech.com/en/contact",
-      },
-    },
-  };
+  return pageMetadata({ locale, page: "contact", path: "/contact" });
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -32,13 +18,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <div className="pt-32 pb-16 px-6 mx-auto max-w-3xl text-center">
-        <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-4">
-          Villa Serena
-        </p>
-        <h1 className="font-serif text-4xl lg:text-5xl text-foreground mb-5">{t("contact.page_title")}</h1>
-        <p className="font-sans text-muted-foreground leading-relaxed">{t("contact.page_sub")}</p>
-      </div>
+      <PageIntro eyebrow={t("contact.page_title")} title={t("contact.h1")} lead={t("contact.page_sub")} />
 
       <Section className="pb-20 lg:pb-28">
         <div className="mx-auto max-w-5xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10">

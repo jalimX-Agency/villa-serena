@@ -1,5 +1,5 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -7,25 +7,9 @@ import { Section } from "@/components/Section";
 import { SectionLabel } from "@/components/SectionLabel";
 import { QuoteForm } from "@/components/QuoteForm";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "experiences" });
-  return {
-    title: t("golf.page_title"),
-    description: t("golf.page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/experiences/golf`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/experiences/golf",
-        en: "https://www.villaserenamarrakech.com/en/experiences/golf",
-      },
-    },
-    openGraph: { images: [{ url: media("/hero-main.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "golf", path: "/experiences/golf" });
 }
 
 type FeaturedCourse = {
@@ -82,7 +66,7 @@ export default async function GolfPage({
           <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/80 mb-4">
             Villa Serena · Villa Exclusive
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl text-white mb-4">{t("golf.page_title")}</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl text-white mb-4">{t("golf.h1")}</h1>
           <p className="font-sans text-white/85 max-w-xl">{t("golf.page_sub")}</p>
         </div>
       </div>

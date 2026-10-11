@@ -1,3 +1,5 @@
+import { pageMetadata } from "@/lib/seo";
+import { Faq } from "@/components/Faq";
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
 import { Welcome } from "@/components/home/Welcome";
@@ -9,6 +11,11 @@ import { DayJourney } from "@/components/home/DayJourney";
 
 // Phase 1 — homepage complete: Hero, Welcome, Suites, Experiences,
 // Testimonials (renders only once real reviews exist), CTA.
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata({ locale, page: "home", path: "" });
+}
+
 export default async function HomePage({
   params,
 }: {
@@ -25,6 +32,7 @@ export default async function HomePage({
       <SuitesPreview />
       <ExperiencesBand />
       <Testimonials />
+      <Faq />
       <CtaBand />
     </>
   );

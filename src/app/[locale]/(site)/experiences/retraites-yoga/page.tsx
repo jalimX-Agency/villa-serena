@@ -1,27 +1,11 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PrivatisationPage } from "@/components/PrivatisationPage";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "experiences" });
-  return {
-    title: t("retraitesYoga.page_title"),
-    description: t("retraitesYoga.page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/experiences/retraites-yoga`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/experiences/retraites-yoga",
-        en: "https://www.villaserenamarrakech.com/en/experiences/retraites-yoga",
-      },
-    },
-    openGraph: { images: [{ url: media("/exp-hammam.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "retraitesYoga", path: "/experiences/retraites-yoga", image: media("/welcome-jardin.jpg") });
 }
 
 export default async function RetraitesYogaPage({

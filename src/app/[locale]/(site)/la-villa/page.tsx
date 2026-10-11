@@ -1,30 +1,14 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/Section";
 import { ScrollStory, type StoryMoment } from "@/components/ScrollStory";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "villa" });
-  return {
-    title: t("page_title"),
-    description: t("page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/la-villa`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/la-villa",
-        en: "https://www.villaserenamarrakech.com/en/la-villa",
-      },
-    },
-    openGraph: { images: [{ url: media("/hero-main.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "villa", path: "/la-villa" });
 }
 
 const STORY_IMAGES = [media("/welcome-jardin.jpg"), media("/welcome-salon.jpg"), media("/exp-petanque.jpg"), media("/exp-hammam.jpg"), media("/hero-main.jpg")];
@@ -51,7 +35,7 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
         <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-12 pb-10">
           <div className="mx-auto max-w-5xl w-full">
             <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/70 mb-3">Villa Serena</p>
-            <h1 className="font-serif text-4xl sm:text-5xl text-white mb-2">{t("villa.page_title")}</h1>
+            <h1 className="font-serif text-4xl sm:text-5xl text-white mb-2">{t("villa.h1")}</h1>
             <p className="font-sans text-white/80 max-w-xl">{t("villa.page_sub")}</p>
           </div>
         </div>

@@ -1,27 +1,11 @@
+import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCategoryPage } from "@/components/ServiceCategoryPage";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "services" });
-  return {
-    title: t("excursions.page_title"),
-    description: t("excursions.page_sub"),
-    alternates: {
-      canonical: `https://www.villaserenamarrakech.com/${locale}/services/excursions`,
-      languages: {
-        fr: "https://www.villaserenamarrakech.com/fr/services/excursions",
-        en: "https://www.villaserenamarrakech.com/en/services/excursions",
-      },
-    },
-    openGraph: { images: [{ url: media("/exp-badminton.jpg") }] },
-  };
+  return pageMetadata({ locale, page: "excursions", path: "/services/excursions", image: media("/exp-excursions.jpg") });
 }
 
 export default async function ExcursionsPage({

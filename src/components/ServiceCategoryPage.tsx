@@ -49,7 +49,7 @@ export async function ServiceCategoryPage({
           <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/80 mb-4">
             {t("services.page_title")}
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl text-white mb-4">{t(titleKey)}</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl text-white mb-4">{t(titleKey.replace(/page_title$/, "h1"))}</h1>
           <p className="font-sans text-white/85 max-w-xl">{t(subKey)}</p>
         </div>
       </div>
