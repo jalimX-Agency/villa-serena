@@ -39,8 +39,8 @@ export function ReservationClient({
           const isActive = i === currentIndex;
           const isComplete = i < currentIndex;
           return (
-            <li key={s.key} className="flex items-center">
-              <div className="flex flex-col items-center gap-2">
+            <li key={s.key} className="flex items-start">
+              <div className="flex flex-col items-center gap-2 w-[5.5rem] sm:w-auto">
                 <div
                   className={cn(
                     "size-8 flex items-center justify-center rounded-full font-sans text-xs border transition-colors",
@@ -53,7 +53,7 @@ export function ReservationClient({
                 </div>
                 <span
                   className={cn(
-                    "font-sans text-[10px] tracking-[0.15em] uppercase whitespace-nowrap",
+                    "font-sans text-[10px] tracking-[0.12em] sm:tracking-[0.15em] uppercase text-center leading-tight sm:whitespace-nowrap",
                     isActive || isComplete ? "text-foreground" : "text-muted-foreground"
                   )}
                 >
@@ -63,7 +63,7 @@ export function ReservationClient({
               {i < steps.length - 1 && (
                 <div
                   className={cn(
-                    "h-px w-16 sm:w-32 mx-2 sm:mx-4 mb-5",
+                    "h-px w-6 sm:w-32 mx-1 sm:mx-4 mt-4",
                     isComplete ? "bg-villa-terracotta" : "bg-border"
                   )}
                 />

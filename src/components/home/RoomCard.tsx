@@ -28,13 +28,13 @@ export function RoomCard({
             priority={index === 0}
           />
         )}
-        <span
-          className="absolute top-4 left-4 size-2.5 rounded-full border border-white/70"
-          style={{ backgroundColor: room.color || undefined }}
-          aria-hidden
-        />
       </div>
-      <h3 className="font-serif text-xl text-foreground group-hover:text-villa-terracotta transition-colors">
+      <span
+        className="block h-1 w-12 -mt-4 mb-4 transition-all duration-500 group-hover:w-full"
+        style={{ backgroundColor: room.color || "var(--villa-terracotta)" }}
+        aria-hidden
+      />
+      <h3 className="font-serif text-2xl text-foreground group-hover:text-villa-terracotta transition-colors">
         {name}
       </h3>
       <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>

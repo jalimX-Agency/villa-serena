@@ -123,13 +123,13 @@ export default async function RoomDetailPage({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: roomSchema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
-      <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
+      <div className="relative h-[78vh] min-h-[520px] overflow-hidden bg-villa-ink">
         {room.image && (
-          <Image src={room.image} alt={name} fill priority className="object-cover" />
+          <Image src={room.image} alt={name} fill priority sizes="100vw" className="object-cover" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-villa-ink/70 via-villa-ink/10 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-12 pb-10">
-          <div className="mx-auto max-w-5xl w-full">
+        <div className="absolute inset-0 bg-gradient-to-t from-villa-ink/80 via-villa-ink/15 to-villa-ink/20" />
+        <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-8 pb-10 lg:pb-14">
+          <div className="mx-auto max-w-7xl w-full">
             <Link
               href="/suites"
               className="inline-block font-sans text-[11px] tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors mb-4"
@@ -137,25 +137,32 @@ export default async function RoomDetailPage({
               ← {t("suites.back")}
             </Link>
             <span
-              className="inline-block size-2.5 rounded-full border border-white/70 mb-3"
-              style={{ backgroundColor: room.color || undefined }}
+              className="block h-1 w-14 mb-5"
+              style={{ backgroundColor: room.color || "var(--villa-gold)" }}
               aria-hidden
             />
-            <h1 className="font-serif text-4xl sm:text-5xl text-white mb-2">{name}</h1>
-            <p className="font-sans text-white/80">{subtitle}</p>
+            <h1 className="font-serif font-light text-white text-[clamp(2.8rem,8vw,6.5rem)] leading-[0.95] tracking-[-0.015em] mb-4">
+              {name}
+            </h1>
+            <p className="font-sans text-white/85 text-base lg:text-lg max-w-xl">{subtitle}</p>
           </div>
         </div>
       </div>
 
-      <Section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
-            <p className="font-sans text-foreground/80 leading-relaxed mb-10">{description}</p>
+      <Section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="lg:col-span-8">
+            <p className="font-serif text-2xl lg:text-[1.9rem] leading-snug text-foreground mb-12 text-balance">
+              {description}
+            </p>
 
             {gallery.length > 1 && (
-              <div className="grid grid-cols-2 gap-3 mb-10">
+              <div className="grid grid-cols-2 gap-4 lg:gap-6 mb-14 items-end">
                 {gallery.slice(1).map((src, i) => (
-                  <div key={src} className="relative aspect-[4/3] overflow-hidden">
+                  <div
+                    key={src}
+                    className={`relative overflow-hidden bg-muted ${i % 2 === 0 ? "aspect-[3/4] rounded-t-full" : "aspect-[4/5]"}`}
+                  >
                     <Image
                       src={src}
                       alt={`${name} ${i + 2}`}
@@ -171,10 +178,11 @@ export default async function RoomDetailPage({
             <h2 className="font-sans text-[11px] tracking-[0.25em] uppercase text-muted-foreground mb-4">
               {t("suites.amenities")}
             </h2>
-            <ul className="grid grid-cols-2 gap-y-2 mb-10">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 mb-12 border-t border-border">
               {amenities.map((a) => (
-                <li key={a} className="font-sans text-sm text-foreground/80">
-                  · {a}
+                <li key={a} className="flex items-center gap-3 border-b border-border py-3 font-sans text-sm text-foreground/85">
+                  <span className="size-1.5 rotate-45 bg-villa-gold shrink-0" aria-hidden />
+                  {a}
                 </li>
               ))}
             </ul>
@@ -191,7 +199,7 @@ export default async function RoomDetailPage({
             </ul>
           </div>
 
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-4">
             <div className="sticky top-28 space-y-6">
               <div className="bg-card border border-border p-6 space-y-4">
                 <ul className="font-sans text-sm text-foreground/70 space-y-1.5">
@@ -200,8 +208,8 @@ export default async function RoomDetailPage({
                 </ul>
                 <p className="font-sans text-xs text-muted-foreground leading-relaxed border-t border-border pt-4">
                   {locale === "en"
-                    ? "Villa Serena is rented exclusively as a whole — 7 bedrooms, sleeping 14."
-                    : "Villa Serena se loue exclusivement dans son intégralité — 7 chambres, 14 couchages."}
+                    ? "Villa Serena is rented exclusively as a whole — five suites, sleeping 14."
+                    : "Villa Serena se loue exclusivement dans son intégralité — cinq suites, 14 couchages."}
                 </p>
                 <Link
                   href="/reservation"
