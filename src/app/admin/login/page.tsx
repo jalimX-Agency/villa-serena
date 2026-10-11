@@ -27,8 +27,14 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-villa-cream px-6">
-      <div className="w-full max-w-sm bg-card border border-border shadow-sm p-8">
+    <div className="min-h-screen grid lg:grid-cols-2 bg-stone-50">
+      <div className="relative hidden lg:block">
+        <Image src={media("/hero-main.jpg")} alt="" fill priority sizes="50vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 to-transparent" />
+        <p className="absolute bottom-10 left-10 font-serif text-3xl text-white">Villa Serena Marrakech</p>
+      </div>
+      <div className="flex items-center justify-center px-6">
+      <div className="w-full max-w-sm rounded-2xl bg-white ring-1 ring-stone-200 shadow-sm p-8">
         <div className="text-center mb-8">
           <Image
             src={media("/logo-gold.png")}
@@ -51,7 +57,7 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-1 px-3 py-2.5 border border-input bg-background font-sans text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+              className="w-full mt-1 rounded-lg px-3 py-2.5 ring-1 ring-stone-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-villa-terracotta/60"
             />
           </div>
           <div>
@@ -63,18 +69,19 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-1 px-3 py-2.5 border border-input bg-background font-sans text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+              className="w-full mt-1 rounded-lg px-3 py-2.5 ring-1 ring-stone-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-villa-terracotta/60"
             />
           </div>
           {error && <p className="font-sans text-xs text-destructive">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-villa-terracotta text-white font-sans text-xs tracking-[0.15em] uppercase hover:bg-villa-terracotta/90 transition-colors disabled:opacity-60"
+            className="w-full rounded-lg py-3 bg-villa-terracotta text-white text-sm font-medium hover:brightness-95 transition-colors disabled:opacity-60"
           >
             {loading ? "Connexion…" : "Se connecter"}
           </button>
         </form>
+      </div>
       </div>
     </div>
   );

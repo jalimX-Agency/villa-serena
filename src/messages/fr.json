@@ -385,5 +385,29 @@
     "cat_garden": "Jardin et piscine",
     "cat_dining": "Restauration",
     "cat_wellness": "Bien-être"
+  },
+  "journey": {
+    "eyebrow": "Une journée à Villa Serena",
+    "badge": "Aperçu — version non publiée",
+    "morning": {
+      "label": "Le matin",
+      "title": "Le jour se lève sur les oliviers",
+      "body": "Une séance de yoga sous les oliviers, l’air encore frais, le Bouddha veille sur le jardin. La villa s’éveille pour vous seuls."
+    },
+    "noon": {
+      "label": "Midi",
+      "title": "Déjeuner au bord de la piscine",
+      "body": "Une cuisine marocaine préparée sur place, servie à l'ombre. Personne d'autre que vos proches — la piscine vous appartient."
+    },
+    "afternoon": {
+      "label": "L'après-midi",
+      "title": "La chaleur du hammam",
+      "body": "Gommage au savon noir, massage aux huiles d'argan. Le temps ralentit, la lumière devient dorée."
+    },
+    "night": {
+      "label": "Le soir",
+      "title": "Dîner sous les étoiles, dans le patio",
+      "body": "Les bougies s'allument autour du riad. Une table pour quatorze, et toute la villa rien que pour vous."
+    }
   }
 }

@@ -49,7 +49,7 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "/apercu";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);

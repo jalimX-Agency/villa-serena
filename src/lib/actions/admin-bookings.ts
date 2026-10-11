@@ -13,5 +13,8 @@ export async function updateBookingStatus(bookingId: string, status: string) {
 
   await db.booking.update({ where: { id: bookingId }, data: { status } });
   revalidatePath("/admin/demandes");
-  revalidatePath("/admin");
+  revalidatePath("/admin", "layout");
+  // Public availability calendar reads booked ranges.
+  revalidatePath("/fr/reservation");
+  revalidatePath("/en/reservation");
 }

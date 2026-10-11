@@ -2,8 +2,12 @@
 import { useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Upload, Loader2, Trash2, Star, Check } from "lucide-react";
 import type { GalleryImage } from "@prisma/client";
 import { uploadGalleryImage, updateGalleryImage, deleteGalleryImage } from "@/lib/actions/admin-gallery";
+import { compressImage } from "@/lib/compress-image";
+import { Card, field } from "@/components/admin/ui";
+import { cn } from "@/lib/utils";
 
 const CATEGORIES = [
   { value: "rooms", label: "Suites" },
@@ -12,50 +16,29 @@ const CATEGORIES = [
   { value: "wellness", label: "Bien-être" },
 ];
 
-const MAX_SIDE = 2400;
-
-/** Resize + convert to WebP in the browser so uploads stay small and fast. */
-async function compress(file: File): Promise<File> {
-  const bitmap = await createImageBitmap(file);
-  const scale = Math.min(1, MAX_SIDE / Math.max(bitmap.width, bitmap.height));
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.round(bitmap.width * scale);
-  canvas.height = Math.round(bitmap.height * scale);
-  canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  for (const q of [0.85, 0.75, 0.65]) {
-    const blob: Blob | null = await new Promise((r) => canvas.toBlob(r, "image/webp", q));
-    if (blob && blob.size <= 3 * 1024 * 1024) {
-      return new File([blob], file.name.replace(/\.\w+$/, ".webp"), { type: "image/webp" });
-    }
-  }
-  throw new Error("Image trop lourde même après compression.");
-}
-
-const field =
-  "w-full border border-border bg-background px-2 py-1.5 font-sans text-xs focus:outline-none focus:border-villa-terracotta";
-
 export function GalleryManager({ images }: { images: GalleryImage[] }) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const [category, setCategory] = useState("garden");
+  const [filter, setFilter] = useState("all");
   const [progress, setProgress] = useState<string | null>(null);
   const [errors, setErrors] = useState<string[]>([]);
-  const [, startTransition] = useTransition();
+  const [drag, setDrag] = useState(false);
 
   async function onFiles(files: FileList | null) {
-    if (!files?.length) return;
+    const list = Array.from(files ?? []).filter((f) => f.type.startsWith("image/"));
+    if (!list.length) return;
     const errs: string[] = [];
-    for (let i = 0; i < files.length; i++) {
-      setProgress(`Envoi ${i + 1} / ${files.length}…`);
+    for (let i = 0; i < list.length; i++) {
+      setProgress(`Envoi ${i + 1} / ${list.length}…`);
       try {
-        const small = await compress(files[i]);
         const fd = new FormData();
-        fd.set("file", small);
+        fd.set("file", await compressImage(list[i]));
         fd.set("category", category);
         const res = await uploadGalleryImage(fd);
-        if (!res.ok) errs.push(`${files[i].name} : ${res.error}`);
+        if (!res.ok) errs.push(`${list[i].name} : ${res.error}`);
       } catch (e) {
-        errs.push(`${files[i].name} : ${e instanceof Error ? e.message : "erreur"}`);
+        errs.push(`${list[i].name} : ${e instanceof Error ? e.message : "erreur"}`);
       }
     }
     setErrors(errs);
@@ -64,108 +47,125 @@ export function GalleryManager({ images }: { images: GalleryImage[] }) {
     router.refresh();
   }
 
+  const shown = filter === "all" ? images : images.filter((i) => i.category === filter);
+
   return (
-    <div className="space-y-8">
-      <div className="bg-card border border-border p-5 flex flex-wrap items-end gap-4">
-        <div>
-          <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">
-            Catégorie
-          </label>
-          <select value={category} onChange={(e) => setCategory(e.target.value)} className={field}>
-            {CATEGORIES.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">
-            Photos
-          </label>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/jpeg,image/png,image/webp"
-            multiple
+    <div className="space-y-6">
+      <Card className="p-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="sm:w-56">
+            <label className="mb-1.5 block text-xs font-medium text-stone-600">Catégorie des nouvelles photos</label>
+            <select value={category} onChange={(e) => setCategory(e.target.value)} className={field}>
+              {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
+            </select>
+          </div>
+          <button
+            type="button"
             disabled={!!progress}
-            onChange={(e) => onFiles(e.target.files)}
-            className="font-sans text-xs"
-          />
+            onClick={() => fileRef.current?.click()}
+            onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
+            onDragLeave={() => setDrag(false)}
+            onDrop={(e) => { e.preventDefault(); setDrag(false); onFiles(e.dataTransfer.files); }}
+            className={cn(
+              "flex flex-1 items-center justify-center gap-3 rounded-xl border-2 border-dashed px-4 py-6 text-sm text-stone-500 transition",
+              drag ? "border-villa-terracotta bg-villa-terracotta/5" : "border-stone-200 hover:border-stone-300 hover:bg-stone-50"
+            )}
+          >
+            {progress ? <Loader2 className="size-5 animate-spin" /> : <Upload className="size-5" />}
+            {progress ?? "Glissez vos photos ici ou cliquez pour choisir"}
+          </button>
+          <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" multiple hidden onChange={(e) => onFiles(e.target.files)} />
         </div>
-        {progress && <p className="font-sans text-xs text-villa-terracotta">{progress}</p>}
         {errors.length > 0 && (
-          <ul className="basis-full font-sans text-xs text-red-600 list-disc pl-4">
-            {errors.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ul>
+          <ul className="mt-3 list-disc pl-5 text-xs text-red-600">{errors.map((e) => <li key={e}>{e}</li>)}</ul>
         )}
+      </Card>
+
+      <div className="flex gap-1 overflow-x-auto rounded-xl bg-stone-100 p-1 w-fit max-w-full">
+        {[{ value: "all", label: "Toutes" }, ...CATEGORIES].map((c) => {
+          const n = c.value === "all" ? images.length : images.filter((i) => i.category === c.value).length;
+          return (
+            <button
+              key={c.value}
+              type="button"
+              onClick={() => setFilter(c.value)}
+              className={cn(
+                "flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-1.5 text-sm transition",
+                filter === c.value ? "bg-white text-stone-900 shadow-sm" : "text-stone-500 hover:text-stone-800"
+              )}
+            >
+              {c.label} <span className="text-[11px] text-stone-400">{n}</span>
+            </button>
+          );
+        })}
       </div>
 
-      {images.length === 0 ? (
-        <p className="font-sans text-sm text-muted-foreground">Aucune photo pour le moment.</p>
+      {shown.length === 0 ? (
+        <p className="py-10 text-center text-sm text-stone-400">Aucune photo dans cette catégorie.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-          {images.map((img) => (
-            <form
-              key={img.id}
-              action={(fd) =>
-                startTransition(async () => {
-                  await updateGalleryImage(img.id, fd);
-                  router.refresh();
-                })
-              }
-              className="bg-card border border-border"
-            >
-              <div className="relative aspect-[4/3] bg-muted">
-                <Image
-                  src={img.url}
-                  alt={img.alt || ""}
-                  fill
-                  sizes="(min-width:1280px) 25vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-3 space-y-2">
-                <input name="alt" defaultValue={img.alt} placeholder="Description (FR)" className={field} />
-                <input name="altEn" defaultValue={img.altEn} placeholder="Description (EN)" className={field} />
-                <select name="category" defaultValue={img.category} className={field}>
-                  {CATEGORIES.map((c) => (
-                    <option key={c.value} value={c.value}>
-                      {c.label}
-                    </option>
-                  ))}
-                </select>
-                <label className="flex items-center gap-2 font-sans text-xs text-muted-foreground">
-                  <input type="checkbox" name="featured" defaultChecked={img.featured} /> Mise en avant
-                </label>
-                <div className="flex justify-between pt-1">
-                  <button
-                    type="submit"
-                    className="font-sans text-xs uppercase tracking-wide text-villa-terracotta hover:underline"
-                  >
-                    Enregistrer
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (!confirm("Supprimer cette photo définitivement ?")) return;
-                      startTransition(async () => {
-                        await deleteGalleryImage(img.id);
-                        router.refresh();
-                      });
-                    }}
-                    className="font-sans text-xs uppercase tracking-wide text-red-600 hover:underline"
-                  >
-                    Supprimer
-                  </button>
-                </div>
-              </div>
-            </form>
-          ))}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {shown.map((img) => <GalleryItem key={img.id} img={img} />)}
         </div>
       )}
     </div>
+  );
+}
+
+function GalleryItem({ img }: { img: GalleryImage }) {
+  const router = useRouter();
+  const [pending, start] = useTransition();
+  const [saved, setSaved] = useState(false);
+
+  return (
+    <Card className="overflow-hidden">
+      <form
+        action={(fd) =>
+          start(async () => {
+            await updateGalleryImage(img.id, fd);
+            setSaved(true);
+            setTimeout(() => setSaved(false), 2000);
+            router.refresh();
+          })
+        }
+      >
+        <div className="relative aspect-[4/3] bg-stone-100">
+          <Image src={img.url} alt={img.alt || ""} fill sizes="(min-width:1280px) 25vw, 50vw" className="object-cover" />
+          {img.featured && (
+            <span className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-semibold text-stone-800">
+              <Star className="size-3 fill-villa-gold text-villa-gold" /> En avant
+            </span>
+          )}
+        </div>
+        <div className="space-y-2 p-4">
+          <input name="alt" defaultValue={img.alt} placeholder="Description (FR) — utile pour le SEO" className={field} />
+          <input name="altEn" defaultValue={img.altEn} placeholder="Description (EN)" className={field} />
+          <div className="flex gap-2">
+            <select name="category" defaultValue={img.category} className={field}>
+              {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
+            </select>
+            <label className="flex items-center gap-1.5 whitespace-nowrap text-xs text-stone-600">
+              <input type="checkbox" name="featured" defaultChecked={img.featured} className="accent-villa-terracotta" /> En avant
+            </label>
+          </div>
+          <div className="flex items-center justify-between pt-1">
+            <button type="submit" disabled={pending} className="inline-flex items-center gap-1.5 text-sm font-medium text-villa-terracotta hover:underline disabled:opacity-50">
+              {saved ? <><Check className="size-4" /> Enregistré</> : "Enregistrer"}
+            </button>
+            <button
+              type="button"
+              disabled={pending}
+              onClick={() => {
+                if (!confirm("Supprimer cette photo définitivement ?")) return;
+                start(async () => { await deleteGalleryImage(img.id); router.refresh(); });
+              }}
+              className="rounded-lg p-1.5 text-stone-400 hover:bg-red-50 hover:text-red-600"
+              aria-label="Supprimer"
+            >
+              <Trash2 className="size-4" />
+            </button>
+          </div>
+        </div>
+      </form>
+    </Card>
   );
 }

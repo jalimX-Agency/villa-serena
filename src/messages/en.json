@@ -385,5 +385,29 @@
     "cat_garden": "Garden & Pool",
     "cat_dining": "Dining",
     "cat_wellness": "Wellness"
+  },
+  "journey": {
+    "eyebrow": "A day at Villa Serena",
+    "badge": "Preview — unpublished version",
+    "morning": {
+      "label": "Morning",
+      "title": "Sunrise over the olive trees",
+      "body": "Yoga beneath the olive trees while the air is still cool, the Buddha watching over the garden. The villa wakes up for you alone."
+    },
+    "noon": {
+      "label": "Midday",
+      "title": "Lunch by the pool",
+      "body": "Moroccan cooking prepared on site, served in the shade. No one but your own party — the pool is yours."
+    },
+    "afternoon": {
+      "label": "Afternoon",
+      "title": "The warmth of the hammam",
+      "body": "Black-soap scrub, argan-oil massage. Time slows down and the light turns golden."
+    },
+    "night": {
+      "label": "Evening",
+      "title": "Dinner under the stars in the patio",
+      "body": "Candles flicker around the riad. A table for fourteen, and the whole villa just for you."
+    }
   }
 }

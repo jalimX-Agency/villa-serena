@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { db } from "@/lib/db";
 import { RoomEditForm } from "@/components/admin/RoomEditForm";
+import { PageHeader, btn } from "@/components/admin/ui";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminRoomEditPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -10,14 +14,20 @@ export default async function AdminRoomEditPage({ params }: { params: Promise<{ 
 
   return (
     <div>
-      <Link href="/admin/chambres" className="font-sans text-xs text-villa-terracotta hover:underline">
-        ← Retour aux chambres
+      <Link href="/admin/chambres" className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-900">
+        <ArrowLeft className="size-4" /> Chambres
       </Link>
-      <h1 className="font-serif text-2xl text-foreground mt-3 mb-1">{room.name}</h1>
-      <p className="font-sans text-sm text-muted-foreground mb-8">
-        Le nom, les photos et la description longue se modifient encore par script (contactez le développeur) —
-        ce formulaire couvre le prix, les infos rapides et l&apos;ordre d&apos;affichage.
-      </p>
+      <div className="mt-4">
+        <PageHeader
+          title={room.name}
+          description="Photos, textes et informations affichés sur le site."
+          actions={
+            <a href={`/fr/suites/${room.slug}`} target="_blank" rel="noreferrer" className={btn.secondary}>
+              <ExternalLink className="size-4" /> Voir sur le site
+            </a>
+          }
+        />
+      </div>
       <RoomEditForm room={room} />
     </div>
   );
