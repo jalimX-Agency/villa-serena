@@ -18,7 +18,7 @@
   "hero": {
     "tagline": "Sidi Bouzguia · 25 min from Marrakech",
     "headline": "Your private villa\nin Marrakech,\nexclusively yours",
-    "subheadline": "Five suites around a riad-style patio, a pool, a hammam and an olive garden, all to yourselves. Up to 14 guests.",
+    "subheadline": "A villa to rent in full, 25 minutes from Marrakech: five suites around a riad patio, pool, hammam, in-house cook and olive garden. Up to 14 guests.",
     "cta_primary": "Discover the Villa",
     "cta_secondary": "View the Suites",
     "scroll": "Scroll to explore"
@@ -36,7 +36,7 @@
     "testimonials_label": "Guest Stories",
     "testimonials_title": "They Stayed\nWith Us",
     "cta_title": "Enquire About Your Stay",
-    "cta_body": "The entire villa, exclusively — 7 bedrooms, sleeping 14. Ideal for family gatherings, golf trips and seminars.",
+    "cta_body": "The entire villa, exclusively — 5 suites, sleeping 14. Ideal for family gatherings, golf trips and seminars.",
     "cta_button": "Enquire Now",
     "stats": {
       "rooms": "5 Suites",
@@ -119,7 +119,7 @@
     "page_title": "Enquire Now",
     "page_sub": "The entire villa, exclusively yours — share your dates and we'll get back to you within 24h.",
     "villa_label": "Villa Serena · Exclusive Use",
-    "villa_summary": "7 Bedrooms · Sleeps 14 · Full Exclusivity",
+    "villa_summary": "5 Suites · Sleeps 14 · Full Exclusivity",
     "step_dates": "Dates",
     "step_details": "Your Details",
     "step_done": "Request Sent",
@@ -428,8 +428,8 @@
   },
   "seo": {
     "home": {
-      "title": "Private Villa Rental in Marrakech, 5 Suites | Villa Serena",
-      "description": "Rent Villa Serena exclusively: five suites, up to 14 guests, pool, hammam and olive garden, 25 minutes from Marrakech. We reply within 24 hours."
+      "title": "Villa Rental in Marrakech with Pool, 5 Suites | Villa Serena",
+      "description": "Private villa rental in Marrakech with pool, cook and staff: Villa Serena, five suites sleeping 14, hammam and olive garden. We reply within 24 hours."
     },
     "villa": {
       "title": "The Villa and Gardens, 25 Min from Marrakech | Villa Serena",
@@ -468,15 +468,15 @@
       "description": "Host your yoga or wellness retreat in a private villa 25 minutes from Marrakech: up to 14 participants, hammam, gardens and in-house cooking."
     },
     "golf": {
-      "title": "Golf Holiday in Marrakech, Private Villa | Villa Serena",
+      "title": "Golf in Marrakech: Private Villa Holiday | Villa Serena",
       "description": "Eleven golf courses within 30 minutes, including PalmGolf Ourika 12 minutes away: Villa Serena is your base for a golf holiday in Marrakech."
     },
     "mariagesEvents": {
-      "title": "Wedding and Event Villa in Marrakech | Villa Serena",
+      "title": "Wedding Villa in Marrakech, Exclusive Hire | Villa Serena",
       "description": "Hire Villa Serena exclusively for a wedding, birthday or seminar in Marrakech: olive garden, patio, five suites and beds for 14, on quotation."
     },
     "reservation": {
-      "title": "Stay Enquiry: Whole Villa in Marrakech | Villa Serena",
+      "title": "Rent the Villa in Marrakech: Stay Enquiry | Villa Serena",
       "description": "Tell us your dates and the number of guests: we confirm availability and the rate for the whole villa within 24 hours. No commitment."
     },
     "contact": {

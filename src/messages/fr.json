@@ -18,7 +18,7 @@
   "hero": {
     "tagline": "Sidi Bouzguia · à 25 min de Marrakech",
     "headline": "Votre villa privée\nà Marrakech,\nen exclusivité",
-    "subheadline": "Cinq suites autour d'un patio d'inspiration riad, une piscine, un hammam et un jardin d'oliviers, pour vous seuls. Jusqu'à 14 personnes.",
+    "subheadline": "Une villa à louer en entier, à 25 minutes de Marrakech : cinq suites autour d'un patio riad, piscine, hammam, cuisinière et jardin d'oliviers. Jusqu'à 14 personnes.",
     "cta_primary": "Découvrir la villa",
     "cta_secondary": "Voir les suites",
     "scroll": "Défiler pour explorer"
@@ -36,7 +36,7 @@
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont séjourné\nchez nous",
     "cta_title": "Demandez à réserver la villa",
-    "cta_body": "La villa entière en exclusivité — 7 chambres, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
+    "cta_body": "La villa entière en exclusivité — 5 suites, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
     "cta_button": "Faites votre demande",
     "stats": {
       "rooms": "5 suites",
@@ -119,7 +119,7 @@
     "page_title": "Faites votre demande",
     "page_sub": "La villa entière, en exclusivité — indiquez vos dates, nous revenons vers vous sous 24h.",
     "villa_label": "Villa Serena · Usage exclusif",
-    "villa_summary": "7 chambres · 14 couchages · Exclusivité totale",
+    "villa_summary": "5 suites · 14 couchages · Exclusivité totale",
     "step_dates": "Dates",
     "step_details": "Vos informations",
     "step_done": "Demande envoyée",
@@ -428,8 +428,8 @@
   },
   "seo": {
     "home": {
-      "title": "Villa privée à louer à Marrakech, 5 suites | Villa Serena",
-      "description": "Louez Villa Serena en exclusivité : cinq suites, jusqu'à 14 personnes, piscine, hammam et jardin d'oliviers à 25 minutes de Marrakech. Réponse sous 24 h."
+      "title": "Location villa Marrakech avec piscine | Villa Serena",
+      "description": "Location de villa à Marrakech avec piscine, cuisinière et personnel : Villa Serena, cinq suites pour 14 personnes, hammam et jardin d'oliviers. Réponse sous 24 h."
     },
     "villa": {
       "title": "La villa et son jardin, à 25 min de Marrakech | Villa Serena",
@@ -448,7 +448,7 @@
       "description": "Cuisinière sur place, hammam traditionnel, massages, salle de sport et excursions autour de Marrakech : les services de Villa Serena, organisés pour vous."
     },
     "restauration": {
-      "title": "Cuisine marocaine et table d'hôtes à la villa | Villa Serena",
+      "title": "Villa avec cuisinière à Marrakech, table d'hôtes | Villa Serena",
       "description": "Une cuisinière dédiée prépare vos repas à la villa : recettes familiales marocaines, légumes du potager, table jusqu'à 14 convives, à l'heure qui vous convient."
     },
     "bienEtre": {
@@ -468,15 +468,15 @@
       "description": "Organisez votre retraite de yoga ou de bien-être dans une villa privatisée à 25 minutes de Marrakech : jusqu'à 14 participants, hammam, jardin et cuisine sur place."
     },
     "golf": {
-      "title": "Séjour golf à Marrakech en villa privée | Villa Serena",
+      "title": "Golf à Marrakech : séjour en villa privée | Villa Serena",
       "description": "Onze parcours de golf à moins de 30 minutes, dont le PalmGolf Ourika à 12 minutes : Villa Serena est votre camp de base pour un séjour golf à Marrakech."
     },
     "mariagesEvents": {
-      "title": "Villa pour mariage et événement à Marrakech | Villa Serena",
+      "title": "Villa pour mariage à Marrakech, privatisation | Villa Serena",
       "description": "Privatisez Villa Serena pour un mariage, un anniversaire ou un séminaire à Marrakech : jardin d'oliviers, patio, cinq suites et 14 couchages, sur devis."
     },
     "reservation": {
-      "title": "Demande de séjour : villa entière à Marrakech | Villa Serena",
+      "title": "Louer la villa à Marrakech : demande de séjour | Villa Serena",
       "description": "Indiquez vos dates et le nombre de voyageurs : nous confirmons la disponibilité et le tarif de la villa entière sous 24 h. Sans engagement."
     },
     "contact": {
