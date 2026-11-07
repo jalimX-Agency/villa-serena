@@ -286,7 +286,7 @@ function SuiteCardVisual({
 
       <div className={cn(active ? "p-5 sm:p-7" : "p-4")}>
         <div className="flex items-start justify-between gap-3 mb-1">
-          <h3 className={cn("font-serif text-foreground leading-snug", active ? "text-xl sm:text-2xl" : "text-sm")}>
+          <h3 className={cn("font-serif text-villa-ink leading-snug", active ? "text-xl sm:text-2xl" : "text-sm")}>
             {room.name}
           </h3>
         </div>

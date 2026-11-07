@@ -8,30 +8,37 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const NAV_LINKS = [
+type NavItem = { key: string; path: string; children?: { key: string; path: string }[] };
+
+/** Menu from the client brief (6 Nov 2026): seven entries + the "Faire une demande" button. */
+export const NAV_LINKS: NavItem[] = [
   { key: "home", path: "/" },
   { key: "villa", path: "/la-villa" },
   { key: "suites", path: "/suites" },
-  { key: "gallery", path: "/galerie" },
   {
     key: "services",
     path: "/services",
     children: [
-      { key: "servicesRestauration", path: "/services/restauration" },
-      { key: "servicesBienEtre", path: "/services/bien-etre" },
-      { key: "servicesExcursions", path: "/services/excursions" },
+      { key: "servicesRestauration", path: "/services#restauration" },
+      { key: "servicesBienEtre", path: "/services#bien-etre" },
+      { key: "servicesExcursions", path: "/services#activites" },
     ],
   },
   {
     key: "experiences",
     path: "/experiences",
     children: [
-      { key: "experiencesRetraites", path: "/experiences/retraites-yoga" },
-      { key: "experiencesGolf", path: "/experiences/golf" },
-      { key: "experiencesMariages", path: "/experiences/mariages-events" },
+      { key: "experiencesMariages", path: "/experiences#evenements" },
+      { key: "experiencesGolf", path: "/experiences#golf" },
+      { key: "experiencesRetraites", path: "/experiences#retraites" },
     ],
   },
-] as const;
+  { key: "gallery", path: "/galerie" },
+  { key: "blog", path: "/blog" },
+];
+
+const LEFT = NAV_LINKS.slice(0, 4);
+const RIGHT = NAV_LINKS.slice(4);
 
 const LANGUAGES = [
   { code: "fr" as const, label: "FR", name: "Français" },
@@ -44,30 +51,25 @@ export function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  // Menus are tied to the path they were opened on, so navigating closes them.
+  const [mobileOn, setMobileOn] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const isHome = pathname === "/" || pathname === "/apercu";
+  const mobileOpen = mobileOn === pathname;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
+    handler();
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
-    setOpenDropdown(null);
-    setMobileExpanded(null);
-  }, [pathname]);
-
-  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setOpenDropdown(null);
-      }
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenDropdown(null);
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
@@ -77,107 +79,127 @@ export function Header() {
     router.replace(pathname, { locale: code });
     setLangOpen(false);
   };
+
+  // Home at the very top: transparent over the photo, and the hero carries the large colour logo.
   const transparent = isHome && !scrolled && !mobileOpen;
+  const compact = scrolled || mobileOpen;
+  const isActive = (item: NavItem) =>
+    item.path === "/" ? pathname === "/" : pathname === item.path || pathname.startsWith(item.path + "/");
+
+  const linkCls = (item: NavItem) =>
+    cn(
+      "relative px-2.5 py-2 font-sans text-[11px] tracking-[0.14em] uppercase text-white/85 transition-colors hover:text-white",
+      // Active link: white text with a sand underline (terracotta on a photo lacked contrast).
+      isActive(item) &&
+        "text-white after:absolute after:left-2.5 after:right-2.5 after:-bottom-0.5 after:h-px after:bg-villa-gold"
+    );
+
+  const renderItem = (item: NavItem) => {
+    if (!item.children) {
+      return (
+        <Link key={item.key} href={item.path} className={linkCls(item)}>
+          {t(`nav.${item.key}`)}
+        </Link>
+      );
+    }
+    const isOpen = openDropdown === item.key;
+    return (
+      <div key={item.key} className="relative">
+        <button
+          onClick={() => setOpenDropdown(isOpen ? null : item.key)}
+          className={cn(linkCls(item), "flex items-center gap-1")}
+        >
+          {t(`nav.${item.key}`)}
+          <ChevronDown className={cn("size-3 transition-transform", isOpen && "rotate-180")} />
+        </button>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="absolute left-0 top-full mt-2 bg-villa-ink border border-white/10 shadow-xl overflow-hidden z-50 min-w-[220px]"
+            >
+              <Link
+                href={item.path}
+                onClick={() => setOpenDropdown(null)}
+                className="block px-4 py-2.5 font-sans text-[11px] tracking-[0.14em] uppercase text-villa-gold hover:bg-white/5"
+              >
+                {t(`nav.${item.key}`)}
+              </Link>
+              {item.children.map((child) => (
+                <Link
+                  key={child.key}
+                  href={child.path}
+                  onClick={() => setOpenDropdown(null)}
+                  className="block px-4 py-2.5 font-sans text-xs tracking-wide text-white/85 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {t(`nav.${child.key}`)}
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         transparent
-          ? "bg-transparent"
-          : "bg-villa-cream/95 backdrop-blur-md border-b border-border shadow-sm"
+          ? "bg-gradient-to-b from-villa-ink/60 to-transparent"
+          : "bg-villa-ink/97 backdrop-blur-md shadow-[0_1px_0_rgba(255,255,255,0.06)]"
       )}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex items-center">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div
+          ref={navRef}
+          className={cn(
+            "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-500",
+            compact ? "h-20 xl:h-[92px]" : "h-20 xl:h-[140px]"
+          )}
+        >
+          {/* Left menu (desktop) / burger (mobile) */}
+          <div className="flex items-center">
+            <nav className="hidden xl:flex items-center gap-0.5">{LEFT.map(renderItem)}</nav>
+            <button
+              onClick={() => setMobileOn(mobileOpen ? null : pathname)}
+              className="xl:hidden p-2 -ml-2 text-white"
+              aria-label="Menu"
+            >
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
+
+          {/* Centred logo: 110 px at the top, 72 px once scrolled, 64 px on mobile. Hidden on the
+              home page while the hero shows the large colour logo. */}
+          <Link
+            href="/"
+            className={cn("flex justify-center transition-opacity duration-500", transparent && "opacity-0 pointer-events-none")}
+            aria-label="Villa Serena Marrakech"
+          >
             <Image
-              src={transparent ? media("/logo-white.png") : media("/logo-gold.png")}
+              src={media("/logo-serena-white.png")}
               alt="Villa Serena Marrakech"
-              width={346}
-              height={337}
+              width={1083}
+              height={1030}
               priority
-              className="h-14 lg:h-16 w-auto"
+              className={cn("w-auto transition-all duration-500 h-16", compact ? "xl:h-[72px]" : "xl:h-[110px]")}
             />
           </Link>
 
-          <nav ref={navRef} className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((item) => {
-              const hasChildren = "children" in item && item.children.length > 0;
-              const active =
-                pathname === item.path || (hasChildren && pathname.startsWith(item.path));
-
-              if (!hasChildren) {
-                return (
-                  <Link
-                    key={item.key}
-                    href={item.path}
-                    className={cn(
-                      "px-3 py-2 font-sans text-[11px] tracking-[0.12em] uppercase transition-colors hover:text-villa-terracotta",
-                      transparent ? "text-white/90" : "text-foreground/70",
-                      active && "text-villa-terracotta"
-                    )}
-                  >
-                    {t(`nav.${item.key}`)}
-                  </Link>
-                );
-              }
-
-              const isOpen = openDropdown === item.key;
-              return (
-                <div key={item.key} className="relative">
-                  <button
-                    onClick={() => setOpenDropdown(isOpen ? null : item.key)}
-                    className={cn(
-                      "flex items-center gap-1 px-3 py-2 font-sans text-[11px] tracking-[0.12em] uppercase transition-colors hover:text-villa-terracotta",
-                      transparent ? "text-white/90" : "text-foreground/70",
-                      active && "text-villa-terracotta"
-                    )}
-                  >
-                    {t(`nav.${item.key}`)}
-                    <ChevronDown className={cn("size-3 transition-transform", isOpen && "rotate-180")} />
-                  </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        className="absolute left-0 top-full mt-1 bg-card border border-border rounded-md shadow-lg overflow-hidden z-50 min-w-[200px]"
-                      >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.key}
-                            href={child.path}
-                            onClick={() => setOpenDropdown(null)}
-                            className={cn(
-                              "block px-4 py-2.5 font-sans text-xs tracking-wide uppercase transition-colors hover:bg-muted",
-                              pathname === child.path ? "text-villa-terracotta font-medium" : "text-foreground"
-                            )}
-                          >
-                            {t(`nav.${child.key}`)}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <div className="hidden lg:block relative">
+          {/* Right menu + language + CTA */}
+          <div className="flex items-center justify-end gap-1">
+            <nav className="hidden xl:flex items-center gap-0.5">{RIGHT.map(renderItem)}</nav>
+            <div className="hidden xl:block relative ml-1">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={cn(
-                  "flex items-center gap-1 px-2 py-1.5 font-sans text-[11px] tracking-wider uppercase transition-colors hover:text-villa-terracotta",
-                  transparent ? "text-white/80" : "text-muted-foreground"
-                )}
+                className="flex items-center gap-1 px-2 py-1.5 font-sans text-[11px] tracking-wider uppercase text-white/75 hover:text-white"
               >
                 <Globe className="size-3" />
                 {language.toUpperCase()}
-                <ChevronDown className="size-3" />
               </button>
               <AnimatePresence>
                 {langOpen && (
@@ -185,15 +207,15 @@ export function Header() {
                     initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
-                    className="absolute right-0 top-full mt-1 bg-card border border-border rounded-md shadow-lg overflow-hidden z-50 min-w-[130px]"
+                    className="absolute right-0 top-full mt-2 bg-villa-ink border border-white/10 shadow-xl overflow-hidden z-50 min-w-[130px]"
                   >
                     {LANGUAGES.map(({ code, name }) => (
                       <button
                         key={code}
                         onClick={() => handleLang(code)}
                         className={cn(
-                          "w-full px-4 py-2.5 text-left font-sans text-xs tracking-wide transition-colors hover:bg-muted",
-                          language === code ? "text-villa-terracotta font-medium" : "text-foreground"
+                          "w-full px-4 py-2.5 text-left font-sans text-xs tracking-wide hover:bg-white/5",
+                          language === code ? "text-villa-gold" : "text-white/85"
                         )}
                       >
                         {name}
@@ -205,22 +227,10 @@ export function Header() {
             </div>
             <Link
               href="/reservation"
-              className={cn(
-                "hidden lg:inline-flex items-center h-9 px-5 font-sans text-[11px] tracking-[0.12em] uppercase transition-all",
-                transparent
-                  ? "bg-white text-villa-terracotta hover:bg-villa-cream"
-                  : "bg-villa-terracotta hover:bg-villa-terracotta/90 text-white"
-              )}
+              className="hidden sm:inline-flex items-center h-10 px-5 ml-2 bg-villa-terracotta hover:brightness-110 text-white font-sans text-[11px] tracking-[0.14em] uppercase transition"
             >
               {t("nav.book")}
             </Link>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className={cn("lg:hidden p-2 transition-colors", transparent ? "text-white" : "text-foreground")}
-              aria-label="Menu"
-            >
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
           </div>
         </div>
       </div>
@@ -231,36 +241,32 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-villa-cream border-t border-border overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
+            className="xl:hidden bg-villa-ink border-t border-white/10 overflow-hidden max-h-[calc(100svh-5rem)] overflow-y-auto"
           >
-            <nav className="px-6 py-4 flex flex-col gap-1">
+            <nav className="px-6 py-4 flex flex-col">
               {NAV_LINKS.map((item) => {
-                const hasChildren = "children" in item && item.children.length > 0;
-                const active = pathname === item.path || (hasChildren && pathname.startsWith(item.path));
-
-                if (!hasChildren) {
+                if (!item.children) {
                   return (
                     <Link
                       key={item.key}
                       href={item.path}
                       className={cn(
-                        "px-2 py-3 font-sans text-sm tracking-wider uppercase border-b border-border/50 transition-colors hover:text-villa-terracotta",
-                        active ? "text-villa-terracotta" : "text-foreground"
+                        "py-3.5 font-serif text-2xl border-b border-white/10",
+                        isActive(item) ? "text-villa-gold" : "text-white"
                       )}
                     >
                       {t(`nav.${item.key}`)}
                     </Link>
                   );
                 }
-
                 const expanded = mobileExpanded === item.key;
                 return (
-                  <div key={item.key} className="border-b border-border/50">
+                  <div key={item.key} className="border-b border-white/10">
                     <button
                       onClick={() => setMobileExpanded(expanded ? null : item.key)}
                       className={cn(
-                        "w-full flex items-center justify-between px-2 py-3 font-sans text-sm tracking-wider uppercase transition-colors",
-                        active ? "text-villa-terracotta" : "text-foreground"
+                        "w-full flex items-center justify-between py-3.5 font-serif text-2xl",
+                        isActive(item) ? "text-villa-gold" : "text-white"
                       )}
                     >
                       {t(`nav.${item.key}`)}
@@ -272,16 +278,14 @@ export function Header() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="overflow-hidden pl-4 pb-2"
+                          className="overflow-hidden pl-1 pb-3"
                         >
-                          {item.children.map((child) => (
+                          {[{ key: item.key, path: item.path }, ...item.children].map((child) => (
                             <Link
                               key={child.key}
                               href={child.path}
-                              className={cn(
-                                "block py-2 font-sans text-xs tracking-wider uppercase transition-colors hover:text-villa-terracotta",
-                                pathname === child.path ? "text-villa-terracotta" : "text-muted-foreground"
-                              )}
+                              onClick={() => setMobileOn(null)}
+                              className="block py-2 font-sans text-xs tracking-[0.14em] uppercase text-villa-sand-light hover:text-white"
                             >
                               {t(`nav.${child.key}`)}
                             </Link>
@@ -292,16 +296,14 @@ export function Header() {
                   </div>
                 );
               })}
-              <div className="flex items-center gap-2 pt-3">
+              <div className="flex items-center gap-2 pt-4">
                 {LANGUAGES.map(({ code, label }) => (
                   <button
                     key={code}
                     onClick={() => handleLang(code)}
                     className={cn(
-                      "px-3 py-1.5 font-sans text-xs tracking-widest uppercase border rounded transition-colors",
-                      language === code
-                        ? "border-villa-terracotta text-villa-terracotta"
-                        : "border-border text-muted-foreground hover:border-foreground"
+                      "px-3 py-1.5 font-sans text-xs tracking-widest uppercase border transition-colors",
+                      language === code ? "border-villa-gold text-villa-gold" : "border-white/20 text-white/70"
                     )}
                   >
                     {label}
@@ -310,7 +312,7 @@ export function Header() {
               </div>
               <Link
                 href="/reservation"
-                className="mt-3 inline-flex justify-center items-center py-2.5 bg-villa-terracotta hover:bg-villa-terracotta/90 text-white font-sans text-xs tracking-wider uppercase"
+                className="mt-4 inline-flex justify-center items-center py-3 bg-villa-terracotta text-white font-sans text-xs tracking-[0.14em] uppercase"
               >
                 {t("nav.book")}
               </Link>

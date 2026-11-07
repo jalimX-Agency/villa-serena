@@ -88,7 +88,7 @@ export default async function GolfPage({
       <Section className="bg-villa-cream py-16 lg:py-20 border-t border-border">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <SectionLabel>{t("golf.featured_label")}</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl text-foreground mb-10">{t("golf.featured_title")}</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl text-villa-ink mb-10">{t("golf.featured_title")}</h2>
           <div className="space-y-5">
             {featured.map((course, i) => (
               <div key={course.name} className="bg-card border border-border p-6 sm:p-8">
@@ -97,7 +97,7 @@ export default async function GolfPage({
                     <span className="font-serif text-2xl text-villa-terracotta/50">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl text-foreground">{course.name}</h3>
+                    <h3 className="font-serif text-xl sm:text-2xl text-villa-ink">{course.name}</h3>
                   </div>
                   <span className="font-sans text-[11px] tracking-wide uppercase bg-villa-olive text-white px-3 py-1.5 whitespace-nowrap">
                     {course.time}
@@ -121,7 +121,7 @@ export default async function GolfPage({
       <Section className="py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <SectionLabel>{t("golf.table_label")}</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl text-foreground mb-4">{t("golf.table_title")}</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl text-villa-ink mb-4">{t("golf.table_title")}</h2>
           <p className="font-sans text-sm text-foreground/70 leading-relaxed mb-8 max-w-3xl">{t("golf.table_note")}</p>
 
           <div className="overflow-x-auto border border-border">
@@ -184,7 +184,7 @@ export default async function GolfPage({
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <h3 className="font-serif text-lg text-foreground group-hover:text-villa-terracotta transition-colors">
+              <h3 className="font-serif text-lg text-villa-ink group-hover:text-villa-terracotta transition-colors">
                 {tRoot("experiences.mariagesEvents.page_title")}
               </h3>
               <p className="font-sans text-xs text-muted-foreground">{tRoot("experiences.mariagesEvents.page_sub")}</p>
@@ -199,7 +199,7 @@ export default async function GolfPage({
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <h3 className="font-serif text-lg text-foreground group-hover:text-villa-terracotta transition-colors">
+              <h3 className="font-serif text-lg text-villa-ink group-hover:text-villa-terracotta transition-colors">
                 {tRoot("experiences.retraitesYoga.page_title")}
               </h3>
               <p className="font-sans text-xs text-muted-foreground">{tRoot("experiences.retraitesYoga.page_sub")}</p>

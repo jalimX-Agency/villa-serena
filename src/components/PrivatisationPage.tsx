@@ -118,7 +118,7 @@ export async function PrivatisationPage({
                       <div className="absolute inset-0 bg-gradient-to-br from-villa-ink via-villa-terracotta/80 to-villa-olive transition-transform duration-700 group-hover:scale-105" />
                     )}
                   </div>
-                  <h3 className="font-serif text-lg text-foreground group-hover:text-villa-terracotta transition-colors">
+                  <h3 className="font-serif text-lg text-villa-ink group-hover:text-villa-terracotta transition-colors">
                     {r.label}
                   </h3>
                   <p className="font-sans text-xs text-muted-foreground">{r.sub}</p>

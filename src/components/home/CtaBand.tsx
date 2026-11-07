@@ -20,7 +20,7 @@ export async function CtaBand() {
         <div className="lg:col-span-8">
           <p className="flex items-center gap-3 font-sans text-[11px] tracking-[0.25em] uppercase text-white/80 mb-6">
             <span className="h-px w-8 bg-white/70" />
-            {t("reservation.villa_summary")}
+            {t("home.cta_eyebrow")}
           </p>
           <h2 className="font-serif font-light text-white text-[clamp(2.4rem,6vw,5rem)] leading-[1] tracking-[-0.01em] text-balance">
             {t("home.cta_title")}

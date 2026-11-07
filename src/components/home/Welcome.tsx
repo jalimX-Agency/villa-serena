@@ -49,11 +49,12 @@ export function Welcome() {
             <span className="h-px w-8 bg-villa-terracotta" />
             {t("home.welcome_label")}
           </p>
-          <h2 className="font-serif font-light text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] text-foreground whitespace-pre-line mb-7">
+          <h2 className="font-serif font-light text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] text-villa-ink whitespace-pre-line mb-7">
             {t("home.welcome_title")}
           </h2>
           <ZelligeDivider align="left" className="mb-7 max-w-[14rem]" />
-          <p className="font-sans text-muted-foreground leading-relaxed mb-9">{t("home.welcome_body")}</p>
+          <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t("home.welcome_body")}</p>
+          <p className="font-sans text-muted-foreground leading-relaxed mb-9">{t("home.welcome_body2")}</p>
           <Link
             href="/la-villa"
             className="font-sans text-xs tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"

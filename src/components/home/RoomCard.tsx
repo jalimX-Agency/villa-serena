@@ -34,7 +34,7 @@ export function RoomCard({
         style={{ backgroundColor: room.color || "var(--villa-terracotta)" }}
         aria-hidden
       />
-      <h3 className="font-serif text-2xl text-foreground group-hover:text-villa-terracotta transition-colors">
+      <h3 className="font-serif text-2xl text-villa-ink group-hover:text-villa-terracotta transition-colors">
         {name}
       </h3>
       <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>

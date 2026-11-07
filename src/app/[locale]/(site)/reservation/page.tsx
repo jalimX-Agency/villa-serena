@@ -31,7 +31,7 @@ export default async function ReservationPage({
           <ReservationClient bookedRanges={bookedRanges} locale={locale} />
         </div>
       </Section>
-      <Faq />
+      <Faq id="faq" />
     </>
   );
 }

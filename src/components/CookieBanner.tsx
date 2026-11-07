@@ -29,7 +29,7 @@ export function CookieBanner() {
           transition={{ type: "spring", damping: 25 }}
           className="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm z-50 bg-card border border-border shadow-xl p-5"
         >
-          <h3 className="font-serif text-base text-foreground mb-1.5">{t("cookie.title")}</h3>
+          <h3 className="font-serif text-base text-villa-ink mb-1.5">{t("cookie.title")}</h3>
           <p className="font-sans text-xs leading-relaxed text-muted-foreground mb-4">{t("cookie.body")}</p>
           <div className="flex items-center gap-2">
             <button

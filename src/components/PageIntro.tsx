@@ -22,7 +22,7 @@ export function PageIntro({
         {eyebrow}
       </p>
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 lg:items-end">
-        <h1 className="lg:col-span-7 font-serif font-light text-[clamp(2.4rem,6vw,4.75rem)] leading-[1.02] tracking-[-0.01em] text-foreground text-balance">
+        <h1 className="lg:col-span-7 font-serif font-light text-[clamp(2.4rem,6vw,4.75rem)] leading-[1.02] tracking-[-0.01em] text-villa-ink text-balance">
           {title}
         </h1>
         <div className="lg:col-span-5 lg:pb-2 space-y-4">

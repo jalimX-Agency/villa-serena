@@ -2,6 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { Faq } from "@/components/Faq";
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
+import { StatsBand } from "@/components/home/StatsBand";
 import { Welcome } from "@/components/home/Welcome";
 import { SuitesPreview } from "@/components/home/SuitesPreview";
 import { ExperiencesBand } from "@/components/home/ExperiencesBand";
@@ -27,12 +28,13 @@ export default async function HomePage({
   return (
     <>
       <Hero />
+      <StatsBand />
       <Welcome />
       <DayJourney />
       <SuitesPreview />
       <ExperiencesBand />
       <Testimonials />
-      <Faq />
+      <Faq limit={6} moreHref="/reservation#faq" />
       <CtaBand />
     </>
   );

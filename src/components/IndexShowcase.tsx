@@ -34,7 +34,7 @@ export function IndexShowcase({ items, cta }: { items: ShowcaseItem[]; cta: stri
                 className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
             </div>
-            <h2 className="mt-6 font-serif text-3xl lg:text-4xl text-foreground transition-colors group-hover:text-villa-terracotta">
+            <h2 className="mt-6 font-serif text-3xl lg:text-4xl text-villa-ink transition-colors group-hover:text-villa-terracotta">
               {item.title}
             </h2>
             <p className="mt-2 font-sans text-sm leading-relaxed text-muted-foreground max-w-sm">{item.sub}</p>

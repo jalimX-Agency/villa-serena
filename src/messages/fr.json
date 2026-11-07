@@ -1,84 +1,61 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Accueil",
     "villa": "La villa",
     "suites": "Les suites",
-    "services": "Les services",
+    "services": "Services",
     "servicesRestauration": "Restauration",
     "servicesBienEtre": "Bien-être",
-    "servicesExcursions": "Excursions",
-    "experiences": "Les expériences",
-    "experiencesRetraites": "Retraites & yoga",
+    "servicesExcursions": "Activités et excursions",
+    "experiences": "Expériences",
+    "experiencesRetraites": "Retraites de yoga",
     "experiencesGolf": "Golf",
-    "experiencesMariages": "Mariages & events",
+    "experiencesMariages": "Événements privés",
     "contact": "Contact",
     "book": "Faire une demande",
-    "gallery": "Galerie"
+    "gallery": "Galerie",
+    "blog": "Blog"
   },
   "hero": {
-    "tagline": "Sidi Bouzguia · à 25 min de Marrakech",
-    "headline": "Votre villa privée\nà Marrakech,\nen exclusivité",
-    "subheadline": "Une villa à louer en entier, à 25 minutes de Marrakech : cinq suites autour d'un patio riad, piscine, hammam, cuisinière et jardin d'oliviers. Jusqu'à 14 personnes.",
+    "tagline": "Route de l'Ourika · à 25 min de Marrakech",
+    "headline": "Votre villa privée à Marrakech, en exclusivité",
+    "subheadline": "Ici, tout le domaine est à vous. Sur un hectare d'oliviers, un riad de quatre suites, un pavillon de deux suites et un studio indépendant accueillent jusqu'à 14 personnes. Piscine privée, hammam, potager et mini ferme. Une gouvernante, qui est aussi la cuisinière de la maison, et une équipe de femmes de chambre veillent sur votre séjour.",
     "cta_primary": "Découvrir la villa",
     "cta_secondary": "Voir les suites",
     "scroll": "Défiler pour explorer"
   },
   "home": {
     "welcome_label": "Bienvenue à Villa Serena",
-    "welcome_title": "Un havre de paix\nà part",
-    "welcome_body": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
+    "welcome_title": "Une villa de charme entre Marrakech et l'Atlas",
+    "welcome_body": "Les suites du riad s'ouvrent sur un patio calme, ouvert sur le ciel. Le soir, on s'y attarde sous les étoiles ; l'hiver, on se retrouve au salon, devant la cheminée. La salle à manger reçoit jusqu'à 14 convives.",
     "suites_label": "Les suites",
-    "suites_title": "Un voyage à travers\nles couleurs",
-    "suites_sub": "Chaque suite est un univers : chaque teinte a été choisie pour évoquer des émotions uniques, en harmonie avec l'artisanat marrakchi.",
-    "experiences_label": "Bien-être & loisirs",
-    "experiences_title": "Du hammam\nà la pétanque",
-    "experiences_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
+    "suites_title": "Un riad, un pavillon, un studio",
+    "suites_sub": "Le domaine se partage en trois espaces. Au riad, les suites Rouge, Bleue, Verte et Rose s'ouvrent sur le patio. Le pavillon abrite les suites Orange et Jaune, avec son salon, sa cuisine, sa terrasse et son jardin. Le Studio, indépendant, offre 45 m² au calme.",
+    "experiences_label": "Bien-être et loisirs",
+    "experiences_title": "Du hammam à la mini ferme",
+    "experiences_sub": "Hammam traditionnel, salle de massage et salle de sport pour prendre soin de soi. Au jardin : potager, mini ferme et volières, bassin de carpes koï, terrain de pétanque, badminton et ping-pong. Avec des enfants, le parc aquatique du Pickalbatros Aqua Fun Club, juste à côté de la villa, est accessible à la journée (entrée payante).",
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont séjourné\nchez nous",
-    "cta_title": "Demandez à réserver la villa",
-    "cta_body": "La villa entière en exclusivité — 5 suites, 14 couchages. Idéale pour réunions de famille, séjours golf et séminaires.",
-    "cta_button": "Faites votre demande",
+    "cta_title": "Réservez la villa entière",
+    "cta_body": "À partir de 980 € la nuit, pour le domaine entier et jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus (hors taxe de séjour). Idéal pour une réunion de famille, un anniversaire, un séjour golf ou un séminaire. Réponse sous 24 heures, sans engagement.",
+    "cta_button": "Faire une demande",
     "stats": {
-      "rooms": "5 suites",
+      "rooms": "6 suites + 1 studio",
       "guests": "14 couchages",
-      "pool": "Jardin & bassin",
-      "hammam": "Hammam & spa"
-    }
+      "pool": "Piscine 11 × 5 m",
+      "hammam": "Hammam et salle de sport"
+    },
+    "welcome_body2": "À 25 minutes de la médina, sur la route de la vallée de l'Ourika, la villa offre le calme de la campagne sans l'isolement.",
+    "suites_sub2": "Chaque famille garde son espace, et tout le monde se retrouve autour de la piscine et de la grande table. Toutes les suites sont climatisées, avec salle d'eau privée. La Suite Bleue et le Studio ont un grand lit de 160 ; dans les cinq autres suites, les lits s'installent séparés ou jumelés.",
+    "cta_eyebrow": "6 suites + 1 studio · 14 couchages · villa entière"
   },
   "villa": {
     "page_title": "La villa",
-    "page_sub": "Un séjour paisible et familial dans un havre de paix, où nature et artisanat se rencontrent.",
-    "intro": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et customisée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
+    "page_sub": "Un hectare d'oliviers au kilomètre 17 de la route de l'Ourika : riad et patio, pavillon, studio, piscine privée, potager et mini ferme.",
+    "intro": "Nos suites, disposées autour d'un patio d'inspiration riad, offrent un cadre calme et enchanteur. Admirez le ciel étoilé depuis le patio, profitez du salon avec cheminée et d'une salle à manger pouvant accueillir jusqu'à 14 personnes. La décoration ethnique et bohème, chinée et retravaillée par des artisans de Marrakech, crée une atmosphère chaleureuse et élégante.",
     "amenities_label": "Bien-être & loisirs",
     "amenities_title": "Du hammam à la pétanque",
     "amenities_sub": "Hammam traditionnel, salle de massage, salle de sport, terrain de pétanque, badminton et ping-pong — sans oublier le jardin, son bassin de carpes koï et sa statue de Bouddha.",
-    "story": [
-      {
-        "label": "Le patio",
-        "title": "Un ciel étoilé au cœur du riad",
-        "body": "Les cinq suites s'organisent autour d'un patio d'inspiration riad — le cœur silencieux de la villa, où les soirées se prolongent sous les étoiles."
-      },
-      {
-        "label": "Le salon",
-        "title": "Un feu de cheminée, une tablée de 14",
-        "body": "Le salon avec cheminée invite à la détente, tandis que la salle à manger accueille jusqu'à 14 convives pour des repas partagés."
-      },
-      {
-        "label": "Le jardin",
-        "title": "Carpes koï et silence retrouvé",
-        "body": "Un jardin paisible avec son bassin de carpes koï, sa statue de Bouddha et son terrain de pétanque — un refuge végétal en plein Marrakech."
-      },
-      {
-        "label": "Bien-être",
-        "title": "Hammam, massage & renouveau",
-        "body": "Hammam traditionnel, salle de massage et salle de sport — pour prendre soin de soi entre deux excursions."
-      },
-      {
-        "label": "L'art de recevoir",
-        "title": "Un artisanat chiné à Marrakech",
-        "body": "Décoration ethnique et bohème, chinée et customisée par des artisans locaux — chaque recoin de la villa raconte une histoire."
-      }
-    ],
     "amenities": [
       "Hammam traditionnel",
       "Salle de massage",
@@ -90,10 +67,78 @@
       "Salle à manger jusqu'à 14 personnes"
     ],
     "cta_title": "Envie de découvrir la villa ?",
-    "cta_body": "Parcourez nos chambres ou faites une demande pour réserver la villa en exclusivité.",
+    "cta_body": "Parcourez les suites ou faites une demande pour réserver la villa en exclusivité.",
     "cta_suites": "Voir les suites",
     "cta_book": "Faites votre demande",
-    "h1": "Une villa de charme entre oliviers et patio riad"
+    "h1": "Une villa de charme sur la route de l'Ourika",
+    "ambiance_label": "L'esprit de la villa",
+    "blocks": [
+      {
+        "key": "riad",
+        "title": "La villa : un riad au milieu des oliviers",
+        "body": "Les quatre suites du riad s'ouvrent sur un patio, le cœur silencieux de la villa. Les soirées s'y prolongent à la lueur des bougies, sous le ciel du Haouz."
+      },
+      {
+        "key": "patio",
+        "title": "Le patio : un ciel étoilé, un feu de cheminée, une tablée de 14",
+        "body": "Autour du patio, le salon et sa cheminée accueillent les soirées d'hiver. La salle à manger reçoit jusqu'à 14 convives pour des repas partagés."
+      },
+      {
+        "key": "pavillon",
+        "title": "Le pavillon : une maison dans la maison",
+        "body": "Un peu à l'écart du riad, le pavillon réunit les suites Orange et Jaune autour d'un salon et d'une cuisine indépendante. Sa terrasse et son jardin privés en font le refuge idéal d'une famille avec enfants ou de deux couples qui aiment vivre à leur rythme."
+      },
+      {
+        "key": "studio",
+        "title": "Le Studio : l'indépendance",
+        "body": "Isolé du reste de la maison, le Studio offre 45 m² de calme, avec son coin salon et sa machine Nespresso. Il séduira celles et ceux qui aiment avoir leur propre rythme : des grands-parents, un duo d'amis, ou l'organisateur d'un séminaire qui cherche un espace au calme pour travailler."
+      },
+      {
+        "key": "piscine",
+        "title": "La piscine privée : un grand bain rien que pour vous",
+        "body": "Au cœur du jardin, la piscine de 11 × 5 m n'est partagée avec aucun autre voyageur. Sa profondeur va de 80 cm à 1,80 m : on y nage comme on s'y prélasse. Transats, parasols et douche extérieure vous attendent, et le déjeuner peut y être servi à l'ombre."
+      },
+      {
+        "key": "jardin",
+        "title": "Le jardin : carpes koï et silence retrouvé",
+        "body": "Oliviers, potager, mini ferme, volières, bassin de carpes koï, statue de Bouddha et terrain de pétanque : un refuge végétal à 25 minutes de l'agitation de la médina. Les légumes du potager se retrouvent à votre table. À la mini ferme vivent chèvres, brebis, poules et canards, sous l'œil du paon."
+      },
+      {
+        "key": "bienetre",
+        "title": "Bien-être : hammam, massage et salle de sport",
+        "body": "Hammam traditionnel, salle de massage, salle de sport et espace de yoga et de relaxation, sous le même toit. De quoi prendre soin de soi entre deux excursions. Les soins et les cours sont détaillés dans la page Services."
+      }
+    ],
+    "situation_title": "Situation : route de l'Ourika, km 17",
+    "situation_body": "Villa Serena se trouve au kilomètre 17 de la route de l'Ourika, à Sidi Bouzguia, juste à côté du parc aquatique du Pickalbatros Aqua Fun Club. Vous êtes à environ 25 minutes de la place Jemaa el-Fna et de l'aéroport de Marrakech-Ménara, et sur la route de la vallée de l'Ourika et des contreforts de l'Atlas.",
+    "situation_from": "Depuis la villa",
+    "situation_time": "Temps de trajet",
+    "distances": [
+      [
+        "Parc aquatique Pickalbatros Aqua Fun Club (entrée payante à la journée)",
+        "quelques minutes"
+      ],
+      [
+        "Golfs Palm Ourika et Akenza",
+        "~12 min"
+      ],
+      [
+        "Place Jemaa el-Fna, médina",
+        "~25 min"
+      ],
+      [
+        "Aéroport Marrakech-Ménara",
+        "~25 min"
+      ],
+      [
+        "Vallée de l'Ourika (Setti Fatma)",
+        "~30 min"
+      ],
+      [
+        "Désert d'Agafay",
+        "~35 min"
+      ]
+    ]
   },
   "suites": {
     "page_title": "Les suites",
@@ -112,21 +157,21 @@
       "Ménage quotidien",
       "Petit-déjeuner"
     ],
-    "h1": "Cinq suites, cinq couleurs",
+    "h1": "Six suites et un studio, pour 14 personnes",
     "intro": "Les cinq suites de Villa Serena s'ouvrent sur le patio. Chacune a sa teinte, son mobilier chiné et sa terrasse ; toutes sont climatisées, avec douche et toilettes privatives. La villa se loue en exclusivité : en réservant, vous disposez des cinq suites, pour un séjour entre proches jusqu'à 14 personnes."
   },
   "reservation": {
     "page_title": "Faites votre demande",
     "page_sub": "La villa entière, en exclusivité — indiquez vos dates, nous revenons vers vous sous 24h.",
     "villa_label": "Villa Serena · Usage exclusif",
-    "villa_summary": "5 suites · 14 couchages · Exclusivité totale",
+    "villa_summary": "6 suites + 1 studio · 14 couchages · Exclusivité totale",
     "step_dates": "Dates",
     "step_details": "Vos informations",
     "step_done": "Demande envoyée",
     "continue": "Continuer",
     "submit": "Envoyer ma demande",
     "success": "Merci ! Nous vous confirmerons la disponibilité et le tarif de la villa sous 24h.",
-    "h1": "Demandez vos dates pour la villa entière"
+    "h1": "Réservez le domaine, rien que pour vous"
   },
   "services": {
     "page_title": "Les services",
@@ -209,7 +254,7 @@
       ],
       "h1": "Activités à la villa et excursions autour de Marrakech"
     },
-    "h1": "Des services sur mesure, sans quitter la villa",
+    "h1": "Les services de la villa",
     "intro": "Une cuisinière prépare vos repas avec les légumes du potager, le hammam et la salle de massage sont à quelques pas de votre suite, et l'équipe organise vos excursions autour de Marrakech. Tout se décide avec vous, avant ou pendant le séjour."
   },
   "experiences": {
@@ -344,7 +389,7 @@
       "h1": "Un mariage ou un événement privé à Marrakech"
     },
     "quote_button": "Demander un devis",
-    "h1": "La villa se privatise pour vos moments d'exception",
+    "h1": "Privatiser une villa à Marrakech",
     "intro": "Parce qu'elle se loue en entier, Villa Serena s'adapte à votre projet : une retraite de yoga au calme, un séjour golf entre amis à quelques minutes des parcours, ou un mariage dans le jardin d'oliviers. Décrivez-nous votre idée, nous vous envoyons un devis sous 24 h."
   },
   "contact": {
@@ -378,12 +423,13 @@
     "min_read": "min de lecture"
   },
   "footer": {
-    "tagline": "Villa exclusive de charme à Marrakech.",
+    "tagline": "Villa de charme à louer en exclusivité, route de l'Ourika, Marrakech.",
     "links_title": "Navigation",
     "contact_title": "Contact",
     "legal": "Tous droits réservés.",
     "privacy": "Politique de confidentialité",
-    "cookie": "Politique cookies"
+    "cookie": "Politique cookies",
+    "follow_title": "Suivez-nous"
   },
   "cookie": {
     "title": "Nous utilisons des cookies",
@@ -393,14 +439,14 @@
   },
   "gallery": {
     "page_title": "La galerie",
-    "page_sub": "Les suites, le patio, la piscine, le jardin d'oliviers et le hammam : un aperçu de la villa avant votre séjour à Marrakech.",
+    "page_sub": "Patio d'inspiration riad, piscine privée de 11 × 5 m, un hectare d'oliviers, potager et mini ferme, hammam, pavillon et six suites colorées : visitez la villa photo par photo avant de faire votre demande.",
     "empty": "Les photos arrivent bientôt.",
     "cat_all": "Tout",
     "cat_rooms": "Suites",
     "cat_garden": "Jardin et piscine",
     "cat_dining": "Restauration",
     "cat_wellness": "Bien-être",
-    "h1": "Villa Serena en images"
+    "h1": "Villa Serena en images : suites, piscine et jardin"
   },
   "journey": {
     "eyebrow": "Une journée à Villa Serena",
@@ -408,44 +454,44 @@
     "morning": {
       "label": "Le matin",
       "title": "Le jour se lève sur les oliviers",
-      "body": "Une séance de yoga sous les oliviers, l’air encore frais, le Bouddha veille sur le jardin. La villa s’éveille pour vous seuls."
+      "body": "Une séance de yoga dans le jardin, dans l'air encore frais. La villa s'éveille pour vous seuls."
     },
     "noon": {
       "label": "Midi",
-      "title": "Déjeuner au bord de la piscine",
-      "body": "Une cuisine marocaine préparée sur place, servie à l'ombre. Personne d'autre que vos proches — la piscine vous appartient."
+      "title": "Déjeuner en terrasse",
+      "body": "Au bord de la piscine ou sous les oliviers : une cuisine marocaine préparée sur place. Le domaine n'est qu'à vous et à vos proches."
     },
     "afternoon": {
       "label": "L'après-midi",
       "title": "La chaleur du hammam",
-      "body": "Gommage au savon noir, massage aux huiles d'argan. Le temps ralentit, la lumière devient dorée."
+      "body": "Gommage au savon noir, massage à l'huile d'argan. Le temps ralentit, la lumière devient dorée."
     },
     "night": {
       "label": "Le soir",
-      "title": "Dîner sous les étoiles, dans le patio",
+      "title": "Dîner sous les étoiles ou dans le patio",
       "body": "Les bougies s'allument autour du riad. Une table pour quatorze, et toute la villa rien que pour vous."
     }
   },
   "seo": {
     "home": {
-      "title": "Location villa Marrakech avec piscine | Villa Serena",
-      "description": "Location de villa à Marrakech avec piscine, cuisinière et personnel : Villa Serena, cinq suites pour 14 personnes, hammam et jardin d'oliviers. Réponse sous 24 h."
+      "title": "Location villa privée Marrakech avec piscine | Villa Serena",
+      "description": "Route de l'Ourika : 6 suites et un studio sur un hectare, 14 couchages, piscine privée, hammam, personnel sur place. Dès 980 € la nuit, villa entière."
     },
     "villa": {
-      "title": "La villa et son jardin, à 25 min de Marrakech | Villa Serena",
-      "description": "Patio d'inspiration riad, salon avec cheminée, piscine, bassin de carpes koï et jardin d'oliviers : Villa Serena, villa de charme à 25 minutes de Marrakech."
+      "title": "Villa de charme route de l'Ourika, Marrakech | Villa Serena",
+      "description": "Un hectare d'oliviers au km 17 de la route de l'Ourika : riad et patio, pavillon, studio, piscine privée de 11 × 5 m, potager, mini ferme et hammam."
     },
     "suites": {
-      "title": "Cinq suites de charme à Marrakech | Villa Serena",
-      "description": "Chambre Rouge, Bleue, Verte, Rose et Suite Bleue : cinq suites climatisées avec terrasse autour du patio, réservées ensemble avec la villa entière."
+      "title": "Suites et studio avec piscine à Marrakech | Villa Serena",
+      "description": "Sur un hectare, route de l'Ourika : riad de 4 suites, pavillon de 2 suites avec cuisine, studio indépendant. 14 couchages, grands lits ou lits jumelables."
     },
     "gallery": {
       "title": "Photos de la villa, des suites et du jardin | Villa Serena",
       "description": "Parcourez Villa Serena en images : les cinq suites, le patio, la piscine, le jardin d'oliviers, le hammam et la table d'hôtes, à 25 minutes de Marrakech."
     },
     "services": {
-      "title": "Services : cuisine, hammam et excursions | Villa Serena",
-      "description": "Cuisinière sur place, hammam traditionnel, massages, salle de sport et excursions autour de Marrakech : les services de Villa Serena, organisés pour vous."
+      "title": "Villa avec personnel à Marrakech : services | Villa Serena",
+      "description": "Gouvernante-cuisinière et femmes de chambre sur place, hammam, salle de sport, potager et activités sur la route de l'Ourika : nos services."
     },
     "restauration": {
       "title": "Villa avec cuisinière à Marrakech | Villa Serena",
@@ -460,8 +506,8 @@
       "description": "Vallée de l'Ourika, désert d'Agafay, quad, buggy, montgolfière : des excursions organisées depuis la villa, et pétanque, badminton et ping-pong sur place."
     },
     "experiences": {
-      "title": "Retraites, golf et mariages à Marrakech | Villa Serena",
-      "description": "Villa Serena se privatise entièrement pour une retraite de yoga, un séjour golf ou un mariage à Marrakech : cinq suites, jusqu'à 14 personnes, sur devis."
+      "title": "Événements, golf et retraites en villa privée | Villa Serena",
+      "description": "Privatisez Villa Serena pour un événement privé jusqu'à 80 personnes, un séjour golf au milieu de 14 parcours ou une retraite de yoga, route de l'Ourika."
     },
     "retraitesYoga": {
       "title": "Villa pour retraite de yoga à Marrakech | Villa Serena",
@@ -476,8 +522,8 @@
       "description": "Privatisez Villa Serena pour un mariage, un anniversaire ou un séminaire à Marrakech : jardin d'oliviers, patio, cinq suites et 14 couchages, sur devis."
     },
     "reservation": {
-      "title": "Louer la villa à Marrakech : demande de séjour | Villa Serena",
-      "description": "Indiquez vos dates et le nombre de voyageurs : nous confirmons la disponibilité et le tarif de la villa entière sous 24 h. Sans engagement."
+      "title": "Louer la villa à Marrakech : tarif | Villa Serena",
+      "description": "Dès 980 € la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage inclus. Séjour de 4 nuits minimum. Réponse sous 24 h."
     },
     "contact": {
       "title": "Contact et accès | Villa Serena Marrakech",
@@ -494,35 +540,86 @@
     "items": [
       {
         "q": "Où se trouve Villa Serena ?",
-        "a": "La villa se trouve à Sidi Bouzguia, à environ 25 minutes du centre de Marrakech et de la place Jemaa el-Fna, et à environ 25 minutes de l'aéroport de Marrakech-Ménara."
+        "a": "Au kilomètre 17 de la route de l'Ourika, à Sidi Bouzguia, juste à côté du parc aquatique du Pickalbatros Aqua Fun Club. Comptez environ 25 minutes jusqu'à la place Jemaa el-Fna et jusqu'à l'aéroport de Marrakech-Ménara."
       },
       {
         "q": "Combien de personnes la villa peut-elle accueillir ?",
-        "a": "Villa Serena compte cinq suites et peut accueillir jusqu'à 14 personnes. La salle à manger reçoit elle aussi jusqu'à 14 convives."
+        "a": "Jusqu'à 14 personnes, réparties entre le riad (4 suites), le pavillon (2 suites avec salon et cuisine) et le Studio indépendant. La Suite Bleue et le Studio ont un lit de 160 ; dans les cinq autres suites, les lits s'installent séparés ou jumelés."
       },
       {
-        "q": "Peut-on réserver une seule chambre ?",
-        "a": "Non. La villa se loue uniquement en entier, en exclusivité : vous ne la partagez avec aucun autre voyageur."
+        "q": "Peut-on réserver une seule suite ?",
+        "a": "Non. La villa se loue uniquement en entier : vous ne partagez le domaine avec aucun autre voyageur."
       },
       {
-        "q": "Comment réserver et connaître le tarif ?",
-        "a": "Indiquez vos dates et le nombre de voyageurs sur la page de demande. Nous vous confirmons la disponibilité et le tarif de la villa sous 24 heures, sans engagement."
+        "q": "Quel est le tarif ?",
+        "a": "À partir de 980 € la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus. Le tarif varie selon la saison : nous vous le confirmons sous 24 heures pour vos dates. La taxe de séjour n'est pas incluse : elle s'élève à 25 dirhams par personne et par nuit, et les enfants de moins de 12 ans en sont exonérés."
       },
       {
-        "q": "Quels services sont proposés sur place ?",
-        "a": "Le petit-déjeuner et le ménage quotidien sont inclus. Sur demande : repas préparés par la cuisinière de la villa, hammam traditionnel, massages et excursions. La salle de sport, la pétanque, le badminton et le ping-pong sont en libre accès."
+        "q": "Quelle est la durée minimale de séjour ?",
+        "a": "4 nuits, et 6 nuits en haute saison et pendant les fêtes de fin d'année."
       },
       {
-        "q": "Proposez-vous un transfert depuis l'aéroport ?",
-        "a": "Oui, un transfert depuis l'aéroport de Marrakech-Ménara peut être organisé sur demande."
+        "q": "Quelles sont les heures d'arrivée et de départ ?",
+        "a": "Arrivée à partir de 16 h, départ avant 11 h."
       },
       {
-        "q": "Peut-on organiser un mariage, un séminaire ou une retraite ?",
-        "a": "Oui. La villa se privatise pour les mariages, anniversaires, séminaires et retraites de yoga ou de bien-être. Chaque événement fait l'objet d'un devis personnalisé."
+        "q": "Comment réserver et payer ?",
+        "a": "Indiquez vos dates sur la page de demande : nous confirmons sous 24 heures. Un acompte de 50 % confirme la réservation ; le solde est réglé 30 jours avant l'arrivée."
+      },
+      {
+        "q": "Quelles sont les conditions d'annulation ?",
+        "a": "En cas d'annulation, nous remboursons une part des sommes déjà versées : 100 % jusqu'à 90 jours avant l'arrivée, 70 % entre 89 et 60 jours, 50 % entre 59 et 14 jours, 20 % à moins de 14 jours."
+      },
+      {
+        "q": "Une caution est-elle demandée ?",
+        "a": "Oui. Son montant et sa forme vous sont précisés avec la confirmation de réservation. Elle est restituée après l'état des lieux de départ."
+      },
+      {
+        "q": "Quels services sont inclus ?",
+        "a": "Le petit-déjeuner et le ménage quotidien. Le linge de lit et de toilette (serviettes et draps de bain), les serviettes de piscine et les produits d'accueil sont fournis. Wifi par la fibre et parking privé de 7 places. Sur demande : repas préparés par la cuisinière et servis à tout le groupe aux horaires convenus, soins au hammam, massages, excursions, transfert depuis l'aéroport de Marrakech-Ménara."
+      },
+      {
+        "q": "La villa convient-elle aux enfants ?",
+        "a": "Oui : jardin, mini ferme, pétanque, badminton et ping-pong sur place, parc aquatique accessible à la journée juste à côté. La piscine n'est équipée ni de barrière ni d'alarme : les enfants doivent rester sous la surveillance constante d'un adulte, comme le prévoient nos conditions générales. La salle de sport est réservée aux plus de 16 ans."
+      },
+      {
+        "q": "La piscine est-elle chauffée ?",
+        "a": "La piscine privée de 11 × 5 m, d'une profondeur de 80 cm à 1,80 m, n'est pas chauffée."
+      },
+      {
+        "q": "Qui veille sur la villa pendant le séjour ?",
+        "a": "Une gouvernante, qui est aussi la cuisinière de la maison, et une femme de chambre, épaulée par une seconde selon la taille du groupe, vivent sur place, et un gardien assure la nuit, de 18 h à 8 h. Toute l'équipe est là pour vous offrir le meilleur service ; elle observe aussi des temps de pause et de repos, dans le respect du droit du travail. Les horaires de service se conviennent avec la gouvernante à votre arrivée. Un jardinier-pisciniste et un agent de maintenance entretiennent discrètement la piscine, le jardin et la maison. Les abords et les accès extérieurs sont sous vidéosurveillance, et un groupe électrogène prend le relais en cas de coupure de courant."
+      },
+      {
+        "q": "Peut-on organiser un événement ?",
+        "a": "Oui. La villa se privatise pour des événements privés jusqu'à 80 invités : anniversaires, fêtes de famille, séminaires, retraites. Chaque événement fait l'objet d'un devis personnalisé."
       }
-    ]
+    ],
+    "all": "Toutes les questions"
   },
   "common": {
     "discover": "Découvrir"
-  }
+  },
+  "stats": [
+    [
+      "6 + 1",
+      "Suites et studio"
+    ],
+    [
+      "14",
+      "Couchages"
+    ],
+    [
+      "1 ha",
+      "De jardins et d'oliviers"
+    ],
+    [
+      "11 × 5 m",
+      "Piscine privée"
+    ],
+    [
+      "Hammam",
+      "Et salle de sport"
+    ]
+  ]
 }

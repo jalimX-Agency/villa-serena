@@ -19,7 +19,9 @@ const MOMENTS = [
 ] as const;
 
 // Keyframes across the whole scroll, one stop per moment.
-const STOPS = [0, 0.3, 0.6, 0.9];
+// Scroll progress at which each moment is fully shown (centre of its quarter).
+// Used for the background colours AND the sun, so both stay in step with the cards.
+const STOPS = [0.125, 0.375, 0.625, 0.875];
 const BG = [
   "oklch(0.965 0.02 85)", // crème du matin
   "oklch(0.86 0.09 78)", // or de midi
@@ -46,9 +48,14 @@ export function DayJourney() {
   const starsOpacity = useTransform(scrollYProgress, [0.68, 0.88], [0, 1]);
 
   // Sun travels along a half-circle arc (left → top → right).
-  const angle = useTransform(scrollYProgress, [0, 1], [Math.PI, 0]);
-  const sunX = useTransform(angle, (a) => 50 + 46 * Math.cos(a));
-  const sunY = useTransform(angle, (a) => 50 - 46 * Math.sin(a));
+  // Sun angle calibrated on the four moments (client brief): rising at 07:00, zenith at 12:30,
+  // going down at 16:00, set below the horizon at 21:00.
+  const angle = useTransform(scrollYProgress, STOPS, [Math.PI * 0.95, Math.PI / 2, Math.PI * 0.22, -0.2]);
+  const sunX = useTransform(angle, (a) => 50 + 46 * Math.cos(a)); // left, % of width
+  // The box is 100 x 50 units: top in % of its height, so the sun rides the drawn arc.
+  const sunY = useTransform(angle, (a) => 100 - 92 * Math.sin(a));
+  const sunOpacity = useTransform(angle, [-0.2, 0, 0.1], [0, 0, 1]);
+  const moonOpacity = useTransform(scrollYProgress, [0.72, 0.86], [0, 1]);
   const sunLeft = useMotionTemplate`${sunX}%`;
   const sunTop = useMotionTemplate`${sunY}%`;
   const sunColor = useTransform(scrollYProgress, [0, 0.55, 0.8, 1], [
@@ -57,7 +64,8 @@ export function DayJourney() {
     "oklch(0.7 0.16 40)",
     "oklch(0.95 0.02 90)",
   ]);
-  const arcProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // The lit part of the arc follows the sun.
+  const arcProgress = useTransform(angle, (a) => Math.min(1, Math.max(0, (Math.PI - a) / Math.PI)));
 
   return (
     <section ref={ref} className="relative" style={{ height: `${MOMENTS.length * 110}vh` }}>
@@ -100,8 +108,14 @@ export function DayJourney() {
                 <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" strokeOpacity={0.25} strokeWidth={0.5} />
               </svg>
               <motion.span
-                style={{ left: sunLeft, top: sunTop, backgroundColor: sunColor }}
+                style={{ left: sunLeft, top: sunTop, backgroundColor: sunColor, opacity: sunOpacity }}
                 className="absolute size-2.5 lg:size-4 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_16px_3px_rgba(255,200,120,0.45)] lg:shadow-[0_0_24px_4px_rgba(255,200,120,0.45)]"
+              />
+              {/* Night: the sun has set, the crescent moon takes over. */}
+              <motion.span
+                aria-hidden
+                style={{ opacity: moonOpacity }}
+                className="absolute left-[76%] top-[22%] size-3 lg:size-4 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[inset_-4px_2px_0_0_#F6F0E6]"
               />
             </div>
             </div>

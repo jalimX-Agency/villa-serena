@@ -5,43 +5,92 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS } from "./Header";
+import { StarDivider } from "@/components/StarDivider";
 
 const CONTACT = {
+  address: "Route de l'Ourika, km 17 – Sidi Bouzguia, Marrakech, Maroc",
   phoneDisplay: "+212 663 524 991",
   phoneHref: "tel:+212663524991",
   whatsapp: "https://wa.me/212663524991",
   email: "guest@villaserenamarrakech.com",
   instagram: "https://www.instagram.com/villa_serena_marrakech/",
-  facebook: "https://www.facebook.com/profile.php?id=61552603958185",
 };
 
+/** Night-blue footer with the colour logo (client brief, ch. 03 and 05). */
 export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-villa-sand text-foreground border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 lg:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center mb-4">
-              <Image
-                src={media("/logo-gold.png")}
-                alt="Villa Serena Marrakech"
-                width={346}
-                height={337}
-                className="h-20 w-auto"
-              />
-            </Link>
-            <p className="font-sans text-sm leading-relaxed text-muted-foreground max-w-sm mt-3">
-              {t("footer.tagline")}
-            </p>
-            <div className="flex items-center gap-3 mt-5">
+    <footer className="bg-villa-ink text-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-16 lg:pt-20 pb-10">
+        <div className="flex flex-col items-center text-center">
+          <Link href="/" aria-label="Villa Serena Marrakech">
+            <Image
+              src={media("/logo-serena-color.png")}
+              alt="Villa Serena Marrakech"
+              width={1083}
+              height={1030}
+              className="h-40 w-auto"
+            />
+          </Link>
+          <p className="mt-6 max-w-md font-serif text-xl text-villa-sand-light">{t("footer.tagline")}</p>
+          <StarDivider className="mt-8 w-full max-w-xs" />
+        </div>
+
+        <div className="mt-12 grid gap-10 md:grid-cols-3 text-center md:text-left">
+          <div>
+            <h3 className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">
+              {t("footer.contact_title")}
+            </h3>
+            <ul className="space-y-3 font-sans text-sm text-villa-sand-light">
+              <li className="flex items-start justify-center md:justify-start gap-2.5">
+                <MapPin className="size-4 mt-0.5 shrink-0 text-villa-gold" />
+                <span className="leading-relaxed">{CONTACT.address}</span>
+              </li>
+              <li className="flex items-center justify-center md:justify-start gap-2.5">
+                <Phone className="size-4 shrink-0 text-villa-gold" />
+                <a href={CONTACT.phoneHref} className="hover:text-white transition-colors">{CONTACT.phoneDisplay}</a>
+              </li>
+              <li className="flex items-center justify-center md:justify-start gap-2.5">
+                <Mail className="size-4 shrink-0 text-villa-gold" />
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors break-all">
+                  {CONTACT.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">
+              {t("footer.links_title")}
+            </h3>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 max-w-xs mx-auto md:mx-0">
+              {NAV_LINKS.map((item) => (
+                <li key={item.key}>
+                  <Link href={item.path} className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
+                    {t(`nav.${item.key}`)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/contact" className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
+                  {t("nav.contact")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">
+              {t("footer.follow_title")}
+            </h3>
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <a
                 href={CONTACT.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-border text-muted-foreground hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"
                 aria-label="WhatsApp"
+                className="p-2.5 rounded-full border border-white/20 text-villa-sand-light hover:text-white hover:border-villa-gold transition-colors"
               >
                 <MessageCircle className="size-4" />
               </a>
@@ -49,8 +98,8 @@ export function Footer() {
                 href={CONTACT.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-border text-muted-foreground hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"
                 aria-label="Instagram"
+                className="p-2.5 rounded-full border border-white/20 text-villa-sand-light hover:text-white hover:border-villa-gold transition-colors"
               >
                 <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -60,82 +109,32 @@ export function Footer() {
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="p-2.5 rounded-full border border-border text-muted-foreground hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"
                 aria-label="Email"
+                className="p-2.5 rounded-full border border-white/20 text-villa-sand-light hover:text-white hover:border-villa-gold transition-colors"
               >
                 <Mail className="size-4" />
               </a>
             </div>
-          </div>
-          <div>
-            <h3 className="font-sans text-[10px] tracking-[0.25em] uppercase text-muted-foreground/70 mb-4">
-              {t("footer.links_title")}
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {NAV_LINKS.map((item) => (
-                <li key={item.key}>
-                  <Link href={item.path} className="font-sans text-sm text-foreground/70 hover:text-villa-terracotta transition-colors">
-                    {t(`nav.${item.key}`)}
-                  </Link>
-                  {"children" in item && item.children.length > 0 && (
-                    <ul className="flex flex-col gap-1.5 mt-1.5 ml-3">
-                      {item.children.map((child) => (
-                        <li key={child.key}>
-                          <Link
-                            href={child.path}
-                            className="font-sans text-xs text-muted-foreground hover:text-villa-terracotta transition-colors"
-                          >
-                            {t(`nav.${child.key}`)}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-sans text-[10px] tracking-[0.25em] uppercase text-muted-foreground/70 mb-4">
-              {t("footer.contact_title")}
-            </h3>
-            <ul className="flex flex-col gap-3">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="size-3.5 mt-0.5 text-villa-terracotta shrink-0" />
-                <span className="font-sans text-sm text-foreground/70 leading-relaxed">
-                  Marrakech, Maroc
-                </span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="size-3.5 text-villa-terracotta shrink-0" />
-                <a href={CONTACT.phoneHref} className="font-sans text-sm text-foreground/70 hover:text-villa-terracotta transition-colors">
-                  {CONTACT.phoneDisplay}
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="size-3.5 text-villa-terracotta shrink-0" />
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="font-sans text-sm text-foreground/70 hover:text-villa-terracotta transition-colors break-all"
-                >
-                  {CONTACT.email}
-                </a>
-              </li>
-            </ul>
+            <Link
+              href="/reservation"
+              className="mt-6 inline-flex items-center px-6 py-3 bg-villa-terracotta hover:brightness-110 text-white font-sans text-[11px] tracking-[0.14em] uppercase transition"
+            >
+              {t("nav.book")}
+            </Link>
           </div>
         </div>
       </div>
-      <div className="h-px bg-border" />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="font-sans text-xs text-muted-foreground/70">
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="font-sans text-xs text-white/50">
             © {new Date().getFullYear()} Villa Serena Marrakech. {t("footer.legal")}
           </span>
           <div className="flex items-center gap-5">
-            <Link href="/confidentialite" className="font-sans text-xs text-muted-foreground/70 hover:text-foreground transition-colors">
+            <Link href="/confidentialite" className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.privacy")}
             </Link>
-            <Link href="/cookies" className="font-sans text-xs text-muted-foreground/70 hover:text-foreground transition-colors">
+            <Link href="/cookies" className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.cookie")}
             </Link>
           </div>

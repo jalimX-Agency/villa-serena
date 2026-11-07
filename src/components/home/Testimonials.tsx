@@ -23,7 +23,7 @@ export async function Testimonials() {
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-14">
           <SectionLabel className="justify-center">{t("home.testimonials_label")}</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-foreground whitespace-pre-line leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-villa-ink whitespace-pre-line leading-tight">
             {t("home.testimonials_title")}
           </h2>
         </div>

@@ -126,7 +126,7 @@ export async function ServiceCategoryPage({
                         {exp.icon}
                       </span>
                     )}
-                    <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-2">{title}</h2>
+                    <h2 className="font-serif text-2xl sm:text-3xl text-villa-ink mb-2">{title}</h2>
                     {subtitle && (
                       <p className="font-sans text-xs text-villa-terracotta uppercase tracking-[0.15em] mb-4">
                         {subtitle}
@@ -168,7 +168,7 @@ export async function ServiceCategoryPage({
                       <div className="absolute inset-0 bg-gradient-to-br from-villa-ink via-villa-terracotta/80 to-villa-olive transition-transform duration-700 group-hover:scale-105" />
                     )}
                   </div>
-                  <h3 className="font-serif text-lg text-foreground group-hover:text-villa-terracotta transition-colors">
+                  <h3 className="font-serif text-lg text-villa-ink group-hover:text-villa-terracotta transition-colors">
                     {r.label}
                   </h3>
                   <p className="font-sans text-xs text-muted-foreground">{r.sub}</p>

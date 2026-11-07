@@ -14,17 +14,18 @@ export async function SuitesPreview() {
     <section className="bg-background py-24 lg:py-36 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end mb-12 lg:mb-16">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <p className="flex items-center gap-3 font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-5">
               <span className="h-px w-8 bg-villa-terracotta" />
               {t("home.suites_label")}
             </p>
-            <h2 className="font-serif font-light text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] text-foreground whitespace-pre-line">
+            <h2 className="font-serif font-light text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] text-villa-ink whitespace-pre-line">
               {t("home.suites_title")}
             </h2>
           </div>
-          <div className="lg:col-span-4 lg:col-start-9">
-            <p className="font-sans text-muted-foreground leading-relaxed mb-5">{t("home.suites_sub")}</p>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <p className="font-sans text-muted-foreground leading-relaxed mb-3">{t("home.suites_sub")}</p>
+            <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">{t("home.suites_sub2")}</p>
             <Link
               href="/suites"
               className="font-sans text-xs tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"

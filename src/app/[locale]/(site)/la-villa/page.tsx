@@ -3,91 +3,147 @@ import { media } from "@/lib/media";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Section } from "@/components/Section";
-import { ScrollStory, type StoryMoment } from "@/components/ScrollStory";
+import { FriseIntro } from "@/components/FriseIntro";
+import { StarDivider } from "@/components/StarDivider";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return pageMetadata({ locale, page: "villa", path: "/la-villa" });
 }
 
-const STORY_IMAGES = [media("/welcome-jardin.jpg"), media("/welcome-salon.jpg"), media("/exp-petanque.jpg"), media("/exp-hammam.jpg"), media("/hero-main.jpg")];
+type Block = { key: string; title: string; body: string };
+
+// One photo per block. The pavilion has no photo yet (requested from the client): it gets an
+// ornament instead of a stock picture. The old "suite-bleue" photos are the Studio.
+const BLOCK_IMAGES: Record<string, { src: string; alt: string } | undefined> = {
+  riad: { src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de Villa Serena, arcs marocains" },
+  patio: { src: media("/room-rouge-2.jpg"), alt: "Patio d'inspiration riad de la villa, terrasse et arcades" },
+  studio: { src: media("/suite-bleue.jpg"), alt: "Le Studio indépendant de 45 m², coin salon" },
+  piscine: { src: media("/hero-main.jpg"), alt: "Piscine privée de 11 × 5 m de Villa Serena, route de l'Ourika, Marrakech" },
+  jardin: { src: media("/welcome-jardin.jpg"), alt: "Jardin d'oliviers de Villa Serena et statue de Bouddha" },
+  bienetre: { src: media("/exp-massage.jpg"), alt: "Salle de massage de la villa, éclairée aux bougies" },
+};
+
+const MAP_SRC =
+  "https://www.google.com/maps?q=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech") + "&z=13&output=embed";
 
 export default async function VillaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const amenities = t.raw("villa.amenities") as string[];
-  const storyRaw = t.raw("villa.story") as { label: string; title: string; body: string }[];
-  const story: StoryMoment[] = storyRaw.map((m, i) => ({ ...m, image: STORY_IMAGES[i] }));
-  const stats = [
-    { label: t("home.stats.rooms") },
-    { label: t("home.stats.guests") },
-    { label: t("home.stats.pool") },
-    { label: t("home.stats.hammam") },
-  ];
+  const blocks = t.raw("villa.blocks") as Block[];
+  const distances = t.raw("villa.distances") as [string, string][];
 
   return (
     <>
-      <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <Image src={media("/hero-main.jpg")} alt={t("villa.page_title")} fill priority className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-villa-ink/70 via-villa-ink/10 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-12 pb-10">
-          <div className="mx-auto max-w-5xl w-full">
-            <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/70 mb-3">Villa Serena</p>
-            <h1 className="font-serif text-4xl sm:text-5xl text-white mb-2">{t("villa.h1")}</h1>
-            <p className="font-sans text-white/80 max-w-xl">{t("villa.page_sub")}</p>
+      <div className="relative h-[70vh] min-h-[460px] overflow-hidden bg-villa-ink">
+        <Image src={media("/hero-main.jpg")} alt={t("villa.h1")} fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-villa-ink/0 via-villa-ink/20 to-villa-ink/60" />
+        <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-8 pb-12">
+          <div className="mx-auto max-w-7xl w-full">
+            <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">{t("villa.page_title")}</p>
+            <h1 className="font-serif font-light text-white text-[clamp(2.4rem,6vw,4.75rem)] leading-[1.02] max-w-4xl text-balance">
+              {t("villa.h1")}
+            </h1>
+            <p className="mt-4 font-sans text-white/90 max-w-xl">{t("villa.page_sub")}</p>
           </div>
         </div>
       </div>
 
-      <Section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <p className="font-sans text-foreground/80 leading-relaxed">{t("villa.intro")}</p>
-        </div>
-      </Section>
+      <FriseIntro eyebrow={t("villa.ambiance_label")} text={t("villa.intro")} />
 
-      <ScrollStory moments={story} />
-
-      <Section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center mb-16">
-            {stats.map((s) => (
-              <div key={s.label} className="border border-border py-8 px-4">
-                <p className="font-serif text-xl sm:text-2xl text-villa-terracotta">{s.label}</p>
+      {/* Alternating blocks: one H2 and one photo each. */}
+      <div className="py-16 lg:py-24 space-y-16 lg:space-y-28">
+        {blocks.map((b, i) => {
+          const img = BLOCK_IMAGES[b.key];
+          const flip = i % 2 === 1;
+          return (
+            <section key={b.key} className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-8 lg:grid-cols-12 lg:gap-14 items-center">
+              <div className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+                {img ? (
+                  <div className={`relative aspect-[4/3] overflow-hidden bg-muted ${i % 3 === 0 ? "rounded-t-[12rem]" : ""}`}>
+                    <Image src={img.src} alt={img.alt} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
+                  </div>
+                ) : (
+                  <div className="relative aspect-[4/3] bg-villa-ink flex items-center justify-center rounded-t-[12rem]">
+                    <Image
+                      src={media("/logo-serena-emblem.png")}
+                      alt=""
+                      width={419}
+                      height={539}
+                      className="h-1/2 w-auto opacity-90"
+                    />
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
-          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {amenities.map((a) => (
-              <li key={a} className="font-sans text-sm text-foreground/70">
-                {a}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
+              <div className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`}>
+                <span className="font-sans text-[11px] tabular-nums tracking-[0.25em] text-villa-terracotta">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h2 className="mt-3 font-serif text-3xl lg:text-[2.6rem] leading-tight text-villa-ink text-balance">{b.title}</h2>
+                <StarDivider className="my-6 max-w-[10rem]" tone="terracotta" />
+                <p className="font-sans text-foreground/80 leading-relaxed">{b.body}</p>
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
-      <Section className="py-20 lg:py-28">
+      {/* Location: travel times + map */}
+      <section className="bg-villa-ink text-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-white">{t("villa.situation_title")}</h2>
+            <p className="mt-5 font-sans text-villa-sand-light leading-relaxed">{t("villa.situation_body")}</p>
+            <table className="mt-8 w-full text-left">
+              <thead>
+                <tr className="border-b border-villa-gold/40">
+                  <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold">{t("villa.situation_from")}</th>
+                  <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold text-right">{t("villa.situation_time")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {distances.map(([place, time]) => (
+                  <tr key={place} className="border-b border-white/10">
+                    <td className="py-3 pr-4 font-sans text-sm text-white/90">{place}</td>
+                    <td className="py-3 font-serif text-lg text-villa-gold text-right whitespace-nowrap">{time}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="relative min-h-[360px] overflow-hidden border border-white/10">
+            <iframe
+              title={t("villa.situation_title")}
+              src={MAP_SRC}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full grayscale-[30%]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-2xl px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl text-foreground mb-4">{t("villa.cta_title")}</h2>
-          <p className="font-sans text-foreground/70 leading-relaxed mb-8">{t("villa.cta_body")}</p>
+          <h2 className="font-serif text-3xl sm:text-4xl text-villa-ink mb-4">{t("villa.cta_title")}</h2>
+          <p className="font-sans text-foreground/75 leading-relaxed mb-8">{t("villa.cta_body")}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/suites"
-              className="inline-flex items-center px-8 py-3.5 border border-foreground/20 hover:border-villa-terracotta hover:text-villa-terracotta text-foreground font-sans text-xs tracking-[0.15em] uppercase transition-colors"
+              className="inline-flex items-center px-8 py-3.5 border border-villa-ink/25 hover:border-villa-terracotta hover:text-villa-terracotta text-villa-ink font-sans text-xs tracking-[0.15em] uppercase transition-colors"
             >
               {t("villa.cta_suites")}
             </Link>
             <Link
               href="/reservation"
-              className="inline-flex items-center px-8 py-3.5 bg-villa-terracotta hover:bg-villa-terracotta/90 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
+              className="inline-flex items-center px-8 py-3.5 bg-villa-terracotta hover:brightness-110 text-white font-sans text-xs tracking-[0.15em] uppercase transition"
             >
-              {t("villa.cta_book")}
+              {t("nav.book")}
             </Link>
           </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }
