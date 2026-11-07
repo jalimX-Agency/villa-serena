@@ -18,6 +18,7 @@ export const SERVICE_LABELS: Record<string, string> = {
   restauration: "Restauration",
   "bien-etre": "Bien-être",
   excursions: "Excursions",
+  experiences: "Expériences (devis)",
 };
 
 const STATUS_STYLES: Record<string, string> = {

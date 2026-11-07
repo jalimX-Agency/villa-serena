@@ -33,6 +33,14 @@ model Room {
   amenitiesEn       String     @default("")
   highlights        String     @default("")
   highlightsEn      String     @default("")
+  // Client brief (Nov 2026): space within the estate, "Idéale pour", per-suite SEO
+  space             String     @default("") // riad | pavillon | independant
+  idealFor          String     @default("")
+  idealForEn        String     @default("")
+  metaTitle         String     @default("")
+  metaTitleEn       String     @default("")
+  metaDescription   String     @default("")
+  metaDescriptionEn String     @default("")
   featured          Boolean    @default(false)
   order             Int        @default(0)
   createdAt         DateTime   @default(now())

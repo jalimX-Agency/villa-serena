@@ -1,3 +1,4 @@
+import { media } from "@/lib/media";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
@@ -44,7 +45,10 @@ export async function SuitesPreview() {
           return (
             <li key={room.id} className="snap-start shrink-0 w-[78vw] sm:w-[46vw] lg:w-[27rem]">
               <Link href={`/suites/${room.slug}`} className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                <div className="relative aspect-[4/5] overflow-hidden bg-villa-ink">
+                  {!room.image && (
+                    <Image src={media("/logo-serena-emblem.png")} alt="" width={419} height={539} className="absolute left-1/2 top-[38%] h-28 w-auto -translate-x-1/2 -translate-y-1/2 opacity-90" />
+                  )}
                   {room.image && (
                     <Image
                       src={room.image}

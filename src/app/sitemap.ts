@@ -10,13 +10,7 @@ const ROUTES = [
   { path: "/suites", priority: 0.9 },
   { path: "/reservation", priority: 0.9 },
   { path: "/services", priority: 0.7 },
-  { path: "/services/restauration", priority: 0.6 },
-  { path: "/services/bien-etre", priority: 0.6 },
-  { path: "/services/excursions", priority: 0.6 },
   { path: "/experiences", priority: 0.8 },
-  { path: "/experiences/retraites-yoga", priority: 0.8 },
-  { path: "/experiences/golf", priority: 0.6 },
-  { path: "/experiences/mariages-events", priority: 0.8 },
   { path: "/galerie", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
 ];
