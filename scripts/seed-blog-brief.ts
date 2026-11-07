@@ -1,6 +1,8 @@
 // Blog articles 1–3 from the client brief's appendix (Nov 2026). French is the brief's text,
 // word for word, with the internal links it specifies; English is our translation.
 // Content is trusted HTML authored here (h2, p, ul, table, a) and styled by .prose-villa.
+// Initial import only: covers and in-text photos are then set by scripts/blog-pexels-photos.ts,
+// and the articles are edited from the admin (/admin/blog) — do not re-run over live content.
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 

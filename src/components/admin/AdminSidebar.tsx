@@ -9,6 +9,7 @@ import {
   Inbox,
   BedDouble,
   Images,
+  Newspaper,
   Settings,
   ShieldCheck,
   LogOut,
@@ -24,6 +25,7 @@ const NAV = [
   { href: "/admin/demandes", label: "Demandes", icon: Inbox, badge: true },
   { href: "/admin/chambres", label: "Chambres", icon: BedDouble },
   { href: "/admin/galerie", label: "Galerie", icon: Images },
+  { href: "/admin/blog", label: "Blog", icon: Newspaper },
   { href: "/admin/connexions", label: "Connexions", icon: ShieldCheck },
   { href: "/admin/parametres", label: "Paramètres", icon: Settings },
 ];
