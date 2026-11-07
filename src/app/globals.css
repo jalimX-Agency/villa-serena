@@ -127,3 +127,19 @@
   .bg-villa-terracotta-light   { background-color: var(--villa-terracotta-light); }
   .text-villa-sand-light  { color: var(--villa-sand-light); }
 }
+
+/* Blog article body (trusted HTML: h2, p, ul, table, a). */
+.prose-villa { font-family: var(--font-sans); color: color-mix(in srgb, var(--villa-text) 88%, transparent); line-height: 1.75; font-size: 1.02rem; }
+.prose-villa h2 { font-family: var(--font-serif); color: var(--villa-ink); font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.2; margin: 2.6rem 0 1rem; scroll-margin-top: 8rem; }
+.prose-villa h2:first-child { margin-top: 0; }
+.prose-villa p { margin: 0 0 1.1rem; }
+.prose-villa ul { margin: 0 0 1.3rem; padding: 0; list-style: none; }
+.prose-villa li { position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem; }
+.prose-villa li::before { content: ""; position: absolute; left: 0.15rem; top: 0.68em; width: 0.42rem; height: 0.42rem; background: var(--villa-terracotta-light); transform: rotate(45deg); }
+.prose-villa a { color: var(--villa-terracotta); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--villa-terracotta) 40%, transparent); }
+.prose-villa a:hover { text-decoration-color: currentColor; }
+.prose-villa table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; font-size: 0.95rem; }
+.prose-villa th { text-align: left; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--villa-ink); border-bottom: 2px solid var(--villa-terracotta-light); padding: 0.7rem 0.5rem 0.7rem 0; }
+.prose-villa td { border-bottom: 1px solid var(--border); padding: 0.75rem 0.5rem 0.75rem 0; vertical-align: top; }
+.prose-villa td:last-child, .prose-villa th:last-child { text-align: right; white-space: nowrap; font-family: var(--font-serif); color: var(--villa-terracotta); font-size: 1.05rem; }
+.prose-villa th:last-child { font-family: var(--font-sans); font-size: 0.7rem; color: var(--villa-ink); }

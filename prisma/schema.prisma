@@ -111,6 +111,12 @@ model BlogPost {
   category  String   @default("")
   author    String   @default("Villa Serena")
   readTime  Int      @default(5)
+  metaTitle         String @default("")
+  metaTitleEn       String @default("")
+  metaDescription   String @default("")
+  metaDescriptionEn String @default("")
+  imageAlt          String @default("")
+  imageAltEn        String @default("")
   image     String   @default("")
   tags      String   @default("") // comma-separated
   published Boolean  @default(false)

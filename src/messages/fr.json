@@ -282,9 +282,25 @@
   },
   "blog": {
     "page_title": "Le blog",
-    "page_sub": "Conseils et inspirations pour votre séjour — retraites, bien-être et découvertes autour de Marrakech.",
+    "page_sub": "Conseils d'hôtes qui connaissent leur région : la vallée de l'Ourika, le golf, Marrakech en famille. Un nouvel article chaque mois.",
     "read_more": "Lire l'article",
-    "min_read": "min de lecture"
+    "min_read": "min de lecture",
+    "h1": "Le blog de Villa Serena : nos guides autour de Marrakech",
+    "toc": "Sommaire",
+    "back": "Tous les articles",
+    "by": "Par",
+    "related": "À lire aussi",
+    "empty": "Les premiers articles arrivent bientôt.",
+    "cat_guides": "Guides",
+    "cat_golf": "Golf",
+    "cat_famille": "Famille",
+    "cta_title": "Séjourner à Villa Serena",
+    "cta_body": {
+      "que-faire-vallee-ourika": "Une villa privée au kilomètre 17 de la route de l'Ourika, pour 14 personnes, avec piscine, hammam et personnel sur place.",
+      "golf-marrakech-route-ourika": "14 parcours autour de la villa, transferts et green fees organisés sur demande, hammam et cuisine sur place.",
+      "marrakech-en-famille": "Une villa privée pour 14 personnes, avec mini ferme, jardin d'un hectare et parc aquatique à côté.",
+      "default": "Une villa privée au kilomètre 17 de la route de l'Ourika, pour 14 personnes, avec piscine, hammam et personnel sur place."
+    }
   },
   "footer": {
     "tagline": "Villa de charme à louer en exclusivité, route de l'Ourika, Marrakech.",
@@ -381,8 +397,8 @@
       "description": "Une question sur la villa, un séjour ou un événement ? Écrivez-nous par formulaire, email ou WhatsApp. Villa Serena, route de l'Ourika, km 17, Marrakech."
     },
     "blog": {
-      "title": "Le blog | Villa Serena Marrakech",
-      "description": "Conseils et inspirations pour votre séjour à Marrakech."
+      "title": "Blog : guides de Marrakech et de l'Ourika | Villa Serena",
+      "description": "Vallée de l'Ourika, golf à Marrakech, vacances en famille : les conseils de Villa Serena, villa de charme sur la route de l'Ourika."
     }
   },
   "faq": {

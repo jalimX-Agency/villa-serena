@@ -12,6 +12,7 @@ const ROUTES = [
   { path: "/services", priority: 0.7 },
   { path: "/experiences", priority: 0.8 },
   { path: "/galerie", priority: 0.7 },
+  { path: "/blog", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
 ];
 
@@ -28,10 +29,14 @@ function entry(path: string, priority: number) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const rooms = await db.room.findMany({ select: { slug: true } }).catch(() => []);
+  const [rooms, posts] = await Promise.all([
+    db.room.findMany({ select: { slug: true } }).catch(() => []),
+    db.blogPost.findMany({ where: { published: true }, select: { slug: true } }).catch(() => []),
+  ]);
 
   const staticEntries = ROUTES.flatMap(({ path, priority }) => entry(path, priority));
   const roomEntries = rooms.flatMap((room) => entry(`/suites/${room.slug}`, 0.7));
+  const postEntries = posts.flatMap((p) => entry(`/blog/${p.slug}`, 0.6));
 
-  return [...staticEntries, ...roomEntries];
+  return [...staticEntries, ...roomEntries, ...postEntries];
 }

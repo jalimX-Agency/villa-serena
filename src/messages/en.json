@@ -281,10 +281,26 @@
     "h1": "Let's talk about your stay"
   },
   "blog": {
-    "page_title": "The Blog",
-    "page_sub": "Tips and inspiration for your stay — retreats, wellness and discoveries around Marrakech.",
-    "read_more": "Read Article",
-    "min_read": "min read"
+    "page_title": "Journal",
+    "page_sub": "Tips from hosts who know their region: the Ourika valley, golf, Marrakech with the family. A new article every month.",
+    "read_more": "Read the article",
+    "min_read": "min read",
+    "h1": "The Villa Serena journal: our guides around Marrakech",
+    "toc": "Contents",
+    "back": "All articles",
+    "by": "By",
+    "related": "Also worth reading",
+    "empty": "The first articles are coming soon.",
+    "cat_guides": "Guides",
+    "cat_golf": "Golf",
+    "cat_famille": "Family",
+    "cta_title": "Stay at Villa Serena",
+    "cta_body": {
+      "que-faire-vallee-ourika": "A private villa at kilometre 17 on the Ourika road, sleeping 14, with a pool, hammam and staff on site.",
+      "golf-marrakech-route-ourika": "14 courses around the villa, transfers and green fees arranged on request, hammam and cooking on site.",
+      "marrakech-en-famille": "A private villa sleeping 14, with a mini farm, a one-hectare garden and a water park next door.",
+      "default": "A private villa at kilometre 17 on the Ourika road, sleeping 14, with a pool, hammam and staff on site."
+    }
   },
   "footer": {
     "tagline": "A charming villa to rent exclusively, on the Ourika road, Marrakech.",
@@ -381,8 +397,8 @@
       "description": "A question about the villa, a stay or an event? Reach us by form, email or WhatsApp. Villa Serena, Ourika road, km 17, Marrakech."
     },
     "blog": {
-      "title": "Journal | Villa Serena Marrakech",
-      "description": "Tips and inspiration for your stay in Marrakech."
+      "title": "Journal: Marrakech and Ourika Guides | Villa Serena",
+      "description": "The Ourika valley, golf in Marrakech, family holidays: tips from Villa Serena, a charming villa on the Ourika road."
     }
   },
   "faq": {
