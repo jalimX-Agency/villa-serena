@@ -202,7 +202,7 @@
   },
   "reservation": {
     "page_title": "Enquire Now",
-    "page_sub": "The entire villa, exclusively yours — share your dates and we'll get back to you within 24h.",
+    "page_sub": "Tell us your dates and the number of guests: we confirm availability within 24 hours, with no commitment.",
     "villa_label": "Villa Serena · Exclusive Use",
     "villa_summary": "6 suites + 1 studio · Sleeps 14 · Full exclusivity",
     "step_dates": "Dates",
@@ -211,226 +211,50 @@
     "continue": "Continue",
     "submit": "Send My Request",
     "success": "Thank you! We'll confirm the villa's availability and rate within 24h.",
-    "h1": "Book the whole estate, just for you"
+    "h1": "Book the whole estate, just for you",
+    "essentials_title": "Key facts",
+    "essentials": [
+      [
+        "Rate",
+        "From €980 per night, whole villa, up to 14 guests, depending on the season"
+      ],
+      [
+        "Tourist tax",
+        "Not included: 25 dirhams per person per night, children under 12 exempt"
+      ],
+      [
+        "Included",
+        "Breakfast, daily housekeeping, bed linen and towels, pool towels, toiletries, fibre wifi, private parking"
+      ],
+      [
+        "Minimum stay",
+        "4 nights; 6 nights in high season and over the holidays"
+      ],
+      [
+        "Check-in / check-out",
+        "From 4 pm / before 11 am"
+      ],
+      [
+        "Payment",
+        "50% on booking, balance 30 days before arrival"
+      ],
+      [
+        "Security deposit",
+        "Given with your booking confirmation, returned after the check-out inspection"
+      ]
+    ],
+    "rate_note": "Rate depends on your dates, confirmed within 24 hours."
   },
   "services": {
     "page_title": "Services",
     "page_sub": "Dining, wellness and excursions — everything for a carefree stay.",
-    "restauration": {
-      "page_title": "Dining",
-      "page_sub": "Home cooking and world flavours, prepared with fresh vegetables from the kitchen garden.",
-      "intro": "The Villa Serena kitchen is entrusted to a dedicated cook, who prepares every meal from traditional Moroccan family recipes, enriched with flavours from further afield. Vegetables come, whenever possible, from the villa's own kitchen garden — picked that same morning.",
-      "stats": [
-        {
-          "value": "14",
-          "label": "Guests at the Table"
-        },
-        {
-          "value": "100%",
-          "label": "On Request"
-        },
-        {
-          "value": "Organic",
-          "label": "Villa Kitchen Garden"
-        }
-      ],
-      "highlights": [
-        "Traditional Moroccan cooking, family recipes",
-        "Seasonal vegetables from the villa's own kitchen garden",
-        "Meals prepared on request, whenever suits you",
-        "Dining room seating up to 14 guests"
-      ],
-      "h1": "A family table, with vegetables from the garden"
-    },
-    "bienEtre": {
-      "page_title": "Wellness",
-      "page_sub": "Traditional hammam, black-soap scrubs, massage room and fitness room — an oasis of relaxation and renewal.",
-      "intro": "After a day of golf, exploring the medina, or simply lounging by the pool, Villa Serena has a real recovery space built in. A traditional hammam, massage room and fitness room are all under one roof — no need to go out to take care of yourself.",
-      "stats": [
-        {
-          "value": "3",
-          "label": "Wellness Spaces"
-        },
-        {
-          "value": "60–90 min",
-          "label": "Hammam Ritual"
-        },
-        {
-          "value": "24/7",
-          "label": "Fitness Room Access"
-        }
-      ],
-      "highlights": [
-        "Traditional Moroccan hammam, black-soap scrub and Kessa glove exfoliation",
-        "Dedicated massage room, treatments by reservation",
-        "Fitness room, free access all day",
-        "A team on-site to arrange your treatments"
-      ],
-      "h1": "Traditional hammam and massage, just for you"
-    },
-    "excursions": {
-      "page_title": "Excursions",
-      "page_sub": "Ourika Valley hikes, horseback riding, quad biking, buggies and hot-air balloon flights.",
-      "intro": "Between rounds of golf, the Marrakech region has plenty to explore: the Ourika Valley, the Agafay desert, a sunrise hot-air balloon flight. On-site, the villa's garden has its own diversions too — a pétanque court, badminton and table tennis for family moments.",
-      "stats": [
-        {
-          "value": "3",
-          "label": "On-Site Activities"
-        },
-        {
-          "value": "½–1",
-          "label": "Day Excursions"
-        },
-        {
-          "value": "100%",
-          "label": "Selected Partners"
-        }
-      ],
-      "highlights": [
-        "Hikes and horseback riding in the Ourika Valley",
-        "Quad biking, buggies and hot-air balloon flights with our selected partners",
-        "Pétanque court and badminton / table tennis area on-site",
-        "Excursions arranged on request, transport included"
-      ],
-      "h1": "Activities at the villa and excursions around Marrakech"
-    },
-    "h1": "The villa's services",
-    "intro": "A cook prepares your meals with vegetables from the kitchen garden, the hammam and massage room are steps from your suite, and the team arranges your excursions around Marrakech. Everything is planned with you, before or during your stay."
+    "h1": "The villa's services"
   },
   "experiences": {
     "page_title": "Experiences",
     "page_sub": "Yoga retreats, golf and grand celebrations — Villa Serena is yours to hire for exceptional moments.",
-    "retraitesYoga": {
-      "page_title": "Retreats & Yoga",
-      "page_sub": "The entire villa hired for your yoga and wellness retreats, sleeping up to 14 participants.",
-      "h1": "Host your yoga retreat in Marrakech"
-    },
-    "golf": {
-      "page_title": "Golf",
-      "page_sub": "11 championship courses within 30 minutes — bespoke golf stays.",
-      "intro": "Villa Serena sits at the heart of Marrakech's golfing constellation — the ideal base camp for a golf trip with friends or family, minutes from courses designed by some of the world's greatest architects.",
-      "stats": {
-        "center": "~25 min",
-        "center_label": "Centre & Jemaa el-Fna",
-        "airport": "~25 min",
-        "airport_label": "Ménara Airport",
-        "nearest": "~12 min",
-        "nearest_label": "1st Golf (Palm Ourika)",
-        "count": "11",
-        "count_label": "Courses Nearby"
-      },
-      "featured_label": "Golf · Right Next Door",
-      "featured_title": "Three Courses, Minutes Away",
-      "featured": [
-        {
-          "name": "PalmGolf Marrakech Ourika",
-          "time": "~12 min",
-          "holes": "18 holes",
-          "par": "Par 72",
-          "detail": "6,692 m",
-          "architect": "Haworth & Talbot",
-          "year": "2015 · desert style",
-          "description": "The closest, on the same axis as the villa. With stunning views over the Atlas mountains, Palm Golf Ourika is a must-play course in the region, designed in a desert style by Canadian duo Neil Haworth and Stéphane Talbot."
-        },
-        {
-          "name": "Akenza Golf",
-          "time": "~18 min",
-          "holes": "18 holes",
-          "par": "Par 72",
-          "detail": "7,150 yds",
-          "architect": "Kyle Phillips",
-          "year": "2025 · Arizona",
-          "description": "Marrakech's new jewel (2025). Designed by Kyle Phillips, architect of the legendary Kingsbarns. Canyons and wadis, eight ravine crossings, an anthology-worthy 7th hole."
-        },
-        {
-          "name": "Samanah Country Club",
-          "time": "~20 min",
-          "holes": "18 holes",
-          "par": "Par 72",
-          "detail": "USGA standard",
-          "architect": "Nicklaus Design",
-          "year": "2011 · 300 ha",
-          "description": "The Jack Nicklaus signature. The first course in Africa to host a PGA Champions Tour event. Clubhouse inspired by Marrakech's ramparts."
-        }
-      ],
-      "table_label": "Golf · The Full Constellation",
-      "table_title": "Eleven Courses, Five World-Class Signatures",
-      "table_note": "Beyond these three nearest greens, eight more courses complete the picture — eleven courses in all, designed by Nicklaus, Kyle Phillips, Robert Trent Jones, Cabell Robinson and Colin Montgomerie, all set against the Atlas mountains.",
-      "table_headers": {
-        "course": "Course",
-        "holes": "Holes",
-        "par": "Par",
-        "architect": "Architect · Style",
-        "time": "From the Villa"
-      },
-      "courses": [
-        {
-          "name": "Golf Al Maaden",
-          "holes": "18",
-          "par": "72",
-          "architect": "Kyle Phillips (2010) · Moroccan garden & sculpture park",
-          "time": "~22 min"
-        },
-        {
-          "name": "Golf Amelkis",
-          "holes": "27",
-          "par": "72",
-          "architect": "Cabell B. Robinson (1995) · aesthetic & technical",
-          "time": "~22 min"
-        },
-        {
-          "name": "Royal Golf de Marrakech",
-          "holes": "27",
-          "par": "72",
-          "architect": "Golias / Massy (1933) · historic course",
-          "time": "~22 min"
-        },
-        {
-          "name": "Assoufid Golf Club",
-          "holes": "18",
-          "par": "72",
-          "architect": "Niall Cameron (2012) · Agafay desert, private",
-          "time": "~25 min"
-        },
-        {
-          "name": "The Montgomerie Marrakech",
-          "holes": "18",
-          "par": "71",
-          "architect": "European Golf Design & C. Montgomerie (2015)",
-          "time": "~28 min"
-        },
-        {
-          "name": "Noria Golf Club",
-          "holes": "18",
-          "par": "72",
-          "architect": "Three settings: orchards, desert, oasis",
-          "time": "~28 min"
-        },
-        {
-          "name": "Fairmont Royal Palm",
-          "holes": "18",
-          "par": "72",
-          "architect": "Cabell B. Robinson (2015) · 5★ resort, sustainable",
-          "time": "~28 min"
-        },
-        {
-          "name": "PalmGolf Marrakech Palmeraie",
-          "holes": "27",
-          "par": "72",
-          "architect": "Robert Trent Jones Sr (1993) · Palmeraie",
-          "time": "~35 min"
-        }
-      ],
-      "h1": "Your golf holiday in Marrakech, eleven courses within 30 minutes"
-    },
-    "mariagesEvents": {
-      "page_title": "Weddings & Events",
-      "page_sub": "Hire the entire villa — sleeping 14 — for your weddings, seminars and celebrations.",
-      "h1": "A wedding or private event in Marrakech"
-    },
     "quote_button": "Request a Quote",
-    "h1": "Hire a private villa in Marrakech",
-    "intro": "Because it is hired in full, Villa Serena adapts to your plans: a quiet yoga retreat, a golf break with friends minutes from the courses, or a wedding in the olive garden. Tell us what you have in mind and we will send a quotation within 24 hours."
+    "h1": "Hire a private villa in Marrakech"
   },
   "contact": {
     "page_title": "Contact",
@@ -449,7 +273,7 @@
     "info_title": "Stay Information",
     "info_items": [
       "Whole villa, exclusively yours",
-      "Five suites, sleeps up to 14",
+      "6 suites + 1 studio, sleeps 14",
       "Home cooking on request",
       "Hammam & massages by appointment",
       "Airport transfer available"
@@ -472,10 +296,14 @@
     "follow_title": "Follow us"
   },
   "cookie": {
-    "title": "We use cookies",
-    "body": "We use cookies to improve your experience and analyse traffic. By continuing, you accept our cookie policy.",
-    "accept": "Accept All",
-    "decline": "Decline"
+    "title": "Cookies",
+    "body": "We use cookies to measure our audience and improve your visit. You can accept them, refuse them or choose which ones to allow. Cookies needed for the site to work stay active.",
+    "accept": "Accept all",
+    "decline": "Refuse all",
+    "customize": "Customise",
+    "save": "Save",
+    "necessary": "Necessary cookies (always on)",
+    "analytics": "Audience measurement"
   },
   "gallery": {
     "page_title": "Gallery",
@@ -486,7 +314,14 @@
     "cat_garden": "Garden & Pool",
     "cat_dining": "Dining",
     "cat_wellness": "Wellness",
-    "h1": "Villa Serena in pictures: suites, pool and garden"
+    "h1": "Villa Serena in pictures: suites, pool and garden",
+    "cat_riad": "The riad",
+    "cat_pavillon": "The pavilion",
+    "cat_studio": "The Studio",
+    "cat_piscine-jardin": "Pool and garden",
+    "cat_potager-ferme": "Vegetable garden and mini farm",
+    "cat_bien-etre": "Wellness",
+    "cat_table": "Dining"
   },
   "journey": {
     "eyebrow": "A day at Villa Serena",
@@ -527,39 +362,15 @@
     },
     "gallery": {
       "title": "Photos of the Villa, Suites and Gardens | Villa Serena",
-      "description": "Browse Villa Serena in pictures: the five suites, patio, pool, olive garden, hammam and dining table, 25 minutes from Marrakech."
+      "description": "Browse Villa Serena in pictures: the riad and its suites, the pavilion, the Studio, the 11 × 5 m pool, the olive garden and the hammam, on the Ourika road."
     },
     "services": {
       "title": "Marrakech Villa with Staff: Cook, Hammam | Villa Serena",
       "description": "Housekeeper-cook and maids on site, hammam, gym, vegetable garden and activities along the Ourika road: the services of Villa Serena."
     },
-    "restauration": {
-      "title": "Moroccan Home Cooking at the Villa | Villa Serena",
-      "description": "A dedicated cook prepares your meals at the villa: Moroccan family recipes, vegetables from the kitchen garden, seating for 14, served when it suits you."
-    },
-    "bienEtre": {
-      "title": "Private Hammam, Massage and Gym | Villa Serena Marrakech",
-      "description": "Traditional Moroccan hammam, black-soap scrub, massage room and an open-access gym: wellness without leaving your villa in Marrakech."
-    },
-    "excursions": {
-      "title": "Excursions and Activities around Marrakech | Villa Serena",
-      "description": "Ourika Valley, Agafay desert, quad, buggy and hot-air balloon: excursions arranged from the villa, plus pétanque, badminton and table tennis on site."
-    },
     "experiences": {
       "title": "Private Events, Golf and Retreats in Marrakech | Villa Serena",
       "description": "Hire Villa Serena for a private event of up to 80 guests, a golf trip with 14 courses nearby or a yoga retreat, on the Ourika road."
-    },
-    "retraitesYoga": {
-      "title": "Yoga Retreat Villa in Marrakech | Villa Serena",
-      "description": "Host your yoga or wellness retreat in a private villa 25 minutes from Marrakech: up to 14 participants, hammam, gardens and in-house cooking."
-    },
-    "golf": {
-      "title": "Golf in Marrakech: Private Villa Holiday | Villa Serena",
-      "description": "Eleven golf courses within 30 minutes, including PalmGolf Ourika 12 minutes away: Villa Serena is your base for a golf holiday in Marrakech."
-    },
-    "mariagesEvents": {
-      "title": "Wedding Villa in Marrakech, Exclusive Hire | Villa Serena",
-      "description": "Hire Villa Serena exclusively for a wedding, birthday or seminar in Marrakech: olive garden, patio, five suites and beds for 14, on quotation."
     },
     "reservation": {
       "title": "Book the Villa in Marrakech: Rate & Booking | Villa Serena",
@@ -567,7 +378,7 @@
     },
     "contact": {
       "title": "Contact and Location | Villa Serena Marrakech",
-      "description": "A question about the villa, a stay or an event? Reach us by form, email or WhatsApp. Villa Serena is 25 minutes from Marrakech."
+      "description": "A question about the villa, a stay or an event? Reach us by form, email or WhatsApp. Villa Serena, Ourika road, km 17, Marrakech."
     },
     "blog": {
       "title": "Journal | Villa Serena Marrakech",

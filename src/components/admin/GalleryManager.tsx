@@ -9,17 +9,21 @@ import { compressImage } from "@/lib/compress-image";
 import { Card, field } from "@/components/admin/ui";
 import { cn } from "@/lib/utils";
 
+// Themes from the client brief (ch. 11).
 const CATEGORIES = [
-  { value: "rooms", label: "Suites" },
-  { value: "garden", label: "Jardin & piscine" },
-  { value: "dining", label: "Restauration" },
-  { value: "wellness", label: "Bien-être" },
+  { value: "riad", label: "Le riad" },
+  { value: "pavillon", label: "Le pavillon" },
+  { value: "studio", label: "Le Studio" },
+  { value: "piscine-jardin", label: "Piscine et jardin" },
+  { value: "potager-ferme", label: "Potager et mini ferme" },
+  { value: "bien-etre", label: "Bien-être" },
+  { value: "table", label: "Table" },
 ];
 
 export function GalleryManager({ images }: { images: GalleryImage[] }) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
-  const [category, setCategory] = useState("garden");
+  const [category, setCategory] = useState("piscine-jardin");
   const [filter, setFilter] = useState("all");
   const [progress, setProgress] = useState<string | null>(null);
   const [errors, setErrors] = useState<string[]>([]);

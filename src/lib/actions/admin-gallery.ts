@@ -26,7 +26,7 @@ export type UploadResult = { ok: true } | { ok: false; error: string };
 export async function uploadGalleryImage(formData: FormData): Promise<UploadResult> {
   await assertAdmin();
   const file = formData.get("file");
-  const category = String(formData.get("category") || "garden");
+  const category = String(formData.get("category") || "piscine-jardin");
   if (!(file instanceof File)) return { ok: false, error: "Fichier manquant." };
   if (!ALLOWED.has(file.type)) return { ok: false, error: "Format non pris en charge (JPG, PNG, WebP)." };
   if (file.size > MAX_BYTES) return { ok: false, error: "Image trop lourde (max 3,5 Mo)." };
@@ -51,7 +51,7 @@ export async function updateGalleryImage(id: string, formData: FormData) {
     data: {
       alt: String(formData.get("alt") || "").trim(),
       altEn: String(formData.get("altEn") || "").trim(),
-      category: String(formData.get("category") || "garden"),
+      category: String(formData.get("category") || "piscine-jardin"),
       featured: formData.get("featured") === "on",
     },
   });

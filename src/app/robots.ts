@@ -1,6 +1,11 @@
+import { headers } from "next/headers";
 import type { MetadataRoute } from "next";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  // Preview domain: block everything (client brief ch. 13).
+  if ((await headers()).get("host")?.endsWith(".vercel.app")) {
+    return { rules: [{ userAgent: "*", disallow: "/" }] };
+  }
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/admin/", "/api/"] },

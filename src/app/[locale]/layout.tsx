@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -70,9 +71,13 @@ export async function generateMetadata({
       siteName: "Villa Serena Marrakech",
     },
     icons: {
-      icon: media("/favicon-logo.png"),
+      icon: media("/favicon-serena.png"),
+      apple: media("/favicon-serena.png"),
     },
-    robots: { index: true, follow: true },
+    // Keep the vercel.app preview domain out of Google until the real domain is live.
+    robots: (await headers()).get("host")?.endsWith(".vercel.app")
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
     other: { tagline: t("tagline") },
   };
 }
@@ -88,22 +93,38 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
+  // VacationRental (client brief ch. 13) — replaces the earlier LodgingBusiness block.
   const lodgingSchema = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
+    "@type": "VacationRental",
     name: "Villa Serena Marrakech",
     description:
-      "Villa exclusive de charme autour d'un patio d'inspiration riad, à Marrakech.",
-    url: "https://www.villaserenamarrakech.com",
+      "Villa de charme à louer en exclusivité, route de l'Ourika : 6 suites et un studio sur un hectare, 14 couchages, piscine privée, hammam, personnel sur place.",
+    url: "https://www.villaserenamarrakech.com/fr",
     telephone: "+212663524991",
     email: "guest@villaserenamarrakech.com",
+    image: [media("/hero-main.jpg"), media("/welcome-salon.jpg"), media("/welcome-jardin.jpg")],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Sidi Bouzguia",
+      streetAddress: "Route de l'Ourika, km 17, Sidi Bouzguia",
       addressLocality: "Marrakech",
       addressCountry: "MA",
     },
-    priceRange: "€€",
+    checkinTime: "16:00",
+    checkoutTime: "11:00",
+    priceRange: "À partir de 980 € la nuit",
+    containsPlace: {
+      "@type": "Accommodation",
+      additionalType: "EntirePlace",
+      numberOfBedrooms: 7,
+      numberOfBathroomsTotal: 7,
+      occupancy: { "@type": "QuantitativeValue", value: 14 },
+      amenityFeature: ["Piscine privée", "Hammam", "Salle de sport", "Climatisation", "Wifi (fibre)", "Parking privé"].map((name) => ({
+        "@type": "LocationFeatureSpecification",
+        name,
+        value: true,
+      })),
+    },
     sameAs: [
       "https://www.instagram.com/villa_serena_marrakech/",
       "https://www.facebook.com/profile.php?id=61552603958185",

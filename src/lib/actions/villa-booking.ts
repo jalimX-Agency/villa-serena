@@ -53,6 +53,10 @@ export async function submitVillaBooking(
   if (Number.isNaN(checkIn.getTime()) || Number.isNaN(checkOut.getTime()) || checkOut <= checkIn) {
     return { status: "error", error: "invalid_dates" };
   }
+  // Minimum stay of 4 nights (client brief); the form already blocks shorter stays.
+  if (Math.round((checkOut.getTime() - checkIn.getTime()) / 86_400_000) < 4) {
+    return { status: "error", error: "invalid_dates" };
+  }
 
   // Re-validate availability server-side — never trust the client-side picker alone.
   const existing = await db.booking.findMany({

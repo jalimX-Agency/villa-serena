@@ -11,6 +11,8 @@ type Step = "dates" | "details" | "done";
 
 const STEP_ORDER: Step[] = ["dates", "details", "done"];
 
+export const MIN_NIGHTS = 4;
+
 export function ReservationClient({
   bookedRanges,
   locale,
@@ -31,6 +33,8 @@ export function ReservationClient({
   ];
   const currentIndex = STEP_ORDER.indexOf(step);
   const nights = checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
+  // Minimum stay from the client brief: 4 nights (6 in high season is confirmed in the reply).
+  const tooShort = nights > 0 && nights < MIN_NIGHTS;
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -98,10 +102,17 @@ export function ReservationClient({
               {nights} {isEn ? (nights > 1 ? "nights" : "night") : nights > 1 ? "nuits" : "nuit"}
             </p>
           )}
+          {tooShort && (
+            <p className="font-sans text-sm text-villa-terracotta">
+              {isEn
+                ? `Minimum stay: ${MIN_NIGHTS} nights (6 in high season and over the holidays).`
+                : `Séjour minimum : ${MIN_NIGHTS} nuits (6 en haute saison et pendant les fêtes).`}
+            </p>
+          )}
 
           <button
             type="button"
-            disabled={nights === 0}
+            disabled={nights === 0 || tooShort}
             onClick={() => setStep("details")}
             className="w-full px-6 py-3.5 bg-villa-terracotta hover:bg-villa-terracotta/90 disabled:opacity-50 text-white font-sans text-xs tracking-[0.15em] uppercase transition-colors"
           >

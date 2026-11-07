@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 
 export type GalleryItem = { id: string; url: string; alt: string; altEn: string; category: string };
 
-const CATS = ["all", "rooms", "garden", "dining", "wellness"] as const;
+// Gallery themes from the client brief (ch. 11).
+const CATS = ["all", "riad", "pavillon", "studio", "piscine-jardin", "potager-ferme", "bien-etre", "table"] as const;
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   const t = useTranslations("gallery");
@@ -21,7 +22,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
     <>
       <div className="flex flex-wrap justify-center gap-2 mb-10">
-        {CATS.map((c) => (
+        {CATS.filter((c) => c === "all" || items.some((i) => i.category === c)).map((c) => (
           <button
             key={c}
             onClick={() => setCat(c)}
