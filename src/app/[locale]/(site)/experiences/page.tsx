@@ -37,7 +37,7 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
       {/* Événements privés */}
       <section id="evenements" className="scroll-mt-40 mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6 relative aspect-[4/5] overflow-hidden rounded-t-full bg-muted">
-          <Image src={media("/exp-excursions.jpg")} alt="Réception en plein air dans le jardin d'oliviers de Villa Serena" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+          <Image src={media("/exp-excursions.jpg")} alt="Réception en plein air dans le jardin d'oliviers de la Villa Serena" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
         </div>
         <div className="lg:col-span-6">
           <h2 className="font-serif text-4xl lg:text-5xl text-villa-ink">{p("evenements.title")}</h2>

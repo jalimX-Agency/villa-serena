@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Mail, Phone, MessageCircle, CalendarDays, Users, Moon, Clock } from "lucide-react";
+import { ArrowLeft, Mail, Phone, MessageCircle, CalendarDays, Users, Moon, Clock, FileCheck } from "lucide-react";
 import { db } from "@/lib/db";
 import { BookingActions } from "@/components/admin/BookingActions";
 import { Card, CardHeader, SERVICE_LABELS, StatusBadge, btn, formatDate, nightsBetween } from "@/components/admin/ui";
@@ -35,6 +35,11 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
     nights > 0 && { icon: Moon, label: "Durée", value: `${nights} nuit${nights > 1 ? "s" : ""}` },
     { icon: Users, label: "Voyageurs", value: `${b.guests} personne${b.guests > 1 ? "s" : ""}` },
     { icon: Clock, label: "Reçue le", value: formatDate(b.createdAt, { hour: "2-digit", minute: "2-digit" }) },
+    b.termsAcceptedAt && {
+      icon: FileCheck,
+      label: "CGV et règlement intérieur acceptés",
+      value: `${formatDate(b.termsAcceptedAt, { hour: "2-digit", minute: "2-digit" })}${b.termsVersion ? ` · version ${b.termsVersion}` : ""}`,
+    },
   ].filter(Boolean) as { icon: typeof Moon; label: string; value: string }[];
 
   return (

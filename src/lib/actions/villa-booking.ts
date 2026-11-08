@@ -1,9 +1,10 @@
 "use server";
+import { LEGAL } from "@/lib/legal";
 import { db } from "@/lib/db";
 
 export type VillaBookingState = {
   status: "idle" | "success" | "error";
-  error?: "missing_fields" | "invalid_dates" | "unavailable" | "unknown";
+  error?: "missing_fields" | "invalid_dates" | "unavailable" | "terms_required" | "unknown";
 };
 
 /** Dates already requested for the whole villa — used to disable them in the picker. */
@@ -45,6 +46,10 @@ export async function submitVillaBooking(
 
   if (!firstName || !lastName || !email || !checkInRaw || !checkOutRaw) {
     return { status: "error", error: "missing_fields" };
+  }
+  // Avenant 1, M48: once the documents are published, acceptance is required and recorded.
+  if (LEGAL.published && formData.get("acceptTerms") !== "on") {
+    return { status: "error", error: "terms_required" };
   }
 
   const checkIn = new Date(checkInRaw);
@@ -89,6 +94,7 @@ export async function submitVillaBooking(
       message,
       status: "pending",
       currency: "EUR",
+      ...(LEGAL.published ? { termsAcceptedAt: new Date(), termsVersion: LEGAL.version } : {}),
     },
   });
 

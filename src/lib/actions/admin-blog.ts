@@ -84,7 +84,7 @@ export async function saveBlogPost(id: string | null, _prev: BlogFormState, fd: 
 
   const saved = existing
     ? await db.blogPost.update({ where: { id: existing.id }, data })
-    : await db.blogPost.create({ data: { ...data, author: "L'équipe Villa Serena" } });
+    : await db.blogPost.create({ data: { ...data, author: "L'équipe de la Villa Serena" } });
 
   // Replaced cover uploaded through the admin: remove the old file.
   if (existing?.image && existing.image !== data.image && existing.image.includes("/blog/")) {

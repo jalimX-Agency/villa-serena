@@ -23,7 +23,7 @@ export function Welcome() {
             <motion.div style={{ y: yArch }} className="absolute inset-0 scale-110">
               <Image
                 src={media("/welcome-jardin.jpg")}
-                alt="Jardin de Villa Serena, oliviers et statue de Bouddha"
+                alt="Jardin de la Villa Serena, oliviers et statue de Bouddha"
                 fill
                 sizes="(min-width:1024px) 40vw, 78vw"
                 className="object-cover"
@@ -36,7 +36,7 @@ export function Welcome() {
           >
             <Image
               src={media("/welcome-salon.jpg")}
-              alt="Salon et salle à manger de Villa Serena"
+              alt="Salon et salle à manger de la Villa Serena"
               fill
               sizes="(min-width:1024px) 24vw, 48vw"
               className="object-cover"

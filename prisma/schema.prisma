@@ -156,6 +156,9 @@ model Booking {
   guests      Int       @default(2)
   message     String    @default("")
   status      String    @default("pending") // pending | confirmed | cancelled
+  // Acceptance of the terms of sale + house rules (Avenant 1, M48): when and which version.
+  termsAcceptedAt DateTime?
+  termsVersion    String    @default("")
   totalAmount Float     @default(0)
   currency    String    @default("EUR")
   createdAt   DateTime  @default(now())

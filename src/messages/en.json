@@ -19,7 +19,7 @@
   "hero": {
     "tagline": "Ourika road · 25 min from Marrakech",
     "headline": "Your private villa in Marrakech, exclusively yours",
-    "subheadline": "Here, the whole estate is yours. On one hectare of olive trees, a riad with four suites, a pavilion with two suites and a separate studio sleep up to 14 guests. Private pool, hammam, vegetable garden and mini farm. A housekeeper, who is also the house cook, and a team of maids look after your stay.",
+    "subheadline": "Here, the whole estate is yours. On one hectare of olive trees, a riad with four suites, a pavilion with two suites and a separate studio sleep up to 14 guests. Private pool, hammam, vegetable garden and mini farm. A housekeeper, who is also the house cook, and a maid look after your stay.",
     "cta_primary": "Discover the villa",
     "cta_secondary": "View the Suites",
     "scroll": "Scroll to explore"
@@ -27,10 +27,10 @@
   "home": {
     "welcome_label": "Welcome to Villa Serena",
     "welcome_title": "A charming villa between Marrakech and the Atlas",
-    "welcome_body": "The riad's suites open onto a quiet patio, open to the sky. In the evening, you linger there under the stars; in winter, everyone gathers in the lounge by the fire. The dining room seats up to 14.",
+    "welcome_body": "The riad's suites open onto a patio covered by a retractable glass roof. In the evening, you linger there under the stars; in winter, everyone gathers in the lounge by the fire. The dining room seats up to 14.",
     "suites_label": "The suites",
     "suites_title": "A riad, a pavilion, a studio",
-    "suites_sub": "The estate is split into three spaces. In the riad, the Red, Blue, Green and Pink suites open onto the patio. The pavilion houses the Orange and Yellow suites, with its own lounge, kitchen, terrace and garden. The separate Studio offers 45 m² of calm.",
+    "suites_sub": "The estate is split into three spaces. In the riad, the Red, Blue, Green and Pink suites open onto the patio. The pavilion houses the Orange and Yellow suites, with its own lounge, kitchen, terrace and garden. The Studio offers 45 m² of calm, in complete independence.",
     "experiences_label": "Wellness and leisure",
     "experiences_title": "From the hammam to the mini farm",
     "experiences_sub": "A traditional hammam, massage room and gym to look after yourself. In the garden: vegetable garden, mini farm and aviaries, koi pond, pétanque court, badminton and table tennis. With children, the Pickalbatros Aqua Fun Club water park, right next to the villa, is open by the day (paid entry).",
@@ -45,8 +45,8 @@
       "pool": "11 × 5 m pool",
       "hammam": "Hammam and gym"
     },
-    "welcome_body2": "Twenty-five minutes from the medina, on the road to the Ourika valley, the villa offers the calm of the countryside without the isolation.",
-    "suites_sub2": "Each family keeps its own space, and everyone meets around the pool and the big table. All suites are air-conditioned, with a private shower room. The Blue Suite and the Studio have a 160 cm bed; in the other five suites, the beds can be set up as twins or joined together.",
+    "welcome_body2": "Twenty-five minutes from the medina, on the road to the Ourika valley, the villa offers the calm of the countryside, never far from the bustle.",
+    "suites_sub2": "Privacy for each, togetherness the rest of the time: around the pool and at the big table, families come together. All suites are air-conditioned, with a private shower room. The Blue Suite and the Studio each have a queen-size bed; the other five suites offer twin or joined beds, as you prefer.",
     "cta_eyebrow": "6 suites + 1 studio · sleeps 14 · whole villa"
   },
   "villa": {
@@ -101,7 +101,7 @@
       {
         "key": "jardin",
         "title": "The garden: koi carp and rediscovered silence",
-        "body": "Olive trees, vegetable garden, mini farm, aviaries, koi pond, Buddha statue and pétanque court: a green refuge 25 minutes from the bustle of the medina. Vegetables from the garden end up on your table. The mini farm is home to goats, sheep, hens and ducks, watched over by the peacock."
+        "body": "Olive trees, vegetable garden, mini farm, aviaries, koi pond, Buddha statue and pétanque court: a green refuge 25 minutes from the bustle of the medina. Vegetables from the garden end up on your table. At the mini farm, goats, sheep, hens and ducks roam free under the peacock's eye. Children are amazed, grown-ups feel like children again."
       },
       {
         "key": "bienetre",
@@ -110,7 +110,7 @@
       }
     ],
     "situation_title": "Location: Ourika road, km 17",
-    "situation_body": "Villa Serena is at kilometre 17 on the Ourika road, in Sidi Bouzguia, right next to the Pickalbatros Aqua Fun Club water park. You are about 25 minutes from Jemaa el-Fna square and Marrakech-Menara airport, and on the road to the Ourika valley and the foothills of the Atlas.",
+    "situation_body": "At kilometre 17 on the Ourika road, in Sidi Bouzguia, Villa Serena places you halfway between two worlds: the bustle of Marrakech, about 25 minutes away, and the landscapes of the Ourika valley and the Atlas foothills, right on your doorstep.",
     "situation_from": "From the villa",
     "situation_time": "Travel time",
     "distances": [
@@ -350,7 +350,7 @@
     "noon": {
       "label": "Midday",
       "title": "Lunch on the terrace",
-      "body": "By the pool or under the olive trees: Moroccan cooking prepared on site. The estate belongs only to you and your guests."
+      "body": "By the pool or under the olive trees: Moroccan cooking prepared on site. The estate belongs to you alone."
     },
     "afternoon": {
       "label": "Afternoon",
@@ -359,8 +359,8 @@
     },
     "night": {
       "label": "Evening",
-      "title": "Dinner under the stars or in the patio",
-      "body": "Candles flicker around the riad. A table for fourteen, and the whole villa just for you."
+      "title": "As night falls",
+      "body": "Candles light up the riad. Under the stars or in the patio, your guests take their seats around the table."
     }
   },
   "seo": {
@@ -382,7 +382,7 @@
     },
     "services": {
       "title": "Marrakech Villa with Staff: Cook, Hammam | Villa Serena",
-      "description": "Housekeeper-cook and maids on site, hammam, gym, vegetable garden and activities along the Ourika road: the services of Villa Serena."
+      "description": "Housekeeper-cook and maid on site, hammam, gym, vegetable garden and activities along the Ourika road: the services of Villa Serena."
     },
     "experiences": {
       "title": "Private Events, Golf and Retreats in Marrakech | Villa Serena",
@@ -407,15 +407,15 @@
     "items": [
       {
         "q": "Where is Villa Serena?",
-        "a": "At kilometre 17 on the Ourika road, in Sidi Bouzguia, right next to the Pickalbatros Aqua Fun Club water park. Allow about 25 minutes to Jemaa el-Fna square and to Marrakech-Menara airport."
+        "a": "At kilometre 17 on the Ourika road, in Sidi Bouzguia. Allow about 25 minutes to Jemaa el-Fna square and to Marrakech-Menara airport."
       },
       {
         "q": "How many guests can the villa sleep?",
-        "a": "Up to 14 guests, spread between the riad (4 suites), the pavilion (2 suites with a lounge and kitchen) and the separate Studio. The Blue Suite and the Studio have a 160 cm bed; in the other five suites, the beds can be set up as twins or joined together."
+        "a": "Up to 14 guests, spread between the riad (4 suites), the pavilion (2 suites with a lounge and kitchen) and the separate Studio."
       },
       {
         "q": "Can I book a single suite?",
-        "a": "No. The villa is only rented as a whole: you never share the estate with other guests."
+        "a": "No. The villa is hired in its entirety: you are alone on the estate, with no other guests."
       },
       {
         "q": "What is the rate?",
@@ -443,11 +443,11 @@
       },
       {
         "q": "Which services are included?",
-        "a": "Breakfast and daily housekeeping. Bed linen and towels (towels and bath sheets), pool towels and toiletries are provided. Fibre wifi and private parking for 7 cars. On request: meals prepared by the cook and served to the whole group at agreed times, hammam treatments, massages, excursions, transfers from Marrakech-Menara airport."
+        "a": "Breakfast and daily housekeeping. Bed linen and towels (towels and bath sheets), pool towels and toiletries are provided. Fibre wifi and private parking for 7 cars. On request and at extra cost: meals prepared by the cook and served at agreed times, hammam treatments, massages, excursions, transfers from Marrakech-Menara airport."
       },
       {
         "q": "Is the villa suitable for children?",
-        "a": "Yes: garden, mini farm, pétanque, badminton and table tennis on site, and a water park open by the day right next door. The pool has neither a fence nor an alarm: children must be supervised by an adult at all times, as our terms and conditions require. The gym is reserved for over-16s."
+        "a": "Yes: garden, mini farm, pétanque, badminton and table tennis on site, and a water park open by the day right next door (paid entry). The pool has neither a fence nor an alarm: children must be supervised by an adult at all times, as our house rules require. The gym is reserved for over-16s; minors remain under the responsibility of an adult."
       },
       {
         "q": "Is the pool heated?",
@@ -455,7 +455,7 @@
       },
       {
         "q": "Who looks after the villa during the stay?",
-        "a": "A housekeeper, who is also the cook, and a maid, helped by a second one depending on the size of the group, live on site, and a guard covers the night from 6 pm to 8 am. The whole team is there to give you the best service; they also take breaks and rest periods, in line with labour law. Service hours are agreed with the housekeeper on arrival. A gardener-pool keeper and a maintenance man discreetly look after the pool, the garden and the house. The grounds and outside access points are under video surveillance, and a generator takes over in case of a power cut."
+        "a": "A housekeeper, who is also the house cook, and a maid live on site. A guard covers the night, from 6 pm to 8 am. The whole team is there to give you the best service. A gardener-pool keeper and a maintenance man discreetly look after the pool, the garden and the house. The grounds and outside access points are under video surveillance."
       },
       {
         "q": "Can we host an event?",
@@ -491,9 +491,9 @@
   ],
   "servicesPage": {
     "eyebrow": "Services",
-    "lead": "A team lives on site and looks after your stay: a housekeeper, who is also your cook, a maid, helped by a second one depending on the size of the group, and a night guard from 6 pm to 8 am. With you throughout the day, the team also takes breaks and rest periods, in line with labour law. Breakfast and daily housekeeping are included; everything else is arranged on request.",
+    "lead": "A team lives on site and looks after your stay: a housekeeper, who is also your cook, a maid and a night guard from 6 pm to 8 am. Breakfast and daily housekeeping are included; everything else is arranged on request.",
     "serenity_title": "Peace of mind",
-    "serenity": "Behind the scenes, a gardener-pool keeper and a maintenance man look after the pool, the garden and the house every day, discreetly. The grounds and outside access points are under video surveillance, and a generator takes over in case of a power cut, as is usual in the countryside.",
+    "serenity": "Behind the scenes, a gardener-pool keeper and a maintenance man look after the pool, the garden and the house every day, discreetly. The grounds and outside access points of the villa are under video surveillance.",
     "anchors": {
       "restauration": "Dining",
       "bien-etre": "Wellness",
@@ -503,7 +503,7 @@
       "title": "Dining",
       "paragraphs": [
         "Cooking at Villa Serena is entrusted to our housekeeper, who is also the house cook. She prepares every meal from Moroccan family recipes: tagines, Friday couscous, pastilla, seasonal salads. Flavours from elsewhere join in, as you wish. Vegetables come, as far as possible, from the villa's kitchen garden.",
-        "Breakfast is included every morning. Lunches and dinners are prepared on request and served to the whole group, at times agreed with the housekeeper, by the pool, under the olive trees, in the patio or in the 14-seat dining room.",
+        "Breakfast is included every morning. Lunches and dinners are prepared on request and served at times agreed with the housekeeper, by the pool, under the olive trees, in the patio or in the 14-seat dining room.",
         "Meals are designed as shared moments: the same menu, served at the same time to the whole table. The only exception: children can eat earlier or separately if they wish."
       ],
       "stats": [
@@ -514,7 +514,7 @@
     },
     "bienetre": {
       "title": "Wellness",
-      "intro": "After a day of golf, a visit to the medina or an afternoon by the pool, the villa has its own wellness area, reserved for your group.",
+      "intro": "After the fairways, the alleys of the medina or a long break by the pool, treat yourself to a moment of relaxation in the villa's wellness area.",
       "items": [
         [
           "Traditional hammam",
@@ -530,15 +530,15 @@
         ],
         [
           "Gym",
-          "Free to use throughout your stay, reserved for over-16s under adult supervision. Weights and dumbbells, treadmill, rowing machine, weight bench, multi-station machine and punching bag."
+          "Free to use throughout your stay, reserved for over-16s; minors remain under the responsibility of an adult. Weights and dumbbells, treadmill, rowing machine, weight bench, multi-station machine and punching bag."
         ]
       ]
     },
     "activites": {
       "title": "Activities and excursions",
       "paragraphs": [
-        "Villa Serena is on the road to the Ourika valley, gateway to the Atlas. On site, the garden has its own entertainment: pétanque court, badminton, table tennis, and the mini farm with its goats, sheep, hens, ducks and peacock, which children love. Right next door, the Pickalbatros Aqua Fun Club water park is open by the day (paid entry) for great family days out.",
-        "Further afield, we organise with partners we know: a hike to the Setti Fatma waterfalls (about 30 minutes), horse or camel rides, quad and buggy in the Agafay desert (about 35 minutes), a hot-air balloon flight at sunrise."
+        "At the gateway to the Atlas, on the road to the Ourika valley, Villa Serena is an open-air playground. In the garden, you play pétanque, badminton or table tennis, or visit the mini farm and its goats, sheep, hens and ducks, not forgetting the peacock, which children love. Next door, the Pickalbatros Aqua Fun Club water park opens its slides by the day (paid entry).",
+        "And to escape a little further, we organise with our partners: a walk to the Setti Fatma waterfalls (about 30 minutes), horse or camel rides, quad and buggy in the Agafay desert (about 35 minutes), a hot-air balloon flight at sunrise."
       ],
       "stats": [
         "3 activities on site",
@@ -559,7 +559,7 @@
       "title": "Private events",
       "paragraphs": [
         "A birthday, a family celebration, a seminar or a reception: for a day or a stay, Villa Serena is entirely yours. The olive garden, pool, patio and terraces welcome up to 80 guests, 14 of whom can stay on site.",
-        "Each event is quoted individually. Receptions are held outdoors: the villa has no covered space for a large number of guests. Music is welcome, in line with Moroccan regulations, in particular on noise, and with respect for the neighbours."
+        "Each event is quoted individually. Receptions are held outdoors: the villa has no covered space for a large number of guests. Music is welcome, with respect for the neighbours' peace and quiet."
       ],
       "facts": [
         [
@@ -618,5 +618,15 @@
     },
     "quote_title": "Tell us about your project",
     "quote_body": "Describe your event, golf trip or retreat: we reply within 24 hours with a tailored quotation."
+  },
+  "legal": {
+    "house_rules": "House rules",
+    "terms": "Terms of sale",
+    "accept_before": "I have read and accept the ",
+    "accept_terms": "terms of sale",
+    "accept_and": " and the ",
+    "accept_rules": "house rules",
+    "accept_after": " of Villa Serena.",
+    "accept_required": "Please accept the terms of sale and the house rules."
   }
 }

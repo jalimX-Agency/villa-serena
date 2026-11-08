@@ -21,7 +21,7 @@ export function Hero() {
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
           src={media("/hero-main.jpg")}
-          alt="Piscine privée de Villa Serena et façade du riad, route de l'Ourika, Marrakech"
+          alt="Piscine privée de la Villa Serena et façade du riad, route de l'Ourika, Marrakech"
           fill
           priority
           sizes="100vw"

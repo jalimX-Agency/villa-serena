@@ -1,11 +1,12 @@
 "use client";
 import { media } from "@/lib/media";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS } from "./Header";
 import { StarDivider } from "@/components/StarDivider";
+import { LEGAL, legalHref } from "@/lib/legal";
 
 const CONTACT = {
   address: "Route de l'Ourika, km 17 – Sidi Bouzguia, Marrakech, Maroc",
@@ -19,6 +20,7 @@ const CONTACT = {
 /** Night-blue footer with the colour logo (client brief, ch. 03 and 05). */
 export function Footer() {
   const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <footer className="bg-villa-ink text-white">
@@ -130,7 +132,18 @@ export function Footer() {
           <span className="font-sans text-xs text-white/50">
             © {new Date().getFullYear()} Villa Serena Marrakech. {t("footer.legal")}
           </span>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {/* House rules and terms of sale: shown once their texts are published (Avenant 1, M06). */}
+            {LEGAL.published && (
+              <>
+                <Link href={legalHref("rules", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+                  {t("legal.house_rules")}
+                </Link>
+                <Link href={legalHref("terms", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+                  {t("legal.terms")}
+                </Link>
+              </>
+            )}
             <Link href="/confidentialite" className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.privacy")}
             </Link>

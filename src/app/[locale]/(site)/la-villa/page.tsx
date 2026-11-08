@@ -16,11 +16,11 @@ type Block = { key: string; title: string; body: string };
 // One photo per block. The pavilion has no photo yet (requested from the client): it gets an
 // ornament instead of a stock picture. The old "suite-bleue" photos are the Studio.
 const BLOCK_IMAGES: Record<string, { src: string; alt: string } | undefined> = {
-  riad: { src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de Villa Serena, arcs marocains" },
+  riad: { src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de la Villa Serena, arcs marocains" },
   patio: { src: media("/room-rouge-2.jpg"), alt: "Patio d'inspiration riad de la villa, terrasse et arcades" },
   studio: { src: media("/suite-bleue.jpg"), alt: "Le Studio indépendant de 45 m², coin salon" },
-  piscine: { src: media("/hero-main.jpg"), alt: "Piscine privée de 11 × 5 m de Villa Serena, route de l'Ourika, Marrakech" },
-  jardin: { src: media("/welcome-jardin.jpg"), alt: "Jardin d'oliviers de Villa Serena et statue de Bouddha" },
+  piscine: { src: media("/hero-main.jpg"), alt: "Piscine privée de 11 × 5 m de la Villa Serena, route de l'Ourika, Marrakech" },
+  jardin: { src: media("/welcome-jardin.jpg"), alt: "Jardin d'oliviers de la Villa Serena et statue de Bouddha" },
   bienetre: { src: media("/exp-massage.jpg"), alt: "Salle de massage de la villa, éclairée aux bougies" },
 };
 

@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
           {/* Trusted HTML authored by the villa (seed script / admin). */}
           <div className="prose-villa" dangerouslySetInnerHTML={{ __html: html }} />
 
-          {/* « Séjourner à Villa Serena » box (client brief charter). */}
+          {/* « Séjourner à la Villa Serena » box (client brief charter). */}
           <aside className="relative mt-14 overflow-hidden bg-villa-ink text-white p-8 lg:p-10">
             <div aria-hidden className="pointer-events-none absolute -right-14 -bottom-24 h-72 w-48 rounded-t-full border border-white/10" />
             <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold">{t("blog.cta_title")}</p>

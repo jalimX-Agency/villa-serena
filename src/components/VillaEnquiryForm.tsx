@@ -3,6 +3,7 @@ import { useActionState, useEffect } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import { useTranslations } from "next-intl";
 import { submitVillaBooking, type VillaBookingState } from "@/lib/actions/villa-booking";
+import { LEGAL, legalHref } from "@/lib/legal";
 
 const initialState: VillaBookingState = { status: "idle" };
 
@@ -18,6 +19,10 @@ const ERROR_MESSAGES: Record<string, { fr: string; en: string }> = {
   unavailable: {
     fr: "Ces dates viennent d'être demandées par un autre groupe. Merci d'en choisir d'autres.",
     en: "Those dates have just been requested by another group. Please choose different ones.",
+  },
+  terms_required: {
+    fr: "Merci d'accepter les conditions générales de vente et le règlement intérieur.",
+    en: "Please accept the terms of sale and the house rules.",
   },
   unknown: {
     fr: "Une erreur est survenue, merci de réessayer.",
@@ -143,6 +148,32 @@ export function VillaEnquiryForm({
           className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta"
         />
       </div>
+
+      {/* Avenant 1, M48: never pre-ticked, required, links open in a new tab. Shown once both
+          documents are published. */}
+      {LEGAL.published && (
+        <label className="flex items-start gap-3 font-sans text-sm text-foreground/85 leading-relaxed">
+          <input
+            type="checkbox"
+            name="acceptTerms"
+            required
+            className="mt-1 size-4 shrink-0 accent-villa-terracotta"
+            onInvalid={(e) => e.currentTarget.setCustomValidity(t("legal.accept_required"))}
+            onChange={(e) => e.currentTarget.setCustomValidity("")}
+          />
+          <span>
+            {t("legal.accept_before")}
+            <a href={`/${locale}${legalHref("terms", locale)}`} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
+              {t("legal.accept_terms")}
+            </a>
+            {t("legal.accept_and")}
+            <a href={`/${locale}${legalHref("rules", locale)}`} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
+              {t("legal.accept_rules")}
+            </a>
+            {t("legal.accept_after")}
+          </span>
+        </label>
+      )}
 
       {state.status === "error" && (
         <p className="font-sans text-sm text-destructive">
