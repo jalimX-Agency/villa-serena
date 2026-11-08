@@ -5,11 +5,11 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 
-/** Five suites as a horizontal, snap-scrolling strip — each card tinted with the suite's own colour. */
+/** All seven units (six suites and the Studio) as a horizontal, snap-scrolling strip — each card tinted with the suite's own colour. */
 export async function SuitesPreview() {
   const t = await getTranslations();
   const isEn = (await getLocale()) === "en";
-  const rooms = await db.room.findMany({ orderBy: { order: "asc" }, take: 5 });
+  const rooms = await db.room.findMany({ orderBy: { order: "asc" } });
 
   return (
     <section className="bg-background py-24 lg:py-36 overflow-hidden">
