@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
+import { SuitesStrip } from "@/components/home/SuitesStrip";
 
 /** All seven units (six suites and the Studio) as a horizontal, snap-scrolling strip — each card tinted with the suite's own colour. */
 export async function SuitesPreview() {
@@ -38,7 +39,7 @@ export async function SuitesPreview() {
       </div>
 
       {/* Bleeds to the right edge; starts aligned with the page gutter. */}
-      <ul className="flex gap-5 lg:gap-7 overflow-x-auto snap-x snap-mandatory scroll-px-6 px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))] pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <SuitesStrip prevLabel={isEn ? "Previous suites" : "Suites précédentes"} nextLabel={isEn ? "Next suites" : "Suites suivantes"}>
         {rooms.map((room, i) => {
           const name = isEn && room.nameEn ? room.nameEn : room.name;
           const subtitle = isEn && room.subtitleEn ? room.subtitleEn : room.subtitle;
@@ -77,7 +78,7 @@ export async function SuitesPreview() {
             </li>
           );
         })}
-      </ul>
+      </SuitesStrip>
     </section>
   );
 }
