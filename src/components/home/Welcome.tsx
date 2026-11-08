@@ -1,13 +1,13 @@
 "use client";
+import type { SiteImage } from "@/lib/site-images";
 import { useRef } from "react";
-import { media } from "@/lib/media";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ZelligeDivider } from "@/components/ZelligeDivider";
 
-export function Welcome() {
+export function Welcome({ photo, photo2 }: { photo: SiteImage; photo2: SiteImage }) {
   const t = useTranslations();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -22,8 +22,8 @@ export function Welcome() {
           <div className="relative w-[78%] aspect-[3/4] overflow-hidden rounded-t-full bg-muted">
             <motion.div style={{ y: yArch }} className="absolute inset-0 scale-110">
               <Image
-                src={media("/welcome-jardin.jpg")}
-                alt="Jardin de la Villa Serena, oliviers et statue de Bouddha"
+                src={photo.src}
+                alt={photo.alt}
                 fill
                 sizes="(min-width:1024px) 40vw, 78vw"
                 className="object-cover"
@@ -35,8 +35,8 @@ export function Welcome() {
             className="absolute bottom-8 right-0 w-[48%] aspect-[4/5] overflow-hidden shadow-2xl ring-8 ring-villa-cream"
           >
             <Image
-              src={media("/welcome-salon.jpg")}
-              alt="Salon et salle à manger de la Villa Serena"
+              src={photo2.src}
+              alt={photo2.alt}
               fill
               sizes="(min-width:1024px) 24vw, 48vw"
               className="object-cover"

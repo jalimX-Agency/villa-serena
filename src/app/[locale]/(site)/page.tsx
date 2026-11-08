@@ -1,3 +1,4 @@
+import { getSiteImages } from "@/lib/site-images";
 import { pageMetadata } from "@/lib/seo";
 import { Faq } from "@/components/Faq";
 import { setRequestLocale } from "next-intl/server";
@@ -24,13 +25,14 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const img = await getSiteImages(locale);
 
   return (
     <>
-      <Hero />
+      <Hero photo={img["home.hero"]} />
       <StatsBand />
-      <Welcome />
-      <DayJourney />
+      <Welcome photo={img["home.welcome"]} photo2={img["home.welcome2"]} />
+      <DayJourney photos={[img["home.morning"], img["home.noon"], img["home.afternoon"], img["home.night"]]} />
       <SuitesPreview />
       <ExperiencesBand />
       <Testimonials />

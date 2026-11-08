@@ -1,3 +1,4 @@
+import { getSiteImages } from "@/lib/site-images";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
@@ -16,15 +17,16 @@ export default async function ApercuPage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("journey");
+  const img = await getSiteImages(locale);
 
   return (
     <>
       <div className="fixed bottom-4 left-4 z-[60] px-3 py-1.5 bg-villa-ink/90 text-white font-sans text-[10px] tracking-[0.2em] uppercase">
         {t("badge")}
       </div>
-      <Hero />
-      <Welcome />
-      <DayJourney />
+      <Hero photo={img["home.hero"]} />
+      <Welcome photo={img["home.welcome"]} photo2={img["home.welcome2"]} />
+      <DayJourney photos={[img["home.morning"], img["home.noon"], img["home.afternoon"], img["home.night"]]} />
       <SuitesPreview />
       <ExperiencesBand />
       <Testimonials />

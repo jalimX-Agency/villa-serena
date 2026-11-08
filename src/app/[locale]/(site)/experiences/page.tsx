@@ -1,7 +1,7 @@
+import { getSiteImages } from "@/lib/site-images";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
-import { media } from "@/lib/media";
 import { PageIntro } from "@/components/PageIntro";
 import { AnchorBar } from "@/components/AnchorBar";
 import { StarDivider } from "@/components/StarDivider";
@@ -18,6 +18,7 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
   setRequestLocale(locale);
   const t = await getTranslations();
   const p = (k: string) => t(`experiencesPage.${k}`);
+  const img = await getSiteImages(locale);
   const events = t.raw("experiencesPage.evenements.paragraphs") as string[];
   const facts = t.raw("experiencesPage.evenements.facts") as [string, string][];
   const courses = t.raw("experiencesPage.golf.courses") as [string, string][];
@@ -37,7 +38,7 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
       {/* Événements privés */}
       <section id="evenements" className="scroll-mt-40 mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6 relative aspect-[4/5] overflow-hidden rounded-t-full bg-muted">
-          <Image src={media("/exp-excursions.jpg")} alt="Réception en plein air dans le jardin d'oliviers de la Villa Serena" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+          <Image src={img["experiences.evenements"].src} alt={img["experiences.evenements"].alt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
         </div>
         <div className="lg:col-span-6">
           <h2 className="font-serif text-4xl lg:text-5xl text-villa-ink">{p("evenements.title")}</h2>
@@ -89,7 +90,7 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
       {/* Retraites */}
       <section id="retraites" className="scroll-mt-40 mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
         <div className="lg:col-span-6 lg:order-2 relative aspect-[4/3] overflow-hidden bg-muted">
-          <Image src={media("/welcome-jardin.jpg")} alt="Jardin d'oliviers de la villa, lieu de pratique du yoga" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+          <Image src={img["experiences.retraites"].src} alt={img["experiences.retraites"].alt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
         </div>
         <div className="lg:col-span-6 lg:order-1">
           <h2 className="font-serif text-4xl lg:text-5xl text-villa-ink">{p("retraites.title")}</h2>

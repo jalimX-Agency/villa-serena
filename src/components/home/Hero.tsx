@@ -1,4 +1,5 @@
 "use client";
+import type { SiteImage } from "@/lib/site-images";
 import { useRef } from "react";
 import { media } from "@/lib/media";
 import Image from "next/image";
@@ -10,7 +11,7 @@ import { Link } from "@/i18n/navigation";
  * Home hero (client brief, ch. 03/05): large colour logo centred on a 55 % night-blue veil,
  * H1 under the logo, both buttons visible on load (no reveal animation on text or buttons).
  */
-export function Hero() {
+export function Hero({ photo }: { photo: SiteImage }) {
   const t = useTranslations();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -20,8 +21,8 @@ export function Hero() {
     <div ref={ref} className="relative min-h-svh flex items-center justify-center overflow-hidden bg-villa-ink">
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
-          src={media("/hero-main.jpg")}
-          alt="Piscine privée de la Villa Serena et façade du riad, route de l'Ourika, Marrakech"
+          src={photo.src}
+          alt={photo.alt}
           fill
           priority
           sizes="100vw"

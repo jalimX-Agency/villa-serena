@@ -1,7 +1,7 @@
+import { getSiteImages } from "@/lib/site-images";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
-import { media } from "@/lib/media";
 import { PageIntro } from "@/components/PageIntro";
 import { AnchorBar } from "@/components/AnchorBar";
 import { FactsBand } from "@/components/FactsBand";
@@ -19,6 +19,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   setRequestLocale(locale);
   const t = await getTranslations();
   const p = (k: string) => t(`servicesPage.${k}`);
+  const img = await getSiteImages(locale);
   const resto = t.raw("servicesPage.restauration.paragraphs") as string[];
   const wellness = t.raw("servicesPage.bienetre.items") as [string, string][];
   const activities = t.raw("servicesPage.activites.paragraphs") as string[];
@@ -45,7 +46,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       {/* Restauration */}
       <section id="restauration" className="scroll-mt-40 mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6 relative aspect-[4/5] overflow-hidden rounded-t-full bg-muted">
-          <Image src={media("/exp-cuisine.jpg")} alt="Repas servi à la villa, cuisine marocaine préparée sur place" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+          <Image src={img["services.restauration"].src} alt={img["services.restauration"].alt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
         </div>
         <div className="lg:col-span-6">
           <h2 className="font-serif text-4xl lg:text-5xl text-villa-ink">{p("restauration.title")}</h2>
@@ -66,10 +67,10 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
             <p className="font-sans text-villa-sand-light leading-relaxed">{p("bienetre.intro")}</p>
             <div className="mt-10 grid grid-cols-2 gap-4">
               <div className="relative aspect-[3/4] overflow-hidden rounded-t-full">
-                <Image src={media("/exp-hammam.jpg")} alt="Hammam traditionnel privé de la villa" fill sizes="25vw" className="object-cover" />
+                <Image src={img["services.hammam"].src} alt={img["services.hammam"].alt} fill sizes="25vw" className="object-cover" />
               </div>
               <div className="relative aspect-[3/4] overflow-hidden mt-10">
-                <Image src={media("/exp-fitness.jpg")} alt="Salle de sport de la villa : tapis de course, rameur et poids" fill sizes="25vw" className="object-cover" />
+                <Image src={img["services.sport"].src} alt={img["services.sport"].alt} fill sizes="25vw" className="object-cover" />
               </div>
             </div>
           </div>
@@ -91,10 +92,10 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       <section id="activites" className="scroll-mt-40 mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6 lg:order-2 grid grid-cols-2 gap-4 items-end">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-muted">
-            <Image src={media("/exp-petanque.jpg")} alt="Terrain de pétanque dans le jardin d'oliviers de la villa" fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
+            <Image src={img["services.petanque"].src} alt={img["services.petanque"].alt} fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
           </div>
           <div className="relative aspect-[4/5] overflow-hidden bg-muted">
-            <Image src={media("/exp-badminton.jpg")} alt="Espace badminton et ping-pong de la villa" fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
+            <Image src={img["services.jeux"].src} alt={img["services.jeux"].alt} fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
           </div>
         </div>
         <div className="lg:col-span-6 lg:order-1">

@@ -1,21 +1,21 @@
 "use client";
+import type { SiteImage } from "@/lib/site-images";
 import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useMotionTemplate, type MotionValue } from "framer-motion";
-import { media } from "@/lib/media";
 
 /**
- * « Une journée à Villa Serena » — pinned scroll story, sunrise to night.
+ * « Une journée à la Villa Serena » — pinned scroll story, sunrise to night.
  * The background walks through the brand palette (crème → or → terracotta → nuit),
  * photos sit in a riad arch, and a sun/moon travels along an arc as progress.
  */
 
 const MOMENTS = [
-  { key: "morning", time: "07:00", image: media("/welcome-jardin.jpg") },
-  { key: "noon", time: "12:30", image: media("/hero-main.jpg") },
-  { key: "afternoon", time: "16:00", image: media("/exp-massage.jpg") },
-  { key: "night", time: "21:00", image: media("/welcome-salon.jpg") },
+  { key: "morning", time: "07:00" },
+  { key: "noon", time: "12:30" },
+  { key: "afternoon", time: "16:00" },
+  { key: "night", time: "21:00" },
 ] as const;
 
 // Keyframes across the whole scroll, one stop per moment.
@@ -37,7 +37,8 @@ const STARS = Array.from({ length: 36 }, (_, i) => ({
   size: i % 5 === 0 ? 2.5 : 1.5,
 }));
 
-export function DayJourney() {
+/** One photo per moment (morning, noon, afternoon, night), from the site photos. */
+export function DayJourney({ photos }: { photos: SiteImage[] }) {
   const t = useTranslations("journey");
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
@@ -120,7 +121,7 @@ export function DayJourney() {
             </div>
             </div>
 
-            <div className="relative min-h-[13rem] sm:min-h-[15rem] lg:min-h-[22rem]">
+            <div className="relative min-h-[15rem] lg:min-h-[22rem]">
               {MOMENTS.map((m, i) => (
                 <MomentText key={m.key} index={i} progress={scrollYProgress} accent={accent} time={m.time}
                   label={t(`${m.key}.label`)} title={t(`${m.key}.title`)} body={t(`${m.key}.body`)} />
@@ -132,7 +133,7 @@ export function DayJourney() {
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative h-[38svh] [@media(max-height:700px)]:h-[31svh] max-h-[360px] lg:h-auto lg:max-h-none lg:w-full lg:max-w-[440px] aspect-[3/4] rounded-t-full overflow-hidden shadow-2xl ring-1 ring-black/5">
               {MOMENTS.map((m, i) => (
-                <MomentImage key={m.key} index={i} progress={scrollYProgress} src={m.image} alt={t(`${m.key}.title`)} />
+                <MomentImage key={m.key} index={i} progress={scrollYProgress} src={photos[i]?.src ?? ""} alt={photos[i]?.alt || t(`${m.key}.title`)} />
               ))}
             </div>
           </div>

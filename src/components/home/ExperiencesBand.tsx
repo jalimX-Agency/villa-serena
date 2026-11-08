@@ -1,4 +1,4 @@
-import { media } from "@/lib/media";
+import { getSiteImages } from "@/lib/site-images";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -15,6 +15,7 @@ export async function ExperiencesBand() {
   const t = await getTranslations();
   const locale = await getLocale();
   const isEn = locale === "en";
+  const band = (await getSiteImages(locale))["home.band"];
 
   const featured = await db.experience.findMany({
     where: { featured: true },
@@ -27,7 +28,7 @@ export async function ExperiencesBand() {
   return (
     <section className="relative bg-villa-ink py-24 lg:py-36 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src={media("/exp-hammam.jpg")} alt="" fill sizes="100vw" className="object-cover opacity-20" />
+        {band.src && <Image src={band.src} alt="" fill sizes="100vw" className="object-cover opacity-20" />}
         <div className="absolute inset-0 bg-villa-ink/75" />
       </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

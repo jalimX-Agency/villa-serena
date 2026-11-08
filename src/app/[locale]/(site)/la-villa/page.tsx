@@ -1,3 +1,4 @@
+import { getSiteImages, type SiteImageKey } from "@/lib/site-images";
 import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
 import Image from "next/image";
@@ -13,16 +14,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 type Block = { key: string; title: string; body: string };
 
-// One photo per block. The pavilion has no photo yet (requested from the client): it gets an
-// ornament instead of a stock picture. The old "suite-bleue" photos are the Studio.
-const BLOCK_IMAGES: Record<string, { src: string; alt: string } | undefined> = {
-  riad: { src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de la Villa Serena, arcs marocains" },
-  patio: { src: media("/room-rouge-2.jpg"), alt: "Patio d'inspiration riad de la villa, terrasse et arcades" },
-  studio: { src: media("/suite-bleue.jpg"), alt: "Le Studio indépendant de 45 m², coin salon" },
-  piscine: { src: media("/hero-main.jpg"), alt: "Piscine privée de 11 × 5 m de la Villa Serena, route de l'Ourika, Marrakech" },
-  jardin: { src: media("/welcome-jardin.jpg"), alt: "Jardin d'oliviers de la Villa Serena et statue de Bouddha" },
-  bienetre: { src: media("/exp-massage.jpg"), alt: "Salle de massage de la villa, éclairée aux bougies" },
-};
 
 const MAP_SRC =
   "https://www.google.com/maps?q=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech") + "&z=13&output=embed";
@@ -33,11 +24,17 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations();
   const blocks = t.raw("villa.blocks") as Block[];
   const distances = t.raw("villa.distances") as [string, string][];
+  // One photo per block, replaceable from /admin/photos. An empty slot shows the emblem.
+  const img = await getSiteImages(locale);
+  const blockImage = (key: string) => {
+    const p = img[`villa.${key}` as SiteImageKey];
+    return p?.src ? p : undefined;
+  };
 
   return (
     <>
       <div className="relative h-[70vh] min-h-[460px] overflow-hidden bg-villa-ink">
-        <Image src={media("/hero-main.jpg")} alt={t("villa.h1")} fill priority sizes="100vw" className="object-cover" />
+        <Image src={img["villa.hero"].src} alt={img["villa.hero"].alt || t("villa.h1")} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-villa-ink/0 via-villa-ink/20 to-villa-ink/60" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 lg:px-8 pb-12">
           <div className="mx-auto max-w-7xl w-full">
@@ -55,14 +52,14 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
       {/* Alternating blocks: one H2 and one photo each. */}
       <div className="py-16 lg:py-24 space-y-16 lg:space-y-28">
         {blocks.map((b, i) => {
-          const img = BLOCK_IMAGES[b.key];
+          const photo = blockImage(b.key);
           const flip = i % 2 === 1;
           return (
             <section key={b.key} className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-8 lg:grid-cols-12 lg:gap-14 items-center">
               <div className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
-                {img ? (
+                {photo ? (
                   <div className={`relative aspect-[4/3] overflow-hidden bg-muted ${i % 3 === 0 ? "rounded-t-[12rem]" : ""}`}>
-                    <Image src={img.src} alt={img.alt} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
+                    <Image src={photo.src} alt={photo.alt} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
                   </div>
                 ) : (
                   <div className="relative aspect-[4/3] bg-villa-ink flex items-center justify-center rounded-t-[12rem]">

@@ -204,3 +204,12 @@ model LoginLog {
 
   @@index([createdAt])
 }
+
+// ── Photos du site (replaceable from the admin; the code holds the defaults) ──
+model SiteImage {
+  key       String   @id // slot, e.g. "home.hero"
+  url       String
+  alt       String   @default("")
+  altEn     String   @default("")
+  updatedAt DateTime @updatedAt
+}
