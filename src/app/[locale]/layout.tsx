@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import { media } from "@/lib/media";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -74,10 +73,9 @@ export async function generateMetadata({
       icon: media("/favicon-serena.png"),
       apple: media("/favicon-serena.png"),
     },
-    // Keep the vercel.app preview domain out of Google until the real domain is live.
-    robots: (await headers()).get("host")?.endsWith(".vercel.app")
-      ? { index: false, follow: false }
-      : { index: true, follow: true },
+    // The vercel.app preview is kept out of Google by an X-Robots-Tag header (middleware)
+    // and robots.txt, the same way on every page; the real domain is indexable.
+    robots: { index: true, follow: true },
     other: { tagline: t("tagline") },
   };
 }

@@ -15,7 +15,7 @@ export const SITE_IMAGE_SLOTS = {
   "home.noon": { group: "Accueil", label: "Une journée — 12:30", src: media("/hero-main.jpg"), alt: "Déjeuner en terrasse au bord de la piscine", altEn: "Lunch on the terrace by the pool" },
   "home.afternoon": { group: "Accueil", label: "Une journée — 16:00", src: media("/exp-massage.jpg"), alt: "Salle de massage éclairée aux bougies", altEn: "Candlelit massage room" },
   "home.night": { group: "Accueil", label: "Une journée — 21:00", src: media("/welcome-salon.jpg"), alt: "Le riad à la nuit tombée", altEn: "The riad at nightfall" },
-  "home.band": { group: "Accueil", label: "Bien-être et loisirs — fond", src: media("/exp-hammam.jpg"), alt: "", altEn: "" },
+  "home.band": { group: "Accueil", label: "Du hammam à la mini ferme — fond", src: media("/exp-hammam.jpg"), alt: "Hammam traditionnel de la Villa Serena, route de l'Ourika, Marrakech", altEn: "Traditional hammam at Villa Serena, Ourika road, Marrakech" },
   "villa.hero": { group: "La villa", label: "Bandeau de la page", src: media("/hero-main.jpg"), alt: "La Villa Serena, route de l'Ourika", altEn: "Villa Serena, Ourika road" },
   "villa.riad": { group: "La villa", label: "Le riad", src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de la Villa Serena, arcs marocains", altEn: "The riad's lounge and dining room, Moroccan arches" },
   "villa.patio": { group: "La villa", label: "Le patio", src: media("/room-rouge-2.jpg"), alt: "Patio d'inspiration riad de la villa, terrasse et arcades", altEn: "The villa's riad-style patio, terrace and arcades" },

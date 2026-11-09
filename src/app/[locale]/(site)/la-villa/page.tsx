@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { FriseIntro } from "@/components/FriseIntro";
 import { StarDivider } from "@/components/StarDivider";
+import { MapConsent } from "@/components/consent/MapConsent";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 type Block = { key: string; title: string; body: string };
 
 
+const MAP_LINK = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech");
 const MAP_SRC =
   "https://www.google.com/maps?q=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech") + "&z=13&output=embed";
 
@@ -62,14 +64,15 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
                     <Image src={photo.src} alt={photo.alt} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
                   </div>
                 ) : (
-                  <div className="relative aspect-[4/3] bg-villa-ink flex items-center justify-center rounded-t-[12rem]">
+                  <div className="relative aspect-[4/3] bg-villa-ink flex flex-col items-center justify-center gap-4 rounded-t-[12rem]">
                     <Image
                       src={media("/logo-serena-emblem.png")}
-                      alt=""
+                      alt={t("suites.photos_soon")}
                       width={419}
                       height={539}
                       className="h-1/2 w-auto opacity-90"
                     />
+                    <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-villa-gold">{t("suites.photos_soon")}</span>
                   </div>
                 )}
               </div>
@@ -110,12 +113,15 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
             </table>
           </div>
           <div className="relative min-h-[360px] overflow-hidden border border-white/10">
-            <iframe
-              title={t("villa.situation_title")}
+            {/* Google Maps only loads after consent (cookie policy). */}
+            <MapConsent
               src={MAP_SRC}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 h-full w-full grayscale-[30%]"
+              title={t("villa.situation_title")}
+              address={t("villa.map_address")}
+              buttonLabel={t("villa.map_button")}
+              note={t("villa.map_note")}
+              openLabel={t("villa.map_open")}
+              openHref={MAP_LINK}
             />
           </div>
         </div>

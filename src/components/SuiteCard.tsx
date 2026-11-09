@@ -23,7 +23,7 @@ export function SuiteCard({ room, isEn, soonLabel }: { room: Room; isEn: boolean
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-            <Image src={media("/logo-serena-emblem.png")} alt="" width={419} height={539} className="h-28 w-auto opacity-90" />
+            <Image src={media("/logo-serena-emblem.png")} alt={soonLabel} width={419} height={539} className="h-28 w-auto opacity-90" />
             <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-villa-gold">{soonLabel}</span>
           </div>
         )}

@@ -5,10 +5,10 @@ import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 
 const CATEGORY_LINK: Record<string, string> = {
-  wellness: "/services/bien-etre",
-  dining: "/services/restauration",
-  outdoor: "/services/excursions",
-  leisure: "/services/excursions",
+  wellness: "/services#bien-etre",
+  dining: "/services#restauration",
+  outdoor: "/services#activites",
+  leisure: "/services#activites",
 };
 
 export async function ExperiencesBand() {
@@ -28,7 +28,7 @@ export async function ExperiencesBand() {
   return (
     <section className="relative bg-villa-ink py-24 lg:py-36 overflow-hidden">
       <div className="absolute inset-0">
-        {band.src && <Image src={band.src} alt="" fill sizes="100vw" className="object-cover opacity-20" />}
+        {band.src && <Image src={band.src} alt={band.alt} fill sizes="100vw" className="object-cover opacity-20" />}
         <div className="absolute inset-0 bg-villa-ink/75" />
       </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

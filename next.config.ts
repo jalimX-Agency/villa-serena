@@ -21,9 +21,14 @@ const MOVED: [string, string][] = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return MOVED.flatMap(([from, to]) =>
-      ["fr", "en"].map((l) => ({ source: `/${l}${from}`, destination: `/${l}${to}`, permanent: true }))
-    );
+    return [
+      ...MOVED.flatMap(([from, to]) =>
+        ["fr", "en"].map((l) => ({ source: `/${l}${from}`, destination: `/${l}${to}`, permanent: true }))
+      ),
+      // Privacy policy: French address in French, English address in English.
+      { source: "/en/confidentialite", destination: "/en/privacy", permanent: true },
+      { source: "/fr/privacy", destination: "/fr/confidentialite", permanent: true },
+    ];
   },
   env: { NEXT_PUBLIC_MEDIA_URL: process.env.R2_ENDPOINT ?? "" },
   experimental: { serverActions: { bodySizeLimit: "4mb" } },

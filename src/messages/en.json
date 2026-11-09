@@ -138,7 +138,11 @@
         "Agafay desert",
         "~35 min"
       ]
-    ]
+    ],
+    "map_address": "Ourika road, km 17",
+    "map_button": "Show the map",
+    "map_note": "Google Maps sets cookies. By showing the map, you accept these cookies; you can change your mind with \"Manage cookies\".",
+    "map_open": "Open in Google Maps"
   },
   "suites": {
     "page_title": "The suites",
@@ -309,17 +313,23 @@
     "legal": "All rights reserved.",
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
-    "follow_title": "Follow us"
+    "follow_title": "Follow us",
+    "manage_cookies": "Manage cookies"
   },
   "cookie": {
     "title": "Cookies",
-    "body": "We use cookies to measure our audience and improve your visit. You can accept them, refuse them or choose which ones to allow. Cookies needed for the site to work stay active.",
+    "body": "We use cookies to display the Google Maps map and measure website traffic. You can accept them, refuse them or choose which ones to allow. Cookies needed for the site to work stay active.",
     "accept": "Accept all",
     "decline": "Refuse all",
     "customize": "Customise",
     "save": "Save",
     "necessary": "Necessary cookies (always on)",
-    "analytics": "Audience measurement"
+    "analytics": "Audience measurement",
+    "policy_link": "Learn more",
+    "necessary_desc": "Running the site and remembering your choice.",
+    "maps": "Google Maps",
+    "maps_desc": "Shows the map on the Villa page. Google sets its own cookies.",
+    "analytics_desc": "Google Analytics, to know which pages are visited."
   },
   "gallery": {
     "page_title": "Gallery",
@@ -399,6 +409,14 @@
     "blog": {
       "title": "Journal: Marrakech and Ourika Guides | Villa Serena",
       "description": "The Ourika valley, golf in Marrakech, family holidays: tips from Villa Serena, a charming villa on the Ourika road."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Villa Serena",
+      "description": "What personal data Villa Serena collects through its website, why, for how long, and how to exercise your rights."
+    },
+    "cookies": {
+      "title": "Cookie Policy | Villa Serena",
+      "description": "The cookies used on the Villa Serena website, why, for how long, and how to accept or refuse them."
     }
   },
   "faq": {
@@ -628,5 +646,10 @@
     "accept_rules": "house rules",
     "accept_after": " of Villa Serena.",
     "accept_required": "Please accept the terms of sale and the house rules."
+  },
+  "policies": {
+    "privacy_title": "Privacy Policy",
+    "cookies_title": "Cookie Policy",
+    "updated": "Last updated:"
   }
 }

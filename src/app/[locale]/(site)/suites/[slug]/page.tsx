@@ -113,7 +113,7 @@ export default async function RoomDetailPage({
           <Image src={room.image} alt={`${name}, Villa Serena Marrakech`} fill priority sizes="100vw" className="object-cover" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center pb-40">
-            <Image src={media("/logo-serena-emblem.png")} alt="" width={419} height={539} priority className="h-48 w-auto opacity-80" />
+            <Image src={media("/logo-serena-emblem.png")} alt={t("suites.photos_soon")} width={419} height={539} priority className="h-48 w-auto opacity-80" />
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-villa-ink/0 via-villa-ink/15 to-villa-ink/75" />
@@ -127,7 +127,11 @@ export default async function RoomDetailPage({
             </Link>
             <span className="block h-1 w-14 mb-5" style={{ backgroundColor: room.color || "var(--villa-gold)" }} aria-hidden />
             <h1 className="font-serif font-light text-white leading-[0.98] tracking-[-0.015em]">
-              <span className="block text-[clamp(2.8rem,8vw,6.5rem)]">{name}</span>
+              <span className="block text-[clamp(2.8rem,8vw,6.5rem)]">
+                {name}
+                {/* Read as "Suite Bleue, un voyage…" by Google and screen readers; hidden on screen. */}
+                <span className="sr-only">, </span>
+              </span>
               <span className="mt-3 block text-[clamp(1.25rem,2.4vw,1.9rem)] text-villa-sand-light first-letter:uppercase">{subtitle}</span>
             </h1>
           </div>

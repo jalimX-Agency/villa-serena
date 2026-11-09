@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
               {related.map((p) => (
                 <Link key={p.id} href={`/blog/${p.slug}`} className="group grid grid-cols-[8rem_1fr] gap-5 items-center">
                   <div className="relative aspect-square overflow-hidden bg-muted">
-                    {p.image && <Image src={p.image} alt="" fill sizes="128px" className="object-cover" />}
+                    {p.image && <Image src={p.image} alt={(isEn ? p.imageAltEn : p.imageAlt) || (isEn && p.titleEn ? p.titleEn : p.title)} fill sizes="128px" className="object-cover" />}
                   </div>
                   <div>
                     <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-villa-terracotta">{t(`blog.cat_${p.category}`)}</p>

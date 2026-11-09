@@ -149,3 +149,8 @@
 .prose-villa figure img { margin: 0 0 0.6rem; }
 .prose-villa figcaption { font-size: 0.8rem; color: var(--muted-foreground); }
 .ProseMirror img.ProseMirror-selectednode { outline: 2px solid var(--villa-terracotta); }
+.prose-villa h3 { font-family: var(--font-serif); color: var(--villa-ink); font-size: 1.3rem; line-height: 1.3; margin: 1.8rem 0 0.6rem; }
+/* Text-only tables (policies): no price styling on the last column. */
+.prose-villa table.plain td:last-child { text-align: left; white-space: normal; font-family: var(--font-sans); color: inherit; font-size: inherit; }
+.prose-villa table.plain th:last-child { text-align: left; }
+@media (max-width: 639px) { .prose-villa table { font-size: 0.85rem; } .prose-villa td:last-child { white-space: normal; } }

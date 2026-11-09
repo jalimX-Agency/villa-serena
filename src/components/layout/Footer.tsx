@@ -7,6 +7,7 @@ import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS } from "./Header";
 import { StarDivider } from "@/components/StarDivider";
 import { LEGAL, legalHref } from "@/lib/legal";
+import { ManageCookiesButton } from "@/components/consent/ManageCookiesButton";
 
 const CONTACT = {
   address: "Route de l'Ourika, km 17 – Sidi Bouzguia, Marrakech, Maroc",
@@ -144,12 +145,13 @@ export function Footer() {
                 </Link>
               </>
             )}
-            <Link href="/confidentialite" className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+            <Link href={locale === "en" ? "/privacy" : "/confidentialite"} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.privacy")}
             </Link>
             <Link href="/cookies" className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.cookie")}
             </Link>
+            <ManageCookiesButton label={t("footer.manage_cookies")} className="font-sans text-xs text-white/50 hover:text-white transition-colors" />
           </div>
         </div>
       </div>

@@ -87,12 +87,13 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
           <div className="order-2 lg:order-1 relative">
             {/* Mobile: eyebrow + small sun arc on one row. Desktop: eyebrow above a larger arc. */}
             <div className="flex items-end justify-between gap-4 mb-4 lg:block lg:mb-0">
-              <motion.p
+              {/* An H2 (Jean-Luc note, point B) styled as an eyebrow: the four moments are its H3s. */}
+              <motion.h2
                 style={{ color: accent }}
-                className="font-sans text-[10px] lg:text-[11px] tracking-[0.3em] uppercase lg:mb-6"
+                className="font-sans font-normal text-[10px] lg:text-[11px] tracking-[0.3em] uppercase lg:mb-6"
               >
                 {t("eyebrow")}
-              </motion.p>
+              </motion.h2>
 
             {/* Sun arc / progress */}
             <div className="relative w-20 lg:w-56 shrink-0 aspect-[2/1] lg:mb-10">

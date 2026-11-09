@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CookieBanner } from "@/components/CookieBanner";
+import { CookieBanner } from "@/components/consent/CookieBanner";
+import { GoogleAnalytics } from "@/components/consent/GoogleAnalytics";
 
 // Pages here read live from the database (rooms, experiences, blog, etc.)
 // and will be edited via the admin CMS — render per-request instead of
@@ -15,6 +16,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="flex-1">{children}</main>
       <Footer />
       <CookieBanner />
+      <GoogleAnalytics />
     </>
   );
 }

@@ -48,7 +48,10 @@ export async function SuitesPreview() {
               <Link href={`/suites/${room.slug}`} className="group block">
                 <div className="relative aspect-[4/5] overflow-hidden bg-villa-ink">
                   {!room.image && (
-                    <Image src={media("/logo-serena-emblem.png")} alt="" width={419} height={539} className="absolute left-1/2 top-[38%] h-28 w-auto -translate-x-1/2 -translate-y-1/2 opacity-90" />
+                    <>
+                      <Image src={media("/logo-serena-emblem.png")} alt={t("suites.photos_soon")} width={419} height={539} className="absolute left-1/2 top-[38%] h-28 w-auto -translate-x-1/2 -translate-y-1/2 opacity-90" />
+                      <span className="absolute inset-x-0 top-[calc(38%+4.5rem)] text-center font-sans text-[10px] tracking-[0.25em] uppercase text-villa-gold">{t("suites.photos_soon")}</span>
+                    </>
                   )}
                   {room.image && (
                     <Image
