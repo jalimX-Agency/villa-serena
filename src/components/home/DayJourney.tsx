@@ -207,7 +207,7 @@ function MomentText({
         </motion.span>
         <span className="font-sans text-[10px] lg:text-[11px] tracking-[0.25em] uppercase opacity-70">{label}</span>
       </div>
-      <h3 className="font-serif text-[1.65rem] sm:text-3xl lg:text-5xl leading-tight mb-3 lg:mb-4 max-w-lg">{title}</h3>
+      <h3 className="font-serif text-current text-[1.65rem] sm:text-3xl lg:text-5xl leading-tight mb-3 lg:mb-4 max-w-lg">{title}</h3>
       <div className="flex items-center gap-2 mb-3 lg:mb-4" aria-hidden>
         <span className="h-px w-8 bg-current opacity-30" />
         <motion.span style={{ backgroundColor: accent }} className="size-1.5 rotate-45" />
