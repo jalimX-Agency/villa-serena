@@ -68,11 +68,12 @@ export function Footer() {
             <h3 className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">
               {t("footer.links_title")}
             </h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 max-w-xs mx-auto md:mx-0">
+            {/* Filled column by column: Accueil · Villa · Suites · Services, then Expériences · Galerie · Blog · FAQ. */}
+            <ul className="grid grid-flow-col grid-rows-4 grid-cols-2 gap-x-6 gap-y-2.5 max-w-xs mx-auto md:mx-0">
               {NAV_LINKS.map((item) => (
                 <li key={item.key}>
                   <Link href={localizedPath(item.path, locale)} className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
-                    {t(`nav.${item.key}`)}
+                    {t.has(`nav.${item.key}_short`) ? t(`nav.${item.key}_short`) : t(`nav.${item.key}`)}
                   </Link>
                 </li>
               ))}

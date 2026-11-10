@@ -20,7 +20,7 @@ export function Hero({ photo }: { photo: SiteImage }) {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   return (
-    <div ref={ref} className="relative min-h-svh flex items-center justify-center overflow-hidden bg-villa-ink">
+    <div ref={ref} className="relative min-h-svh flex items-start lg:items-center justify-center overflow-hidden bg-villa-ink">
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
           src={photo.src}
@@ -28,14 +28,15 @@ export function Hero({ photo }: { photo: SiteImage }) {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-top"
         />
       </motion.div>
       {/* 55 % night-blue veil, a little deeper at the bottom for the text. */}
       <div className="absolute inset-0 bg-villa-ink/55" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-villa-ink/60" />
 
-      <div className="relative w-full max-w-4xl mx-auto px-6 pt-28 pb-16 text-center">
+      {/* Logo high in the sky: little room above on mobile, block pushed up on large screens. */}
+      <div className="relative w-full max-w-4xl mx-auto px-6 pt-16 pb-16 sm:pt-20 lg:pt-24 lg:pb-44 text-center">
         <Image
           src={media("/logo-serena-color.png")}
           alt="Villa Serena Marrakech"
