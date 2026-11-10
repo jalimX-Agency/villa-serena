@@ -5,6 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { geoSchema } from "@/lib/villa-location";
 import "../globals.css";
 
 // Self-hosted (not next/font/google) so the build never depends on being
@@ -108,6 +109,7 @@ export default async function LocaleLayout({
       addressLocality: "Marrakech",
       addressCountry: "MA",
     },
+    ...geoSchema,
     checkinTime: "16:00",
     checkoutTime: "11:00",
     priceRange: "À partir de 980 € la nuit",

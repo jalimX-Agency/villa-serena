@@ -8,6 +8,9 @@ import { media } from "@/lib/media";
 import { SITE_URL } from "@/lib/seo";
 import { SuiteCard } from "@/components/SuiteCard";
 import { StarDivider } from "@/components/StarDivider";
+import { SuitesStrip } from "@/components/home/SuitesStrip";
+import { VillaIcon } from "@/components/icons/VillaIcon";
+import { amenityIconsFor } from "@/lib/suite-amenities";
 
 async function getRoom(slug: string) {
   return db.room.findUnique({ where: { slug } });
@@ -76,9 +79,10 @@ export default async function RoomDetailPage({
     .filter(Boolean);
   const includes = t.raw("suites.includes") as string[];
 
-  const others = await db.room.findMany({ where: { slug: { not: slug } }, orderBy: { order: "asc" } });
-  // Prefer suites of the same space first, then the rest.
-  const otherRooms = [...others.filter((r) => r.space === room.space), ...others.filter((r) => r.space !== room.space)].slice(0, 3);
+  // M28: the six other units, in the house order (Rouge, Bleue, Verte, Rose, Orange, Jaune, Studio).
+  const otherRooms = await db.room.findMany({ where: { slug: { not: slug } }, orderBy: { order: "asc" } });
+  // M23: shared equipment as icons; the amenities text keeps what is specific to this suite.
+  const iconAmenities = amenityIconsFor(slug, locale);
 
   // A Room inside the villa (no Offer: suites are only booked with the whole villa).
   const roomSchema = JSON.stringify({
@@ -90,7 +94,7 @@ export default async function RoomDetailPage({
     floorSize: room.size ? { "@type": "QuantitativeValue", value: room.size } : undefined,
     bed: bedType ? { "@type": "BedDetails", typeOfBed: bedType } : undefined,
     occupancy: { "@type": "QuantitativeValue", maxValue: room.maxGuests },
-    amenityFeature: amenities.map((a) => ({ "@type": "LocationFeatureSpecification", name: a, value: true })),
+    amenityFeature: [...iconAmenities.map((a) => a.label), ...amenities].map((a) => ({ "@type": "LocationFeatureSpecification", name: a, value: true })),
     containedInPlace: { "@type": "VacationRental", name: "Villa Serena Marrakech", url: SITE_URL },
   });
   const breadcrumbSchema = JSON.stringify({
@@ -141,8 +145,8 @@ export default async function RoomDetailPage({
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-8">
-            <p className="font-serif text-2xl lg:text-[1.9rem] leading-snug text-villa-ink mb-6 text-balance">{lead}</p>
-            {body && <p className="font-sans text-foreground/80 leading-relaxed mb-12">{body}</p>}
+            <p className="font-serif text-2xl lg:text-[1.9rem] leading-snug text-villa-ink mb-6 text-balance whitespace-pre-line">{lead}</p>
+            {body && <p className="font-sans text-foreground/80 leading-relaxed mb-12 whitespace-pre-line">{body}</p>}
 
             {gallery.length > 1 && (
               <div className="grid grid-cols-2 gap-4 lg:gap-6 mb-14 items-end">
@@ -158,6 +162,14 @@ export default async function RoomDetailPage({
             )}
 
             <h2 className="font-sans text-[11px] tracking-[0.25em] uppercase text-muted-foreground mb-4">{t("suites.amenities")}</h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-6 [--villa-icon-color:#14213D] [--villa-icon-accent:#C0664A]">
+              {iconAmenities.map((a) => (
+                <li key={a.icon} className="flex items-center gap-2.5 font-sans text-sm text-foreground/85">
+                  <VillaIcon name={a.icon} size={24} className="shrink-0" />
+                  {a.label}
+                </li>
+              ))}
+            </ul>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 mb-12 border-t border-border">
               {amenities.map((a) => (
                 <li key={a} className="flex items-center gap-3 border-b border-border py-3 font-sans text-sm text-foreground/85">
@@ -173,7 +185,7 @@ export default async function RoomDetailPage({
                 <li key={item} className="font-sans text-sm text-foreground/70">{item}</li>
               ))}
             </ul>
-            <p className="font-sans text-sm text-muted-foreground">{t("suites.includes_note")}</p>
+            <p className="font-sans text-sm text-muted-foreground">{t("suites.includes_note_suite")}</p>
           </div>
 
           <aside className="lg:col-span-4">
@@ -220,11 +232,19 @@ export default async function RoomDetailPage({
         <section className="bg-villa-cream py-16 lg:py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="font-serif text-3xl text-villa-ink mb-8">{t("suites.more_rooms")}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {/* Three cards on desktop, one and a half on mobile; arrows and swipe, no autoplay. */}
+            <SuitesStrip
+              prevLabel={t("carousel.suites_prev")}
+              nextLabel={t("carousel.suites_next")}
+              listClassName="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              controlsClassName="mt-6 flex justify-end gap-3"
+            >
               {otherRooms.map((r) => (
-                <SuiteCard key={r.id} room={r} isEn={isEn} soonLabel={t("suites.photos_soon")} />
+                <li key={r.id} className="snap-start shrink-0 w-[64%] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
+                  <SuiteCard room={r} isEn={isEn} soonLabel={t("suites.photos_soon")} />
+                </li>
               ))}
-            </div>
+            </SuitesStrip>
           </div>
         </section>
       )}

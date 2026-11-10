@@ -5,13 +5,14 @@ import { Link } from "@/i18n/navigation";
 import { media } from "@/lib/media";
 
 /** Suite card used on the list and detail pages. A suite without photos yet shows the emblem. */
-export function SuiteCard({ room, isEn, soonLabel }: { room: Room; isEn: boolean; soonLabel: string }) {
+export function SuiteCard({ room, isEn, soonLabel, eyebrow }: { room: Room; isEn: boolean; soonLabel: string; eyebrow?: string }) {
   const name = isEn && room.nameEn ? room.nameEn : room.name;
   const subtitle = isEn && room.subtitleEn ? room.subtitleEn : room.subtitle;
   const bed = isEn && room.bedTypeEn ? room.bedTypeEn : room.bedType;
 
   return (
     <Link href={`/suites/${room.slug}`} className="group block">
+      {eyebrow && <p className="mb-2.5 font-sans text-[10px] tracking-[0.25em] uppercase text-villa-terracotta">{eyebrow}</p>}
       <div className="relative aspect-[4/5] overflow-hidden bg-villa-ink">
         {room.image ? (
           <Image

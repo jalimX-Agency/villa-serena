@@ -14,12 +14,14 @@
     "contact": "Contact",
     "book": "Send an enquiry",
     "gallery": "Gallery",
-    "blog": "Blog"
+    "blog": "Blog",
+    "villa_short": "Villa",
+    "suites_short": "Suites"
   },
   "hero": {
     "tagline": "Ourika road · 25 min from Marrakech",
     "headline": "Your private villa in Marrakech, exclusively yours",
-    "subheadline": "Here, the whole estate is yours. On one hectare of olive trees, a riad with four suites, a pavilion with two suites and a separate studio sleep up to 14 guests. Private pool, hammam, vegetable garden and mini farm. A housekeeper, who is also the house cook, and a maid look after your stay.",
+    "subheadline": "Set in a hectare of olive trees, a riad with four suites, a pavilion with two suites and an independent studio welcome up to 14 guests. Private pool, hammam, kitchen garden and mini farm. The housekeeper, who is also the house cook, looks after your stay.",
     "cta_primary": "Discover the villa",
     "cta_secondary": "View the Suites",
     "scroll": "Scroll to explore"
@@ -33,11 +35,11 @@
     "suites_sub": "The estate is split into three spaces. In the riad, the Red, Blue, Green and Pink suites open onto the patio. The pavilion houses the Orange and Yellow suites, with its own lounge, kitchen, terrace and garden. The Studio offers 45 m² of calm, in complete independence.",
     "experiences_label": "Wellness and leisure",
     "experiences_title": "From the hammam to the mini farm",
-    "experiences_sub": "A traditional hammam, massage room and gym to look after yourself. In the garden: vegetable garden, mini farm and aviaries, koi pond, pétanque court, badminton and table tennis. With children, the Pickalbatros Aqua Fun Club water park, right next to the villa, is open by the day (paid entry).",
+    "experiences_sub": "A traditional hammam, massage room and gym to look after yourself.\nIn the garden: vegetable garden, mini farm and aviaries, koi pond, pétanque court, badminton and table tennis. With children, the Pickalbatros Aqua Fun Club water park, close to the villa, is open by the day (paid entry).",
     "testimonials_label": "Guest Stories",
     "testimonials_title": "They Stayed\nWith Us",
     "cta_title": "Book the whole villa",
-    "cta_body": "From €980 per night for the whole estate and up to 14 guests, breakfast and daily housekeeping included (tourist tax extra). Ideal for a family reunion, a birthday, a golf trip or a seminar. Reply within 24 hours, no commitment.",
+    "cta_body": "From €980 per night for the whole estate and up to 14 guests, breakfast and daily housekeeping included (tourist tax extra). Ideal for a family reunion, a birthday, a golf break or a seminar.\nReply within 24 hours, no commitment.",
     "cta_button": "Send an enquiry",
     "stats": {
       "rooms": "6 suites + 1 studio",
@@ -45,9 +47,16 @@
       "pool": "11 × 5 m pool",
       "hammam": "Hammam and gym"
     },
-    "welcome_body2": "Twenty-five minutes from the medina, on the road to the Ourika valley, the villa offers the calm of the countryside, never far from the bustle.",
+    "welcome_body2": "Twenty-five minutes from the medina, on the road to the Ourika valley, the villa offers the calm of the countryside, not far from the bustle of Marrakech.",
     "suites_sub2": "Privacy for each, togetherness the rest of the time: around the pool and at the big table, families come together. All suites are air-conditioned, with a private shower room. The Blue Suite and the Studio each have a queen-size bed; the other five suites offer twin or joined beds, as you prefer.",
-    "cta_eyebrow": "6 suites + 1 studio · sleeps 14 · whole villa"
+    "cta_eyebrow": "6 suites + 1 studio · sleeps 14 · whole villa",
+    "mosaic": {
+      "sport": "Gym",
+      "hammam": "Hammam",
+      "ferme": "Mini farm",
+      "jardin": "The garden",
+      "potager": "Kitchen garden"
+    }
   },
   "villa": {
     "page_title": "The Villa",
@@ -91,7 +100,7 @@
       {
         "key": "studio",
         "title": "The Studio: independence",
-        "body": "Set apart from the rest of the house, the Studio offers 45 m² of calm, with its sitting area and Nespresso machine. It suits those who like their own rhythm: grandparents, two friends, or a seminar organiser looking for a quiet place to work."
+        "body": "Set apart from the rest of the house, the Studio offers 45 m² of calm, with its sitting area, its desk and its Nespresso machine. It suits those who like their own rhythm: grandparents, two friends, or a seminar organiser looking for a quiet place to work."
       },
       {
         "key": "piscine",
@@ -146,7 +155,7 @@
   },
   "suites": {
     "page_title": "The suites",
-    "page_sub": "The estate is split into three spaces. The riad brings together the Red, Blue, Green and Pink suites around the patio. The pavilion houses the Orange and Yellow suites, with a private lounge, kitchen, terrace and garden. The separate Studio stands apart. The Blue Suite and the Studio have a large queen-size bed; elsewhere, the beds can be set up as twins or joined. Everything is booked together, with the villa.",
+    "page_sub": "The estate is split into three spaces. The riad brings together the Red, Blue, Green and Pink suites around the patio. The pavilion houses the Orange and Yellow suites, with a private lounge, kitchen, terrace and garden. The Studio is independent. The Blue Suite and the Studio have a large queen-size bed; elsewhere, the beds can be set up as twins or joined.",
     "per_night": "per night",
     "from": "From",
     "amenities": "Amenities",
@@ -164,7 +173,7 @@
       "Breakfast",
       "Fibre wifi"
     ],
-    "h1": "Six suites and a studio, sleeping 14",
+    "h1": "Six suites and a studio, a private estate for 14 guests",
     "intro": "Each family has its privacy: a family in the pavilion, friends in the riad, grandparents in the Studio. And everyone shares the pool, the hammam and the table.",
     "spaces": {
       "riad": {
@@ -174,13 +183,16 @@
       },
       "pavillon": {
         "label": "The pavilion",
-        "title": "A house within the house",
-        "body": "The Orange and Yellow suites share a lounge, a separate kitchen, a private terrace and garden."
+        "title": "A house within the house"
       },
       "independant": {
         "label": "Independent",
-        "title": "The Studio, set apart",
-        "body": "45 m² of calm, with a sitting area and a Nespresso machine, a few steps from the pool."
+        "title": "The Studio"
+      },
+      "pavillon_studio": {
+        "title": "The pavilion and the Studio",
+        "pavillon": "Pavilion",
+        "independant": "Independent"
       }
     },
     "table_title": "Bed allocation",
@@ -198,11 +210,12 @@
       "pavillon": "Pavilion (private lounge, kitchen, terrace and garden)",
       "independant": "Independent"
     },
-    "includes_note": "Pool towels are provided. The Red and Green suites and the Studio have a south-facing terrace overlooking the pool.",
+    "includes_note": "Pool towels are provided.\nThe Red and Green suites and the Studio have a south-facing terrace overlooking the pool.",
     "ideal_for": "Ideal for",
     "ideal_for_m": "Ideal for",
     "photos_soon": "Photos coming soon",
-    "whole_villa_note": "Villa Serena is rented exclusively as a whole: 6 suites, 1 studio, sleeping 14."
+    "whole_villa_note": "Villa Serena is rented exclusively as a whole: 6 suites, 1 studio, sleeping 14.",
+    "includes_note_suite": "Pool towels are provided."
   },
   "reservation": {
     "page_title": "Enquire Now",
@@ -258,7 +271,7 @@
     "page_title": "Experiences",
     "page_sub": "Yoga retreats, golf and grand celebrations — Villa Serena is yours to hire for exceptional moments.",
     "quote_button": "Request a Quote",
-    "h1": "Hire a private villa in Marrakech"
+    "h1": "Book your private villa in Marrakech"
   },
   "contact": {
     "page_title": "Contact",
@@ -286,10 +299,10 @@
   },
   "blog": {
     "page_title": "Journal",
-    "page_sub": "Tips from hosts who know their region: the Ourika valley, golf, Marrakech with the family. A new article every month.",
+    "page_sub": "Our tips for exploring the region: the Ourika valley, golf, Marrakech with the family.\nA new article to discover every month.",
     "read_more": "Read the article",
     "min_read": "min read",
-    "h1": "The Villa Serena journal: our guides around Marrakech",
+    "h1": "The Villa Serena blog: guides around Marrakech",
     "toc": "Contents",
     "back": "All articles",
     "by": "By",
@@ -396,7 +409,7 @@
     },
     "experiences": {
       "title": "Private Events, Golf and Retreats in Marrakech | Villa Serena",
-      "description": "Hire Villa Serena for a private event of up to 80 guests, a golf trip with 14 courses nearby or a yoga retreat, on the Ourika road."
+      "description": "Private event, golf break, a clinic with your golf pro or a wellness retreat: book Villa Serena, 25 minutes from Marrakech."
     },
     "reservation": {
       "title": "Book the Villa in Marrakech: Rate & Booking | Villa Serena",
@@ -441,7 +454,7 @@
       },
       {
         "q": "What is the minimum stay?",
-        "a": "4 nights, and 6 nights in high season and over the year-end holidays."
+        "a": "4 nights in low and mid season.\n6 nights in high season and over the Christmas and New Year holidays."
       },
       {
         "q": "What are the check-in and check-out times?",
@@ -520,8 +533,10 @@
     "restauration": {
       "title": "Dining",
       "paragraphs": [
-        "Cooking at Villa Serena is entrusted to our housekeeper, who is also the house cook. She prepares every meal from Moroccan family recipes: tagines, Friday couscous, pastilla, seasonal salads. Flavours from elsewhere join in, as you wish. Vegetables come, as far as possible, from the villa's kitchen garden.",
-        "Breakfast is included every morning. Lunches and dinners are prepared on request and served at times agreed with the housekeeper, by the pool, under the olive trees, in the patio or in the 14-seat dining room.",
+        "Cooking at Villa Serena is entrusted to our housekeeper, who is also the house cook. She prepares every meal from Moroccan family recipes: tagines, Friday couscous, pastilla, seasonal salads. Flavours from elsewhere join in, as you wish.",
+        "Vegetables come, as far as possible, from the villa's kitchen garden.",
+        "As part of your stay, a Moroccan breakfast is served every morning.",
+        "Lunches and dinners are prepared on request and served at times agreed with the housekeeper, by the pool, under the olive trees, in the patio or in the 14-seat dining room.",
         "Meals are designed as shared moments: the same menu, served at the same time to the whole table. The only exception: children can eat earlier or separately if they wish."
       ],
       "stats": [
@@ -532,42 +547,53 @@
     },
     "bienetre": {
       "title": "Wellness",
-      "intro": "After the fairways, the alleys of the medina or a long break by the pool, treat yourself to a moment of relaxation in the villa's wellness area.",
+      "intro": "Marrakech awakens every sense; the villa soothes them. Back from the medina or a day in the Atlas, let the warmth of the hammam and a gentle massage ease away the day. Here, taking care of yourself is not a luxury: it is the rhythm of the house.",
       "items": [
         [
           "Traditional hammam",
-          "An ancestral purification ritual. Black-soap and kessa-glove scrub, 60 to 90 minutes."
+          "An ancestral purifying ritual: black soap and kessa glove scrub, 60 to 90 minutes. On reservation, at an extra charge, from our treatment menu."
         ],
         [
           "Massage room",
-          "Relaxing treatments by appointment, 45 to 90 minutes."
+          "Relaxing argan oil massages, 45 to 90 minutes. On reservation, at an extra charge; our treatment menu is available on request."
         ],
         [
           "Yoga and relaxation space",
-          "For a morning practice or a quiet moment. Classes and sessions with our partners, on request."
+          "For a morning practice or a quiet moment. Classes with our partner coaches, on reservation, at an extra charge; prices depend on the coach."
         ],
         [
           "Gym",
-          "Free to use throughout your stay, reserved for over-16s; minors remain under the responsibility of an adult. Weights and dumbbells, treadmill, rowing machine, weight bench, multi-station machine and punching bag."
+          "Weights and dumbbells, treadmill, rowing machine, weight bench, multi-station machine and punching bag. Free access throughout your stay for guests aged 16 and over; minors remain under the responsibility of an adult. On request, we can put you in touch with selected personal trainers (at an extra charge)."
         ]
       ]
     },
     "activites": {
       "title": "Activities and excursions",
       "paragraphs": [
-        "At the gateway to the Atlas, on the road to the Ourika valley, Villa Serena is an open-air playground. In the garden, you play pétanque, badminton or table tennis, or visit the mini farm and its goats, sheep, hens and ducks, not forgetting the peacock, which children love. Next door, the Pickalbatros Aqua Fun Club water park opens its slides by the day (paid entry).",
-        "And to escape a little further, we organise with our partners: a walk to the Setti Fatma waterfalls (about 30 minutes), horse or camel rides, quad and buggy in the Agafay desert (about 35 minutes), a hot-air balloon flight at sunrise."
+        "At the gateway to the Atlas, on the road to the Ourika valley, Villa Serena is an open-air playground. In the garden, there is pétanque, badminton and table tennis.",
+        "The mini farm is home to goats, ewes, hens and ducks, not forgetting the peacock, to the delight of young and old.",
+        "A few minutes away, the Pickalbatros Aqua Fun Club water park opens its slides for the day (paid entry)."
       ],
       "stats": [
         "3 activities on site",
         "½ or 1 day excursions",
         "Arranged on request"
-      ]
+      ],
+      "excursions": {
+        "intro": "And to venture a little further, we arrange with our partners:",
+        "items": [
+          "walk to the Setti Fatma waterfalls (about 30 minutes);",
+          "horse or camel ride;",
+          "quad and buggy in the Agafay desert (about 35 minutes);",
+          "sunrise hot-air balloon flight."
+        ],
+        "cooking": "At the villa, our housekeeper introduces you to Moroccan cooking in a class, on request."
+      }
     }
   },
   "experiencesPage": {
     "eyebrow": "Experiences",
-    "lead": "A private event, a golf trip or a yoga retreat: the whole villa is reserved for your group, with up to 14 guests staying on site.",
+    "lead": "Plan your private event, your golf break or your wellness retreat: Villa Serena is entirely yours.",
     "anchors": {
       "evenements": "Private events",
       "golf": "Golf",
@@ -594,7 +620,7 @@
         ],
         [
           "Seminars",
-          "Fibre wifi, parking for 7 cars"
+          "Fibre Wi-Fi, parking"
         ]
       ]
     },
@@ -628,11 +654,12 @@
           "La Palmeraie",
           "~50 min"
         ]
-      ]
+      ],
+      "pro_line": "Ideal with friends or for a golf clinic with your golf pro."
     },
     "retraites": {
       "title": "Yoga and wellness retreats",
-      "paragraph": "For a yoga or wellness retreat, the whole villa is reserved for your group, up to 14 participants. Practice takes place in the yoga space, under the olive trees or in the patio. The hammam and massage room support recovery. The cook adapts the menus: vegetarian, gluten-free."
+      "paragraph": "For a yoga retreat or a wellness stay, the villa becomes a temple of well-being. The whole villa is yours to organise your activities.\nThe hammam, the massage room and the gym support recovery.\nOn request, the cook adapts the menus: vegetarian, gluten-free…"
     },
     "quote_title": "Tell us about your project",
     "quote_body": "Describe your event, golf trip or retreat: we reply within 24 hours with a tailored quotation."
@@ -651,5 +678,15 @@
     "privacy_title": "Privacy Policy",
     "cookies_title": "Cookie Policy",
     "updated": "Last updated:"
+  },
+  "carousel": {
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "slide": "Photo {n} of {total}",
+    "garden": "Garden photos",
+    "dining": "Dining photos",
+    "golf": "Golf course photos",
+    "suites_prev": "Previous suites",
+    "suites_next": "Next suites"
   }
 }

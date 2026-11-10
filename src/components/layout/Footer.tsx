@@ -7,6 +7,7 @@ import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS } from "./Header";
 import { StarDivider } from "@/components/StarDivider";
 import { LEGAL, legalHref } from "@/lib/legal";
+import { localizedPath } from "@/lib/paths";
 import { ManageCookiesButton } from "@/components/consent/ManageCookiesButton";
 
 const CONTACT = {
@@ -70,14 +71,15 @@ export function Footer() {
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 max-w-xs mx-auto md:mx-0">
               {NAV_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.path} className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
+                  <Link href={localizedPath(item.path, locale)} className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
                     {t(`nav.${item.key}`)}
                   </Link>
                 </li>
               ))}
+              {/* FAQ instead of Contact (M51): the Contact column already gives the details. */}
               <li>
-                <Link href="/contact" className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
-                  {t("nav.contact")}
+                <Link href="/reservation#faq" className="font-sans text-sm text-villa-sand-light hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -145,7 +147,7 @@ export function Footer() {
                 </Link>
               </>
             )}
-            <Link href={locale === "en" ? "/privacy" : "/confidentialite"} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+            <Link href={localizedPath("/confidentialite", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.privacy")}
             </Link>
             <Link href="/cookies" className="font-sans text-xs text-white/50 hover:text-white transition-colors">

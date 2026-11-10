@@ -1,29 +1,22 @@
-import { getSiteImages } from "@/lib/site-images";
+import { getSiteImages, type SiteImageKey } from "@/lib/site-images";
+import { PhotoSoon } from "@/components/PhotoSoon";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { db } from "@/lib/db";
 
-const CATEGORY_LINK: Record<string, string> = {
-  wellness: "/services#bien-etre",
-  dining: "/services#restauration",
-  outdoor: "/services#activites",
-  leisure: "/services#activites",
-};
+const MOSAIC: { key: string; slot: SiteImageKey; href: string; span: string }[] = [
+  { key: "jardin", slot: "home.mosaic.jardin", href: "/services#activites", span: "col-span-2 aspect-[4/3] lg:aspect-auto lg:row-span-2" },
+  { key: "sport", slot: "home.mosaic.sport", href: "/services#bien-etre", span: "aspect-[3/4] lg:aspect-auto" },
+  { key: "hammam", slot: "home.mosaic.hammam", href: "/services#bien-etre", span: "aspect-[3/4] lg:aspect-auto" },
+  { key: "ferme", slot: "home.mosaic.ferme", href: "/services#activites", span: "aspect-[3/4] lg:aspect-auto" },
+  { key: "potager", slot: "home.mosaic.potager", href: "/services#restauration", span: "aspect-[3/4] lg:aspect-auto" },
+];
 
 export async function ExperiencesBand() {
   const t = await getTranslations();
   const locale = await getLocale();
-  const isEn = locale === "en";
-  const band = (await getSiteImages(locale))["home.band"];
-
-  const featured = await db.experience.findMany({
-    where: { featured: true },
-    orderBy: { order: "asc" },
-    take: 4,
-  });
-  // The massage room is the stronger photo, so it takes the large lead tile.
-  const experiences = featured.length > 1 ? [featured[1], featured[0], ...featured.slice(2)] : featured;
+  const img = await getSiteImages(locale);
+  const band = img["home.band"];
 
   return (
     <section className="relative bg-villa-ink py-24 lg:py-36 overflow-hidden">
@@ -43,7 +36,7 @@ export async function ExperiencesBand() {
             </h2>
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
-            <p className="font-sans text-white/70 leading-relaxed mb-5">{t("home.experiences_sub")}</p>
+            <p className="font-sans text-white/70 leading-relaxed mb-5 whitespace-pre-line">{t("home.experiences_sub")}</p>
             <Link
               href="/services"
               className="font-sans text-xs tracking-[0.15em] uppercase text-white border-b border-white/40 pb-1 hover:border-villa-gold hover:text-villa-gold transition-colors"
@@ -53,35 +46,30 @@ export async function ExperiencesBand() {
           </div>
         </div>
 
-        {/* Deliberately uneven: one tall lead tile, one wide, two small. */}
+        {/* M11: five-photo montage (gym, hammam, mini farm, garden as the large tile, kitchen garden).
+            Photos come from « Photos du site »; a missing one shows the emblem until the villa sends it. */}
         <div className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:gap-5 lg:h-[38rem]">
-          {experiences.map((exp, i) => {
-            const title = isEn && exp.titleEn ? exp.titleEn : exp.title;
-            const href = CATEGORY_LINK[exp.category] ?? "/services";
-            const span =
-              i === 0
-                ? "col-span-2 aspect-[4/3] lg:aspect-auto lg:row-span-2"
-                : i === 1
-                  ? "col-span-2 aspect-[16/9] lg:aspect-auto"
-                  : "aspect-[3/4] lg:aspect-auto";
+          {MOSAIC.map((tile, i) => {
+            const photo = img[tile.slot];
+            const title = t(`home.mosaic.${tile.key}`);
             return (
-              <Link key={exp.id} href={href} className={`group relative block overflow-hidden ${span}`}>
-                {exp.image && (
+              <Link key={tile.key} href={tile.href} className={`group relative block overflow-hidden ${tile.span}`}>
+                {photo.src ? (
                   <Image
-                    src={exp.image}
-                    alt={title}
+                    src={photo.src}
+                    alt={photo.alt}
                     fill
-                    sizes={i < 2 ? "(min-width:1024px) 50vw, 100vw" : "(min-width:1024px) 25vw, 50vw"}
+                    sizes={tile.key === "jardin" ? "(min-width:1024px) 50vw, 100vw" : "(min-width:1024px) 25vw, 50vw"}
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
                   />
+                ) : (
+                  <PhotoSoon label={t("suites.photos_soon")} className="absolute inset-0 border border-white/10" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
                 <span className="absolute left-4 top-4 font-sans text-[11px] tabular-nums tracking-[0.25em] text-white/80">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span
-                  className={`absolute inset-x-4 bottom-4 font-serif text-white leading-tight ${i === 0 ? "text-3xl lg:text-4xl" : "text-lg sm:text-xl lg:text-2xl"}`}
-                >
+                <span className={`absolute inset-x-4 bottom-4 font-serif text-white leading-tight ${tile.key === "jardin" ? "text-3xl lg:text-4xl" : "text-lg sm:text-xl lg:text-2xl"}`}>
                   {title}
                 </span>
               </Link>

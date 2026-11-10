@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { media } from "@/lib/media";
+import { pathsFor } from "@/lib/paths";
 
 export const SITE_URL = "https://www.villaserenamarrakech.com";
 const DEFAULT_OG = media("/hero-main.jpg");
@@ -26,7 +27,9 @@ export async function pageMetadata({
   const t = await getTranslations({ locale, namespace: "seo" });
   const title = t(`${page}.title`);
   const description = t(`${page}.description`);
-  const url = `${SITE_URL}/${locale}${path}`;
+  // Some pages have their own address in English (/en/the-villa): see lib/paths.
+  const paths = pathsFor(path);
+  const url = `${SITE_URL}/${locale}${locale === "en" ? paths.en : paths.fr}`;
 
   return {
     // Titles already carry the brand, so bypass the layout's "%s | Villa Serena Marrakech" template.
@@ -35,9 +38,9 @@ export async function pageMetadata({
     alternates: {
       canonical: url,
       languages: {
-        fr: `${SITE_URL}/fr${path}`,
-        en: `${SITE_URL}/en${path}`,
-        "x-default": `${SITE_URL}/fr${path}`,
+        fr: `${SITE_URL}/fr${paths.fr}`,
+        en: `${SITE_URL}/en${paths.en}`,
+        "x-default": `${SITE_URL}/fr${paths.fr}`,
       },
     },
     openGraph: {

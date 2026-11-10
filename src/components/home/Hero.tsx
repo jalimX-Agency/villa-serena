@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { media } from "@/lib/media";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { localizedPath } from "@/lib/paths";
 
 /**
  * Home hero (client brief, ch. 03/05): large colour logo centred on a 55 % night-blue veil,
@@ -13,6 +14,7 @@ import { Link } from "@/i18n/navigation";
  */
 export function Hero({ photo }: { photo: SiteImage }) {
   const t = useTranslations();
+  const locale = useLocale();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
@@ -51,15 +53,10 @@ export function Hero({ photo }: { photo: SiteImage }) {
         <p className="mt-6 mx-auto max-w-2xl font-sans text-[0.95rem] sm:text-base leading-relaxed text-white/90">
           {t("hero.subheadline")}
         </p>
-        <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        {/* One centred button (M4): the enquiry button stays in the menu. */}
+        <div className="mt-9 flex items-center justify-center">
           <Link
-            href="/reservation"
-            className="w-full sm:w-auto px-8 py-3.5 bg-villa-terracotta hover:brightness-110 text-white font-sans text-xs tracking-[0.15em] uppercase transition"
-          >
-            {t("nav.book")}
-          </Link>
-          <Link
-            href="/la-villa"
+            href={localizedPath("/la-villa", locale)}
             className="w-full sm:w-auto px-8 py-3.5 border border-villa-gold text-white hover:bg-villa-gold/15 font-sans text-xs tracking-[0.15em] uppercase transition"
           >
             {t("hero.cta_primary")}

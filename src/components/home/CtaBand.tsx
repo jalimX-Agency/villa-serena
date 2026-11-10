@@ -27,7 +27,7 @@ export async function CtaBand() {
           </h2>
         </div>
         <div className="lg:col-span-4">
-          <p className="font-sans text-white/85 leading-relaxed mb-8">{t("home.cta_body")}</p>
+          <p className="font-sans text-white/85 leading-relaxed mb-8 whitespace-pre-line">{t("home.cta_body")}</p>
           <Link
             href="/reservation"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-villa-terracotta font-sans text-xs tracking-[0.15em] uppercase hover:bg-villa-cream transition-colors"

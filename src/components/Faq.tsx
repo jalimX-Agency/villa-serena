@@ -40,7 +40,7 @@ export async function Faq({ limit, moreHref, id }: { limit?: number; moreHref?: 
                 <h3 className="flex-1 font-serif text-xl lg:text-2xl text-villa-ink">{item.q}</h3>
                 <Plus className="mt-1.5 size-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-45" />
               </summary>
-              <p className="pb-6 pl-[2.6rem] pr-8 font-sans text-[0.95rem] leading-relaxed text-muted-foreground max-w-2xl">
+              <p className="pb-6 pl-[2.6rem] pr-8 font-sans text-[0.95rem] leading-relaxed text-muted-foreground max-w-2xl whitespace-pre-line">
                 {item.a}
               </p>
             </details>

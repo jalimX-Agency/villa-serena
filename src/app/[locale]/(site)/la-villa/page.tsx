@@ -1,4 +1,4 @@
-import { getSiteImages, type SiteImageKey } from "@/lib/site-images";
+import { filledSlides, getSiteImages, type SiteImageKey } from "@/lib/site-images";
 import { pageMetadata } from "@/lib/seo";
 import { media } from "@/lib/media";
 import Image from "next/image";
@@ -7,6 +7,8 @@ import { Link } from "@/i18n/navigation";
 import { FriseIntro } from "@/components/FriseIntro";
 import { StarDivider } from "@/components/StarDivider";
 import { MapConsent } from "@/components/consent/MapConsent";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { mapEmbedUrl, mapLinkUrl } from "@/lib/villa-location";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -16,9 +18,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 type Block = { key: string; title: string; body: string };
 
 
-const MAP_LINK = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech");
-const MAP_SRC =
-  "https://www.google.com/maps?q=" + encodeURIComponent("Route de l'Ourika km 17, Sidi Bouzguia, Marrakech") + "&z=13&output=embed";
 
 export default async function VillaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -28,6 +27,7 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
   const distances = t.raw("villa.distances") as [string, string][];
   // One photo per block, replaceable from /admin/photos. An empty slot shows the emblem.
   const img = await getSiteImages(locale);
+  const gardenSlides = filledSlides(img, ["villa.jardin", "villa.jardin2", "villa.jardin3", "villa.jardin4", "villa.jardin5"]);
   const blockImage = (key: string) => {
     const p = img[`villa.${key}` as SiteImageKey];
     return p?.src ? p : undefined;
@@ -52,14 +52,22 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
       <FriseIntro eyebrow={t("villa.ambiance_label")} text={t("villa.intro")} />
 
       {/* Alternating blocks: one H2 and one photo each. */}
-      <div className="py-16 lg:py-24 space-y-16 lg:space-y-28">
+      {/* M14: the photo follows the ambiance text directly, 30 px below its star rule. */}
+      <div className="pb-16 lg:pb-24 space-y-16 lg:space-y-28">
         {blocks.map((b, i) => {
           const photo = blockImage(b.key);
           const flip = i % 2 === 1;
           return (
             <section key={b.key} className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-8 lg:grid-cols-12 lg:gap-14 items-center">
               <div className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
-                {photo ? (
+                {b.key === "jardin" && gardenSlides.length > 0 ? (
+                  // M17: garden carousel (garden, kitchen garden, mini farm, koi pond, pétanque).
+                  <PhotoCarousel
+                    slides={gardenSlides}
+                    frameClassName={`aspect-[4/3] ${i % 3 === 0 ? "rounded-t-[12rem]" : ""}`}
+                    labels={{ prev: t("carousel.prev"), next: t("carousel.next"), slide: t.raw("carousel.slide") as string, region: t("carousel.garden") }}
+                  />
+                ) : photo ? (
                   <div className={`relative aspect-[4/3] overflow-hidden bg-muted ${i % 3 === 0 ? "rounded-t-[12rem]" : ""}`}>
                     <Image src={photo.src} alt={photo.alt} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
                   </div>
@@ -115,13 +123,13 @@ export default async function VillaPage({ params }: { params: Promise<{ locale: 
           <div className="relative min-h-[360px] overflow-hidden border border-white/10">
             {/* Google Maps only loads after consent (cookie policy). */}
             <MapConsent
-              src={MAP_SRC}
+              src={mapEmbedUrl(locale)}
               title={t("villa.situation_title")}
               address={t("villa.map_address")}
               buttonLabel={t("villa.map_button")}
               note={t("villa.map_note")}
               openLabel={t("villa.map_open")}
-              openHref={MAP_LINK}
+              openHref={mapLinkUrl}
             />
           </div>
         </div>

@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
       ...MOVED.flatMap(([from, to]) =>
         ["fr", "en"].map((l) => ({ source: `/${l}${from}`, destination: `/${l}${to}`, permanent: true }))
       ),
+      // Pages with their own English address: never serve the other language's address.
+      { source: "/en/la-villa", destination: "/en/the-villa", permanent: true },
+      { source: "/fr/the-villa", destination: "/fr/la-villa", permanent: true },
       // Privacy policy: French address in French, English address in English.
       { source: "/en/confidentialite", destination: "/en/privacy", permanent: true },
       { source: "/fr/privacy", destination: "/fr/confidentialite", permanent: true },

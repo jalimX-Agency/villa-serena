@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { db } from "@/lib/db";
+import { localizedPath } from "@/lib/paths";
 
 const BASE = "https://www.villaserenamarrakech.com";
 
@@ -14,16 +15,19 @@ const ROUTES = [
   { path: "/galerie", priority: 0.7 },
   { path: "/blog", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
+  // Legal pages (Jean-Luc note: they belong in the sitemap).
+  { path: "/confidentialite", priority: 0.2 },
+  { path: "/cookies", priority: 0.2 },
 ];
 
 function entry(path: string, priority: number) {
   return routing.locales.map((locale) => ({
-    url: `${BASE}/${locale}${path}`,
+    url: `${BASE}/${locale}${localizedPath(path, locale)}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority,
     alternates: {
-      languages: Object.fromEntries(routing.locales.map((l) => [l, `${BASE}/${l}${path}`])),
+      languages: Object.fromEntries(routing.locales.map((l) => [l, `${BASE}/${l}${localizedPath(path, l)}`])),
     },
   }));
 }

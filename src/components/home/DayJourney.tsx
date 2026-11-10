@@ -22,19 +22,35 @@ const MOMENTS = [
 // Scroll progress at which each moment is fully shown (centre of its quarter).
 // Used for the background colours AND the sun, so both stay in step with the cards.
 const STOPS = [0.125, 0.375, 0.625, 0.875];
-const BG = [
-  "oklch(0.965 0.02 85)", // crème du matin
-  "oklch(0.86 0.09 78)", // or de midi
-  "oklch(0.62 0.12 35)", // terracotta d'après-midi
-  "oklch(0.2 0.03 50)", // nuit
+
+// Sky (annex of 10 Nov 2026, M8): from 16:00 (0.625) to 21:00 (0.875), one hour = 0.05 of scroll.
+// Golden ochre, rosy terracotta, mauve, violet, indigo, then a starry night blue; never brown, never black.
+const SKY_STOPS = [0.125, 0.375, 0.625, 0.675, 0.725, 0.775, 0.8, 0.85, 0.8625, 0.875];
+const SKY = [
+  "#F6F0E6", // 07:00 morning cream
+  "#EBCB8B", // 12:30 noon gold
+  "#E8B86A", // 16:00 golden ochre
+  "#D9954A", // 17:00
+  "#C97B5A", // 18:00 rosy terracotta
+  "#A86A8A", // 19:00 mauve
+  "#7A5C99", // 19:30 violet
+  "#4A4A8C", // 20:30 indigo
+  "#2A3466",
+  "#14213D", // 21:00 night blue
 ];
-const FG = ["oklch(0.24 0.03 50)", "oklch(0.24 0.03 50)", "oklch(0.98 0.01 80)", "oklch(0.98 0.01 80)"];
-const ACCENT = ["oklch(0.6 0.13 28)", "oklch(0.45 0.1 40)", "oklch(0.93 0.06 80)", "oklch(0.74 0.13 73)"];
+// Text: night blue on the light skies, cream once the sky turns mauve.
+const INK = "#14213D";
+const CREAM = "#FBF8F2";
+const FG_STOPS = [0.125, 0.74, 0.78, 0.875];
+const FG = [INK, INK, CREAM, CREAM];
+const ACCENT_STOPS = [0.125, 0.375, 0.625, 0.74, 0.78, 0.875];
+const ACCENT = ["#A9553B", "#8A4630", "#7A3A26", "#7A3A26", "#D9C9A8", "#B39B6E"];
 
 const STARS = Array.from({ length: 36 }, (_, i) => ({
   left: (i * 37.7) % 100,
   top: (i * 23.3) % 55,
   size: i % 5 === 0 ? 2.5 : 1.5,
+  opacity: 0.45 + ((i * 13) % 50) / 100, // 0.45 to 0.94
 }));
 
 /** One photo per moment (morning, noon, afternoon, night), from the site photos. */
@@ -43,10 +59,11 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
-  const bg = useTransform(scrollYProgress, STOPS, BG);
-  const fg = useTransform(scrollYProgress, STOPS, FG);
-  const accent = useTransform(scrollYProgress, STOPS, ACCENT);
-  const starsOpacity = useTransform(scrollYProgress, [0.68, 0.88], [0, 1]);
+  const bg = useTransform(scrollYProgress, SKY_STOPS, SKY);
+  const fg = useTransform(scrollYProgress, FG_STOPS, FG);
+  const accent = useTransform(scrollYProgress, ACCENT_STOPS, ACCENT);
+  // Stars come out from 20:30 (0.85) and are all there at 21:00.
+  const starsOpacity = useTransform(scrollYProgress, [0.84, 0.875], [0, 1]);
 
   // Sun travels along a half-circle arc (left → top → right).
   // Sun angle calibrated on the four moments (client brief): rising at 07:00, zenith at 12:30,
@@ -56,7 +73,7 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
   // The box is 100 x 50 units: top in % of its height, so the sun rides the drawn arc.
   const sunY = useTransform(angle, (a) => 100 - 92 * Math.sin(a));
   const sunOpacity = useTransform(angle, [-0.2, 0, 0.1], [0, 0, 1]);
-  const moonOpacity = useTransform(scrollYProgress, [0.72, 0.86], [0, 1]);
+  const moonOpacity = useTransform(scrollYProgress, [0.8, 0.87], [0, 1]);
   const sunLeft = useMotionTemplate`${sunX}%`;
   const sunTop = useMotionTemplate`${sunY}%`;
   const sunColor = useTransform(scrollYProgress, [0, 0.55, 0.8, 1], [
@@ -76,8 +93,15 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
           {STARS.map((s, i) => (
             <span
               key={i}
-              className="absolute rounded-full bg-white/80"
-              style={{ left: `${s.left}%`, top: `${s.top}%`, width: s.size, height: s.size }}
+              className="journey-star absolute rounded-full bg-[#FBF8F2]"
+              style={{
+                left: `${s.left}%`,
+                top: `${s.top}%`,
+                width: s.size,
+                height: s.size,
+                opacity: s.opacity,
+                animationDelay: `${(i % 7) * 0.6}s`,
+              }}
             />
           ))}
         </motion.div>

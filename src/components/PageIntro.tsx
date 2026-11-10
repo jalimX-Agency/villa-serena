@@ -9,11 +9,14 @@ export function PageIntro({
   title,
   lead,
   body,
+  alignTop = false,
 }: {
   eyebrow: string;
   title: string;
   lead: string;
   body?: string;
+  /** Title and text aligned at the top instead of the bottom (Les suites, M19). */
+  alignTop?: boolean;
 }) {
   return (
     <header className="pt-32 lg:pt-40 pb-12 lg:pb-16 px-6 lg:px-8 mx-auto max-w-7xl">
@@ -21,12 +24,12 @@ export function PageIntro({
         <span className="h-px w-8 bg-villa-terracotta" />
         {eyebrow}
       </p>
-      <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 lg:items-end">
+      <div className={`grid gap-8 lg:grid-cols-12 lg:gap-12 ${alignTop ? "lg:items-start" : "lg:items-end"}`}>
         <h1 className="lg:col-span-7 font-serif font-light text-[clamp(2.4rem,6vw,4.75rem)] leading-[1.02] tracking-[-0.01em] text-villa-ink text-balance">
           {title}
         </h1>
-        <div className="lg:col-span-5 lg:pb-2 space-y-4">
-          <p className="font-sans text-base lg:text-lg text-foreground/80 leading-relaxed">{lead}</p>
+        <div className={`lg:col-span-5 space-y-4 ${alignTop ? "lg:pt-3" : "lg:pb-2"}`}>
+          <p className="font-sans text-base lg:text-lg text-foreground/80 leading-relaxed whitespace-pre-line">{lead}</p>
           {body && <p className="font-sans text-sm lg:text-[0.95rem] text-muted-foreground leading-relaxed">{body}</p>}
         </div>
       </div>

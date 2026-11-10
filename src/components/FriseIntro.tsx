@@ -22,7 +22,7 @@ function SideArch() {
 }
 
 /**
- * The villa's ambiance text as a graphic moment: cream band, terracotta zellige friezes,
+ * The villa's ambiance text as a graphic moment: cream band, terracotta zellige frieze on top (M14),
  * drop cap, two side arches with the logo star (hidden on mobile), star rule underneath.
  */
 export function FriseIntro({ eyebrow, text }: { eyebrow: string; text: string }) {
@@ -35,7 +35,7 @@ export function FriseIntro({ eyebrow, text }: { eyebrow: string; text: string })
           <SideArch />
           <p
             lang="fr"
-            className="max-w-[720px] font-serif font-medium text-[21px] md:text-[25px] leading-[1.5] text-villa-ink text-justify [text-align-last:center] hyphens-auto [word-spacing:-0.02em] first-letter:float-left first-letter:pr-2.5 first-letter:pt-2 first-letter:font-semibold first-letter:text-[56px] md:first-letter:text-[74px] first-letter:leading-[0.8] first-letter:text-villa-terracotta-light"
+            className="max-w-[720px] font-serif font-medium text-[19px] md:text-[22px] leading-[1.55] text-villa-ink text-justify [text-align-last:center] hyphens-auto [word-spacing:-0.02em] first-letter:float-left first-letter:pr-2.5 first-letter:pt-2 first-letter:font-semibold first-letter:text-[50px] md:first-letter:text-[64px] first-letter:leading-[0.8] first-letter:text-villa-terracotta-light"
           >
             {text}
           </p>
@@ -43,7 +43,7 @@ export function FriseIntro({ eyebrow, text }: { eyebrow: string; text: string })
         </div>
         <StarDivider className="mx-auto mt-[18px] w-[220px]" tone="terracotta" />
       </div>
-      <Frieze />
+      {/* M14: no bottom frieze; the page goes straight on to the next photo. */}
     </section>
   );
 }

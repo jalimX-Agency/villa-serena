@@ -1,4 +1,5 @@
-import { getSiteImages } from "@/lib/site-images";
+import { filledSlides, getSiteImages } from "@/lib/site-images";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
@@ -22,6 +23,37 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
   const events = t.raw("experiencesPage.evenements.paragraphs") as string[];
   const facts = t.raw("experiencesPage.evenements.facts") as [string, string][];
   const courses = t.raw("experiencesPage.golf.courses") as [string, string][];
+  // M46: authorised course photos only, added from « Photos du site »; the alt doubles as the caption.
+  const golfSlides = filledSlides(img, ["golf.1", "golf.2", "golf.3", "golf.4", "golf.5", "golf.6", "golf.7", "golf.8"]).map((s) => ({ ...s, caption: s.alt }));
+
+  const golfText = (
+    <>
+      <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">{t("experiencesPage.anchors.golf")}</p>
+      <h2 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-white text-balance">{p("golf.title")}</h2>
+      <StarDivider className="my-6 max-w-[10rem]" />
+      <p className="font-sans text-villa-sand-light leading-relaxed">{p("golf.paragraph")}</p>
+      {/* M45: for golf pros bringing their students; keep « stage » and « pro de golf » (search terms). */}
+      <p className="mt-6 font-serif italic text-[22px] leading-snug text-villa-terracotta-light">{p("golf.pro_line")}</p>
+    </>
+  );
+  const golfTable = (
+    <table className="w-full text-left">
+      <thead>
+        <tr className="border-b border-villa-gold/40">
+          <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold">{p("golf.col_course")}</th>
+          <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold text-right">{p("golf.col_time")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {courses.map(([names, time]) => (
+          <tr key={names} className="border-b border-white/10">
+            <td className="py-4 pr-4 font-sans text-sm text-white/90">{names}</td>
+            <td className="py-4 font-serif text-xl text-villa-gold text-right whitespace-nowrap">{time}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 
   return (
     <>
@@ -59,32 +91,26 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
 
       {/* Golf */}
       <section id="golf" className="scroll-mt-40 bg-villa-ink text-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-gold mb-4">{t("experiencesPage.anchors.golf")}</p>
-            <h2 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-white text-balance">{p("golf.title")}</h2>
-            <StarDivider className="my-6 max-w-[10rem]" />
-            <p className="font-sans text-villa-sand-light leading-relaxed">{p("golf.paragraph")}</p>
+        {golfSlides.length > 0 ? (
+          // With photos: text, then the full-width carousel, then the table.
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="max-w-3xl">{golfText}</div>
+            <PhotoCarousel
+              className="mt-12"
+              slides={golfSlides}
+              frameClassName="aspect-[4/3] sm:aspect-[21/9]"
+              sizes="(min-width:1280px) 1216px, 100vw"
+              tone="dark"
+              labels={{ prev: t("carousel.prev"), next: t("carousel.next"), slide: t.raw("carousel.slide") as string, region: t("carousel.golf") }}
+            />
+            <div className="mt-12 max-w-3xl">{golfTable}</div>
           </div>
-          <div className="lg:col-span-7">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-villa-gold/40">
-                  <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold">{p("golf.col_course")}</th>
-                  <th className="py-3 font-sans text-[11px] tracking-[0.2em] uppercase font-normal text-villa-gold text-right">{p("golf.col_time")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {courses.map(([names, time]) => (
-                  <tr key={names} className="border-b border-white/10">
-                    <td className="py-4 pr-4 font-sans text-sm text-white/90">{names}</td>
-                    <td className="py-4 font-serif text-xl text-villa-gold text-right whitespace-nowrap">{time}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        ) : (
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">{golfText}</div>
+            <div className="lg:col-span-7">{golfTable}</div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* Retraites */}
@@ -95,7 +121,7 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
         <div className="lg:col-span-6 lg:order-1">
           <h2 className="font-serif text-4xl lg:text-5xl text-villa-ink">{p("retraites.title")}</h2>
           <StarDivider className="my-6 max-w-[10rem]" tone="terracotta" />
-          <p className="font-sans text-foreground/80 leading-relaxed">{p("retraites.paragraph")}</p>
+          <p className="font-sans text-foreground/80 leading-relaxed whitespace-pre-line">{p("retraites.paragraph")}</p>
         </div>
       </section>
 

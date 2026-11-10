@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({ locale, page: "suites", path: "/suites" });
 }
 
-const SPACES = ["riad", "pavillon", "independant"] as const;
+
 
 export default async function SuitesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,37 +20,47 @@ export default async function SuitesPage({ params }: { params: Promise<{ locale:
   const isEn = locale === "en";
   const rooms = await db.room.findMany({ orderBy: { order: "asc" } });
   const includes = t.raw("suites.includes") as string[];
+  const riad = rooms.filter((r) => r.space === "riad");
+  const pavilionAndStudio = rooms.filter((r) => r.space === "pavillon" || r.space === "independant");
 
   return (
     <>
-      <PageIntro eyebrow={t("suites.page_title")} title={t("suites.h1")} lead={t("suites.page_sub")} body={t("suites.intro")} />
+      <PageIntro eyebrow={t("suites.page_title")} title={t("suites.h1")} lead={t("suites.page_sub")} body={t("suites.intro")} alignTop />
 
-      {/* The three spaces of the estate, each with its suites. */}
+      {/* The riad, then the pavilion and the Studio on one row (M31). */}
       <div className="pb-8 space-y-20 lg:space-y-28">
-        {SPACES.map((space) => {
-          const list = rooms.filter((r) => r.space === space);
-          if (list.length === 0) return null;
-          return (
-            <section key={space} className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="grid gap-4 lg:grid-cols-12 lg:items-end mb-8 lg:mb-10">
-                <div className="lg:col-span-6">
-                  <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-3">
-                    {t(`suites.spaces.${space}.label`)}
-                  </p>
-                  <h2 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-villa-ink">{t(`suites.spaces.${space}.title`)}</h2>
-                </div>
-                <p className="lg:col-span-5 lg:col-start-8 font-sans text-muted-foreground leading-relaxed">
-                  {t(`suites.spaces.${space}.body`)}
-                </p>
+        {riad.length > 0 && (
+          <section className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-4 lg:grid-cols-12 lg:items-end mb-8 lg:mb-10">
+              <div className="lg:col-span-6">
+                <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-villa-terracotta mb-3">{t("suites.spaces.riad.label")}</p>
+                <h2 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-villa-ink">{t("suites.spaces.riad.title")}</h2>
               </div>
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                {list.map((room) => (
-                  <SuiteCard key={room.id} room={room} isEn={isEn} soonLabel={t("suites.photos_soon")} />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+              <p className="lg:col-span-5 lg:col-start-8 font-sans text-muted-foreground leading-relaxed">{t("suites.spaces.riad.body")}</p>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {riad.map((room) => (
+                <SuiteCard key={room.id} room={room} isEn={isEn} soonLabel={t("suites.photos_soon")} />
+              ))}
+            </div>
+          </section>
+        )}
+        {pavilionAndStudio.length > 0 && (
+          <section className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="mb-8 lg:mb-10 font-serif text-3xl lg:text-[2.6rem] leading-tight text-villa-ink">{t("suites.spaces.pavillon_studio.title")}</h2>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {pavilionAndStudio.map((room) => (
+                <SuiteCard
+                  key={room.id}
+                  room={room}
+                  isEn={isEn}
+                  soonLabel={t("suites.photos_soon")}
+                  eyebrow={t(room.space === "independant" ? "suites.spaces.pavillon_studio.independant" : "suites.spaces.pavillon_studio.pavillon")}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
       {/* Bed allocation table */}
@@ -61,7 +71,7 @@ export default async function SuitesPage({ params }: { params: Promise<{ locale:
             <thead>
               <tr className="border-b-2 border-villa-terracotta-light">
                 {(["space", "unit", "size", "bed", "guests"] as const).map((k) => (
-                  <th key={k} className={`py-3 pr-4 font-sans text-[11px] tracking-[0.18em] uppercase font-medium text-villa-ink ${k === "guests" ? "text-right" : ""}`}>
+                  <th key={k} className={`py-3 pr-4 font-sans text-[11px] tracking-[0.18em] uppercase font-medium text-villa-ink ${k === "guests" ? "text-center pr-0" : ""}`}>
                     {t(`suites.table.${k}`)}
                   </th>
                 ))}
@@ -78,13 +88,13 @@ export default async function SuitesPage({ params }: { params: Promise<{ locale:
                   </td>
                   <td className="py-3.5 pr-4 font-sans text-sm text-foreground/85 whitespace-nowrap">{r.size}</td>
                   <td className="py-3.5 pr-4 font-sans text-sm text-foreground/85">{isEn && r.bedTypeEn ? r.bedTypeEn : r.bedType}</td>
-                  <td className="py-3.5 font-sans text-sm text-foreground/85 text-right">{r.maxGuests}</td>
+                  <td className="py-3.5 font-sans text-sm text-foreground/85 text-center">{r.maxGuests}</td>
                 </tr>
               ))}
               <tr>
                 <td className="py-4 pr-4 font-sans text-[11px] tracking-[0.18em] uppercase text-villa-ink">{t("suites.table.total")}</td>
                 <td className="py-4 pr-4 font-serif text-lg text-villa-ink" colSpan={3}>{t("suites.table.total_units")}</td>
-                <td className="py-4 font-serif text-xl text-villa-terracotta text-right">
+                <td className="py-4 font-serif text-xl text-villa-terracotta text-center">
                   {rooms.reduce((n, r) => n + r.maxGuests, 0)}
                 </td>
               </tr>
@@ -106,7 +116,7 @@ export default async function SuitesPage({ params }: { params: Promise<{ locale:
               </li>
             ))}
           </ul>
-          <p className="mt-8 mx-auto max-w-2xl font-sans text-sm text-white/70 leading-relaxed">{t("suites.includes_note")}</p>
+          <p className="mt-8 mx-auto max-w-2xl font-sans text-sm text-white/70 leading-relaxed whitespace-pre-line">{t("suites.includes_note")}</p>
         </div>
       </section>
     </>

@@ -7,7 +7,20 @@ import { cn } from "@/lib/utils";
  * Horizontal snap strip with previous / next arrows, so the cards can be reached
  * with a mouse too (touch and trackpads scroll natively).
  */
-export function SuitesStrip({ children, prevLabel, nextLabel }: { children: React.ReactNode; prevLabel: string; nextLabel: string }) {
+export function SuitesStrip({
+  children,
+  prevLabel,
+  nextLabel,
+  listClassName = "flex gap-5 lg:gap-7 overflow-x-auto snap-x snap-mandatory scroll-px-6 px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))] pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+  controlsClassName = "mx-auto mt-6 flex max-w-7xl justify-end gap-3 px-6 lg:px-8",
+}: {
+  children: React.ReactNode;
+  prevLabel: string;
+  nextLabel: string;
+  /** Default: full-bleed strip (home page). Pass your own to keep it inside a container. */
+  listClassName?: string;
+  controlsClassName?: string;
+}) {
   const ref = useRef<HTMLUListElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
 
@@ -31,7 +44,8 @@ export function SuitesStrip({ children, prevLabel, nextLabel }: { children: Reac
     const el = ref.current;
     if (!el) return;
     const card = el.querySelector("li");
-    const step = card ? card.getBoundingClientRect().width + 24 : el.clientWidth * 0.8;
+    const gap = parseFloat(getComputedStyle(el).columnGap) || 24;
+    const step = card ? card.getBoundingClientRect().width + gap : el.clientWidth * 0.8;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
@@ -39,14 +53,10 @@ export function SuitesStrip({ children, prevLabel, nextLabel }: { children: Reac
 
   return (
     <div>
-      <ul
-        ref={ref}
-        onScroll={update}
-        className="flex gap-5 lg:gap-7 overflow-x-auto snap-x snap-mandatory scroll-px-6 px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))] pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
+      <ul ref={ref} onScroll={update} className={listClassName}>
         {children}
       </ul>
-      <div className={cn("mx-auto mt-6 flex max-w-7xl justify-end gap-3 px-6 lg:px-8", edges.start && edges.end && "hidden")}>
+      <div className={cn(controlsClassName, edges.start && edges.end && "hidden")}>
         <button type="button" onClick={() => go(-1)} disabled={edges.start} aria-label={prevLabel} className={arrow}>
           <ChevronLeft className="size-5" />
         </button>

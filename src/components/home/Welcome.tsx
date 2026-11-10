@@ -3,12 +3,14 @@ import type { SiteImage } from "@/lib/site-images";
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { localizedPath } from "@/lib/paths";
 import { ZelligeDivider } from "@/components/ZelligeDivider";
 
 export function Welcome({ photo, photo2 }: { photo: SiteImage; photo2: SiteImage }) {
   const t = useTranslations();
+  const locale = useLocale();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   // The small photo drifts against the arch for a little depth.
@@ -56,7 +58,7 @@ export function Welcome({ photo, photo2 }: { photo: SiteImage; photo2: SiteImage
           <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t("home.welcome_body")}</p>
           <p className="font-sans text-muted-foreground leading-relaxed mb-9">{t("home.welcome_body2")}</p>
           <Link
-            href="/la-villa"
+            href={localizedPath("/la-villa", locale)}
             className="font-sans text-xs tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:text-villa-terracotta hover:border-villa-terracotta transition-colors"
           >
             {t("hero.cta_primary")}

@@ -154,3 +154,9 @@
 .prose-villa table.plain td:last-child { text-align: left; white-space: normal; font-family: var(--font-sans); color: inherit; font-size: inherit; }
 .prose-villa table.plain th:last-child { text-align: left; }
 @media (max-width: 639px) { .prose-villa table { font-size: 0.85rem; } .prose-villa td:last-child { white-space: normal; } }
+/* M48: better line breaks, no lone word at the end of a paragraph (ignored by older browsers). */
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+/* Day journey stars: a slow twinkle, off for visitors who ask for less motion (M8). */
+@keyframes journey-twinkle { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(0.6); filter: brightness(0.7); } }
+@media (prefers-reduced-motion: no-preference) { .journey-star { animation: journey-twinkle 4.2s ease-in-out infinite; } }

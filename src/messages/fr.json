@@ -14,12 +14,14 @@
     "contact": "Contact",
     "book": "Faire une demande",
     "gallery": "Galerie",
-    "blog": "Blog"
+    "blog": "Blog",
+    "villa_short": "Villa",
+    "suites_short": "Suites"
   },
   "hero": {
     "tagline": "Route de l'Ourika · à 25 min de Marrakech",
     "headline": "Votre villa privée à Marrakech, en exclusivité",
-    "subheadline": "Ici, tout le domaine est à vous. Sur un hectare d'oliviers, un riad de quatre suites, un pavillon de deux suites et un studio indépendant accueillent jusqu'à 14 personnes. Piscine privée, hammam, potager et mini ferme. Une gouvernante, qui est aussi la cuisinière de la maison, et une femme de chambre veillent sur votre séjour.",
+    "subheadline": "Sur un hectare d'oliviers, un riad de quatre suites, un pavillon de deux suites et un studio indépendant accueillent jusqu'à 14 personnes. Piscine privée, hammam, potager et mini ferme. La gouvernante, qui est aussi la cuisinière de la maison, veille sur votre séjour.",
     "cta_primary": "Découvrir la villa",
     "cta_secondary": "Voir les suites",
     "scroll": "Défiler pour explorer"
@@ -33,11 +35,11 @@
     "suites_sub": "Le domaine se partage en trois espaces. Au riad, les suites Rouge, Bleue, Verte et Rose s'ouvrent sur le patio. Le pavillon abrite les suites Orange et Jaune, avec son salon, sa cuisine, sa terrasse et son jardin. Le Studio offre 45 m² au calme, en toute indépendance.",
     "experiences_label": "Bien-être et loisirs",
     "experiences_title": "Du hammam à la mini ferme",
-    "experiences_sub": "Hammam traditionnel, salle de massage et salle de sport pour prendre soin de soi. Au jardin : potager, mini ferme et volières, bassin de carpes koï, terrain de pétanque, badminton et ping-pong. Avec des enfants, le parc aquatique du Pickalbatros Aqua Fun Club, juste à côté de la villa, est accessible à la journée (entrée payante).",
+    "experiences_sub": "Hammam traditionnel, salle de massage et salle de sport pour prendre soin de soi.\nAu jardin : potager, mini ferme et volières, bassin de carpes koï, terrain de pétanque, badminton et ping-pong. Avec des enfants, le parc aquatique du Pickalbatros Aqua Fun Club, à proximité de la villa, est accessible à la journée (entrée payante).",
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont séjourné\nchez nous",
     "cta_title": "Réservez la villa entière",
-    "cta_body": "À partir de 980 € la nuit, pour le domaine entier et jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus (hors taxe de séjour). Idéal pour une réunion de famille, un anniversaire, un séjour golf ou un séminaire. Réponse sous 24 heures, sans engagement.",
+    "cta_body": "À partir de 980 € la nuit, pour le domaine entier et jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus (hors taxe de séjour). Idéal pour une réunion de famille, un anniversaire, un séjour golfique ou un séminaire.\nRéponse sous 24 heures, sans engagement.",
     "cta_button": "Faire une demande",
     "stats": {
       "rooms": "6 suites + 1 studio",
@@ -45,9 +47,16 @@
       "pool": "Piscine 11 × 5 m",
       "hammam": "Hammam et salle de sport"
     },
-    "welcome_body2": "À 25 minutes de la médina, sur la route de la vallée de l'Ourika, la villa offre le calme de la campagne, non loin de l'effervescence.",
+    "welcome_body2": "À 25 minutes de la médina, sur la route de la vallée de l'Ourika, la villa offre le calme de la campagne, non loin de l'effervescence de Marrakech.",
     "suites_sub2": "Chacun son intimité, tous ensemble le reste du temps : autour de la piscine, à la grande table, les familles se retrouvent. Toutes les suites sont climatisées, avec salle d'eau privée. La Suite Bleue et le Studio offrent chacun un lit queen size ; les cinq autres suites proposent des lits séparés ou jumelés, à votre convenance.",
-    "cta_eyebrow": "6 suites + 1 studio · 14 couchages · villa entière"
+    "cta_eyebrow": "6 suites + 1 studio · 14 couchages · villa entière",
+    "mosaic": {
+      "sport": "Salle de sport",
+      "hammam": "Hammam",
+      "ferme": "Mini ferme",
+      "jardin": "Le jardin",
+      "potager": "Potager"
+    }
   },
   "villa": {
     "page_title": "La villa",
@@ -91,7 +100,7 @@
       {
         "key": "studio",
         "title": "Le Studio : l'indépendance",
-        "body": "À l'écart du reste de la maison, le Studio offre 45 m² de calme, avec son coin salon et sa machine Nespresso. Il séduira celles et ceux qui aiment avoir leur propre rythme : des grands-parents, un duo d'amis, ou l'organisateur d'un séminaire qui cherche un espace au calme pour travailler."
+        "body": "À l'écart du reste de la maison, le Studio offre 45 m² de calme, avec son coin salon, son bureau et sa machine Nespresso. Il séduira celles et ceux qui aiment avoir leur propre rythme : des grands-parents, un duo d'amis, ou l'organisateur d'un séminaire qui cherche un espace au calme pour travailler."
       },
       {
         "key": "piscine",
@@ -146,7 +155,7 @@
   },
   "suites": {
     "page_title": "Les suites",
-    "page_sub": "Le domaine se partage en trois espaces. Le riad réunit les suites Rouge, Bleue, Verte et Rose autour du patio. Le pavillon abrite les suites Orange et Jaune, avec salon, cuisine, terrasse et jardin privés. Le Studio, indépendant, se tient à l'écart. La Suite Bleue et le Studio ont un grand lit queen size ; ailleurs, les lits s'installent séparés ou jumelés. L'ensemble se réserve en entier, avec la villa.",
+    "page_sub": "Le domaine se partage en trois espaces. Le riad réunit les suites Rouge, Bleue, Verte et Rose autour du patio. Le pavillon abrite les suites Orange et Jaune, avec salon, cuisine, terrasse et jardin privés. Le Studio est indépendant. La Suite Bleue et le Studio ont un grand lit queen size ; ailleurs, les lits s'installent séparés ou jumelés.",
     "per_night": "par nuit",
     "from": "À partir de",
     "amenities": "Équipements",
@@ -164,7 +173,7 @@
       "Petit-déjeuner",
       "Wifi par la fibre"
     ],
-    "h1": "Six suites et un studio, pour 14 personnes",
+    "h1": "Six suites et un studio, un domaine privatisé pour 14 personnes",
     "intro": "Chaque famille a son intimité : une famille dans le pavillon, les amis au riad, les grands-parents dans le Studio. Et tout le monde partage la piscine, le hammam et la table.",
     "spaces": {
       "riad": {
@@ -174,13 +183,16 @@
       },
       "pavillon": {
         "label": "Le pavillon",
-        "title": "Une maison dans la maison",
-        "body": "Les suites Orange et Jaune partagent un salon, une cuisine indépendante, une terrasse et un jardin privés."
+        "title": "Une maison dans la maison"
       },
       "independant": {
         "label": "Indépendant",
-        "title": "Le Studio, à l'écart",
-        "body": "45 m² au calme, avec coin salon et machine Nespresso, à quelques pas de la piscine."
+        "title": "Le Studio"
+      },
+      "pavillon_studio": {
+        "title": "Le pavillon et le Studio",
+        "pavillon": "Pavillon",
+        "independant": "Indépendant"
       }
     },
     "table_title": "Répartition des couchages",
@@ -198,11 +210,12 @@
       "pavillon": "Pavillon (salon, cuisine, terrasse et jardin privés)",
       "independant": "Indépendant"
     },
-    "includes_note": "Des serviettes de piscine sont mises à votre disposition. Les suites Rouge et Verte et le Studio disposent d'une terrasse orientée sud, avec vue piscine.",
+    "includes_note": "Des serviettes de piscine sont mises à votre disposition.\nLes suites Rouge et Verte et le Studio disposent d'une terrasse orientée sud, avec vue piscine.",
     "ideal_for": "Idéale pour",
     "ideal_for_m": "Idéal pour",
     "photos_soon": "Photos à venir",
-    "whole_villa_note": "La Villa Serena se loue exclusivement dans son intégralité : 6 suites, 1 studio, 14 couchages."
+    "whole_villa_note": "La Villa Serena se loue exclusivement dans son intégralité : 6 suites, 1 studio, 14 couchages.",
+    "includes_note_suite": "Des serviettes de piscine sont mises à votre disposition."
   },
   "reservation": {
     "page_title": "Faites votre demande",
@@ -258,7 +271,7 @@
     "page_title": "Les expériences",
     "page_sub": "Retraites de yoga, golf et grandes célébrations — la Villa Serena se privatise pour vos moments d'exception.",
     "quote_button": "Demander un devis",
-    "h1": "Privatiser une villa à Marrakech"
+    "h1": "Privatisez votre villa à Marrakech"
   },
   "contact": {
     "page_title": "Contact",
@@ -286,10 +299,10 @@
   },
   "blog": {
     "page_title": "Le blog",
-    "page_sub": "Conseils d'hôtes qui connaissent leur région : la vallée de l'Ourika, le golf, Marrakech en famille. Un nouvel article chaque mois.",
+    "page_sub": "Nos conseils pour visiter la région : la vallée de l'Ourika, le golf, Marrakech en famille.\nUn nouvel article à découvrir chaque mois.",
     "read_more": "Lire l'article",
     "min_read": "min de lecture",
-    "h1": "Le blog de la Villa Serena : nos guides autour de Marrakech",
+    "h1": "Le blog de la Villa Serena : guides autour de Marrakech",
     "toc": "Sommaire",
     "back": "Tous les articles",
     "by": "Par",
@@ -396,7 +409,7 @@
     },
     "experiences": {
       "title": "Événements, golf et retraites en villa privée | Villa Serena",
-      "description": "Privatisez la Villa Serena pour un événement privé jusqu'à 80 personnes, un séjour golf au milieu de 14 parcours ou une retraite de yoga, route de l'Ourika."
+      "description": "Événement privé, séjour golfique, stage avec votre pro de golf ou retraite santé : privatisez la Villa Serena, à 25 min de Marrakech."
     },
     "reservation": {
       "title": "Louer la villa à Marrakech : tarif | Villa Serena",
@@ -441,7 +454,7 @@
       },
       {
         "q": "Quelle est la durée minimale de séjour ?",
-        "a": "4 nuits, et 6 nuits en haute saison et pendant les fêtes de fin d'année."
+        "a": "4 nuits en basse et moyenne saison.\n6 nuits en haute saison et pendant les fêtes de fin d'année."
       },
       {
         "q": "Quelles sont les heures d'arrivée et de départ ?",
@@ -520,8 +533,10 @@
     "restauration": {
       "title": "Restauration",
       "paragraphs": [
-        "La cuisine de la Villa Serena est confiée à notre gouvernante, qui est aussi la cuisinière de la maison. Elle prépare chaque repas à partir de recettes familiales marocaines : tajines, couscous du vendredi, pastilla, salades de saison. Des saveurs venues d'ailleurs s'invitent selon vos envies. Les légumes viennent, autant que possible, du potager de la villa.",
-        "Le petit-déjeuner est inclus chaque matin. Déjeuners et dîners sont préparés sur demande et servis aux horaires convenus ensemble avec la gouvernante, au bord de la piscine, sous les oliviers, dans le patio ou dans la salle à manger de 14 couverts.",
+        "La cuisine de la Villa Serena est confiée à notre gouvernante, qui est aussi la cuisinière de la maison. Elle prépare chaque repas à partir de recettes familiales marocaines : tajines, couscous du vendredi, pastilla, salades de saison. Des saveurs venues d'ailleurs s'invitent selon vos envies.",
+        "Les légumes viennent, autant que possible, du potager de la villa.",
+        "Dans le cadre de votre séjour, un petit-déjeuner marocain vous est servi chaque matin.",
+        "Déjeuners et dîners sont préparés sur demande et servis aux horaires convenus ensemble avec la gouvernante, au bord de la piscine, sous les oliviers, dans le patio ou dans la salle à manger de 14 couverts.",
         "Les repas sont pensés comme des moments partagés : un même menu, servi à la même heure pour toute la tablée. Seule exception, les enfants peuvent dîner plus tôt ou à part, s'ils le souhaitent."
       ],
       "stats": [
@@ -532,42 +547,53 @@
     },
     "bienetre": {
       "title": "Bien-être",
-      "intro": "Après les fairways, les ruelles de la médina ou une longue pause au bord de la piscine, offrez-vous un moment de détente dans l'espace bien-être de la villa.",
+      "intro": "Marrakech éveille tous les sens ; la villa les apaise. De retour de la médina ou d'une journée dans l'Atlas, laissez la chaleur du hammam et la douceur d'un massage dissiper la fatigue du jour. Ici, prendre soin de soi n'est pas un luxe : c'est le rythme de la maison.",
       "items": [
         [
           "Hammam traditionnel",
-          "Un rituel de purification ancestral. Gommage au savon noir et au gant de kessa, 60 à 90 minutes."
+          "Un rituel de purification ancestral : gommage au savon noir et au gant de kessa, de 60 à 90 minutes. Sur réservation et en supplément, selon notre carte des soins."
         ],
         [
           "Salle de massage",
-          "Soins relaxants sur réservation, 45 à 90 minutes."
+          "Massages relaxants à l'huile d'argan, de 45 à 90 minutes. Sur réservation et en supplément ; la carte des soins vous est présentée sur demande."
         ],
         [
           "Espace yoga et relaxation",
-          "Pour la pratique du matin ou un moment de calme. Cours et séances avec nos partenaires, sur demande."
+          "Pour la pratique du matin ou un moment de calme. Cours avec nos coachs partenaires, sur réservation et en supplément ; le tarif dépend du coach."
         ],
         [
           "Salle de sport",
-          "En libre accès pendant tout le séjour, réservée aux plus de 16 ans ; les mineurs y restent sous la responsabilité d'un adulte. Poids et haltères, tapis de course, rameur, banc de musculation, machine de musculation multipostes et sac de frappe."
+          "Poids et haltères, tapis de course, rameur, banc de musculation, machine multipostes et sac de frappe. La salle est en libre accès pendant tout le séjour, réservée aux plus de 16 ans ; les mineurs y restent sous la responsabilité d'un adulte. Sur demande, nous vous mettons en relation avec des coachs sportifs sélectionnés (en supplément)."
         ]
       ]
     },
     "activites": {
       "title": "Activités et excursions",
       "paragraphs": [
-        "Aux portes de l'Atlas, sur la route de la vallée de l'Ourika, la Villa Serena est un terrain de jeu à ciel ouvert. Dans le jardin, on joue à la pétanque, au badminton, au ping-pong, ou l'on rend visite à la mini ferme et à ses chèvres, brebis, poules, canards, sans oublier le paon, qui ravit les enfants. À côté, le parc aquatique du Pickalbatros Aqua Fun Club ouvre ses toboggans à la journée (entrée payante).",
-        "Et pour s'évader un peu plus loin, nous organisons avec nos partenaires : marche vers les cascades de Setti Fatma (environ 30 minutes), balade à cheval ou à dos de dromadaire, quad et buggy dans le désert d'Agafay (environ 35 minutes), envol en montgolfière au lever du soleil."
+        "Aux portes de l'Atlas, sur la route de la vallée de l'Ourika, la Villa Serena est un terrain de jeu à ciel ouvert. Dans le jardin, on joue à la pétanque, au badminton et au ping-pong.",
+        "La mini ferme accueille chèvres, brebis, poules et canards, sans oublier le paon, pour le plaisir des petits et des grands.",
+        "À quelques minutes, le parc aquatique du Pickalbatros Aqua Fun Club ouvre ses toboggans à la journée (entrée payante)."
       ],
       "stats": [
         "3 activités sur place",
         "½ ou 1 journée d'excursion",
         "Organisation sur demande"
-      ]
+      ],
+      "excursions": {
+        "intro": "Et pour s'évader un peu plus loin, nous organisons avec nos partenaires :",
+        "items": [
+          "marche vers les cascades de Setti Fatma (environ 30 minutes) ;",
+          "balade à cheval ou à dos de dromadaire ;",
+          "quad et buggy dans le désert d'Agafay (environ 35 minutes) ;",
+          "envol en montgolfière au lever du soleil."
+        ],
+        "cooking": "À la villa, notre gouvernante vous initie à la cuisine marocaine lors d'un cours, sur demande."
+      }
     }
   },
   "experiencesPage": {
     "eyebrow": "Expériences",
-    "lead": "Événement privé, séjour golf ou retraite de yoga : la villa entière est réservée à votre groupe, jusqu'à 14 personnes sur place.",
+    "lead": "Organisez votre événement privé, votre séjour golfique ou votre retraite santé : la Villa Serena vous est entièrement réservée.",
     "anchors": {
       "evenements": "Événements privés",
       "golf": "Golf",
@@ -594,7 +620,7 @@
         ],
         [
           "Séminaires",
-          "Wifi par la fibre, parking de 7 places"
+          "Wifi par la fibre, parkings"
         ]
       ]
     },
@@ -628,11 +654,12 @@
           "La Palmeraie",
           "~50 min"
         ]
-      ]
+      ],
+      "pro_line": "Idéal entre amis ou lors d'un stage avec votre pro de golf."
     },
     "retraites": {
       "title": "Retraites de yoga et de bien-être",
-      "paragraph": "Pour une retraite de yoga ou de bien-être, la villa entière est réservée à votre groupe, jusqu'à 14 participants. La pratique se fait dans l'espace yoga, sous les oliviers ou dans le patio. Le hammam et la salle de massage accompagnent la récupération. La cuisinière adapte les menus : végétarien, sans gluten."
+      "paragraph": "Pour une retraite yoga ou un séjour santé, la villa se transforme en temple du bien-être. Vous disposez de toute la villa pour y organiser vos activités.\nLe hammam, la salle de massage et la salle de sport accompagnent la récupération.\nSur demande, la cuisinière adapte les menus : végétariens, sans gluten…"
     },
     "quote_title": "Parlez-nous de votre projet",
     "quote_body": "Décrivez votre événement, votre séjour golf ou votre retraite : nous vous répondons sous 24 heures avec un devis personnalisé."
@@ -651,5 +678,15 @@
     "privacy_title": "Politique de confidentialité",
     "cookies_title": "Politique cookies",
     "updated": "Dernière mise à jour :"
+  },
+  "carousel": {
+    "prev": "Photo précédente",
+    "next": "Photo suivante",
+    "slide": "Photo {n} sur {total}",
+    "garden": "Photos du jardin",
+    "dining": "Photos de la restauration",
+    "golf": "Photos des parcours de golf",
+    "suites_prev": "Suites précédentes",
+    "suites_next": "Suites suivantes"
   }
 }

@@ -7,10 +7,13 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { VillaIcon } from "@/components/icons/VillaIcon";
+import { basePath, localizedPath } from "@/lib/paths";
 
 type NavItem = { key: string; path: string; children?: { key: string; path: string }[] };
 
-/** Menu from the client brief (6 Nov 2026): seven entries + the "Faire une demande" button. */
+/** Menu (annex of 10 Nov 2026, M1–M3): riad icon for Home, then Villa · Suites · Services · Expériences
+ * on the left; Galerie · Blog, the "Faire une demande" button and the language on the right. */
 export const NAV_LINKS: NavItem[] = [
   { key: "home", path: "/" },
   { key: "villa", path: "/la-villa" },
@@ -37,8 +40,8 @@ export const NAV_LINKS: NavItem[] = [
   { key: "blog", path: "/blog" },
 ];
 
-const LEFT = NAV_LINKS.slice(0, 4);
-const RIGHT = NAV_LINKS.slice(4);
+const LEFT = NAV_LINKS.slice(0, 5);
+const RIGHT = NAV_LINKS.slice(5);
 
 const LANGUAGES = [
   { code: "fr" as const, label: "FR", name: "Français" },
@@ -76,7 +79,8 @@ export function Header() {
   }, []);
 
   const handleLang = (code: "fr" | "en") => {
-    router.replace(pathname, { locale: code });
+    // Pages with an English address of their own (/the-villa) switch to the other language's address.
+    router.replace(localizedPath(basePath(pathname), code), { locale: code });
     setLangOpen(false);
   };
 
@@ -84,7 +88,12 @@ export function Header() {
   const transparent = isHome && !scrolled && !mobileOpen;
   const compact = scrolled || mobileOpen;
   const isActive = (item: NavItem) =>
-    item.path === "/" ? pathname === "/" : pathname === item.path || pathname.startsWith(item.path + "/");
+    item.path === "/"
+      ? pathname === "/"
+      : pathname === localizedPath(item.path, language) || pathname.startsWith(localizedPath(item.path, language) + "/");
+
+  // Short labels in the menu ("Villa", "Suites"); the footer keeps the full ones.
+  const label = (key: string) => (t.has(`nav.${key}_short`) ? t(`nav.${key}_short`) : t(`nav.${key}`));
 
   const linkCls = (item: NavItem) =>
     cn(
@@ -95,10 +104,29 @@ export function Header() {
     );
 
   const renderItem = (item: NavItem) => {
+    if (item.key === "home") {
+      // The riad icon replaces the word; the word stays for screen readers and as a tooltip.
+      // Cream on the photo (with a shadow for light photos) and on the night-blue bar; terracotta accent when active or hovered.
+      return (
+        <Link
+          key={item.key}
+          href={localizedPath(item.path, language)}
+          aria-label={t("nav.home")}
+          title={t("nav.home")}
+          className={cn(
+            "group flex size-11 items-center justify-center -ml-1.5 text-[#F6F0E6] [--villa-icon-accent:#B39B6E] hover:[--villa-icon-accent:#C0664A]",
+            transparent && "text-[#FBF8F2] [--villa-icon-accent:#D9C9A8] [filter:drop-shadow(0_1px_1.5px_rgba(20,33,61,.75))]",
+            isActive(item) && "[--villa-icon-accent:#C0664A]"
+          )}
+        >
+          <VillaIcon name="accueil" size={26} />
+        </Link>
+      );
+    }
     if (!item.children) {
       return (
-        <Link key={item.key} href={item.path} className={linkCls(item)}>
-          {t(`nav.${item.key}`)}
+        <Link key={item.key} href={localizedPath(item.path, language)} className={linkCls(item)}>
+          {label(item.key)}
         </Link>
       );
     }
@@ -109,7 +137,7 @@ export function Header() {
           onClick={() => setOpenDropdown(isOpen ? null : item.key)}
           className={cn(linkCls(item), "flex items-center gap-1")}
         >
-          {t(`nav.${item.key}`)}
+          {label(item.key)}
           <ChevronDown className={cn("size-3 transition-transform", isOpen && "rotate-180")} />
         </button>
         <AnimatePresence>
@@ -121,7 +149,7 @@ export function Header() {
               className="absolute left-0 top-full mt-2 bg-villa-ink border border-white/10 shadow-xl overflow-hidden z-50 min-w-[220px]"
             >
               <Link
-                href={item.path}
+                href={localizedPath(item.path, language)}
                 onClick={() => setOpenDropdown(null)}
                 className="block px-4 py-2.5 font-sans text-[11px] tracking-[0.14em] uppercase text-villa-gold hover:bg-white/5"
               >
@@ -193,7 +221,13 @@ export function Header() {
           {/* Right menu + language + CTA */}
           <div className="flex items-center justify-end gap-1">
             <nav className="hidden xl:flex items-center gap-0.5">{RIGHT.map(renderItem)}</nav>
-            <div className="hidden xl:block relative ml-1">
+            <Link
+              href="/reservation"
+              className="hidden sm:inline-flex items-center h-10 px-5 ml-2 bg-villa-terracotta hover:brightness-110 text-white font-sans text-[11px] tracking-[0.14em] uppercase transition"
+            >
+              {t("nav.book")}
+            </Link>
+            <div className="hidden xl:block relative ml-2">
               <button
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-1 px-2 py-1.5 font-sans text-[11px] tracking-wider uppercase text-white/75 hover:text-white"
@@ -225,12 +259,6 @@ export function Header() {
                 )}
               </AnimatePresence>
             </div>
-            <Link
-              href="/reservation"
-              className="hidden sm:inline-flex items-center h-10 px-5 ml-2 bg-villa-terracotta hover:brightness-110 text-white font-sans text-[11px] tracking-[0.14em] uppercase transition"
-            >
-              {t("nav.book")}
-            </Link>
           </div>
         </div>
       </div>
@@ -249,13 +277,14 @@ export function Header() {
                   return (
                     <Link
                       key={item.key}
-                      href={item.path}
+                      href={localizedPath(item.path, language)}
                       className={cn(
-                        "py-3.5 font-serif text-2xl border-b border-white/10",
+                        "flex items-center gap-3 py-3.5 font-serif text-2xl border-b border-white/10",
                         isActive(item) ? "text-villa-gold" : "text-white"
                       )}
                     >
-                      {t(`nav.${item.key}`)}
+                      {item.key === "home" && <VillaIcon name="accueil" size={26} className="text-[#F6F0E6] [--villa-icon-accent:#B39B6E]" />}
+                      {label(item.key)}
                     </Link>
                   );
                 }
@@ -269,7 +298,7 @@ export function Header() {
                         isActive(item) ? "text-villa-gold" : "text-white"
                       )}
                     >
-                      {t(`nav.${item.key}`)}
+                      {label(item.key)}
                       <ChevronDown className={cn("size-4 transition-transform", expanded && "rotate-180")} />
                     </button>
                     <AnimatePresence>
