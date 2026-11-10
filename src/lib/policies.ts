@@ -7,7 +7,7 @@
 export const POLICY_UPDATED = { fr: "9 novembre 2026", en: "9 November 2026" };
 
 /** Company identifiers, published once known (capital in dirhams, trade register no., ICE, registered office). */
-export const COMPANY = { capital: "", rc: "", ice: "", office: "" };
+export const COMPANY = { capital: "", rc: "", ice: "", office: "", /** Director of publication (legal notice). */ publisher: "" };
 
 /** Dedicated address for data requests; until then, the villa's general address. */
 export const PRIVACY_EMAIL = "guest@villaserenamarrakech.com";
@@ -40,6 +40,45 @@ export function privacyHtml(locale: string) {
 
 export function cookiesHtml(locale: string) {
   return locale === "en" ? COOKIES_EN : COOKIES_FR;
+}
+
+/** Legal notice (mentions légales), draft to be validated by the villa. */
+export function legalNoticeHtml(locale: string) {
+  const en = locale === "en";
+  const pub = COMPANY.publisher;
+  return en
+    ? `
+<h2>Publisher</h2>
+<p>The website villaserenamarrakech.com is published by GAUTAMA, a Moroccan single-member limited liability company (SARLAU)${companyEn()}, which operates Villa Serena, Ourika road, km 17, Sidi Bouzguia, Marrakech, Morocco.</p>
+<p>Phone: +212 663 524 991. Email: ${mail}.</p>
+${pub ? `<p>Director of publication: ${pub}.</p>` : ""}
+<h2>Hosting</h2>
+<p>Website: Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States (vercel.com). Images: Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, United States (cloudflare.com).</p>
+<h2>Design and development</h2>
+<p>JalimX Agency.</p>
+<h2>Intellectual property</h2>
+<p>The texts, photographs, logo and visual elements of this website belong to GAUTAMA or are used with their authors' permission. Any reproduction, even partial, requires prior written consent.</p>
+<h2>Personal data and cookies</h2>
+<p>See our <a href="/en/privacy">privacy policy</a> and our <a href="/en/cookies">cookie policy</a>.</p>
+<h2>Information on the website</h2>
+<p>We take care to keep the information on this website accurate and up to date. Prices and conditions of a stay are those of the written proposal sent to the guest and of our terms of sale.</p>
+`
+    : `
+<h2>Éditeur du site</h2>
+<p>Le site villaserenamarrakech.com est édité par la société GAUTAMA, société à responsabilité limitée à associé unique (SARLAU) de droit marocain${companyFr()}, qui exploite la Villa Serena, route de l'Ourika, km 17, Sidi Bouzguia, Marrakech, Maroc.</p>
+<p>Téléphone : +212 663 524 991. E-mail : ${mail}.</p>
+${pub ? `<p>Directeur de la publication : ${pub}.</p>` : ""}
+<h2>Hébergement</h2>
+<p>Site : Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (vercel.com). Images : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (cloudflare.com).</p>
+<h2>Conception et réalisation</h2>
+<p>JalimX Agency.</p>
+<h2>Propriété intellectuelle</h2>
+<p>Les textes, photographies, logo et éléments graphiques de ce site appartiennent à la société GAUTAMA ou sont utilisés avec l'accord de leurs auteurs. Toute reproduction, même partielle, est soumise à une autorisation écrite préalable.</p>
+<h2>Données personnelles et cookies</h2>
+<p>Consultez notre <a href="/fr/confidentialite">politique de confidentialité</a> et notre <a href="/fr/cookies">politique cookies</a>.</p>
+<h2>Informations du site</h2>
+<p>Nous veillons à l'exactitude et à la mise à jour des informations publiées. Les prix et les conditions d'un séjour sont ceux de la proposition écrite adressée au client et de nos conditions générales de vente.</p>
+`;
 }
 
 const PRIVACY_FR = () => `

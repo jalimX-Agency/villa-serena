@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, Inbox, Moon, Images } from "lucide-react";
 import { db } from "@/lib/db";
+import { FIRM_STATUSES, HOLDING_STATUSES } from "@/lib/booking-status";
 import { AvailabilityCalendar } from "@/components/admin/AvailabilityCalendar";
 import {
   Card,
@@ -23,20 +24,20 @@ export default async function AdminDashboardPage({ searchParams }: { searchParam
   const [pending, upcoming, stays, galleryCount] = await Promise.all([
     db.booking.findMany({ where: { status: "pending" }, orderBy: { createdAt: "desc" }, take: 6 }),
     db.booking.findMany({
-      where: { serviceType: "villa", status: "confirmed", checkOut: { gte: now } },
+      where: { serviceType: "villa", status: { in: FIRM_STATUSES }, checkOut: { gte: now } },
       orderBy: { checkIn: "asc" },
       take: 5,
     }),
     db.booking.findMany({
-      where: { serviceType: "villa", status: { not: "cancelled" }, checkIn: { not: null }, checkOut: { not: null } },
+      where: { serviceType: "villa", status: { in: HOLDING_STATUSES }, checkIn: { not: null }, checkOut: { not: null } },
       select: { id: true, firstName: true, lastName: true, status: true, checkIn: true, checkOut: true },
     }),
     db.galleryImage.count(),
   ]);
 
-  // Booked (confirmed) nights in the next 30 days.
+  // Firmly booked nights (deposit received) in the next 30 days.
   const bookedNext30 = stays
-    .filter((s) => s.status === "confirmed")
+    .filter((s) => FIRM_STATUSES.includes(s.status))
     .reduce((sum, s) => {
       const from = Math.max(s.checkIn!.getTime(), now.getTime());
       const to = Math.min(s.checkOut!.getTime(), in30.getTime());
@@ -46,7 +47,7 @@ export default async function AdminDashboardPage({ searchParams }: { searchParam
 
   const kpis = [
     { label: "Demandes à traiter", value: pendingTotal, icon: Inbox, href: "/admin/demandes?status=pending", accent: pendingTotal > 0 },
-    { label: "Séjours confirmés à venir", value: upcoming.length, icon: CalendarCheck, href: "/admin/demandes?status=confirmed" },
+    { label: "Séjours confirmés à venir", value: upcoming.length, icon: CalendarCheck, href: "/admin/demandes?status=deposit_paid" },
     { label: "Taux d'occupation · 30 j", value: `${Math.round((bookedNext30 / 30) * 100)} %`, icon: Moon },
     { label: "Photos dans la galerie", value: galleryCount, icon: Images, href: "/admin/galerie" },
   ];

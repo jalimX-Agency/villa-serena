@@ -18,9 +18,13 @@ export const dynamic = "force-dynamic";
 
 const TABS = [
   { value: "", label: "Toutes" },
-  { value: "pending", label: "En attente" },
-  { value: "confirmed", label: "Confirmées" },
+  { value: "pending", label: "Demandes reçues" },
+  { value: "confirmed", label: "Acompte attendu" },
+  { value: "deposit_paid", label: "Acompte payé" },
+  { value: "paid", label: "Soldées" },
+  { value: "completed", label: "Terminées" },
   { value: "cancelled", label: "Annulées" },
+  { value: "expired", label: "Expirées" },
 ];
 
 export default async function AdminDemandesPage({

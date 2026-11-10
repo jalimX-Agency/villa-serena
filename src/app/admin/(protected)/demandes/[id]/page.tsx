@@ -3,13 +3,22 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Mail, Phone, MessageCircle, CalendarDays, Users, Moon, Clock, FileCheck } from "lucide-react";
 import { db } from "@/lib/db";
 import { BookingActions } from "@/components/admin/BookingActions";
-import { Card, CardHeader, SERVICE_LABELS, StatusBadge, btn, formatDate, nightsBetween } from "@/components/admin/ui";
+import { PaymentPanel } from "@/components/admin/PaymentPanel";
+import { HOLDING_STATUSES } from "@/lib/booking-status";
+import { balanceDueDate, firstPayment, refundFor } from "@/lib/payments/policy";
+import { paidSoFar } from "@/lib/payments/service";
+import { paymentUrl } from "@/lib/payments/emails";
+import { getPaymentProvider } from "@/lib/payments/provider";
+import { Card, CardHeader, SERVICE_LABELS, STATUS_LABELS, StatusBadge, btn, formatDate, nightsBetween } from "@/components/admin/ui";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminDemandeDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const b = await db.booking.findUnique({ where: { id }, include: { room: { select: { name: true } } } });
+  const b = await db.booking.findUnique({
+    where: { id },
+    include: { room: { select: { name: true } }, payments: { orderBy: { createdAt: "asc" } }, events: { orderBy: { createdAt: "desc" }, take: 40 } },
+  });
   if (!b) notFound();
 
   // Overlapping, non-cancelled villa stays — a warning before confirming.
@@ -19,7 +28,7 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
           where: {
             id: { not: b.id },
             serviceType: "villa",
-            status: { not: "cancelled" },
+            status: { in: HOLDING_STATUSES },
             checkIn: { lt: b.checkOut },
             checkOut: { gt: b.checkIn },
           },
@@ -29,6 +38,30 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
 
   const phoneDigits = b.phone.replace(/[^\d]/g, "");
   const nights = nightsBetween(b.checkIn, b.checkOut);
+
+  const isVilla = b.serviceType === "villa";
+  const paid = paidSoFar(b.payments);
+  const iso = (d: Date | null) => (d ? d.toISOString() : null);
+  const panel = isVilla
+    ? {
+        bookingId: b.id,
+        status: b.status,
+        total: b.totalAmount,
+        hasDates: Boolean(b.checkIn && b.checkOut),
+        first: b.checkIn && b.totalAmount > 0 ? firstPayment(b.totalAmount, b.checkIn) : null,
+        balanceDue: b.checkIn ? formatDate(balanceDueDate(b.checkIn)) : null,
+        paid,
+        refundClient: b.checkIn ? refundFor(paid, b.checkIn, "client") : { amount: 0, rate: 0 },
+        refundVilla: paid,
+        payments: b.payments.map((p) => ({
+          id: p.id, kind: p.kind, amount: p.amount, status: p.status, method: p.method, note: p.note,
+          url: p.token ? paymentUrl(p, b.locale) : null,
+          expiresAt: iso(p.expiresAt), paidAt: iso(p.paidAt), createdAt: p.createdAt.toISOString(),
+        })),
+        events: b.events.map((e) => ({ id: e.id, type: e.type, message: e.message, createdAt: e.createdAt.toISOString() })),
+        providerReady: getPaymentProvider() !== null,
+      }
+    : null;
 
   const facts = [
     b.checkIn && { icon: CalendarDays, label: "Dates", value: `${formatDate(b.checkIn)} → ${formatDate(b.checkOut)}` },
@@ -59,7 +92,7 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
             {b.room && ` · ${b.room.name}`}
           </p>
         </div>
-        <BookingActions bookingId={b.id} status={b.status} />
+        {!isVilla && <BookingActions bookingId={b.id} status={b.status} />}
       </div>
 
       {conflicts.length > 0 && (
@@ -71,7 +104,7 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
               <Link href={`/admin/demandes/${c.id}`} className="font-medium underline">
                 {c.firstName} {c.lastName}
               </Link>{" "}
-              ({c.status === "confirmed" ? "confirmée" : "en attente"})
+              ({STATUS_LABELS[c.status]?.toLowerCase() ?? c.status})
             </span>
           ))}
         </div>
@@ -93,6 +126,7 @@ export default async function AdminDemandeDetailPage({ params }: { params: Promi
               ))}
             </dl>
           </Card>
+          {panel && <PaymentPanel {...panel} />}
           <Card>
             <CardHeader title="Message" />
             <p className="whitespace-pre-line px-5 py-4 text-sm leading-relaxed text-stone-700">

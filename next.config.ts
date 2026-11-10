@@ -30,6 +30,8 @@ const nextConfig: NextConfig = {
       { source: "/fr/the-villa", destination: "/fr/la-villa", permanent: true },
       // Privacy policy: French address in French, English address in English.
       { source: "/en/confidentialite", destination: "/en/privacy", permanent: true },
+      { source: "/en/mentions-legales", destination: "/en/legal-notice", permanent: true },
+      { source: "/fr/legal-notice", destination: "/fr/mentions-legales", permanent: true },
       { source: "/fr/privacy", destination: "/fr/confidentialite", permanent: true },
     ];
   },

@@ -1,6 +1,7 @@
 "use server";
 import { LEGAL } from "@/lib/legal";
 import { db } from "@/lib/db";
+import { HOLDING_STATUSES } from "@/lib/booking-status";
 
 export type VillaBookingState = {
   status: "idle" | "success" | "error";
@@ -12,7 +13,7 @@ export async function getVillaBookedRanges(): Promise<{ checkIn: string; checkOu
   const bookings = await db.booking.findMany({
     where: {
       serviceType: "villa",
-      status: { in: ["pending", "confirmed"] },
+      status: { in: HOLDING_STATUSES },
       checkIn: { not: null },
       checkOut: { not: null },
     },
@@ -43,6 +44,7 @@ export async function submitVillaBooking(
   const message = String(formData.get("message") || "").trim();
   const checkInRaw = String(formData.get("checkIn") || "");
   const checkOutRaw = String(formData.get("checkOut") || "");
+  const locale = formData.get("locale") === "en" ? "en" : "fr";
 
   if (!firstName || !lastName || !email || !checkInRaw || !checkOutRaw) {
     return { status: "error", error: "missing_fields" };
@@ -67,7 +69,7 @@ export async function submitVillaBooking(
   const existing = await db.booking.findMany({
     where: {
       serviceType: "villa",
-      status: { in: ["pending", "confirmed"] },
+      status: { in: HOLDING_STATUSES },
       checkIn: { not: null },
       checkOut: { not: null },
     },
@@ -94,6 +96,7 @@ export async function submitVillaBooking(
       message,
       status: "pending",
       currency: "EUR",
+      locale,
       ...(LEGAL.published ? { termsAcceptedAt: new Date(), termsVersion: LEGAL.version } : {}),
     },
   });

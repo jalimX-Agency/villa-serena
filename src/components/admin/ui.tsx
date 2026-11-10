@@ -1,12 +1,10 @@
 import { cn } from "@/lib/utils";
+import { STATUS_LABELS } from "@/lib/booking-status";
+
+export { STATUS_LABELS };
 
 /* Shared building blocks for the admin. Neutral surfaces, brand terracotta for actions. */
 
-export const STATUS_LABELS: Record<string, string> = {
-  pending: "En attente",
-  confirmed: "Confirmée",
-  cancelled: "Annulée",
-};
 
 export const SERVICE_LABELS: Record<string, string> = {
   villa: "Séjour villa",
@@ -23,8 +21,12 @@ export const SERVICE_LABELS: Record<string, string> = {
 
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-amber-50 text-amber-700 ring-amber-200",
-  confirmed: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  confirmed: "bg-sky-50 text-sky-700 ring-sky-200",
+  deposit_paid: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  paid: "bg-emerald-100 text-emerald-800 ring-emerald-300",
+  completed: "bg-stone-100 text-stone-600 ring-stone-200",
   cancelled: "bg-stone-100 text-stone-500 ring-stone-200",
+  expired: "bg-stone-100 text-stone-500 ring-stone-200",
 };
 
 export function StatusBadge({ status }: { status: string }) {

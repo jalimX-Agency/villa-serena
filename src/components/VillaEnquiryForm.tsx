@@ -57,6 +57,7 @@ export function VillaEnquiryForm({
 
   return (
     <form action={formAction} className="bg-card border border-border p-6 sm:p-8 space-y-5">
+      <input type="hidden" name="locale" value={locale} />
       <div className="flex items-center justify-between border-b border-border pb-4">
         <p className="font-sans text-sm text-foreground">
           {new Intl.DateTimeFormat(isEn ? "en-GB" : "fr-FR", { day: "numeric", month: "short" }).format(checkIn)}

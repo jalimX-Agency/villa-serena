@@ -155,12 +155,27 @@ model Booking {
   checkOut    DateTime?
   guests      Int       @default(2)
   message     String    @default("")
-  status      String    @default("pending") // pending | confirmed | cancelled
+  locale      String    @default("fr") // language of the guest, for the automatic emails
+  // pending (request) → confirmed (by the villa, deposit link sent) → deposit_paid → paid (balance) → completed;
+  // or cancelled / expired (deposit not paid within 72 h). See lib/booking-status.ts.
+  status      String    @default("pending")
   // Acceptance of the terms of sale + house rules (Avenant 1, M48): when and which version.
   termsAcceptedAt DateTime?
   termsVersion    String    @default("")
-  totalAmount Float     @default(0)
+  totalAmount Float     @default(0) // agreed price of the stay, EUR incl. VAT (tourist tax apart)
   currency    String    @default("EUR")
+  depositAmount Float   @default(0) // 50 % (or 100 % when booked less than 30 days ahead)
+  confirmedAt   DateTime?
+  cancelledAt   DateTime?
+  cancelledBy   String    @default("") // client | villa
+  cancelReason  String    @default("")
+  // Automatic steps already done (so the daily job never repeats them).
+  balanceLinkSentAt  DateTime?
+  balanceReminderAt  DateTime?
+  balanceAlertAt     DateTime?
+  arrivalReminderAt  DateTime?
+  payments    Payment[]
+  events      BookingEvent[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
@@ -206,6 +221,51 @@ model LoginLog {
 }
 
 // ── Photos du site (replaceable from the admin; the code holds the defaults) ──
+/// One money movement for a booking: deposit, balance, refund, card hold for the 1 500 € deposit.
+model Payment {
+  id          String    @id @default(cuid())
+  bookingId   String
+  booking     Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  kind        String    // deposit | balance | full | refund | caution
+  method      String    @default("") // paypal | cmi | transfer | cash | other
+  amount      Float
+  currency    String    @default("EUR")
+  // pending → paid | failed | expired | cancelled ; refund: refunded ; caution: authorized → released | captured
+  status      String    @default("pending")
+  token       String?   @unique // secret part of the payment link sent to the guest
+  expiresAt   DateTime?
+  paidAt      DateTime?
+  provider    String    @default("")
+  providerRef String    @default("") // order / transaction id at PayPal or the CMI
+  note        String    @default("")
+  termsAcceptedAt DateTime? // terms accepted again on the payment page, before paying
+  termsVersion    String    @default("")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([bookingId])
+  @@index([status, expiresAt])
+}
+
+/// Timeline of a booking: emails sent, payments, status changes (shown in the admin).
+model BookingEvent {
+  id        String   @id @default(cuid())
+  bookingId String
+  booking   Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  type      String
+  message   String   @default("")
+  createdAt DateTime @default(now())
+
+  @@index([bookingId, createdAt])
+}
+
+/// Simple key/value settings edited in the admin (bank details for transfers…).
+model Setting {
+  key       String   @id
+  value     String   @default("")
+  updatedAt DateTime @updatedAt
+}
+
 model SiteImage {
   key       String   @id // slot, e.g. "home.hero"
   url       String

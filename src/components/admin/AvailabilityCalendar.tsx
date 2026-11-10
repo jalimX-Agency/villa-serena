@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { FIRM_STATUSES } from "@/lib/booking-status";
 
 export type CalendarBooking = {
   id: string;
@@ -42,7 +43,7 @@ export function AvailabilityCalendar({
 
   function find(day: string) {
     const hits = ranges.filter((r) => r.from <= day && day < r.to);
-    return hits.find((h) => h.status === "confirmed") ?? hits[0];
+    return hits.find((h) => FIRM_STATUSES.includes(h.status)) ?? hits[0];
   }
 
   return (
@@ -52,8 +53,8 @@ export function AvailabilityCalendar({
           <ChevronLeft className="size-4" />
         </Link>
         <div className="flex items-center gap-4 text-[11px] text-stone-500">
-          <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-villa-terracotta" /> Confirmé</span>
-          <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-amber-300" /> En attente</span>
+          <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-villa-terracotta" /> Réservé (acompte payé)</span>
+          <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-amber-300" /> Demande ou option</span>
         </div>
         <Link href={`${basePath}?m=${offset + 1}`} className="rounded-lg p-1.5 text-stone-500 hover:bg-stone-100" aria-label="Mois suivant">
           <ChevronRight className="size-4" />
@@ -72,8 +73,8 @@ export function AvailabilityCalendar({
                 const b = find(day);
                 const cls = cn(
                   "flex aspect-square items-center justify-center rounded-md text-xs tabular-nums",
-                  b?.status === "confirmed" && "bg-villa-terracotta text-white",
-                  b && b.status !== "confirmed" && "bg-amber-200 text-amber-900",
+                  b && FIRM_STATUSES.includes(b.status) && "bg-villa-terracotta text-white",
+                  b && !FIRM_STATUSES.includes(b.status) && "bg-amber-200 text-amber-900",
                   !b && day < today && "text-stone-300",
                   !b && day >= today && "text-stone-700 hover:bg-stone-100",
                   day === today && "ring-2 ring-stone-900 ring-offset-1"

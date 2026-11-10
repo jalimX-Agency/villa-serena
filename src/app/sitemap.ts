@@ -18,6 +18,7 @@ const ROUTES = [
   // Legal pages (Jean-Luc note: they belong in the sitemap).
   { path: "/confidentialite", priority: 0.2 },
   { path: "/cookies", priority: 0.2 },
+  { path: "/mentions-legales", priority: 0.2 },
 ];
 
 function entry(path: string, priority: number) {

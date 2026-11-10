@@ -7,6 +7,7 @@ import { signOut } from "next-auth/react";
 import {
   LayoutDashboard,
   Inbox,
+  Wallet,
   BedDouble,
   Images,
   ImageUp,
@@ -24,6 +25,7 @@ import { media } from "@/lib/media";
 const NAV = [
   { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard, exact: true },
   { href: "/admin/demandes", label: "Demandes", icon: Inbox, badge: true },
+  { href: "/admin/paiements", label: "Paiements", icon: Wallet },
   { href: "/admin/chambres", label: "Chambres", icon: BedDouble },
   { href: "/admin/galerie", label: "Galerie", icon: Images },
   { href: "/admin/photos", label: "Photos du site", icon: ImageUp },

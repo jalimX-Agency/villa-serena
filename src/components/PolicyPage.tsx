@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageIntro } from "@/components/PageIntro";
 import { SITE_URL } from "@/lib/seo";
-import { POLICY_UPDATED, cookiesHtml, privacyHtml } from "@/lib/policies";
+import { POLICY_UPDATED, cookiesHtml, legalNoticeHtml, privacyHtml } from "@/lib/policies";
 
-export type PolicyDoc = "privacy" | "cookies";
+export type PolicyDoc = "privacy" | "cookies" | "legal";
 
 /** Address of each policy, per language (the English privacy page lives at /en/privacy). */
 export const POLICY_PATHS: Record<PolicyDoc, { fr: string; en: string }> = {
   privacy: { fr: "/confidentialite", en: "/privacy" },
   cookies: { fr: "/cookies", en: "/cookies" },
+  legal: { fr: "/mentions-legales", en: "/legal-notice" },
 };
 
 export async function policyMetadata(doc: PolicyDoc, locale: string): Promise<Metadata> {
@@ -30,7 +31,7 @@ export async function PolicyPage({ doc, locale }: { doc: PolicyDoc; locale: stri
   setRequestLocale(locale);
   const t = await getTranslations("policies");
   const lang = locale === "en" ? "en" : "fr";
-  const html = doc === "privacy" ? privacyHtml(lang) : cookiesHtml(lang);
+  const html = doc === "privacy" ? privacyHtml(lang) : doc === "legal" ? legalNoticeHtml(lang) : cookiesHtml(lang);
   return (
     <>
       <PageIntro eyebrow="Villa Serena" title={t(`${doc}_title`)} lead={`${t("updated")} ${POLICY_UPDATED[lang]}`} />

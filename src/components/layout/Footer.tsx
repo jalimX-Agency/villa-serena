@@ -154,6 +154,9 @@ export function Footer() {
               {t("footer.cookie")}
             </Link>
             <ManageCookiesButton label={t("footer.manage_cookies")} className="font-sans text-xs text-white/50 hover:text-white transition-colors" />
+            <Link href={localizedPath("/mentions-legales", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+              {t("footer.legal_notice")}
+            </Link>
           </div>
         </div>
       </div>

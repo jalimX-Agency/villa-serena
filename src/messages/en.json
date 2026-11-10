@@ -327,7 +327,8 @@
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
     "follow_title": "Follow us",
-    "manage_cookies": "Manage cookies"
+    "manage_cookies": "Manage cookies",
+    "legal_notice": "Legal notice"
   },
   "cookie": {
     "title": "Cookies",
@@ -430,6 +431,10 @@
     "cookies": {
       "title": "Cookie Policy | Villa Serena",
       "description": "The cookies used on the Villa Serena website, why, for how long, and how to accept or refuse them."
+    },
+    "legal": {
+      "title": "Legal notice | Villa Serena",
+      "description": "Publisher, hosting and legal information for the Villa Serena website, a charming villa on the Ourika road, Marrakech."
     }
   },
   "faq": {
@@ -677,7 +682,8 @@
   "policies": {
     "privacy_title": "Privacy Policy",
     "cookies_title": "Cookie Policy",
-    "updated": "Last updated:"
+    "updated": "Last updated:",
+    "legal_title": "Legal notice"
   },
   "carousel": {
     "prev": "Previous photo",
@@ -688,5 +694,44 @@
     "golf": "Golf course photos",
     "suites_prev": "Previous suites",
     "suites_next": "Next suites"
+  },
+  "payment": {
+    "meta_title": "Payment for your stay | Villa Serena",
+    "eyebrow": "Secure payment",
+    "title_deposit": "Deposit for your stay",
+    "title_full": "Payment for your stay",
+    "title_balance": "Balance of your stay",
+    "dates": "Dates",
+    "guests": "Guests",
+    "total": "Price of the stay (whole villa)",
+    "tax_note": "Tourist tax extra, paid on site: 25 dirhams per person per night, from age 12.",
+    "due_now": "To pay now",
+    "expires": "This link is valid until {date} (Marrakech time). After that, the dates are released.",
+    "accept_before": "I have read and accept the ",
+    "accept_terms": "terms of sale",
+    "accept_and": " and the ",
+    "accept_rules": "house rules",
+    "accept_after": " of Villa Serena.",
+    "accept_required": "Please accept the terms of sale and the house rules.",
+    "pay_card": "Pay by card",
+    "continue": "Continue",
+    "transfer_title": "Payment by bank transfer",
+    "transfer_intro": "Please make a transfer of the amount above, quoting the reference. We will confirm receipt by email.",
+    "holder": "Account holder",
+    "bank": "Bank",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "rib": "RIB",
+    "reference": "Reference to quote",
+    "no_method": "Online payment will be available soon. To pay now, contact us and we will send you our bank details.",
+    "contact": "Contact us",
+    "paid_title": "Payment received",
+    "paid_body": "Thank you: we have received this payment. Your receipt has been sent by email.",
+    "expired_title": "This link is no longer valid",
+    "expired_body": "The payment deadline has passed or this link has been replaced. Contact us and we will send you a new link if the dates are still free.",
+    "return_title": "Thank you, your payment is being confirmed",
+    "return_body": "You will receive a confirmation by email in a few minutes.",
+    "secure": "No card data passes through our website: you pay on our provider's secure page (3-D Secure).",
+    "error": "Something went wrong. Please try again or contact us."
   }
 }

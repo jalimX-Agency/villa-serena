@@ -327,7 +327,8 @@
     "privacy": "Politique de confidentialité",
     "cookie": "Politique cookies",
     "follow_title": "Suivez-nous",
-    "manage_cookies": "Gérer mes cookies"
+    "manage_cookies": "Gérer mes cookies",
+    "legal_notice": "Mentions légales"
   },
   "cookie": {
     "title": "Cookies",
@@ -430,6 +431,10 @@
     "cookies": {
       "title": "Politique cookies | Villa Serena",
       "description": "Les cookies utilisés sur le site de la Villa Serena, leur finalité, leur durée et comment les accepter ou les refuser."
+    },
+    "legal": {
+      "title": "Mentions légales | Villa Serena",
+      "description": "Éditeur, hébergeur et informations légales du site de la Villa Serena, villa de charme route de l'Ourika à Marrakech."
     }
   },
   "faq": {
@@ -677,7 +682,8 @@
   "policies": {
     "privacy_title": "Politique de confidentialité",
     "cookies_title": "Politique cookies",
-    "updated": "Dernière mise à jour :"
+    "updated": "Dernière mise à jour :",
+    "legal_title": "Mentions légales"
   },
   "carousel": {
     "prev": "Photo précédente",
@@ -688,5 +694,44 @@
     "golf": "Photos des parcours de golf",
     "suites_prev": "Suites précédentes",
     "suites_next": "Suites suivantes"
+  },
+  "payment": {
+    "meta_title": "Paiement de votre séjour | Villa Serena",
+    "eyebrow": "Paiement sécurisé",
+    "title_deposit": "Acompte de votre séjour",
+    "title_full": "Paiement de votre séjour",
+    "title_balance": "Solde de votre séjour",
+    "dates": "Dates",
+    "guests": "Personnes",
+    "total": "Prix du séjour (villa entière)",
+    "tax_note": "Taxe de séjour en sus, réglée sur place : 25 dirhams par personne et par nuit, à partir de 12 ans.",
+    "due_now": "À régler maintenant",
+    "expires": "Ce lien est valable jusqu'au {date} (heure de Marrakech). Passé ce délai, les dates sont libérées.",
+    "accept_before": "J'ai lu et j'accepte les ",
+    "accept_terms": "conditions générales de vente",
+    "accept_and": " et le ",
+    "accept_rules": "règlement intérieur",
+    "accept_after": " de la Villa Serena.",
+    "accept_required": "Merci d'accepter les conditions générales de vente et le règlement intérieur.",
+    "pay_card": "Payer par carte",
+    "continue": "Continuer",
+    "transfer_title": "Paiement par virement bancaire",
+    "transfer_intro": "Merci d'effectuer un virement du montant ci-dessus, en indiquant la référence. Nous vous confirmerons la réception par e-mail.",
+    "holder": "Titulaire",
+    "bank": "Banque",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "rib": "RIB",
+    "reference": "Référence à indiquer",
+    "no_method": "Le paiement en ligne sera bientôt disponible. Pour régler dès maintenant, contactez-nous : nous vous enverrons nos coordonnées bancaires.",
+    "contact": "Nous contacter",
+    "paid_title": "Paiement reçu",
+    "paid_body": "Merci : nous avons bien reçu ce paiement. Vous avez reçu votre reçu par e-mail.",
+    "expired_title": "Ce lien n'est plus valable",
+    "expired_body": "Le délai de paiement est dépassé ou ce lien a été remplacé. Contactez-nous et nous vous enverrons un nouveau lien si les dates sont encore libres.",
+    "return_title": "Merci, votre paiement est en cours de confirmation",
+    "return_body": "Vous recevrez une confirmation par e-mail dans quelques minutes.",
+    "secure": "Aucune donnée bancaire ne transite par notre site : vous payez sur la page sécurisée de notre prestataire (3-D Secure).",
+    "error": "Une erreur est survenue. Réessayez ou contactez-nous."
   }
 }
