@@ -20,6 +20,7 @@ const ROUTES = [
   { path: "/cookies", priority: 0.2 },
   { path: "/mentions-legales", priority: 0.2 },
   { path: "/conditions-generales-de-vente", priority: 0.3 },
+  { path: "/reglement-interieur", priority: 0.3 },
 ];
 
 function entry(path: string, priority: number) {

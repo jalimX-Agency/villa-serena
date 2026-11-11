@@ -42,7 +42,8 @@ The villa is only ever rented in full: guests are alone on the estate. The site 
 - [Galerie](${fr("/galerie")}): photos
 - [Blog](${fr("/blog")}): guides and articles
 - [Réservation](${fr("/reservation")}): rates, conditions and booking request
-- [Contact](${fr("/contact")})${LEGAL_DOCS.terms.published ? `\n- [Conditions générales de vente](${fr("/conditions-generales-de-vente")})` : ""}
+- [Contact](${fr("/contact")})${LEGAL_DOCS.terms.published ? `\n- [Conditions générales de vente](${fr("/conditions-generales-de-vente")})` : ""}${LEGAL_DOCS.rules.published ? `
+- [Règlement intérieur](${fr("/reglement-interieur")})` : ""}
 
 ## Pages (English)
 
@@ -54,7 +55,8 @@ The villa is only ever rented in full: guests are alone on the estate. The site 
 - [Gallery](${en("/galerie")})
 - [Blog](${en("/blog")})
 - [Booking](${en("/reservation")})
-- [Contact](${en("/contact")})${LEGAL_DOCS.terms.published ? `\n- [Terms of sale](${en("/terms-of-sale")})` : ""}
+- [Contact](${en("/contact")})${LEGAL_DOCS.terms.published ? `\n- [Terms of sale](${en("/terms-of-sale")})` : ""}${LEGAL_DOCS.rules.published ? `
+- [House rules](${en("/house-rules")})` : ""}
 
 ## Optional
 

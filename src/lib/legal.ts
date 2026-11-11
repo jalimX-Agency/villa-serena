@@ -6,7 +6,7 @@
  */
 export const LEGAL_DOCS = {
   terms: { published: true, version: "2026-11-11" }, // CGV, draft of 8 Nov with the company details (11 Nov)
-  rules: { published: false, version: "" }, // règlement intérieur: text in legal-rules.ts, 4 TODO items awaited from the villa
+  rules: { published: true, version: "2026-11-11" }, // règlement intérieur, version of 11 Nov 2026 (legal-rules.ts)
 };
 
 export const LEGAL = {
@@ -33,7 +33,7 @@ export const LEGAL_SLUGS: Record<LegalDoc, { fr: string; en: string }> = {
 /** Last update shown at the top of each document. */
 export const LEGAL_UPDATED: Record<LegalDoc, { fr: string; en: string }> = {
   terms: { fr: "11 novembre 2026", en: "11 November 2026" },
-  rules: { fr: "", en: "" },
+  rules: { fr: "11 novembre 2026", en: "11 November 2026" },
 };
 
 export const legalHref = (doc: LegalDoc, locale: string) => LEGAL_SLUGS[doc][locale === "en" ? "en" : "fr"];

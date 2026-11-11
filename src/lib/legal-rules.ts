@@ -1,8 +1,7 @@
 /**
  * House rules (règlement intérieur), text of the villa (draft of 8 Nov 2026, received 11 Nov).
  * English translation by JalimX; the French version prevails.
- * Not published yet (LEGAL_DOCS.rules): the villa still has to answer the items marked TODO
- * (tap water, waste sorting, safe, nearest doctor) and confirm the text was reviewed.
+ * Updated version of 11 Nov 2026 (water, compost, CCTV, safes, doctor and clinic, parking).
  */
 
 export const RULES_FR = `
@@ -76,18 +75,25 @@ export const RULES_FR = `
 
 <h2>12. Eau, énergie et déchets</h2>
 <p>L'eau est une ressource rare dans la vallée de l'Ourika. Merci de l'utiliser avec mesure.</p>
-<p>De l'eau filtrée en carafe est servie sur demande. [TODO : préciser si l'eau du robinet est potable ou non.]</p>
+<p>L'eau de la villa provient d'un puits de forage. Elle est traitée par filtration et analysée chaque trimestre par un laboratoire ; les derniers résultats sont à votre disposition à l'accueil.</p>
+<p>Pour la boisson, de l'eau filtrée en carafe vous est servie sur demande.</p>
 <p>Merci d'éteindre la climatisation et les lumières en quittant les suites, et de garder fenêtres et portes fermées lorsque la climatisation fonctionne.</p>
-<p>Les déchets se déposent dans les poubelles prévues. [TODO : tri des déchets éventuel.]</p>
+<p>Les déchets se déposent dans les poubelles prévues. Les déchets organiques (épluchures, restes de repas, marc de café) sont récupérés pour le compost du potager : la gouvernante vous indique le bac prévu à cet effet.</p>
 
 <h2>13. Sécurité</h2>
-<p>Les abords et accès extérieurs de la villa sont placés sous vidéosurveillance, pour la sécurité des biens et des personnes. Aucune caméra n'est installée à l'intérieur des suites, des salles de bain ou du hammam.</p>
+<p>L'accès principal du domaine et le parking sont placés sous vidéosurveillance, pour la sécurité des biens et des personnes. Aucune caméra n'est installée à l'intérieur des bâtiments, ni dans les suites, les salles de bain ou le hammam.</p>
 <p>Les portails et portes d'accès sont refermés après chaque passage.</p>
-<p>Les objets de valeur restent sous la responsabilité de leurs propriétaires. [TODO : coffre-fort éventuel.]</p>
-<p>En cas d'urgence, prévenez immédiatement la gouvernante, ou le gardien la nuit. Numéros utiles : police 19, gendarmerie 177, pompiers et ambulance 15, ainsi que [TODO : médecin ou clinique la plus proche].</p>
+<p>Les objets de valeur restent sous la responsabilité de leurs propriétaires. Un coffre-fort est à votre disposition dans chaque suite et dans le Studio : nous vous invitons à y ranger papiers, bijoux et argent.</p>
+<p>En cas d'urgence, prévenez immédiatement la gouvernante, ou le gardien la nuit.</p>
+<ul>
+<li><strong>Numéros d'urgence :</strong> police 19, gendarmerie 177, pompiers et ambulance 15.</li>
+<li><strong>Médecin référent :</strong> docteur Samir Belmezouar.</li>
+<li><strong>Clinique de référence :</strong> Clinique Internationale de Marrakech.</li>
+</ul>
+<p>La liste complète des numéros d'urgence, avec leurs téléphones, est disponible à l'accueil.</p>
 
 <h2>14. Stationnement et accès</h2>
-<p>Le parking privé compte 7 places. Les véhicules y stationnent portes verrouillées, sous la responsabilité de leurs propriétaires.</p>
+<p>La villa dispose d'un parking privé, à l'intérieur de la propriété, et de places de stationnement à l'extérieur. Les véhicules y stationnent portes verrouillées, sous la responsabilité de leurs propriétaires.</p>
 <p>La circulation des véhicules dans le jardin est interdite.</p>
 
 <h2>15. Informations pratiques</h2>
@@ -174,18 +180,25 @@ export const RULES_EN = `
 
 <h2>12. Water, energy and waste</h2>
 <p>Water is a scarce resource in the Ourika valley. Please use it sparingly.</p>
-<p>Filtered water in carafes is served on request. [TODO: tap water drinkable or not.]</p>
+<p>The villa's water comes from a borehole well. It is treated by filtration and tested every quarter by a laboratory; the latest results are available at reception.</p>
+<p>For drinking, filtered water in carafes is served on request.</p>
 <p>Please switch off the air conditioning and lights when leaving the suites, and keep windows and doors closed while the air conditioning is on.</p>
-<p>Waste goes in the bins provided. [TODO: waste sorting, if any.]</p>
+<p>Waste goes in the bins provided. Organic waste (peelings, leftovers, coffee grounds) is collected for the vegetable garden compost: the housekeeper will show you the bin provided.</p>
 
 <h2>13. Safety and security</h2>
-<p>The grounds and outside entrances of the villa are covered by CCTV, for the safety of people and property. There are no cameras inside the suites, bathrooms or hammam.</p>
+<p>The main entrance of the estate and the car park are covered by CCTV, for the safety of people and property. There are no cameras inside the buildings, nor in the suites, bathrooms or hammam.</p>
 <p>Gates and entrance doors are closed after each use.</p>
-<p>Valuables remain the responsibility of their owners. [TODO: safe, if any.]</p>
-<p>In an emergency, tell the housekeeper immediately, or the watchman at night. Useful numbers: police 19, gendarmerie 177, fire and ambulance 15, and [TODO: nearest doctor or clinic].</p>
+<p>Valuables remain the responsibility of their owners. A safe is available in each suite and in the Studio: please keep your papers, jewellery and money in it.</p>
+<p>In an emergency, tell the housekeeper immediately, or the watchman at night.</p>
+<ul>
+<li><strong>Emergency numbers:</strong> police 19, gendarmerie 177, fire and ambulance 15.</li>
+<li><strong>Villa doctor:</strong> Dr Samir Belmezouar.</li>
+<li><strong>Reference clinic:</strong> Clinique Internationale de Marrakech.</li>
+</ul>
+<p>The full list of emergency numbers, with their phone numbers, is available at reception.</p>
 
 <h2>14. Parking and access</h2>
-<p>The private car park has 7 spaces. Vehicles are parked locked, at their owners' responsibility.</p>
+<p>The villa has a private car park inside the property, as well as parking spaces outside. Vehicles are parked locked, at their owners' responsibility.</p>
 <p>Vehicles may not be driven in the garden.</p>
 
 <h2>15. Practical information</h2>

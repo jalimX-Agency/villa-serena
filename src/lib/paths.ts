@@ -7,6 +7,7 @@ const LOCALIZED: Record<string, { fr: string; en: string }> = {
   "/confidentialite": { fr: "/confidentialite", en: "/privacy" },
   "/mentions-legales": { fr: "/mentions-legales", en: "/legal-notice" },
   "/conditions-generales-de-vente": { fr: "/conditions-generales-de-vente", en: "/terms-of-sale" },
+  "/reglement-interieur": { fr: "/reglement-interieur", en: "/house-rules" },
 };
 
 export function localizedPath(path: string, locale: string) {
