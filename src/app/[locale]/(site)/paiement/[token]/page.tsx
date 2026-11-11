@@ -49,6 +49,7 @@ export default async function PaymentPage({
 
   const bank = await getBankDetails();
   const labels = Object.fromEntries(LABEL_KEYS.map((k) => [k, t(k)])) as PaymentLabels;
+  if (!LEGAL.rulesPublished) labels.accept_required = t("accept_required_terms");
 
   return (
     <section className="mx-auto max-w-2xl px-6 pt-32 lg:pt-40 pb-24">
@@ -91,7 +92,7 @@ export default async function PaymentPage({
           <PaymentAction
             token={token}
             providerReady={getPaymentProvider() !== null}
-            legal={{ published: LEGAL.published, termsHref: `/${locale}${legalHref("terms", locale)}`, rulesHref: `/${locale}${legalHref("rules", locale)}` }}
+            legal={{ published: LEGAL.published, rulesPublished: LEGAL.rulesPublished, termsHref: `/${locale}${legalHref("terms", locale)}`, rulesHref: `/${locale}${legalHref("rules", locale)}` }}
             bank={hasBankDetails(bank) ? bank : null}
             reference={`VS-${b.id.slice(-6).toUpperCase()}`}
             labels={labels}

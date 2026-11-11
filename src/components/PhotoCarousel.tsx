@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PhotoSoon } from "@/components/PhotoSoon";
 
 export type Slide = { src: string; alt: string; caption?: string };
 
@@ -23,7 +24,7 @@ export function PhotoCarousel({
   /** Shape of each photo (aspect ratio, rounded corners…). */
   frameClassName?: string;
   sizes?: string;
-  labels: { prev: string; next: string; slide: string /* "Photo {n} sur {total}" */; region: string };
+  labels: { prev: string; next: string; slide: string /* "Photo {n} sur {total}" */; region: string; soon?: string };
   tone?: "light" | "dark";
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -89,7 +90,12 @@ export function PhotoCarousel({
               aria-label={slideLabel(i + 1)}
             >
               <div className={cn("relative overflow-hidden bg-muted", frameClassName)}>
-                <Image src={s.src} alt={s.alt} fill sizes={sizes} loading={i === 0 ? undefined : "lazy"} className="object-cover" />
+                {s.src ? (
+                  <Image src={s.src} alt={s.alt} fill sizes={sizes} loading={i === 0 ? undefined : "lazy"} className="object-cover" />
+                ) : (
+                  // Slot waiting for its photo (added later from « Photos du site »).
+                  <PhotoSoon label={labels.soon ?? ""} className="absolute inset-0" />
+                )}
               </div>
               {s.caption && (
                 <figcaption className={cn("mt-3 font-sans text-sm", tone === "dark" ? "text-villa-sand-light" : "text-muted-foreground")}>

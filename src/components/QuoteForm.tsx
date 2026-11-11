@@ -2,6 +2,7 @@
 import { useActionState } from "react";
 import { useTranslations } from "next-intl";
 import { submitQuoteRequest, type QuoteFormState } from "@/lib/actions/booking";
+import { PhoneInput } from "@/components/PhoneInput";
 
 const initialState: QuoteFormState = { status: "idle" };
 
@@ -59,10 +60,7 @@ export function QuoteForm({ serviceType, submitLabel }: { serviceType: string; s
           <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">
             {t("contact.form_phone")}
           </label>
-          <input
-            name="phone"
-            className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta"
-          />
+          <PhoneInput className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta" />
         </div>
         <div>
           <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">

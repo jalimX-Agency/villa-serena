@@ -4,10 +4,18 @@
  * PRIVACY_EMAIL below and the sentences complete themselves.
  */
 
-export const POLICY_UPDATED = { fr: "9 novembre 2026", en: "9 November 2026" };
+export const POLICY_UPDATED = { fr: "11 novembre 2026", en: "11 November 2026" };
 
 /** Company identifiers, published once known (capital in dirhams, trade register no., ICE, registered office). */
-export const COMPANY = { capital: "", rc: "", ice: "", office: "", /** Director of publication (legal notice). */ publisher: "" };
+// From the terms of sale sent on 11 Nov 2026.
+export const COMPANY = {
+  capital: "10 000",
+  rc: "43769",
+  ice: "001542315000080",
+  office: "246 rue Kalitousa, Souk Tameslouhte, 43312 Tahannaout – Tameslouhte, Maroc",
+  /** Director of publication (legal notice): still to be given by the villa. */
+  publisher: "",
+};
 
 /** Dedicated address for data requests; until then, the villa's general address. */
 export const PRIVACY_EMAIL = "guest@villaserenamarrakech.com";
@@ -26,10 +34,10 @@ function companyFr() {
 
 function companyEn() {
   const parts = [
-    COMPANY.capital && `with a share capital of ${COMPANY.capital} dirhams`,
+    COMPANY.capital && `with a share capital of ${COMPANY.capital.replace(/\s/g, ",")} dirhams`,
     COMPANY.rc && `registered with the Marrakech Trade Register under number ${COMPANY.rc}`,
     COMPANY.ice && `ICE ${COMPANY.ice}`,
-    COMPANY.office && `with its registered office at ${COMPANY.office}`,
+    COMPANY.office && `with its registered office at ${COMPANY.office.replace(/Maroc$/, "Morocco")}`,
   ].filter(Boolean);
   return parts.length ? `, ${parts.join(", ")}` : "";
 }

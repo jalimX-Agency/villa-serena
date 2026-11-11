@@ -1,12 +1,25 @@
 /**
- * House rules and terms of sale (Avenant n° 1, M06 / M48). Two separate documents, written
- * later by the villa. Until their texts are delivered the pages return 404, the footer hides
- * the links and the booking form shows no acceptance box. When the texts arrive: fill
- * LEGAL_TEXT, set `published: true` and give the documents a version (stored with each request).
+ * House rules and terms of sale (Avenant n° 1, M06 / M48): two separate documents, each published
+ * on its own. A document that is not published returns 404 and is not linked anywhere.
+ * The acceptance box (booking form and payment page) is active as soon as the terms are published,
+ * and names the house rules once they are published too. The version is stored with each request.
  */
+export const LEGAL_DOCS = {
+  terms: { published: true, version: "2026-11-11" }, // CGV, draft of 8 Nov with the company details (11 Nov)
+  rules: { published: false, version: "" }, // règlement intérieur: final text awaited
+};
+
 export const LEGAL = {
-  published: false,
-  version: "", // e.g. "2026-11-15"
+  /** Acceptance required before a request or a payment. */
+  published: LEGAL_DOCS.terms.published,
+  rulesPublished: LEGAL_DOCS.rules.published,
+  /** Stored with each acceptance, e.g. "CGV 2026-11-11 · RI 2026-11-20". */
+  version: [
+    LEGAL_DOCS.terms.published && `CGV ${LEGAL_DOCS.terms.version}`,
+    LEGAL_DOCS.rules.published && `RI ${LEGAL_DOCS.rules.version}`,
+  ]
+    .filter(Boolean)
+    .join(" · "),
 };
 
 export type LegalDoc = "rules" | "terms";
@@ -17,10 +30,10 @@ export const LEGAL_SLUGS: Record<LegalDoc, { fr: string; en: string }> = {
   terms: { fr: "/conditions-generales-de-vente", en: "/terms-of-sale" },
 };
 
-/** Document bodies as trusted HTML, per locale — empty until delivered. */
-export const LEGAL_TEXT: Record<LegalDoc, { fr: string; en: string }> = {
+/** Last update shown at the top of each document. */
+export const LEGAL_UPDATED: Record<LegalDoc, { fr: string; en: string }> = {
+  terms: { fr: "11 novembre 2026", en: "11 November 2026" },
   rules: { fr: "", en: "" },
-  terms: { fr: "", en: "" },
 };
 
 export const legalHref = (doc: LegalDoc, locale: string) => LEGAL_SLUGS[doc][locale === "en" ? "en" : "fr"];

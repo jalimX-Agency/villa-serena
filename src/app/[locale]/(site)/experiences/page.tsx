@@ -1,4 +1,4 @@
-import { filledSlides, getSiteImages } from "@/lib/site-images";
+import { getSiteImages } from "@/lib/site-images";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -23,8 +23,9 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
   const events = t.raw("experiencesPage.evenements.paragraphs") as string[];
   const facts = t.raw("experiencesPage.evenements.facts") as [string, string][];
   const courses = t.raw("experiencesPage.golf.courses") as [string, string][];
-  // M46: authorised course photos only, added from « Photos du site »; the alt doubles as the caption.
-  const golfSlides = filledSlides(img, ["golf.1", "golf.2", "golf.3", "golf.4", "golf.5", "golf.6", "golf.7", "golf.8"]).map((s) => ({ ...s, caption: s.alt }));
+  // M46: the eight slots, captioned, shown now; « Photos à venir » until the villa adds authorised
+  // photos from « Photos du site ». The caption is the course name and time from the villa.
+  const golfSlides = (["golf.1", "golf.2", "golf.3", "golf.4", "golf.5", "golf.6", "golf.7", "golf.8"] as const).map((k) => ({ ...img[k], caption: img[k].alt }));
 
   const golfText = (
     <>
@@ -91,26 +92,19 @@ export default async function ExperiencesPage({ params }: { params: Promise<{ lo
 
       {/* Golf */}
       <section id="golf" className="scroll-mt-40 bg-villa-ink text-white py-20 lg:py-28">
-        {golfSlides.length > 0 ? (
-          // With photos: text, then the full-width carousel, then the table.
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-3xl">{golfText}</div>
-            <PhotoCarousel
-              className="mt-12"
-              slides={golfSlides}
-              frameClassName="aspect-[4/3] sm:aspect-[21/9]"
-              sizes="(min-width:1280px) 1216px, 100vw"
-              tone="dark"
-              labels={{ prev: t("carousel.prev"), next: t("carousel.next"), slide: t.raw("carousel.slide") as string, region: t("carousel.golf") }}
-            />
-            <div className="mt-12 max-w-3xl">{golfTable}</div>
-          </div>
-        ) : (
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">{golfText}</div>
-            <div className="lg:col-span-7">{golfTable}</div>
-          </div>
-        )}
+        {/* Text, then the full-width carousel, then the table (M46). */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">{golfText}</div>
+          <PhotoCarousel
+            className="mt-12"
+            slides={golfSlides}
+            frameClassName="aspect-[4/3] sm:aspect-[21/9]"
+            sizes="(min-width:1280px) 1216px, 100vw"
+            tone="dark"
+            labels={{ prev: t("carousel.prev"), next: t("carousel.next"), slide: t.raw("carousel.slide") as string, region: t("carousel.golf"), soon: t("suites.photos_soon") }}
+          />
+          <div className="mt-12 max-w-3xl">{golfTable}</div>
+        </div>
       </section>
 
       {/* Retraites */}

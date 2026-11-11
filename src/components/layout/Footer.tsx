@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS } from "./Header";
 import { StarDivider } from "@/components/StarDivider";
-import { LEGAL, legalHref } from "@/lib/legal";
+import { LEGAL_DOCS, legalHref } from "@/lib/legal";
 import { localizedPath } from "@/lib/paths";
 import { ManageCookiesButton } from "@/components/consent/ManageCookiesButton";
 
@@ -137,16 +137,16 @@ export function Footer() {
             © {new Date().getFullYear()} Villa Serena Marrakech. {t("footer.legal")}
           </span>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {/* House rules and terms of sale: shown once their texts are published (Avenant 1, M06). */}
-            {LEGAL.published && (
-              <>
-                <Link href={legalHref("rules", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
-                  {t("legal.house_rules")}
-                </Link>
-                <Link href={legalHref("terms", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
-                  {t("legal.terms")}
-                </Link>
-              </>
+            {/* Terms of sale and house rules: each shown once its text is published (Avenant 1, M06). */}
+            {LEGAL_DOCS.terms.published && (
+              <Link href={legalHref("terms", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+                {t("legal.terms")}
+              </Link>
+            )}
+            {LEGAL_DOCS.rules.published && (
+              <Link href={legalHref("rules", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
+                {t("legal.house_rules")}
+              </Link>
             )}
             <Link href={localizedPath("/confidentialite", locale)} className="font-sans text-xs text-white/50 hover:text-white transition-colors">
               {t("footer.privacy")}

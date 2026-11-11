@@ -1,6 +1,9 @@
-import { LegalPage } from "@/components/LegalPage";
+import { LegalPage, legalMetadata } from "@/components/LegalPage";
 
-export const metadata = { robots: { index: false, follow: true } };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return legalMetadata("rules", locale);
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

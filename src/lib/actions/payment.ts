@@ -19,7 +19,7 @@ export async function startPayment(token: string, acceptTerms: boolean): Promise
 
   if (LEGAL.published && !p.termsAcceptedAt) {
     await db.payment.update({ where: { id: p.id }, data: { termsAcceptedAt: new Date(), termsVersion: LEGAL.version } });
-    await logEvent(p.bookingId, "terms", `CGV et règlement intérieur acceptés sur la page de paiement (version ${LEGAL.version}).`);
+    await logEvent(p.bookingId, "terms", `${LEGAL.rulesPublished ? "CGV et règlement intérieur acceptés" : "CGV acceptées"} sur la page de paiement (${LEGAL.version}).`);
   }
 
   const provider = getPaymentProvider();

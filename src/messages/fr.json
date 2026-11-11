@@ -39,7 +39,7 @@
     "testimonials_label": "Témoignages",
     "testimonials_title": "Ils ont séjourné\nchez nous",
     "cta_title": "Réservez la villa entière",
-    "cta_body": "À partir de 980 € la nuit, pour le domaine entier et jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus (hors taxe de séjour). Idéal pour une réunion de famille, un anniversaire, un séjour golfique ou un séminaire.\nRéponse sous 24 heures, sans engagement.",
+    "cta_body": "À partir de 980 € TTC la nuit, pour le domaine entier et jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus (hors taxe de séjour). Idéal pour une réunion de famille, un anniversaire, un séjour golfique ou un séminaire.\nRéponse sous 24 heures, sans engagement.",
     "cta_button": "Faire une demande",
     "stats": {
       "rooms": "6 suites + 1 studio",
@@ -100,7 +100,7 @@
       {
         "key": "studio",
         "title": "Le Studio : l'indépendance",
-        "body": "À l'écart du reste de la maison, le Studio offre 45 m² de calme, avec son coin salon, son bureau et sa machine Nespresso. Il séduira celles et ceux qui aiment avoir leur propre rythme : des grands-parents, un duo d'amis, ou l'organisateur d'un séminaire qui cherche un espace au calme pour travailler."
+        "body": "Indépendant du reste de la maison, le Studio offre 45 m² de calme, avec son coin salon, son bureau et sa machine Nespresso. Il séduira celles et ceux qui aiment avoir leur propre rythme : des grands-parents, un duo d'amis, ou l'organisateur d'un séminaire qui cherche un espace au calme pour travailler."
       },
       {
         "key": "piscine",
@@ -233,7 +233,7 @@
     "essentials": [
       [
         "Tarif",
-        "À partir de 980 € la nuit, villa entière, jusqu'à 14 personnes, selon la saison"
+        "À partir de 980 € TTC la nuit, villa entière, jusqu'à 14 personnes, selon la saison"
       ],
       [
         "Taxe de séjour",
@@ -390,7 +390,7 @@
   "seo": {
     "home": {
       "title": "Location villa privée Marrakech avec piscine | Villa Serena",
-      "description": "Route de l'Ourika : 6 suites et un studio sur un hectare, 14 couchages, piscine privée, hammam, personnel sur place. Dès 980 € la nuit, villa entière."
+      "description": "Route de l'Ourika : 6 suites et un studio sur un hectare, 14 couchages, piscine privée, hammam, personnel sur place. Dès 980 € TTC la nuit, villa entière."
     },
     "villa": {
       "title": "Villa de charme route de l'Ourika, Marrakech | Villa Serena",
@@ -414,7 +414,7 @@
     },
     "reservation": {
       "title": "Louer la villa à Marrakech : tarif | Villa Serena",
-      "description": "Dès 980 € la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage inclus. Séjour de 4 nuits minimum. Réponse sous 24 h."
+      "description": "Dès 980 € TTC la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage inclus. Séjour de 4 nuits minimum. Réponse sous 24 h."
     },
     "contact": {
       "title": "Contact et accès | Villa Serena Marrakech",
@@ -435,6 +435,14 @@
     "legal": {
       "title": "Mentions légales | Villa Serena",
       "description": "Éditeur, hébergeur et informations légales du site de la Villa Serena, villa de charme route de l'Ourika à Marrakech."
+    },
+    "terms": {
+      "title": "Conditions générales de vente | Villa Serena",
+      "description": "Conditions de location de la Villa Serena : tarifs, acompte, solde, annulation, caution, arrivée et départ."
+    },
+    "rules": {
+      "title": "Règlement intérieur | Villa Serena",
+      "description": "Les règles de vie de la Villa Serena : capacité, horaires, piscine, calme, événements et respect des lieux."
     }
   },
   "faq": {
@@ -455,7 +463,7 @@
       },
       {
         "q": "Quel est le tarif ?",
-        "a": "À partir de 980 € la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus. Le tarif varie selon la saison : nous vous le confirmons sous 24 heures pour vos dates. La taxe de séjour n'est pas incluse : elle s'élève à 25 dirhams par personne et par nuit, et les enfants de moins de 12 ans en sont exonérés."
+        "a": "À partir de 980 € TTC la nuit pour la villa entière, jusqu'à 14 personnes, petit-déjeuner et ménage quotidien inclus. Le tarif varie selon la saison : nous vous le confirmons sous 24 heures pour vos dates. La taxe de séjour n'est pas incluse : elle s'élève à 25 dirhams par personne et par nuit, et les enfants de moins de 12 ans en sont exonérés."
       },
       {
         "q": "Quelle est la durée minimale de séjour ?",
@@ -677,7 +685,8 @@
     "accept_and": " et le ",
     "accept_rules": "règlement intérieur",
     "accept_after": " de la Villa Serena.",
-    "accept_required": "Merci d'accepter les conditions générales de vente et le règlement intérieur."
+    "accept_required": "Merci d'accepter les conditions générales de vente et le règlement intérieur.",
+    "accept_required_terms": "Merci d'accepter les conditions générales de vente."
   },
   "policies": {
     "privacy_title": "Politique de confidentialité",
@@ -732,6 +741,7 @@
     "return_title": "Merci, votre paiement est en cours de confirmation",
     "return_body": "Vous recevrez une confirmation par e-mail dans quelques minutes.",
     "secure": "Aucune donnée bancaire ne transite par notre site : vous payez sur la page sécurisée de notre prestataire (3-D Secure).",
-    "error": "Une erreur est survenue. Réessayez ou contactez-nous."
+    "error": "Une erreur est survenue. Réessayez ou contactez-nous.",
+    "accept_required_terms": "Merci d'accepter les conditions générales de vente."
   }
 }

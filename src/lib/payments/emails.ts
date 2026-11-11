@@ -56,6 +56,9 @@ function termsLine(b: Booking) {
   const l = en ? "en" : "fr";
   const terms = `${baseUrl()}/${l}${legalHref("terms", l)}`;
   const rules = `${baseUrl()}/${l}${legalHref("rules", l)}`;
+  if (!LEGAL.rulesPublished) {
+    return [en ? `Our <a href="${terms}">terms of sale</a> apply to your stay.` : `Nos <a href="${terms}">conditions générales de vente</a> s'appliquent à votre séjour.`];
+  }
   return [
     en
       ? `Our <a href="${terms}">terms of sale</a> and <a href="${rules}">house rules</a> apply to your stay.`

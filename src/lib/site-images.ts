@@ -26,7 +26,7 @@ export const SITE_IMAGE_SLOTS = {
   "villa.riad": { group: "La villa", label: "Le riad", src: media("/welcome-salon.jpg"), alt: "Salon et salle à manger du riad de la Villa Serena, arcs marocains", altEn: "The riad's lounge and dining room, Moroccan arches" },
   "villa.patio": { group: "La villa", label: "Le patio", src: media("/room-rouge-2.jpg"), alt: "Patio d'inspiration riad de la villa, terrasse et arcades", altEn: "The villa's riad-style patio, terrace and arcades" },
   "villa.pavillon": { group: "La villa", label: "Le pavillon", src: "", alt: "Pavillon de la Villa Serena, salon et jardin privé", altEn: "Villa Serena's pavilion, lounge and private garden" },
-  "villa.studio": { group: "La villa", label: "Le Studio", src: media("/suite-bleue.jpg"), alt: "Le Studio indépendant de 45 m², coin salon", altEn: "The independent 45 m² Studio, sitting area" },
+  "villa.studio": { group: "La villa", label: "Le Studio", src: media("/villa-serena-studio-independant-salon.jpg"), alt: "Le Studio indépendant de 45 m², coin salon", altEn: "The independent 45 m² Studio, sitting area" },
   "villa.piscine": { group: "La villa", label: "La piscine", src: media("/hero-main.jpg"), alt: "Piscine privée de 11 × 5 m de la Villa Serena, route de l'Ourika, Marrakech", altEn: "Villa Serena's 11 × 5 m private pool, Ourika road, Marrakech" },
   "villa.jardin": { group: "La villa", label: "Le jardin", src: media("/welcome-jardin.jpg"), alt: "Jardin d'oliviers de la Villa Serena et statue de Bouddha", altEn: "Villa Serena's olive garden and Buddha statue" },
   // M17: the garden block becomes a five-photo carousel (villa.jardin is the first photo).

@@ -23,9 +23,10 @@ const MOMENTS = [
 // Used for the background colours AND the sun, so both stay in step with the cards.
 const STOPS = [0.125, 0.375, 0.625, 0.875];
 
-// Sky (annex of 10 Nov 2026, M8): from 16:00 (0.625) to 21:00 (0.875), one hour = 0.05 of scroll.
-// Golden ochre, rosy terracotta, mauve, violet, indigo, then a starry night blue; never brown, never black.
-const SKY_STOPS = [0.125, 0.375, 0.625, 0.675, 0.725, 0.775, 0.8, 0.85, 0.8625, 0.875];
+// Sky (annex of 10 Nov 2026, M8; recette of 11 Nov): golden ochre, rosy terracotta, mauve, violet,
+// then a long indigo stage (#4A4A8C, #2A3466) before the starry night blue; never brown, never black.
+// The stages are spread over the end of the scroll so that each one is actually seen.
+const SKY_STOPS = [0.125, 0.375, 0.625, 0.66, 0.7, 0.74, 0.77, 0.81, 0.85, 0.89];
 const SKY = [
   "#F6F0E6", // 07:00 morning cream
   "#EBCB8B", // 12:30 noon gold
@@ -41,15 +42,15 @@ const SKY = [
 // Text: night blue on the light skies, cream once the sky turns mauve.
 const INK = "#14213D";
 const CREAM = "#FBF8F2";
-const FG_STOPS = [0.125, 0.74, 0.78, 0.875];
+const FG_STOPS = [0.125, 0.71, 0.75, 0.875];
 const FG = [INK, INK, CREAM, CREAM];
-const ACCENT_STOPS = [0.125, 0.375, 0.625, 0.74, 0.78, 0.875];
+const ACCENT_STOPS = [0.125, 0.375, 0.625, 0.71, 0.75, 0.875];
 const ACCENT = ["#A9553B", "#8A4630", "#7A3A26", "#7A3A26", "#D9C9A8", "#B39B6E"];
 
-const STARS = Array.from({ length: 36 }, (_, i) => ({
+const STARS = Array.from({ length: 48 }, (_, i) => ({
   left: (i * 37.7) % 100,
   top: (i * 23.3) % 55,
-  size: i % 5 === 0 ? 2.5 : 1.5,
+  size: i % 4 === 0 ? 4 : 3, // 3 to 4 px, visible on every screen
   opacity: 0.45 + ((i * 13) % 50) / 100, // 0.45 to 0.94
 }));
 
@@ -62,8 +63,8 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
   const bg = useTransform(scrollYProgress, SKY_STOPS, SKY);
   const fg = useTransform(scrollYProgress, FG_STOPS, FG);
   const accent = useTransform(scrollYProgress, ACCENT_STOPS, ACCENT);
-  // Stars come out from 20:30 (0.85) and are all there at 21:00.
-  const starsOpacity = useTransform(scrollYProgress, [0.84, 0.875], [0, 1]);
+  // Stars come out with the indigo (20:30) and are all there at 21:00.
+  const starsOpacity = useTransform(scrollYProgress, [0.8, 0.87], [0, 1]);
 
   // Sun travels along a half-circle arc (left → top → right).
   // Sun angle calibrated on the four moments (client brief): rising at 07:00, zenith at 12:30,
@@ -73,7 +74,7 @@ export function DayJourney({ photos }: { photos: SiteImage[] }) {
   // The box is 100 x 50 units: top in % of its height, so the sun rides the drawn arc.
   const sunY = useTransform(angle, (a) => 100 - 92 * Math.sin(a));
   const sunOpacity = useTransform(angle, [-0.2, 0, 0.1], [0, 0, 1]);
-  const moonOpacity = useTransform(scrollYProgress, [0.8, 0.87], [0, 1]);
+  const moonOpacity = useTransform(scrollYProgress, [0.78, 0.86], [0, 1]);
   const sunLeft = useMotionTemplate`${sunX}%`;
   const sunTop = useMotionTemplate`${sunY}%`;
   const sunColor = useTransform(scrollYProgress, [0, 0.55, 0.8, 1], [

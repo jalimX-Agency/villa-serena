@@ -39,7 +39,7 @@
     "testimonials_label": "Guest Stories",
     "testimonials_title": "They Stayed\nWith Us",
     "cta_title": "Book the whole villa",
-    "cta_body": "From €980 per night for the whole estate and up to 14 guests, breakfast and daily housekeeping included (tourist tax extra). Ideal for a family reunion, a birthday, a golf break or a seminar.\nReply within 24 hours, no commitment.",
+    "cta_body": "From €980 incl. VAT per night for the whole estate and up to 14 guests, breakfast and daily housekeeping included (tourist tax extra). Ideal for a family reunion, a birthday, a golf break or a seminar.\nReply within 24 hours, no commitment.",
     "cta_button": "Send an enquiry",
     "stats": {
       "rooms": "6 suites + 1 studio",
@@ -100,7 +100,7 @@
       {
         "key": "studio",
         "title": "The Studio: independence",
-        "body": "Set apart from the rest of the house, the Studio offers 45 m² of calm, with its sitting area, its desk and its Nespresso machine. It suits those who like their own rhythm: grandparents, two friends, or a seminar organiser looking for a quiet place to work."
+        "body": "Independent from the rest of the house, the Studio offers 45 m² of calm, with its sitting area, its desk and its Nespresso machine. It suits those who like their own rhythm: grandparents, two friends, or a seminar organiser looking for a quiet place to work."
       },
       {
         "key": "piscine",
@@ -233,7 +233,7 @@
     "essentials": [
       [
         "Rate",
-        "From €980 per night, whole villa, up to 14 guests, depending on the season"
+        "From €980 incl. VAT per night, whole villa, up to 14 guests, depending on the season"
       ],
       [
         "Tourist tax",
@@ -414,7 +414,7 @@
     },
     "reservation": {
       "title": "Book the Villa in Marrakech: Rate & Booking | Villa Serena",
-      "description": "From €980 per night for the whole villa, up to 14 guests, breakfast and daily housekeeping included. 4-night minimum stay. Reply within 24 hours."
+      "description": "From €980 incl. VAT per night for the whole villa, up to 14 guests, breakfast and daily housekeeping included. 4-night minimum stay. Reply within 24 hours."
     },
     "contact": {
       "title": "Contact and Location | Villa Serena Marrakech",
@@ -435,6 +435,14 @@
     "legal": {
       "title": "Legal notice | Villa Serena",
       "description": "Publisher, hosting and legal information for the Villa Serena website, a charming villa on the Ourika road, Marrakech."
+    },
+    "terms": {
+      "title": "Terms of Sale | Villa Serena",
+      "description": "Villa Serena rental terms: prices, deposit, balance, cancellation, security deposit, check-in and check-out."
+    },
+    "rules": {
+      "title": "House Rules | Villa Serena",
+      "description": "Life at Villa Serena: capacity, times, pool, quiet hours, events and respect for the house."
     }
   },
   "faq": {
@@ -455,7 +463,7 @@
       },
       {
         "q": "What is the rate?",
-        "a": "From €980 per night for the whole villa, up to 14 guests, breakfast and daily housekeeping included. The rate varies with the season: we confirm it within 24 hours for your dates. Tourist tax is not included: it is 25 dirhams per person per night, and children under 12 are exempt."
+        "a": "From €980 incl. VAT per night for the whole villa, up to 14 guests, breakfast and daily housekeeping included. The rate varies with the season: we confirm it within 24 hours for your dates. Tourist tax is not included: it is 25 dirhams per person per night, and children under 12 are exempt."
       },
       {
         "q": "What is the minimum stay?",
@@ -677,7 +685,8 @@
     "accept_and": " and the ",
     "accept_rules": "house rules",
     "accept_after": " of Villa Serena.",
-    "accept_required": "Please accept the terms of sale and the house rules."
+    "accept_required": "Please accept the terms of sale and the house rules.",
+    "accept_required_terms": "Please accept the terms of sale."
   },
   "policies": {
     "privacy_title": "Privacy Policy",
@@ -732,6 +741,7 @@
     "return_title": "Thank you, your payment is being confirmed",
     "return_body": "You will receive a confirmation by email in a few minutes.",
     "secure": "No card data passes through our website: you pay on our provider's secure page (3-D Secure).",
-    "error": "Something went wrong. Please try again or contact us."
+    "error": "Something went wrong. Please try again or contact us.",
+    "accept_required_terms": "Please accept the terms of sale."
   }
 }

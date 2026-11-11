@@ -4,6 +4,7 @@ import { differenceInCalendarDays } from "date-fns";
 import { useTranslations } from "next-intl";
 import { submitVillaBooking, type VillaBookingState } from "@/lib/actions/villa-booking";
 import { LEGAL, legalHref } from "@/lib/legal";
+import { PhoneInput } from "@/components/PhoneInput";
 
 const initialState: VillaBookingState = { status: "idle" };
 
@@ -115,15 +116,12 @@ export function VillaEnquiryForm({
           className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta"
         />
       </div>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-[1fr_7rem] gap-3">
         <div>
           <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">
             {t("contact.form_phone")}
           </label>
-          <input
-            name="phone"
-            className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta"
-          />
+          <PhoneInput className="w-full border border-border bg-background px-3 py-2.5 font-sans text-sm focus:outline-none focus:border-villa-terracotta" />
         </div>
         <div>
           <label className="font-sans text-xs tracking-wide uppercase text-muted-foreground block mb-1.5">
@@ -159,7 +157,7 @@ export function VillaEnquiryForm({
             name="acceptTerms"
             required
             className="mt-1 size-4 shrink-0 accent-villa-terracotta"
-            onInvalid={(e) => e.currentTarget.setCustomValidity(t("legal.accept_required"))}
+            onInvalid={(e) => e.currentTarget.setCustomValidity(t(LEGAL.rulesPublished ? "legal.accept_required" : "legal.accept_required_terms"))}
             onChange={(e) => e.currentTarget.setCustomValidity("")}
           />
           <span>
@@ -167,10 +165,15 @@ export function VillaEnquiryForm({
             <a href={`/${locale}${legalHref("terms", locale)}`} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
               {t("legal.accept_terms")}
             </a>
-            {t("legal.accept_and")}
-            <a href={`/${locale}${legalHref("rules", locale)}`} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
-              {t("legal.accept_rules")}
-            </a>
+            {/* The house rules are named once they are published too. */}
+            {LEGAL.rulesPublished && (
+              <>
+                {t("legal.accept_and")}
+                <a href={`/${locale}${legalHref("rules", locale)}`} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
+                  {t("legal.accept_rules")}
+                </a>
+              </>
+            )}
             {t("legal.accept_after")}
           </span>
         </label>

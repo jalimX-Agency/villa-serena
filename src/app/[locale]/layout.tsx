@@ -112,7 +112,7 @@ export default async function LocaleLayout({
     ...geoSchema,
     checkinTime: "16:00",
     checkoutTime: "11:00",
-    priceRange: "À partir de 980 € la nuit",
+    priceRange: "À partir de 980 € TTC la nuit",
     containsPlace: {
       "@type": "Accommodation",
       additionalType: "EntirePlace",

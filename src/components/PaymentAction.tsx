@@ -23,7 +23,7 @@ export function PaymentAction({
 }: {
   token: string;
   providerReady: boolean;
-  legal: { published: boolean; termsHref: string; rulesHref: string };
+  legal: { published: boolean; rulesPublished: boolean; termsHref: string; rulesHref: string };
   bank: BankDetails | null;
   reference: string;
   labels: PaymentLabels;
@@ -95,10 +95,14 @@ export function PaymentAction({
             <a href={legal.termsHref} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
               {labels.accept_terms}
             </a>
-            {labels.accept_and}
-            <a href={legal.rulesHref} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
-              {labels.accept_rules}
-            </a>
+            {legal.rulesPublished && (
+              <>
+                {labels.accept_and}
+                <a href={legal.rulesHref} target="_blank" rel="noopener noreferrer" className="text-villa-terracotta underline underline-offset-2">
+                  {labels.accept_rules}
+                </a>
+              </>
+            )}
             {labels.accept_after}
           </span>
         </label>
