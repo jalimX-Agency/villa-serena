@@ -339,7 +339,7 @@
     "save": "Enregistrer",
     "necessary": "Cookies nécessaires (toujours actifs)",
     "analytics": "Mesure d'audience",
-    "policy_link": "En savoir plus",
+    "policy_link": "En savoir plus sur les cookies",
     "necessary_desc": "Fonctionnement du site et mémorisation de votre choix.",
     "maps": "Carte Google Maps",
     "maps_desc": "Affiche la carte de la page La villa. Google dépose ses propres cookies.",
@@ -442,7 +442,7 @@
     },
     "rules": {
       "title": "Règlement intérieur | Villa Serena",
-      "description": "Les règles de vie de la Villa Serena : capacité, horaires, piscine, calme, événements et respect des lieux."
+      "description": "Les règles de vie de la Villa Serena : piscine, enfants, salle de sport, hammam, mini ferme, calme, animaux, événements et sécurité."
     }
   },
   "faq": {

@@ -120,6 +120,7 @@ export function Header() {
           )}
         >
           <VillaIcon name="accueil" size={26} />
+          <span className="sr-only">{t("nav.home")}</span>
         </Link>
       );
     }
@@ -214,6 +215,7 @@ export function Header() {
               width={1083}
               height={1030}
               priority
+              sizes="116px"
               className={cn("w-auto transition-all duration-500 h-16", compact ? "xl:h-[72px]" : "xl:h-[110px]")}
             />
           </Link>

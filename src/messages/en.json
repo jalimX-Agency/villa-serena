@@ -339,7 +339,7 @@
     "save": "Save",
     "necessary": "Necessary cookies (always on)",
     "analytics": "Audience measurement",
-    "policy_link": "Learn more",
+    "policy_link": "More about cookies",
     "necessary_desc": "Running the site and remembering your choice.",
     "maps": "Google Maps",
     "maps_desc": "Shows the map on the Villa page. Google sets its own cookies.",
@@ -442,7 +442,7 @@
     },
     "rules": {
       "title": "House Rules | Villa Serena",
-      "description": "Life at Villa Serena: capacity, times, pool, quiet hours, events and respect for the house."
+      "description": "Life at Villa Serena: pool, children, gym, hammam, mini farm, quiet hours, pets, events and safety."
     }
   },
   "faq": {

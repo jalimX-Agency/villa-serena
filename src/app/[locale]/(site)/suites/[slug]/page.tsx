@@ -117,7 +117,7 @@ export default async function RoomDetailPage({
           <Image src={room.image} alt={`${name}, Villa Serena Marrakech`} fill priority sizes="100vw" className="object-cover" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center pb-40">
-            <Image src={media("/logo-serena-emblem.png")} alt={t("suites.photos_soon")} width={419} height={539} priority className="h-48 w-auto opacity-80" />
+            <Image src={media("/logo-serena-emblem.png")} alt={t("suites.photos_soon")} width={419} height={539} priority sizes="150px" className="h-48 w-auto opacity-80" />
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-villa-ink/0 via-villa-ink/15 to-villa-ink/75" />

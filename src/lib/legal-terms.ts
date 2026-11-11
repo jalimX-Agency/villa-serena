@@ -1,4 +1,5 @@
 import type { LegalDoc } from "@/lib/legal";
+import { RULES_EN, RULES_FR } from "@/lib/legal-rules";
 
 /**
  * Terms of sale (CGV), text of the villa (draft of 8 Nov 2026, company details of 11 Nov).
@@ -223,6 +224,6 @@ export const TERMS_EN = `
 
 /** Document bodies as trusted HTML, per locale (server only: kept out of the client bundles). */
 export const LEGAL_TEXT: Record<LegalDoc, { fr: string; en: string }> = {
-  rules: { fr: "", en: "" },
+  rules: { fr: RULES_FR, en: RULES_EN },
   terms: { fr: TERMS_FR, en: TERMS_EN },
 };

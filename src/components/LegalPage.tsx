@@ -26,7 +26,8 @@ export async function LegalPage({ doc, locale, slugLocale }: { doc: LegalDoc; lo
   // FR slug opened in EN (or the reverse): send to the right address.
   if (slugLocale !== lang) redirect(`/${locale}${legalHref(doc, locale)}`);
   const html = LEGAL_TEXT[doc][lang];
-  if (!LEGAL_DOCS[doc].published || !html) notFound();
+  // A text still holding [TODO …] items is never shown, even if flagged as published.
+  if (!LEGAL_DOCS[doc].published || !html || html.includes("[TODO")) notFound();
   const t = await getTranslations("legal");
   const tp = await getTranslations("policies");
   const title = doc === "rules" ? t("house_rules") : t("terms");

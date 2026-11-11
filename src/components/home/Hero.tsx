@@ -28,6 +28,7 @@ export function Hero({ photo }: { photo: SiteImage }) {
           fill
           priority
           sizes="100vw"
+          quality={65}
           className="object-cover object-top"
         />
       </motion.div>
@@ -43,6 +44,7 @@ export function Hero({ photo }: { photo: SiteImage }) {
           width={1083}
           height={1030}
           priority
+          sizes="(min-width:1024px) 252px, (min-width:640px) 219px, 168px"
           className="mx-auto h-40 sm:h-52 lg:h-60 w-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.25)]"
         />
         <p className="mt-6 font-sans text-[11px] sm:text-xs tracking-[0.25em] uppercase text-villa-gold">

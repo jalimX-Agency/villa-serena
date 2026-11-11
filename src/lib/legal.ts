@@ -6,7 +6,7 @@
  */
 export const LEGAL_DOCS = {
   terms: { published: true, version: "2026-11-11" }, // CGV, draft of 8 Nov with the company details (11 Nov)
-  rules: { published: false, version: "" }, // règlement intérieur: final text awaited
+  rules: { published: false, version: "" }, // règlement intérieur: text in legal-rules.ts, 4 TODO items awaited from the villa
 };
 
 export const LEGAL = {

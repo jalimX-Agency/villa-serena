@@ -38,6 +38,9 @@ const nextConfig: NextConfig = {
   env: { NEXT_PUBLIC_MEDIA_URL: process.env.R2_ENDPOINT ?? "" },
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
   images: {
+    // AVIF first (smaller), WebP fallback: mobile LCP of the SEO audit (11 Nov 2026).
+    formats: ["image/avif", "image/webp"],
+    qualities: [65, 75],
     remotePatterns: [
       {
         protocol: "https",
