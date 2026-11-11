@@ -21,9 +21,9 @@ The villa is only ever rented in full: guests are alone on the estate. The site 
 - Location: Route de l'Ourika, km 17, Sidi Bouzguia, Marrakech, Morocco.
 - Capacity: 14 guests maximum, children included.
 - Accommodation: a riad with 4 suites around a patio, a pavilion with 2 suites, a lounge and a kitchen, and an independent studio.
-- Outdoors: 11 x 5 m private pool (not heated), one-hectare garden, vegetable garden, mini farm, aviaries, koi carp pond, petanque, badminton, table tennis, 7-space private car park.
+- Outdoors: 11 x 5 m private pool (not heated), one-hectare garden, vegetable garden, mini farm, aviaries, koi carp pond, petanque, badminton, table tennis, parking inside and outside the estate.
 - Wellbeing: hammam, massage room, gym.
-- Included: daily breakfast, daily cleaning, bed and bath linen, pool towels, toiletries, fibre wifi, parking.
+- Included: daily breakfast, daily cleaning, bed and bath linen, pool towels, toiletries, fibre wifi, parking (inside and outside the estate).
 - On request (extra charge): lunches and dinners cooked by the house cook, hammam treatments, massages, excursions, airport transfer.
 - Rate: from 980 EUR per night incl. VAT for the whole villa, depending on season. Tourist tax not included (25 MAD per person per night, children under 12 exempt).
 - Minimum stay: 4 nights in low and mid season, 6 nights in high season and over the year-end holidays.

@@ -28,7 +28,7 @@ export const TERMS_FR = `
 <li>le petit-déjeuner chaque matin ;</li>
 <li>le ménage quotidien ;</li>
 <li>le linge de lit, le linge de toilette (serviettes et draps de bain), les serviettes de piscine et les produits d'accueil ;</li>
-<li>le wifi par la fibre et le parking privé de 7 places ;</li>
+<li>le wifi par la fibre et le parking, à l'intérieur et à l'extérieur du domaine ;</li>
 <li>la présence du personnel décrit dans le règlement intérieur.</li>
 </ul>
 <p>La location est conclue à titre de résidence temporaire de vacances. Elle ne confère au client aucun droit au maintien dans les lieux à l'issue du séjour.</p>
@@ -135,7 +135,7 @@ export const TERMS_EN = `
 <li>breakfast every morning;</li>
 <li>daily housekeeping;</li>
 <li>bed linen, bath linen (towels and bath sheets), pool towels and toiletries;</li>
-<li>fibre Wi-Fi and private parking for 7 cars;</li>
+<li>fibre Wi-Fi and parking, inside and outside the estate;</li>
 <li>the presence of the staff described in the house rules.</li>
 </ul>
 <p>The rental is a temporary holiday residence. It gives the guest no right to remain on the premises after the stay.</p>
